@@ -18,8 +18,8 @@ int main(int argc, char **argv)
 
 	opengl_globals::shader_type_0default_1transparent_2shaded_3shadedwireframe_4wireframe_5normals_6explode = 2;
 	opengl_render::render(
-		wood_test::type_plates_name_cross_brg_slab_0,
-		"C:\\brg\\2_code\\compas_wood\\backend\\src\\"); // wood_test::type_plates_name_vda_floor_1
+		wood_test::type_plates_name_side_to_side_edge_inplane_hexshell,
+		"C:\\brg\\2_code\\wood_cpp\\backend\\src\\"); // wood_test::type_plates_name_vda_floor_1
 
 	return 0;
 }

@@ -2152,6 +2152,7 @@ namespace wood_test
         internal::set_plate_display(input_polyline_pairs, output_plines);
         return true;
     }
+
     bool type_plates_name_top_to_side_and_side_to_side_outofplane_annen_box()
     {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2249,6 +2250,7 @@ namespace wood_test
         internal::set_plate_display(input_polyline_pairs, output_plines);
         return true;
     }
+
     bool type_plates_name_top_to_side_and_side_to_side_outofplane_annen_box_pair()
     {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2458,6 +2460,7 @@ namespace wood_test
         internal::set_plate_display(input_polyline_pairs, output_plines);
         return true;
     }
+
     bool type_plates_name_top_to_side_and_side_to_side_outofplane_annen_grid_small()
     {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2529,6 +2532,7 @@ namespace wood_test
         internal::set_plate_display(input_polyline_pairs, output_plines);
         return true;
     }
+
     bool type_plates_name_top_to_side_and_side_to_side_outofplane_annen_grid_full_arch()
     {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -4375,6 +4379,7 @@ namespace wood_test
         viewer_wood::scale = 1000;
         return true;
     }
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // geometry methods
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
