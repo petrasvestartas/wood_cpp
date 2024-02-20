@@ -443,12 +443,12 @@ if (BUILD_MY_PROJECTS)
 
   list(APPEND petras_include_paths 
   #my_code
+  "${CMAKE_SOURCE_DIR}/src/wood/include/"
   "${CMAKE_SOURCE_DIR}/src/viewer/include/"
   "${CMAKE_SOURCE_DIR}/src/viewer/include/stb/"
   "${CMAKE_SOURCE_DIR}/src/viewer/include/pipe/"
   "${CMAKE_SOURCE_DIR}/src/viewer/include/opengl/"
   "${CMAKE_SOURCE_DIR}/src/viewer/include/imgui/"
-  "${CMAKE_SOURCE_DIR}/src/wood/include/"
   #cdt
   "${CMAKE_BINARY_DIR}/install/cdt/CDT/include/"
   #clipper
@@ -479,6 +479,8 @@ if (BUILD_MY_PROJECTS)
   #googletest
   "${CMAKE_BINARY_DIR}/install/googletest/include/"
   )
+
+  message("${BoldBlue} Include directories: ${petras_include_paths}")
 
   target_include_directories(${PROJECT_NAME} PUBLIC "$<BUILD_INTERFACE:${petras_include_paths}>") #header for the library
 

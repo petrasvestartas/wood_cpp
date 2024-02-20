@@ -73,11 +73,11 @@ namespace wood_joint_lib
                     printf("\nCPP File does not exist %s ", wood_globals::PATH_AND_FILE_FOR_JOINTS.c_str());
 #endif
 
-                    std::ofstream myfile;
-                    myfile.open("C:\\Users\\petra\\AppData\\Roaming\\Grasshopper\\Libraries\\compas_wood\\xml_error.txt");
-                    myfile << "Do not Exist\n";
-                    myfile << wood_globals::PATH_AND_FILE_FOR_JOINTS;
-                    myfile.close();
+                    // std::ofstream myfile;
+                    // myfile.open("C:\\Users\\petra\\AppData\\Roaming\\Grasshopper\\Libraries\\compas_wood\\xml_error.txt");
+                    // myfile << "Do not Exist\n";
+                    // myfile << wood_globals::PATH_AND_FILE_FOR_JOINTS;
+                    // myfile.close();
 
                     return false;
                 }

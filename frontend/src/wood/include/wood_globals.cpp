@@ -1,7 +1,6 @@
 
 #include "../../../stdafx.h" //go up to the folder where the CMakeLists.txt is
 
-
 #include "wood_globals.h"
 
 namespace wood_globals
@@ -28,7 +27,7 @@ namespace wood_globals
         0,
         0};
 
-    int OUTPUT_GEOMETRY_TYPE = 4;
+    int OUTPUT_GEOMETRY_TYPE = 5;
     bool FORCE_SIDE_TO_SIDE_JOINTS_TO_BE_ROTATED = false;
     double LIMIT_MIN_JOINT_LENGTH = 0;
 

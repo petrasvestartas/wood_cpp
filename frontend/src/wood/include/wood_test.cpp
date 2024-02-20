@@ -3345,7 +3345,7 @@ namespace wood_test
         wood_globals::JOINT_VOLUME_EXTENSION[2] = 0;
         wood_globals::JOINTS_PARAMETERS_AND_TYPES[1 * 3 + 0] = 150; // division_length
         int search_type = 0;
-        int output_type = wood_globals::OUTPUT_GEOMETRY_TYPE; // 0 - Plate outlines 1 - joint lines 2 - joint volumes 3 - joint geometry 4 - merge
+        int output_type = wood_globals::OUTPUT_GEOMETRY_TYPE; // 0 - Plate outlines 1 - joint lines 2 - joint volumes 3 - joint geometry 4 - merge 4 - joint area
         // std::cout << "\n output_type " << output_type << "\n";
         std::vector<double> scale = {1, 1, 1};
         std::vector<std::vector<IK::Vector_3>> input_insertion_vectors{};

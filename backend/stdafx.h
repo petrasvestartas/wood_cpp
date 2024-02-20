@@ -70,40 +70,7 @@
 #include "src/viewer/include/opengl/opengl_globals.h"
 #include "src/viewer/include/opengl/opengl_debug.h"
 
-// imgui
-#include "wood_globals.h"
-#include "imgui_impl_glfw.h"
-#define IMGUI_IMPL_OPENGL_LOADER_CUSTOM
-#include "imgui_impl_opengl3.h"
-
-// my lib goemetry
-#include "src/viewer/include/opengl/opengl_shaders.h"
-#include "src/viewer/include/opengl/opengl_polylines.h"
-#include "src/viewer/include/opengl/opengl_pointclouds.h"
-#include <CDT.h>                                            //used in opengl_meshes
-#include "src/viewer/include/opengl/opengl_triangulation.h" //used in opengl_meshes
-#include "src/viewer/include/opengl/opengl_meshes.h"
-#include "src/viewer/include/opengl/opengl_cameras.h"
-
-#define gui
-// #ifdef(gui) //only declare this if the following header is outside of the precompiled header
-#include "src/viewer/include/imgui/imgui_render.h"
-// #endif//only declare this if the following header is outside of the precompiled header
-#include "src/viewer/include/opengl/opengl_globals_geometry.h"
-#include "src/viewer/include/opengl/opengl_render.h"
-
-// temp
-#include "src/viewer/include/opengl/opengl_meshes.h"
-#include "src/viewer/include/opengl/opengl_cameras.h"
-
-// #ifdef(gui) //only declare this if the following header is outside of the precompiled header
-#include "src/viewer/include/imgui/imgui_render.h"
-// #endif//only declare this if the following header is outside of the precompiled header
-#include "src/viewer/include/opengl/opengl_globals_geometry.h"
-#include "src/viewer/include/opengl/opengl_render.h"
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// WOOD include
 // BOOST
 // CGAL
 // EIGEN
@@ -182,9 +149,37 @@ typedef CGALCDT::Point Point;
 typedef CGAL::Polygon_2<IK> Polygon_2;
 typedef CGALCDT::Face_handle Face_handle;
 
-// // Eigen for Pybind11 used only at small part for meshing
-// using RowMatrixXd = Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor>;
-// using RowMatrixXi = Eigen::Matrix<int, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor>;
+// imgui
+#include "wood_globals.h"
+#include "imgui_impl_glfw.h"
+#define IMGUI_IMPL_OPENGL_LOADER_CUSTOM
+#include "imgui_impl_opengl3.h"
+
+// my lib goemetry
+#include "src/viewer/include/opengl/opengl_shaders.h"
+#include "src/viewer/include/opengl/opengl_polylines.h"
+#include "src/viewer/include/opengl/opengl_pointclouds.h"
+#include <CDT.h>                                            //used in opengl_meshes
+#include "src/viewer/include/opengl/opengl_triangulation.h" //used in opengl_meshes
+#include "src/viewer/include/opengl/opengl_meshes.h"
+#include "src/viewer/include/opengl/opengl_cameras.h"
+
+#define gui
+// #ifdef(gui) //only declare this if the following header is outside of the precompiled header
+#include "src/viewer/include/imgui/imgui_render.h"
+// #endif//only declare this if the following header is outside of the precompiled header
+#include "src/viewer/include/opengl/opengl_globals_geometry.h"
+#include "src/viewer/include/opengl/opengl_render.h"
+
+// temp
+#include "src/viewer/include/opengl/opengl_meshes.h"
+#include "src/viewer/include/opengl/opengl_cameras.h"
+
+// #ifdef(gui) //only declare this if the following header is outside of the precompiled header
+#include "src/viewer/include/imgui/imgui_render.h"
+// #endif//only declare this if the following header is outside of the precompiled header
+#include "src/viewer/include/opengl/opengl_globals_geometry.h"
+#include "src/viewer/include/opengl/opengl_render.h"
 
 // Wood Library Utilities
 

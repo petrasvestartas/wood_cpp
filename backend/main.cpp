@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 
 	opengl_globals::shader_type_0default_1transparent_2shaded_3shadedwireframe_4wireframe_5normals_6explode = 2;
 	opengl_render::render(
-		wood_test::type_plates_name_side_to_side_edge_inplane_hexshell,
+		wood_test::type_plates_name_hex_block_rossiniere,
 		"C:\\brg\\2_code\\wood_cpp\\backend\\src\\"); // wood_test::type_plates_name_vda_floor_1
 
 	return 0;

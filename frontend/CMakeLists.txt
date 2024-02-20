@@ -138,7 +138,7 @@ if (GET_LIBS)
 
   ExternalProject_Add(cgal
     URL https://github.com/CGAL/cgal/releases/download/v5.5.1/CGAL-5.5.1-library.zip
-    #GIT_REPOSITORY https://github.com/CGAL/cgal.git
+    #GIT_REPOSITORY https://github.com/CGAL/cgal.gitinclude
     #GIT_TAG v5.4.1
     CMAKE_ARGS
       -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
@@ -238,8 +238,8 @@ if (BUILD_MY_PROJECTS)
     "${PROJECT_NAME}" # name of the module
     #source pybind11
     #"${CMAKE_SOURCE_DIR}/src/compas_wood/include/stdafx.cpp" # includes
-    "${CMAKE_SOURCE_DIR}/src/wood_pybind11/include_cpp/python_to_cpp__cpp_to_python.cpp" # converters
-    "${CMAKE_SOURCE_DIR}/src/wood_pybind11/include_cpp/compas_wood.cpp" # wrapper of the wood library
+    #"${CMAKE_SOURCE_DIR}/src/wood_pybind11/include_cpp/python_to_cpp__cpp_to_python.cpp" # converters
+    #"${CMAKE_SOURCE_DIR}/src/wood_pybind11/include_cpp/compas_wood.cpp" # wrapper of the wood library
     #clipper
     "${CMAKE_BINARY_DIR}/install/clipper_2/CPP/Clipper2Lib/src/clipper.engine.cpp"
     "${CMAKE_BINARY_DIR}/install/clipper_2/CPP/Clipper2Lib/src/clipper.offset.cpp"
