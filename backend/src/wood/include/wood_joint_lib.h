@@ -179,22 +179,28 @@ namespace wood_joint_lib
      */
     void ss_e_ip_2(wood::joint &joint, std::vector<wood::element> &elements);
 
-        /**
+    /**
      * Unit joint - Side-to-side edge in-plane joints - beam joints
      *
      * @param [in, out] joint node, to which geometry will be added
      */
     void ss_e_ip_3(wood::joint &joint, std::vector<wood::element> &elements);
 
-
-        /**
+    /**
      * Unit joint - Side-to-side edge in-plane joints - beam joints
      *
      * @param [in, out] joint node, to which geometry will be added
      */
     void ss_e_ip_4(wood::joint &joint, std::vector<wood::element> &elements);
 
-     /**
+    /**
+     * Unit joint - Side-to-side edge in-plane joints - plate single Hilti butterfly
+     *
+     * @param [in, out] joint node, to which geometry will be added
+     */
+    void ss_e_ip_5(wood::joint &joint, std::vector<wood::element> &elements);
+
+    /**
      * Unit joint - Custom Joint
      *
      * @param [in, out] joint node, to which geometry will be added
@@ -233,7 +239,6 @@ namespace wood_joint_lib
      */
     void ss_e_op_3(wood::joint &joint);
 
-
     /**
      * Unit joint - Side-to-side edge in-plane joints - plate Vidy tenon-mortise with different configurations
      * this joint is connected with methods: ss_e_op_5 and ss_e_op_6
@@ -271,7 +276,7 @@ namespace wood_joint_lib
      */
     void ss_e_op_6(wood::joint &jo, std::vector<wood::joint> &all_joints);
 
-     /**
+    /**
      * Unit joint - Custom Joint
      *
      * @param [in, out] joint node, to which geometry will be added
@@ -307,7 +312,7 @@ namespace wood_joint_lib
      */
     void side_removal_ss_e_r_1(wood::joint &jo, std::vector<wood::element> &elements, bool merge_with_joint = false);
 
-     /**
+    /**
      * Unit joint - Custom Joint
      *
      * @param [in, out] joint node, to which geometry will be added
@@ -353,7 +358,7 @@ namespace wood_joint_lib
      */
     void ts_e_p_5(wood::joint &joint);
 
-     /**
+    /**
      * Unit joint - Custom Joint
      *
      * @param [in, out] joint node, to which geometry will be added
@@ -384,28 +389,28 @@ namespace wood_joint_lib
      */
     void cr_c_ip_2(wood::joint &joint);
 
-        /**
+    /**
      * Unit joint - Cross cutting in-plane joints - beam simplified conical cuts from the Brussels Sports Tower project (5 cuts and two inclined drilling joles (1:5 brussels prototype))
      *
      * @param [in, out] joint node, to which geometry will be added
      */
     void cr_c_ip_3(wood::joint &joint);
 
-        /**
+    /**
      * Unit joint - Cross cutting in-plane joints - beam simplified conical cuts from the Brussels Sports Tower project (5 cuts and 1 vertical drilling hole)
      *
      * @param [in, out] joint node, to which geometry will be added
      */
     void cr_c_ip_4(wood::joint &joint);
 
-        /**
+    /**
      * Unit joint - Cross cutting in-plane joints - beam simplified conical cuts from the Brussels Sports Tower project (5 cuts and 1 vertical drilling hole one perpendicular to create the dowel-nutl)
      *
      * @param [in, out] joint node, to which geometry will be added
      */
     void cr_c_ip_5(wood::joint &joint);
 
-     /**
+    /**
      * Unit joint - Custom Joint
      *
      * @param [in, out] joint node, to which geometry will be added
@@ -514,7 +519,7 @@ namespace wood_joint_lib
      */
     void tt_e_p_5(wood::joint &joint, std::vector<wood::element> &elements);
 
-     /**
+    /**
      * Unit joint - Custom Joint
      *
      * @param [in, out] joint node, to which geometry will be added
@@ -532,7 +537,7 @@ namespace wood_joint_lib
      */
     void b_0(wood::joint &joint);
 
-     /**
+    /**
      * Unit joint - Custom Joint
      *
      * @param [in, out] joint node, to which geometry will be added

@@ -804,21 +804,17 @@ namespace wood_main
                             // std::cout<<(cgal_vector_util::is_parallel_to(v0, v1) ) << "\n";
                             if ((cgal_vector_util::is_parallel_to(v0, v1) == 0 || wood_globals::FACE_TO_FACE_SIDE_TO_SIDE_JOINTS_ALL_TREATED_AS_ROTATED))
                             {
-                                // std::cout<<cgal_vector_util::is_parallel_to(v0, v1) <<"\n" << v0 << "\n" << v1 << "\n";
-
-                                // wood_globals::DISTANCE
 #ifdef DEBUG_wood_MAIN_LOCAL_SEARCH
                                 printf("Elements Are rotated");
 #endif
-                                // printf("Elements Are rotated \n");
-                                //  joint_lines[0] = { joint_line0[0], joint_line0[1] };
-                                //  joint_lines[1] = { joint_line1[0], joint_line1[1] };
 
                                 ////////////////////////////////////////////////////////////////////////////////
                                 // Get average intersection line
                                 ////////////////////////////////////////////////////////////////////////////////
                                 IK::Segment_3 average_segment = CGAL::has_smaller_distance_to_point(joint_line0[0], joint_line1[0], joint_line1[1]) ? IK::Segment_3(CGAL::midpoint(joint_line0[0], joint_line1[0]), CGAL::midpoint(joint_line0[1], joint_line1[1])) : IK::Segment_3(CGAL::midpoint(joint_line0[0], joint_line1[1]), CGAL::midpoint(joint_line0[1], joint_line1[0]));
 
+                                if (!wood_globals::FACE_TO_FACE_SIDE_TO_SIDE_JOINTS_ROTATED_JOINT_AS_AVERAGE)
+                                    IK::Segment_3 average_segment = joint_line0;
                                 ////////////////////////////////////////////////////////////////////////////////
                                 // Create Plane to XY transformation matrix
                                 ////////////////////////////////////////////////////////////////////////////////
@@ -827,6 +823,12 @@ namespace wood_main
                                 IK::Vector_3 z = Plane0[i].orthogonal_vector(); // cgal_vector_util::unitize(z);
                                 IK::Vector_3 y = CGAL::cross_product(x, z);     // cgal_vector_util::unitize(y);
                                 cgal_vector_util::unitize(y);
+
+                                if (!wood_globals::FACE_TO_FACE_SIDE_TO_SIDE_JOINTS_ROTATED_JOINT_AS_AVERAGE)
+                                {
+                                    y = Plane0[0].orthogonal_vector();
+                                    z = CGAL::cross_product(x, y);
+                                }
 
                                 // Reorient axis using first wood::element orientation - Plane0 and Plane1
                                 IK::Point_3 center = cgal_polyline_util::center(Polyline0[i]);
@@ -862,13 +864,22 @@ namespace wood_main
                                 auto AABB = CGAL::bbox_3(joint_area_copy.begin(), joint_area_copy.end(), IK());
                                 IK::Segment_3 segmentX(IK::Point_3(AABB.xmin(), AABB.ymin(), AABB.zmin()), IK::Point_3(AABB.xmax(), AABB.ymin(), AABB.zmin()));
                                 IK::Segment_3 segmentY(IK::Point_3(AABB.xmin(), AABB.ymin(), AABB.zmin()), IK::Point_3(AABB.xmin(), AABB.ymax(), AABB.zmin()));
-                                CGAL_Polyline average_rectangle = {segmentX[0], segmentX[1], segmentX[0] + segmentX.to_vector() + segmentY.to_vector(), segmentY[1]};
+                                CGAL_Polyline average_rectangle = {
+                                    segmentX[0] + segmentX.to_vector() + segmentY.to_vector(),
+                                    segmentY[1],
+                                    segmentX[0],
+                                    segmentX[1],
+                                };
 
                                 ////////////////////////////////////////////////////////////////////////////////
                                 // 2D Orient to 3D
                                 ////////////////////////////////////////////////////////////////////////////////
                                 CGAL::Aff_transformation_3<IK> xformInv = xform.inverse();
                                 cgal_polyline_util::transform(average_rectangle, xformInv);
+
+                                ////////////////////////////////////////////////////////////////////////////////
+                                // Align the average_Rectangle to first plate
+                                ////////////////////////////////////////////////////////////////////////////////
 
                                 ////////////////////////////////////////////////////////////////////////////////
                                 // Create Joint rectangles by an offset of wood::element thickness
@@ -878,7 +889,6 @@ namespace wood_main
                                 if (dirSet)
                                 {
                                     offset_vector = dir;
-                                    // CGAL_Debug((dir.x() + dir.y() + dir.z()));
                                 }
 
                                 cgal_vector_util::unitize(offset_vector);
@@ -2288,7 +2298,6 @@ namespace wood_main
 
             for (auto i = 0; i < elements.size(); i++) // elements.size()
             {                                          // takes 30-50 ms just to copy-paste polyline geometry
-                printf("\n CPP %i ", output_type);
                 switch (output_type)
                 {
                 case (0):

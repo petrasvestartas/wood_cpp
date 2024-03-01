@@ -20,7 +20,7 @@
 # New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force
 ########################################################################
 ##### Step 1: Create a build directory and cd into it
-# cd C:\IBOIS57\_Code\Software\Python\compas_wood\backend\build_win
+# cd C:\\brg\\2_code\\wood_cpp\\backend\\build_win\\
 ##### Step 2: Run CMake to download libraries
 # cmake --fresh -DGET_LIBS=ON -DCOMPILE_LIBS=OFF -DBUILD_MY_PROJECTS=OFF -DRELEASE_DEBUG=ON -DCMAKE_BUILD_TYPE="Release"  -G "Visual Studio 17 2022" -A x64 .. && cmake --build . --config Release 
 ##### Step 3: Run CMake to build 3rd-party libraries

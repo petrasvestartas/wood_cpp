@@ -1,48 +1,4 @@
 #pragma once
-// #include "../../../stdafx.h"
-
-// #include "imgui_my_style.h"
-// #include "imgui_impl_glfw.h"
-// #include "imgui_impl_opengl3.h"
-
-namespace imgui_params
-{
-	static std::array<glm::vec3, 2> robot_translation{
-		glm::vec3(-6.7 * 0.5, 0, 0),
-		glm::vec3(6.7 * 0.5, 0, 0)};
-
-	static std::vector<std::vector<float>> robot_axes_angles{
-		{90.0f,
-		 0.0f,
-		 0.0f,
-		 0.0f,
-		 0.0f,
-		 0.0f},
-		{-90.0f,
-		 0.0f,
-		 0.0f,
-		 0.0f,
-		 0.0f,
-		 0.0f}};
-
-	static std::vector<std::vector<const char *>> robot_axes_angles_names{
-		{
-			"IBOIS_axis0",
-			"IBOIS_axis1",
-			"IBOIS_axis2",
-			"IBOIS_axis3",
-			"IBOIS_axis4",
-			"IBOIS_axis5",
-		},
-		{
-			"CRCL_axis0",
-			"CRCL_axis1",
-			"CRCL_axis2",
-			"CRCL_axis3",
-			"CRCL_axis4",
-			"CRCL_axis5",
-		}};
-}
 
 // [Win32] Our example includes a copy of glfw3.lib pre-compiled with VS2010 to maximize ease of testing and compatibility with old VS compilers.
 // To link with VS2010-era libraries, VS2015+ requires linking with legacy_stdio_definitions.lib, which we do using this pragma.
@@ -89,7 +45,6 @@ inline void StyleColorsCustom()
 	colors[ImGuiCol_ResizeGrip] = ImVec4(1.00f, 1.00f, 1.00f, 0.10f);
 	colors[ImGuiCol_ResizeGripHovered] = ImVec4(0.78f, 0.78f, 0.78f, 0.60f);
 	colors[ImGuiCol_ResizeGripActive] = ImVec4(0.78f, 0.78f, 0.78f, 0.90f);
-	// colors[ImGuiCol_Tab] = ImLerp(colors[ImGuiCol_Header], colors[ImGuiCol_TitleBgActive], 0.80f);
 	colors[ImGuiCol_Tab] = colors[ImGuiCol_Header];
 	colors[ImGuiCol_TabHovered] = colors[ImGuiCol_HeaderHovered];
 	colors[ImGuiCol_TabActive] = colors[ImGuiCol_TitleBgActive];	  // ImLerp(colors[ImGuiCol_HeaderActive], colors[ImGuiCol_TitleBgActive], 0.60f);
@@ -129,164 +84,79 @@ inline void loop_middle_imgui();
 inline void loop_end_imgui(GLFWwindow *&window);
 inline void end_imgui();
 
+/**
+ * @brief Initializes the Dear ImGui context, sets up the style, and prepares the rendering backends.
+ *
+ * This function sets up the Dear ImGui context, initializes the style by calling `StyleColorsCustom`, and
+ * prepares the GLFW and OpenGL backends for use with ImGui. It also configures the font size based on the
+ * current display's DPI scale to ensure consistent appearance across different screen resolutions.
+ *
+ * @param glsl_version A reference to a string containing the GLSL version used for the shaders.
+ * @param window A pointer to the GLFWwindow structure that represents the current window context.
+ */
 inline void start_imgui(const char *&glsl_version, GLFWwindow *&window)
 {
-	// Setup Dear ImGui context
 	IMGUI_CHECKVERSION();
 	ImGui::CreateContext();
 	ImGuiIO &io = ImGui::GetIO();
-	(void)io;
-	// io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
-	// io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
 
-	// Setup Dear ImGui style
 	StyleColorsCustom();
 
-	// Setup Platform/Renderer backends
 	ImGui_ImplGlfw_InitForOpenGL(window, true);
 	ImGui_ImplOpenGL3_Init(glsl_version);
 
-#ifdef _WIN32
-	ImFont *font = io.Fonts->AddFontFromFileTTF("c:\\Windows\\Fonts\\CascadiaMono.ttf", 25.0f, NULL, NULL);
-	IM_ASSERT(font != NULL);
-#endif
+	float dpiScale = io.DisplayFramebufferScale.x;
+	float fontSize = 24.0f * dpiScale; // Adjust based on DPI scale
 
-	float scale_factor = 2.00f;
-	ImFontConfig config;
-	config.SizePixels = roundf(13.0f * scale_factor);
-	io.Fonts->AddFontDefault(&config);
+	ImFontConfig fontConfig;
+	fontConfig.SizePixels = fontSize;
+	io.Fonts->AddFontDefault(&fontConfig);
+
+	io.Fonts->Build();
+
+	float uiScaleFactor = 1.0f; // Adjust UI scale factor as needed
 	ImGuiStyle &style = ImGui::GetStyle();
-	style.ScaleAllSizes(scale_factor);
-	// io.Fonts->AddFontDefault();
-	// ImFont* font = io.Fonts->AddFontFromFileTTF("c:\\Windows\\Fonts\\ArialUni.ttf", 18.0f, NULL, io.Fonts->GetGlyphRangesJapanese());
+	style.ScaleAllSizes(uiScaleFactor);
 }
+
+/**
+ * @brief Starts a new Dear ImGui frame.
+ *
+ * This function prepares the rendering backends for a new ImGui frame and starts a new frame.
+ * It should be called at the beginning of each rendering loop to ensure that ImGui widgets and
+ * elements can be drawn correctly for the current frame.
+ */
 inline void loop_start_imgui()
 {
-	// Start the Dear ImGui frame
 	ImGui_ImplOpenGL3_NewFrame();
 	ImGui_ImplGlfw_NewFrame();
 	ImGui::NewFrame();
-
-	//// 1. Show the big demo window (Most of the sample code is in ImGui::ShowDemoWindow()! You can browse its code to learn more about Dear ImGui!).
-	// if (show_demo_window)
-	//	ImGui::ShowDemoWindow(&show_demo_window);
-
-	//		// 2. Show a simple window that we create ourselves. We use a Begin/End pair to created a named window.
-	//{
-	//	static float f = 0.0f;
-	//	static int counter = 0;
-
-	//	ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
-
-	//	ImGui::Text("This is some useful text.");               // Display some text (you can use a format strings too)
-	//	ImGui::Checkbox("Demo Window", &show_demo_window);      // Edit bools storing our window open/close state
-	//	ImGui::Checkbox("Another Window", &show_another_window);
-
-	//	ImGui::SliderFloat("float", &f, 0.0f, 1.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
-	//	ImGui::ColorEdit3("clear color", (float*)&clear_color); // Edit 3 floats representing a color
-
-	//	if (ImGui::Button("Button"))                            // Buttons return true when clicked (most widgets return true when edited/activated)
-	//		counter++;
-	//	ImGui::SameLine();
-	//	ImGui::Text("counter = %d", counter);
-
-	//	ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-	//	ImGui::End();
-	//}
-
-	//// 3. Show another simple window.
-	// if (show_another_window)
-	//{
-	//	ImGui::Begin("Another Window", &show_another_window);   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
-	//	ImGui::Text("Hello from another window!");
-	//	if (ImGui::Button("Close Me"))
-	//		show_another_window = false;
-	//	ImGui::End();
-	// }
 }
-static float f1 = 0.123f, f2 = 0.0f;
-// inline void loop_middle_imgui() {
-//	// Create a window called "My First Tool", with a menu bar.
-//	bool my_tool_active;
-//	ImGui::SetNextWindowPos(ImVec2((float)opengl_globals::SCR_WIDTH - 600.0f, 0));
-//	ImGui::SetNextWindowSize(ImVec2(600, (float)opengl_globals::SCR_HEIGHT));
-//	//ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_MenuBar
-//	ImGui::Begin("UI", &my_tool_active, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_MenuBar);//ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoCollapse ImGuiWindowFlags_NoTitleBar
-//
-//	//ImGui::SetWindowFontScale(1.5);
-//
-//	//if (ImGui::BeginMenuBar())
-//	//{
-//	//	if (ImGui::BeginMenu("File"))
-//	//	{
-//	//		if (ImGui::MenuItem("Open..", "Ctrl+O")) { /* Do stuff */ }
-//	//		if (ImGui::MenuItem("Save", "Ctrl+S")) { /* Do stuff */ }
-//	//		if (ImGui::MenuItem("Close", "Ctrl+W")) { my_tool_active = false; }
-//	//		ImGui::EndMenu();
-//	//	}
-//	//	ImGui::EndMenuBar();
-//	//}
-//	ImGui::Text("%.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-//
-//	//Slider Robot0
-//	ImGui::TextColored(ImVec4(0, 0, 0, 1), "\nIRB6700_MH3_175_305_IRC5 AXES IBOIS");
-//
-//	for (int i = 0; i < 6; i++)
-//		ImGui::SliderFloat(imgui_params::robot_axes_angles_names[0][i], &imgui_params::robot_axes_angles[0][i], -180.0f, 180.0f, "ratio = %.3f");
-//
-//	ImGui::SliderFloat("track_0", &imgui_params::robot_translation[0].x, -6.7f * 0.5f, 6.7f * 0.5f, "ratio = %.01f");
-//
-//	ImGui::TextColored(ImVec4(0, 0, 0, 1), "\nIRB6700_MH3_175_305_IRC5 AXES CRCL");
-//	for (int i = 0; i < 6; i++)
-//		ImGui::SliderFloat(imgui_params::robot_axes_angles_names[1][i], &imgui_params::robot_axes_angles[1][i], -180.0f, 180.0f, "ratio = %.3f");
-//
-//	ImGui::SliderFloat("track_1", &imgui_params::robot_translation[1].x, -6.7f * 0.5f, 6.7f * 0.5f, "ratio = %.01f");
-//
-//	//ImGui::SliderFloat("slider float", &imgui_params::robot_axes_angles[0], 0.0f, 1.0f, "ratio = %.3f");
-//	//ImGui::SliderFloat("slider float", &imgui_params::robot_axes_angles[1], 0.0f, 1.0f, "ratio = %.3f");
-//	//for (int i = 0; i < 6; i++) {
-//	//ImGui::SliderFloat("slider float", &(imgui_params::robot_axes_angles[i]), -180.0f, 180.0f, "ratio = %.3f");
-//	//}
-//	//ImGui::SliderFloat("slider float (log)", &f2, -10.0f, 10.0f, "%.4f", ImGuiSliderFlags_Logarithmic);
-//	////for (int i = 0; i < 6; i++) {
-//	//auto slider_name_0 = ("Axis" + std::to_string(0)).c_str();
-//	//ImGui::SliderFloat(slider_name_0, &(imgui_params::robot_axes_angles[0]), -180.0f, 180.0f);
-//
-//	//auto slider_name_1 = ("BAxis" + std::to_string(1)).c_str();
-//	//ImGui::SliderFloat(slider_name_1, &(imgui_params::robot_axes_angles[1]), -180.0f, 180.0f);
-//
-//	//}
-//
-//	//ImGui::BeginChild("Scrolling");
-//	//for (int i = 0; i <  wood_globals::EXISTING_TYPES.size(); i++)
-//	//	ImGui::Text( wood_globals::EXISTING_TYPES[i].c_str(), i);
-//
-//	//ImGui::EndChild();
-//	ImGui::End();
-// }
 
+/**
+ * @brief Renders the middle section of the ImGui interface, including camera controls, joint parameter adjustments, and output geometry selection.
+ *
+ * This function creates a side menu bar that adapts to different resolutions by using the display's DPI scale factor. It provides users with
+ * controls for camera settings, allowing for the selection of different camera perspectives and orientations. Additionally, it offers sliders
+ * for adjusting parameters related to joint properties and selecting the type of geometry to output. The function ensures that UI elements
+ * are scaled appropriately for visibility across various display settings.
+ */
 inline void loop_middle_imgui()
 {
-	// Create a window called "My First Tool", with a menu bar.
+	// Determine scale factor for consistent UI across different resolutions
+	float dpiScale = ImGui::GetIO().DisplayFramebufferScale.x;
+
+	// Calculate dimensions relative to screen size and DPI scale
+	float menuWidth = 600 * dpiScale;				   // Set menu width to 200 pixels adjusted by DPI scale
+	float windowHeight = ImGui::GetIO().DisplaySize.y; // Full height of the window
+
+	// Set the position and size of the menu bar to be DPI-aware and screen size independent
+	ImGui::SetNextWindowPos(ImVec2(ImGui::GetIO().DisplaySize.x - menuWidth, 0));
+	ImGui::SetNextWindowSize(ImVec2(menuWidth, windowHeight));
+
+	// Begin the ImGui window with DPI-aware flags
 	bool my_tool_active;
-	ImGui::SetNextWindowPos(ImVec2((float)opengl_globals::SCR_WIDTH - (float)opengl_globals::SCR_FULL_WIDTH / 6, 0));
-	ImGui::SetNextWindowSize(ImVec2((float)opengl_globals::SCR_FULL_WIDTH / 6, (float)opengl_globals::SCR_HEIGHT));
-	// ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_MenuBar
-	ImGui::Begin("UI", &my_tool_active, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_MenuBar); // ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoCollapse ImGuiWindowFlags_NoTitleBar
-
-	// ImGui::SetWindowFontScale(1.5);
-
-	// if (ImGui::BeginMenuBar())
-	//{
-	//	if (ImGui::BeginMenu("File"))
-	//	{
-	//		if (ImGui::MenuItem("Open..", "Ctrl+O")) { /* Do stuff */ }
-	//		if (ImGui::MenuItem("Save", "Ctrl+S")) { /* Do stuff */ }
-	//		if (ImGui::MenuItem("Close", "Ctrl+W")) { my_tool_active = false; }
-	//		ImGui::EndMenu();
-	//	}
-	//	ImGui::EndMenuBar();
-	// }
+	ImGui::Begin("UI", &my_tool_active, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_MenuBar);
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// CAMERA
@@ -384,12 +254,10 @@ inline void loop_middle_imgui()
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	// Run, the code below set the state_chaged bool so that the code is rerun inside render pipeline, by calling the function pointer
-	ImGui::TextColored(ImVec4(0, 0, 0, 1), "\nSOLVER \n0 - joint area \n1 - joint lines \n2 - joint volumes \n3 - joint geometry \n4 - merge joints");
-	// ImGui::Checkbox("joint_area_detection", &joint_area_detection);
+	ImGui::TextColored(ImVec4(0, 0, 0, 1), "\nJOINT GEOMETRY \n0 - joint area \n1 - joint lines \n2 - joint volumes \n3 - joint geometry \n4 - merge joints");
 
 	// Search type
-	// int state_0 =  wood_globals::OUTPUT_GEOMETRY_TYPE;
-	ImGui::SliderInt("get_joints_geometry", &wood_globals::OUTPUT_GEOMETRY_TYPE, 0, 5);
+	ImGui::SliderInt("", &wood_globals::OUTPUT_GEOMETRY_TYPE, 0, 5);
 
 	// wood_globals::RUN = ImGui::Button("run", ImVec2(100, 100)); // Buttons return true when clicked (most widgets return true when edited/activated)
 	if (ImGui::Button("run", ImVec2(100, 100)))
@@ -399,39 +267,49 @@ inline void loop_middle_imgui()
 		std::cout << "imgui_render -> restart \n";
 	}
 
-	// Line thickness and Line Colors
-	ImGui::TextColored(ImVec4(0, 0, 0, 1), "\nSELECT DISPLAY OPTIONS");
-
-	for (int i = 0; i < line_thickness.size(); i++)
-		ImGui::SliderInt(line_thickness_names[i].c_str(), &line_thickness[i], 0, 10);
-
-	ImGui::ColorEdit4(line_thickness_names[0].c_str(), line_colors_0);
-	ImGui::ColorEdit4(line_thickness_names[1].c_str(), line_colors_1);
-	ImGui::ColorEdit4(line_thickness_names[2].c_str(), line_colors_2);
-
-	// Display contents in a scrolling region
-	ImGui::TextColored(ImVec4(0, 0, 0, 1), "\nEXISTING JOINT TYPES");
-
-	ImGui::BeginChild("Scrolling");
-	for (int i = 0; i < wood_globals::EXISTING_TYPES.size(); i++)
-		ImGui::TextColored(ImVec4(0.5f, 0.5f, 0.5f, 1), wood_globals::EXISTING_TYPES[i].c_str(), i);
-	ImGui::EndChild();
-
 	ImGui::End();
 }
+
+/**
+ * @brief Renders the ImGui frame and updates the display.
+ *
+ * This function should be called at the end of each ImGui frame. It handles the rendering of ImGui draw data
+ * to the OpenGL context and updates the display with the new frame. It also sets the OpenGL viewport
+ * to match the current window size.
+ *
+ * @param window A pointer to the GLFWwindow structure that represents the current window context.
+ */
 inline void loop_end_imgui(GLFWwindow *&window)
 {
-	// Rendering
+	// Render ImGui draw data to the OpenGL context
 	ImGui::Render();
+
+	// Obtain the current framebuffer size
 	int display_w, display_h;
 	glfwGetFramebufferSize(window, &display_w, &display_h);
+
+	// Set the OpenGL viewport to match the framebuffer size
 	glViewport(0, 0, display_w, display_h);
+
+	// Pass the ImGui draw data to the OpenGL3 renderer to render the ImGui frame
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 }
+
+/**
+ * @brief Cleans up ImGui resources upon application termination.
+ *
+ * This function releases all ImGui resources and properly shuts down ImGui, the ImGui GLFW backend,
+ * and the ImGui OpenGL3 backend. It should be called before the application exits and after the
+ * rendering loop has ended to ensure a clean exit and release of all allocated resources.
+ */
 inline void end_imgui()
 {
-	// cleanup imgui
+	// Shut down ImGui OpenGL3 backend
 	ImGui_ImplOpenGL3_Shutdown();
+
+	// Shut down ImGui GLFW backend
 	ImGui_ImplGlfw_Shutdown();
+
+	// Destroy the ImGui context and free associated resources
 	ImGui::DestroyContext();
 }

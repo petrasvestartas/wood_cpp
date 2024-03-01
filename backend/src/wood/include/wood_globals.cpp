@@ -1,7 +1,6 @@
 
 #include "../../../stdafx.h" //go up to the folder where the CMakeLists.txt is
 
-
 #include "wood_globals.h"
 
 namespace wood_globals
@@ -11,9 +10,9 @@ namespace wood_globals
     double CLIPPER_AREA = 0.01; // default is 0.0001 but the tolerance is increased by purpose
 
     // Tolerances for distance search
-    double DISTANCE = 0.1; // default is 0.01 but the tolerance is increased by purpose
+    double DISTANCE = 0.1;          // default is 0.01 but the tolerance is increased by purpose
     double DISTANCE_SQUARED = 0.01; // default is 0.0001 but the tolerance is increased by purpose
-    double ANGLE = 0.11; // default is 0.01 but the tolerance is increased by purpose
+    double ANGLE = 0.11;            // default is 0.01 but the tolerance is increased by purpose
 
     // File names
     std::string PATH_AND_FILE_FOR_JOINTS = "";
@@ -22,14 +21,15 @@ namespace wood_globals
 
     // Wood library
     std::vector<double> JOINT_VOLUME_EXTENSION = { // this property is used within local searches: plane_to_face and face_to_face
-        0.0,                             // x
-        0.0,                             // y
-        0.0,                             // z
+        0.0,                                       // x
+        0.0,                                       // y
+        0.0,                                       // z
         0,
         0};
 
     int OUTPUT_GEOMETRY_TYPE = 4;
     bool FACE_TO_FACE_SIDE_TO_SIDE_JOINTS_ALL_TREATED_AS_ROTATED = false;
+    bool FACE_TO_FACE_SIDE_TO_SIDE_JOINTS_ROTATED_JOINT_AS_AVERAGE = false;
     double FACE_TO_FACE_SIDE_TO_SIDE_JOINTS_DIHEDRAL_ANGLE = 150.0;
     double LIMIT_MIN_JOINT_LENGTH = 0;
 
@@ -86,7 +86,6 @@ namespace wood_globals
     };
 
     size_t RUN_COUNT = 0;
-
 
     // custom joint types
     std::vector<CGAL_Polyline> custom_joints_ss_e_ip_male{};

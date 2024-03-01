@@ -902,152 +902,141 @@ namespace wood_joint_lib
 
         // Joint lines, always the last line or rectangle is not a wood::joint but an cutting wood::element
 
-
         joint.f[0] = {
             {
-IK::Point_3(-1.25, -0.5, -0.5),
-IK::Point_3(1, -0.5,  -0.5),
-IK::Point_3(1, -0.2, -0.5),
-IK::Point_3(-1, 0.2, -0.5),
-IK::Point_3(-1, 0.5,  -0.5),
-IK::Point_3(-1.25, 0.5,  -0.5),
-IK::Point_3(-1.25, -0.5,  -0.5),
+                IK::Point_3(-1.25, -0.5, -0.5),
+                IK::Point_3(1, -0.5, -0.5),
+                IK::Point_3(1, -0.2, -0.5),
+                IK::Point_3(-1, 0.2, -0.5),
+                IK::Point_3(-1, 0.5, -0.5),
+                IK::Point_3(-1.25, 0.5, -0.5),
+                IK::Point_3(-1.25, -0.5, -0.5),
             },
             {IK::Point_3(0, -0.5, 0.5), IK::Point_3(0, -0.5, -0.5)},
             {
-            IK::Point_3(-0.333333, -0.6, 0),
-            IK::Point_3(-0.333333, 0.6, 0),
+                IK::Point_3(-0.333333, -0.6, 0),
+                IK::Point_3(-0.333333, 0.6, 0),
             },
 
             {
-            IK::Point_3(-0.333333, -0.6, 0),
-            IK::Point_3(-0.333333, 0.6, 0),
+                IK::Point_3(-0.333333, -0.6, 0),
+                IK::Point_3(-0.333333, 0.6, 0),
             },
 
             {
-            IK::Point_3(0.333333, -0.6, 0),
-            IK::Point_3(0.333333, 0.6, 0),
+                IK::Point_3(0.333333, -0.6, 0),
+                IK::Point_3(0.333333, 0.6, 0),
             },
 
             {
-            IK::Point_3(0.333333, -0.6, 0),
-            IK::Point_3(0.333333, 0.6, 0),
+                IK::Point_3(0.333333, -0.6, 0),
+                IK::Point_3(0.333333, 0.6, 0),
             },
-            
-            };
 
+        };
 
         joint.f[1] = {
-            {           
-IK::Point_3(-1.25, -0.5,  0.5),
-IK::Point_3(1, -0.5,  0.5),
-IK::Point_3(1, -0.2, 0.5),
-IK::Point_3(-1, 0.2, 0.5),
-IK::Point_3(-1, 0.5, 0.5),
-IK::Point_3(-1.25, 0.5, 0.5),
-IK::Point_3(-1.25, -0.5, 0.5),
+            {
+                IK::Point_3(-1.25, -0.5, 0.5),
+                IK::Point_3(1, -0.5, 0.5),
+                IK::Point_3(1, -0.2, 0.5),
+                IK::Point_3(-1, 0.2, 0.5),
+                IK::Point_3(-1, 0.5, 0.5),
+                IK::Point_3(-1.25, 0.5, 0.5),
+                IK::Point_3(-1.25, -0.5, 0.5),
             },
             {IK::Point_3(0, 0.5, 0.5), IK::Point_3(0, 0.5, -0.5)},
             {
-            IK::Point_3(-0.333333, -0.6, 0),
-            IK::Point_3(-0.333333, 0.6, 0),
+                IK::Point_3(-0.333333, -0.6, 0),
+                IK::Point_3(-0.333333, 0.6, 0),
             },
 
             {
-            IK::Point_3(-0.333333, -0.6, 0),
-            IK::Point_3(-0.333333, 0.6, 0),
+                IK::Point_3(-0.333333, -0.6, 0),
+                IK::Point_3(-0.333333, 0.6, 0),
             },
 
             {
-            IK::Point_3(0.333333, -0.6, 0),
-            IK::Point_3(0.333333, 0.6, 0),
+                IK::Point_3(0.333333, -0.6, 0),
+                IK::Point_3(0.333333, 0.6, 0),
             },
 
             {
-            IK::Point_3(0.333333, -0.6, 0),
-            IK::Point_3(0.333333, 0.6, 0),
+                IK::Point_3(0.333333, -0.6, 0),
+                IK::Point_3(0.333333, 0.6, 0),
             },
-            
-            };
 
-
-
-
-
-
-
+        };
 
         joint.m[0] = {
             {
-IK::Point_3(1.25, 0.5, -0.5),
-IK::Point_3(-1, 0.5, -0.5),
-IK::Point_3(-1, 0.2, -0.5),
-IK::Point_3(1, -0.2, -0.5),
-IK::Point_3(1, -0.5, -0.5),
-IK::Point_3(1.25, -0.5, -0.5),
-IK::Point_3(1.25, 0.5, -0.5),
-            
+                IK::Point_3(1.25, 0.5, -0.5),
+                IK::Point_3(-1, 0.5, -0.5),
+                IK::Point_3(-1, 0.2, -0.5),
+                IK::Point_3(1, -0.2, -0.5),
+                IK::Point_3(1, -0.5, -0.5),
+                IK::Point_3(1.25, -0.5, -0.5),
+                IK::Point_3(1.25, 0.5, -0.5),
+
             },
             {IK::Point_3(0, -0.5, 0.5), IK::Point_3(0, -0.5, -0.5)},
             {
-            IK::Point_3(-0.333333, -0.6, 0),
-            IK::Point_3(-0.333333, 0.6, 0),
+                IK::Point_3(-0.333333, -0.6, 0),
+                IK::Point_3(-0.333333, 0.6, 0),
             },
 
             {
-            IK::Point_3(-0.333333, -0.6, 0),
-            IK::Point_3(-0.333333, 0.6, 0),
+                IK::Point_3(-0.333333, -0.6, 0),
+                IK::Point_3(-0.333333, 0.6, 0),
             },
 
             {
-            IK::Point_3(0.333333, -0.6, 0),
-            IK::Point_3(0.333333, 0.6, 0),
+                IK::Point_3(0.333333, -0.6, 0),
+                IK::Point_3(0.333333, 0.6, 0),
             },
 
             {
-            IK::Point_3(0.333333, -0.6, 0),
-            IK::Point_3(0.333333, 0.6, 0),
+                IK::Point_3(0.333333, -0.6, 0),
+                IK::Point_3(0.333333, 0.6, 0),
             },
-            
-            };
+
+        };
 
         joint.m[1] = {
             {
 
-IK::Point_3(1.25, 0.5, 0.5),
-IK::Point_3(-1, 0.5, 0.5),
-IK::Point_3(-1, 0.2, 0.5),
-IK::Point_3(1, -0.2, 0.5),
-IK::Point_3(1, -0.5, 0.5),
-IK::Point_3(1.25, -0.5, 0.5),
-IK::Point_3(1.25, 0.5, 0.5),
+                IK::Point_3(1.25, 0.5, 0.5),
+                IK::Point_3(-1, 0.5, 0.5),
+                IK::Point_3(-1, 0.2, 0.5),
+                IK::Point_3(1, -0.2, 0.5),
+                IK::Point_3(1, -0.5, 0.5),
+                IK::Point_3(1.25, -0.5, 0.5),
+                IK::Point_3(1.25, 0.5, 0.5),
 
-            
             },
             {IK::Point_3(0, 0.5, 0.5), IK::Point_3(0, 0.5, -0.5)},
-            
+
             {
-            IK::Point_3(-0.333333, -0.6, 0),
-            IK::Point_3(-0.333333, 0.6, 0),
+                IK::Point_3(-0.333333, -0.6, 0),
+                IK::Point_3(-0.333333, 0.6, 0),
             },
 
             {
-            IK::Point_3(-0.333333, -0.6, 0),
-            IK::Point_3(-0.333333, 0.6, 0),
+                IK::Point_3(-0.333333, -0.6, 0),
+                IK::Point_3(-0.333333, 0.6, 0),
             },
 
             {
-            IK::Point_3(0.333333, -0.6, 0),
-            IK::Point_3(0.333333, 0.6, 0),
+                IK::Point_3(0.333333, -0.6, 0),
+                IK::Point_3(0.333333, 0.6, 0),
             },
 
             {
-            IK::Point_3(0.333333, -0.6, 0),
-            IK::Point_3(0.333333, 0.6, 0),
+                IK::Point_3(0.333333, -0.6, 0),
+                IK::Point_3(0.333333, 0.6, 0),
             },
-            
-            };
 
+        };
 
         joint.f_boolean_type = {wood_cut::mill_project, wood_cut::mill_project, wood_cut::drill, wood_cut::drill, wood_cut::drill, wood_cut::drill};
         joint.m_boolean_type = {wood_cut::mill_project, wood_cut::mill_project, wood_cut::drill, wood_cut::drill, wood_cut::drill, wood_cut::drill};
@@ -1059,279 +1048,413 @@ IK::Point_3(1.25, 0.5, 0.5),
 
         // Joint lines, always the last line or rectangle is not a wood::joint but an cutting wood::element
 
-
-
-
-
-
-
-
-
-
-
-
-
         joint.f[0] = {
             {
-IK::Point_3(-1.25, -0.5, 0),
-IK::Point_3(1, -0.5, 0),
-IK::Point_3(1, -0.2, 0),
-IK::Point_3(-1, 0.2, 0),
-IK::Point_3(-1, 0.5, 0),
-IK::Point_3(-1.25, 0.5, 0),
-IK::Point_3(-1.25, -0.5, 0),
+                IK::Point_3(-1.25, -0.5, 0),
+                IK::Point_3(1, -0.5, 0),
+                IK::Point_3(1, -0.2, 0),
+                IK::Point_3(-1, 0.2, 0),
+                IK::Point_3(-1, 0.5, 0),
+                IK::Point_3(-1.25, 0.5, 0),
+                IK::Point_3(-1.25, -0.5, 0),
             },
             {IK::Point_3(0, -0.5, 0.5), IK::Point_3(0, -0.5, -0.5)},
 
-                        {
-IK::Point_3(-1.25, 0.5, 0),
-IK::Point_3(1, 0.5, 0),
-IK::Point_3(1, 0.2, 0),
-IK::Point_3(-1, -0.2, 0),
-IK::Point_3(-1, -0.5, 0),
-IK::Point_3(-1.25, -0.5, 0),
-IK::Point_3(-1.25, 0.5, 0),
+            {
+                IK::Point_3(-1.25, 0.5, 0),
+                IK::Point_3(1, 0.5, 0),
+                IK::Point_3(1, 0.2, 0),
+                IK::Point_3(-1, -0.2, 0),
+                IK::Point_3(-1, -0.5, 0),
+                IK::Point_3(-1.25, -0.5, 0),
+                IK::Point_3(-1.25, 0.5, 0),
 
             },
             {IK::Point_3(0, -0.5, 0.5), IK::Point_3(0, -0.5, -0.5)},
 
-
-
-
-
-
             {
-            IK::Point_3(-0.333333, -0.6, 0),
-            IK::Point_3(-0.333333, 0.6, 0),
+                IK::Point_3(-0.333333, -0.6, 0),
+                IK::Point_3(-0.333333, 0.6, 0),
             },
 
             {
-            IK::Point_3(-0.333333, -0.6, 0),
-            IK::Point_3(-0.333333, 0.6, 0),
+                IK::Point_3(-0.333333, -0.6, 0),
+                IK::Point_3(-0.333333, 0.6, 0),
             },
 
             {
-            IK::Point_3(0.333333, -0.6, 0),
-            IK::Point_3(0.333333, 0.6, 0),
+                IK::Point_3(0.333333, -0.6, 0),
+                IK::Point_3(0.333333, 0.6, 0),
             },
 
             {
-            IK::Point_3(0.333333, -0.6, 0),
-            IK::Point_3(0.333333, 0.6, 0),
+                IK::Point_3(0.333333, -0.6, 0),
+                IK::Point_3(0.333333, 0.6, 0),
             },
-            
-            };
 
-
-
-
-
+        };
 
         joint.f[1] = {
             {
-IK::Point_3(-1.25, -0.5, -0.5),
-IK::Point_3(1, -0.5, -0.5),
-IK::Point_3(1, -0.2, -0.5),
-IK::Point_3(-1, 0.2, -0.5),
-IK::Point_3(-1, 0.5, -0.5),
-IK::Point_3(-1.25, 0.5, -0.5),
-IK::Point_3(-1.25, -0.5, -0.5),
+                IK::Point_3(-1.25, -0.5, -0.5),
+                IK::Point_3(1, -0.5, -0.5),
+                IK::Point_3(1, -0.2, -0.5),
+                IK::Point_3(-1, 0.2, -0.5),
+                IK::Point_3(-1, 0.5, -0.5),
+                IK::Point_3(-1.25, 0.5, -0.5),
+                IK::Point_3(-1.25, -0.5, -0.5),
             },
             {IK::Point_3(0, -0.5, 0.5), IK::Point_3(0, -0.5, -0.5)},
 
-                        {
-IK::Point_3(-1.25, 0.5, 0.5),
-IK::Point_3(1, 0.5, 0.5),
-IK::Point_3(1, 0.2, 0.5),
-IK::Point_3(-1, -0.2, 0.5),
-IK::Point_3(-1, -0.5, 0.5),
-IK::Point_3(-1.25, -0.5, 0.5),
-IK::Point_3(-1.25, 0.5, 0.5),
-
+            {
+                IK::Point_3(-1.25, 0.5, 0.5),
+                IK::Point_3(1, 0.5, 0.5),
+                IK::Point_3(1, 0.2, 0.5),
+                IK::Point_3(-1, -0.2, 0.5),
+                IK::Point_3(-1, -0.5, 0.5),
+                IK::Point_3(-1.25, -0.5, 0.5),
+                IK::Point_3(-1.25, 0.5, 0.5),
 
             },
             {IK::Point_3(0, -0.5, 0.5), IK::Point_3(0, -0.5, -0.5)},
 
-
-
             {
-            IK::Point_3(-0.333333, -0.6, 0),
-            IK::Point_3(-0.333333, 0.6, 0),
+                IK::Point_3(-0.333333, -0.6, 0),
+                IK::Point_3(-0.333333, 0.6, 0),
             },
 
             {
-            IK::Point_3(-0.333333, -0.6, 0),
-            IK::Point_3(-0.333333, 0.6, 0),
+                IK::Point_3(-0.333333, -0.6, 0),
+                IK::Point_3(-0.333333, 0.6, 0),
             },
 
             {
-            IK::Point_3(0.333333, -0.6, 0),
-            IK::Point_3(0.333333, 0.6, 0),
+                IK::Point_3(0.333333, -0.6, 0),
+                IK::Point_3(0.333333, 0.6, 0),
             },
 
             {
-            IK::Point_3(0.333333, -0.6, 0),
-            IK::Point_3(0.333333, 0.6, 0),
+                IK::Point_3(0.333333, -0.6, 0),
+                IK::Point_3(0.333333, 0.6, 0),
             },
-            
-            };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        };
 
         joint.m[0] = {
             {
-IK::Point_3(1.25, 0.5, 0),
-IK::Point_3(-1, 0.5, 0),
-IK::Point_3(-1, 0.2, 0),
-IK::Point_3(1, -0.2, 0),
-IK::Point_3(1, -0.5, 0),
-IK::Point_3(1.25, -0.5, 0),
-IK::Point_3(1.25, 0.5, 0),
-            
+                IK::Point_3(1.25, 0.5, 0),
+                IK::Point_3(-1, 0.5, 0),
+                IK::Point_3(-1, 0.2, 0),
+                IK::Point_3(1, -0.2, 0),
+                IK::Point_3(1, -0.5, 0),
+                IK::Point_3(1.25, -0.5, 0),
+                IK::Point_3(1.25, 0.5, 0),
+
             },
             {IK::Point_3(0, -0.5, 0.5), IK::Point_3(0, -0.5, -0.5)},
 
-                        {
+            {
 
-IK::Point_3(1.25, -0.5, 0),
-IK::Point_3(-1, -0.5, 0),
-IK::Point_3(-1, -0.2, 0),
-IK::Point_3(1, 0.2, 0),
-IK::Point_3(1, 0.5, 0),
-IK::Point_3(1.25, 0.5, 0),
-IK::Point_3(1.25, -0.5, 0),
-            
+                IK::Point_3(1.25, -0.5, 0),
+                IK::Point_3(-1, -0.5, 0),
+                IK::Point_3(-1, -0.2, 0),
+                IK::Point_3(1, 0.2, 0),
+                IK::Point_3(1, 0.5, 0),
+                IK::Point_3(1.25, 0.5, 0),
+                IK::Point_3(1.25, -0.5, 0),
+
             },
             {IK::Point_3(0, -0.5, 0.5), IK::Point_3(0, -0.5, -0.5)},
 
-
-
-
             {
-            IK::Point_3(-0.333333, -0.6, 0),
-            IK::Point_3(-0.333333, 0.6, 0),
+                IK::Point_3(-0.333333, -0.6, 0),
+                IK::Point_3(-0.333333, 0.6, 0),
             },
 
             {
-            IK::Point_3(-0.333333, -0.6, 0),
-            IK::Point_3(-0.333333, 0.6, 0),
+                IK::Point_3(-0.333333, -0.6, 0),
+                IK::Point_3(-0.333333, 0.6, 0),
             },
 
             {
-            IK::Point_3(0.333333, -0.6, 0),
-            IK::Point_3(0.333333, 0.6, 0),
+                IK::Point_3(0.333333, -0.6, 0),
+                IK::Point_3(0.333333, 0.6, 0),
             },
 
             {
-            IK::Point_3(0.333333, -0.6, 0),
-            IK::Point_3(0.333333, 0.6, 0),
+                IK::Point_3(0.333333, -0.6, 0),
+                IK::Point_3(0.333333, 0.6, 0),
             },
-            
-            };
+
+        };
 
         joint.m[1] = {
             {
-IK::Point_3(1.25, 0.5, -0.5),
-IK::Point_3(-1, 0.5, -0.5),
-IK::Point_3(-1, 0.2, -0.5),
-IK::Point_3(1, -0.2, -0.5),
-IK::Point_3(1, -0.5, -0.5),
-IK::Point_3(1.25, -0.5, -0.5),
-IK::Point_3(1.25, 0.5, -0.5),
-            
+                IK::Point_3(1.25, 0.5, -0.5),
+                IK::Point_3(-1, 0.5, -0.5),
+                IK::Point_3(-1, 0.2, -0.5),
+                IK::Point_3(1, -0.2, -0.5),
+                IK::Point_3(1, -0.5, -0.5),
+                IK::Point_3(1.25, -0.5, -0.5),
+                IK::Point_3(1.25, 0.5, -0.5),
+
             },
             {IK::Point_3(0, -0.5, 0.5), IK::Point_3(0, -0.5, -0.5)},
 
-                        {
+            {
 
-IK::Point_3(1.25, -0.5, 0.5),
-IK::Point_3(-1, -0.5, 0.5),
-IK::Point_3(-1, -0.2, 0.5),
-IK::Point_3(1, 0.2, 0.5),
-IK::Point_3(1, 0.5, 0.5),
-IK::Point_3(1.25, 0.5, 0.5),
-IK::Point_3(1.25, -0.5, 0.5),
+                IK::Point_3(1.25, -0.5, 0.5),
+                IK::Point_3(-1, -0.5, 0.5),
+                IK::Point_3(-1, -0.2, 0.5),
+                IK::Point_3(1, 0.2, 0.5),
+                IK::Point_3(1, 0.5, 0.5),
+                IK::Point_3(1.25, 0.5, 0.5),
+                IK::Point_3(1.25, -0.5, 0.5),
 
-            
             },
             {IK::Point_3(0, -0.5, 0.5), IK::Point_3(0, -0.5, -0.5)},
 
-
-
-
-            
             {
-            IK::Point_3(-0.333333, -0.6, 0),
-            IK::Point_3(-0.333333, 0.6, 0),
+                IK::Point_3(-0.333333, -0.6, 0),
+                IK::Point_3(-0.333333, 0.6, 0),
             },
 
             {
-            IK::Point_3(-0.333333, -0.6, 0),
-            IK::Point_3(-0.333333, 0.6, 0),
+                IK::Point_3(-0.333333, -0.6, 0),
+                IK::Point_3(-0.333333, 0.6, 0),
             },
 
             {
-            IK::Point_3(0.333333, -0.6, 0),
-            IK::Point_3(0.333333, 0.6, 0),
+                IK::Point_3(0.333333, -0.6, 0),
+                IK::Point_3(0.333333, 0.6, 0),
             },
 
             {
-            IK::Point_3(0.333333, -0.6, 0),
-            IK::Point_3(0.333333, 0.6, 0),
+                IK::Point_3(0.333333, -0.6, 0),
+                IK::Point_3(0.333333, 0.6, 0),
             },
-            
-            };
 
+        };
 
-        joint.f_boolean_type = {wood_cut::mill_project, wood_cut::mill_project,wood_cut::mill_project, wood_cut::mill_project, wood_cut::drill, wood_cut::drill, wood_cut::drill, wood_cut::drill};
-        joint.m_boolean_type = {wood_cut::mill_project, wood_cut::mill_project,wood_cut::mill_project, wood_cut::mill_project, wood_cut::drill, wood_cut::drill, wood_cut::drill, wood_cut::drill};
+        joint.f_boolean_type = {wood_cut::mill_project, wood_cut::mill_project, wood_cut::mill_project, wood_cut::mill_project, wood_cut::drill, wood_cut::drill, wood_cut::drill, wood_cut::drill};
+        joint.m_boolean_type = {wood_cut::mill_project, wood_cut::mill_project, wood_cut::mill_project, wood_cut::mill_project, wood_cut::drill, wood_cut::drill, wood_cut::drill, wood_cut::drill};
     }
-    
+
+    void ss_e_ip_5(wood::joint &joint, std::vector<wood::element> &elements)
+    {
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // joint parameters
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        // name
+        joint.name = __func__;
+        joint.unit_scale_distance = elements[joint.v0].thickness;
+
+        // parameters that comes from the joint
+        bool default_values = false;
+        double edge_length = !default_values ? std::sqrt(CGAL::squared_distance(joint.joint_lines[0][0], joint.joint_lines[0][1])) : 1000; // std::sqrt(CGAL::squared_distance(joint.joint_lines[0][0], joint.joint_lines[0][1])) : 1000;
+        int divisions = !default_values ? joint.divisions : 5;
+        double joint_volume_edge_length = !default_values ? joint.unit_scale_distance : 40; // std::sqrt(CGAL::squared_distance(joint.joint_volumes[0][1], joint.joint_volumes[0][2])) : 40;
+
+        // scale down the edge, since wood_joint ->  bool joint::orient_to_connection_area() make the distance between joint volumes equal to 2nd joint volume edge
+        edge_length *= joint.scale[2];
+
+        // normalization to the unit space, joint_volume_edge_length is used for parametrization
+        double move_length_scaled = edge_length / (divisions * joint_volume_edge_length);
+        double total_length_scaled = edge_length / joint_volume_edge_length;
+
+        // movement vectors to translate the unit joint to the end of the edge and then to its middle
+        IK::Vector_3 dir(0, 0, 1);
+        IK::Vector_3 move_from_center_to_the_end = dir * ((total_length_scaled * 0.5) - (move_length_scaled * 0.5));
+        IK::Vector_3 move_length_dir = -dir * move_length_scaled;
+
+        // std::cout << "divisions" << divisions << "\n";
+        // std::cout << "edge_length" << edge_length << "\n";
+        // std::cout << "joint_volume_edge_length" << joint_volume_edge_length << "\n";
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Male default shape
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        std::vector<CGAL_Polyline>
+            male_0 = {
+                {IK::Point_3(0, -0.25, -0.166667),
+                 IK::Point_3(-0.116667, -0.25, -0.166667),
+                 IK::Point_3(-0.619628, -0.25, -0.375),
+                 IK::Point_3(-1.0, -0.25, -0.375),
+                 IK::Point_3(-1.0, -0.25, 0.375),
+                 IK::Point_3(-0.619628, -0.25, 0.375),
+                 IK::Point_3(-0.116667, -0.25, 0.166667),
+                 IK::Point_3(0, -0.25, 0.166667)},
+                {
+                    IK::Point_3(0, -0.25, 0.166667),
+                    IK::Point_3(0, -0.25, -0.166667),
+                }};
+
+        std::vector<CGAL_Polyline> male_1 = {
+
+            {IK::Point_3(0, 0.5, -0.166667),
+             IK::Point_3(-0.116667, 0.5, -0.166667),
+             IK::Point_3(-0.619628, 0.5, -0.375),
+             IK::Point_3(-1.0, 0.5, -0.375),
+             IK::Point_3(-1.0, 0.5, 0.375),
+             IK::Point_3(-0.619628, 0.5, 0.375),
+             IK::Point_3(-0.116667, 0.5, 0.166667),
+             IK::Point_3(0, 0.5, 0.166667)},
+            {
+                IK::Point_3(0, 0.5, 0.166667),
+                IK::Point_3(0, 0.5, -0.166667),
+            }};
+
+        std::vector<wood_cut::cut_type> male_types{wood_cut::edge_insertion, wood_cut::edge_insertion};
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // female default shape
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        std::vector<CGAL_Polyline>
+            female_0 = {
+                {IK::Point_3(0, -0.25, -0.166667),
+                 IK::Point_3(0.116667, -0.25, -0.166667),
+                 IK::Point_3(0.619628, -0.25, -0.375),
+                 IK::Point_3(1, -0.25, -0.375),
+                 IK::Point_3(1, -0.25, 0.375),
+                 IK::Point_3(0.619628, -0.25, 0.375),
+                 IK::Point_3(0.116667, -0.25, 0.166667),
+                 IK::Point_3(0, -0.25, 0.166667)},
+                {
+                    IK::Point_3(0, -0.25, 0.166667),
+                    IK::Point_3(0, -0.25, -0.166667),
+                }};
+
+        std::vector<CGAL_Polyline> female_1 = {
+            {IK::Point_3(0, 0.5, -0.166667),
+             IK::Point_3(0.116667, 0.5, -0.166667),
+             IK::Point_3(0.619628, 0.5, -0.375),
+             IK::Point_3(1, 0.5, -0.375),
+             IK::Point_3(1, 0.5, 0.375),
+             IK::Point_3(0.619628, 0.5, 0.375),
+             IK::Point_3(0.116667, 0.5, 0.166667),
+             IK::Point_3(0, 0.5, 0.166667)},
+            {
+                IK::Point_3(0, 0.5, 0.166667),
+                IK::Point_3(0, 0.5, -0.166667),
+            }};
+
+        std::vector<wood_cut::cut_type> female_types{wood_cut::edge_insertion, wood_cut::edge_insertion};
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Reserve memory for multiple copies
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        joint.m[0].reserve(2);
+        joint.m[1].reserve(2);
+        joint.m_boolean_type.reserve(2);
+        joint.f[0].reserve(2);
+        joint.f[1].reserve(2);
+        joint.f_boolean_type.reserve(2);
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Copy the default shapes and move them by merging
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        auto a = joint.m[0];
+        joint.m[0].emplace_back(CGAL_Polyline());
+        joint.m[1].emplace_back(CGAL_Polyline());
+        joint.f[0].emplace_back(CGAL_Polyline());
+        joint.f[1].emplace_back(CGAL_Polyline());
+
+        joint.m[0].back().reserve(male_0[0].size() * divisions);
+        joint.m[1].back().reserve(male_1[0].size() * divisions);
+        joint.f[0].back().reserve(female_0[0].size() * divisions);
+        joint.f[1].back().reserve(female_1[0].size() * divisions);
+
+        for (auto i = 0; i < divisions; i++)
+        {
+            // copy the first outline, be sure that the point order is correct, so that the non-internsecting polyline can be created, else reverse it
+            CGAL_Polyline male_moved_0 = male_0[0];
+            CGAL_Polyline male_moved_1 = male_1[0];
+            CGAL_Polyline female_moved_0 = female_0[0];
+            CGAL_Polyline female_moved_1 = female_1[0];
+
+            // move joints that are positioned at the center to the end of the segment and then back by half of the division length
+            for (auto &p : male_moved_0)
+                p += move_from_center_to_the_end + move_length_dir * i;
+
+            for (auto &p : male_moved_1)
+                p += move_from_center_to_the_end + move_length_dir * i;
+
+            for (auto &p : female_moved_0)
+                p += move_from_center_to_the_end + move_length_dir * i;
+
+            for (auto &p : female_moved_1)
+                p += move_from_center_to_the_end + move_length_dir * i;
+
+            // merge with the main outline
+            joint.m[0].back().insert(joint.m[0].back().end(), male_moved_0.begin(), male_moved_0.end());
+            joint.m[1].back().insert(joint.m[1].back().end(), male_moved_1.begin(), male_moved_1.end());
+            joint.f[0].back().insert(joint.f[0].back().end(), female_moved_0.begin(), female_moved_0.end());
+            joint.f[1].back().insert(joint.f[1].back().end(), female_moved_1.begin(), female_moved_1.end());
+        }
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Add the insertion lines
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        joint.m[0].emplace_back(CGAL_Polyline{joint.m[0].front().front(), joint.m[0].front().back()});
+        joint.m[1].emplace_back(CGAL_Polyline{joint.m[1].front().front(), joint.m[1].front().back()});
+        joint.f[0].emplace_back(CGAL_Polyline{joint.f[0].front().front(), joint.f[0].front().back()});
+        joint.f[1].emplace_back(CGAL_Polyline{joint.f[1].front().front(), joint.f[1].front().back()});
+
+        joint.f_boolean_type = female_types;
+        joint.m_boolean_type = male_types;
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // is unit scale
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        joint.unit_scale = true;
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // joint for preview
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // viewer_wood::scale = 1.0;
+        // std::vector<std::vector<CGAL_Polyline>> input_polyline_pairs0;
+        // input_polyline_pairs0.emplace_back(joint.m[0]);
+        // input_polyline_pairs0.emplace_back(joint.m[1]);
+        // viewer_wood::add(input_polyline_pairs0, 0); // grey
+        // std::vector<std::vector<CGAL_Polyline>> input_polyline_pairs1;
+        // input_polyline_pairs1.emplace_back(joint.f[0]);
+        // input_polyline_pairs1.emplace_back(joint.f[1]);
+        // CGAL_Polyline default_segment = {IK::Point_3(0, 0, -total_length_scaled * 0.5), IK::Point_3(0, 0, total_length_scaled * 0.5)};
+        // input_polyline_pairs1.push_back({default_segment});
+        // viewer_wood::add(input_polyline_pairs1, 2); // grey
+        // // reset
+        // viewer_wood::scale = 1000;
+        // return true;
+    }
+
     void ss_e_ip_custom(wood::joint &joint)
     {
 
         joint.name = __func__;
 
-        for (size_t i = 0; i < wood_globals::custom_joints_ss_e_ip_male.size(); i+=2)
+        for (size_t i = 0; i < wood_globals::custom_joints_ss_e_ip_male.size(); i += 2)
         {
             joint.m[0].emplace_back(wood_globals::custom_joints_ss_e_ip_male[i]);
             joint.m[0].emplace_back(wood_globals::custom_joints_ss_e_ip_male[i]);
-            joint.m[1].emplace_back(wood_globals::custom_joints_ss_e_ip_male[i+1]);
-            joint.m[1].emplace_back(wood_globals::custom_joints_ss_e_ip_male[i+1]);
+            joint.m[1].emplace_back(wood_globals::custom_joints_ss_e_ip_male[i + 1]);
+            joint.m[1].emplace_back(wood_globals::custom_joints_ss_e_ip_male[i + 1]);
             joint.m_boolean_type.emplace_back(wood_cut::nothing);
             joint.m_boolean_type.emplace_back(wood_cut::nothing);
         }
 
-        for (size_t i = 0; i < wood_globals::custom_joints_ss_e_ip_female.size(); i+=2)
+        for (size_t i = 0; i < wood_globals::custom_joints_ss_e_ip_female.size(); i += 2)
         {
             joint.f[0].emplace_back(wood_globals::custom_joints_ss_e_ip_female[i]);
             joint.f[0].emplace_back(wood_globals::custom_joints_ss_e_ip_female[i]);
-            joint.f[1].emplace_back(wood_globals::custom_joints_ss_e_ip_female[i+1]);
-            joint.f[1].emplace_back(wood_globals::custom_joints_ss_e_ip_female[i+1]);
+            joint.f[1].emplace_back(wood_globals::custom_joints_ss_e_ip_female[i + 1]);
+            joint.f[1].emplace_back(wood_globals::custom_joints_ss_e_ip_female[i + 1]);
             joint.f_boolean_type.emplace_back(wood_cut::nothing);
             joint.f_boolean_type.emplace_back(wood_cut::nothing);
         }
-
     }
-    
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Side-to-side edge out-of-plane joints 10-19
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1374,7 +1497,7 @@ IK::Point_3(1.25, -0.5, 0.5),
         ////////////////////////////////////////////////////////////////////
 
         int divisions = (int)std::max(2, std::min(20, joint.divisions));
-        divisions += divisions % 2 + 2*0;
+        divisions += divisions % 2 + 2 * 0;
 
         ////////////////////////////////////////////////////////////////////
         // Interpolate points
@@ -1995,28 +2118,26 @@ IK::Point_3(1.25, -0.5, 0.5),
 
         joint.name = __func__;
 
-        for (size_t i = 0; i < wood_globals::custom_joints_ss_e_op_male.size(); i+=2)
+        for (size_t i = 0; i < wood_globals::custom_joints_ss_e_op_male.size(); i += 2)
         {
             joint.m[0].emplace_back(wood_globals::custom_joints_ss_e_op_male[i]);
             joint.m[0].emplace_back(wood_globals::custom_joints_ss_e_op_male[i]);
-            joint.m[1].emplace_back(wood_globals::custom_joints_ss_e_op_male[i+1]);
-            joint.m[1].emplace_back(wood_globals::custom_joints_ss_e_op_male[i+1]);
+            joint.m[1].emplace_back(wood_globals::custom_joints_ss_e_op_male[i + 1]);
+            joint.m[1].emplace_back(wood_globals::custom_joints_ss_e_op_male[i + 1]);
             joint.m_boolean_type.emplace_back(wood_cut::nothing);
             joint.m_boolean_type.emplace_back(wood_cut::nothing);
         }
 
-        for (size_t i = 0; i < wood_globals::custom_joints_ss_e_op_female.size(); i+=2)
+        for (size_t i = 0; i < wood_globals::custom_joints_ss_e_op_female.size(); i += 2)
         {
             joint.f[0].emplace_back(wood_globals::custom_joints_ss_e_op_female[i]);
             joint.f[0].emplace_back(wood_globals::custom_joints_ss_e_op_female[i]);
-            joint.f[1].emplace_back(wood_globals::custom_joints_ss_e_op_female[i+1]);
-            joint.f[1].emplace_back(wood_globals::custom_joints_ss_e_op_female[i+1]);
+            joint.f[1].emplace_back(wood_globals::custom_joints_ss_e_op_female[i + 1]);
+            joint.f[1].emplace_back(wood_globals::custom_joints_ss_e_op_female[i + 1]);
             joint.f_boolean_type.emplace_back(wood_cut::nothing);
             joint.f_boolean_type.emplace_back(wood_cut::nothing);
         }
-
     }
-
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Side-to-side edge rotated joints 20-29
@@ -2760,32 +2881,269 @@ IK::Point_3(1.25, -0.5, 0.5),
         }
     }
 
-
     void ss_e_r_custom(wood::joint &joint)
     {
 
         joint.name = __func__;
 
-        for (size_t i = 0; i < wood_globals::custom_joints_ss_e_r_male.size(); i+=2)
+        for (size_t i = 0; i < wood_globals::custom_joints_ss_e_r_male.size(); i += 2)
         {
             joint.m[0].emplace_back(wood_globals::custom_joints_ss_e_r_male[i]);
             joint.m[0].emplace_back(wood_globals::custom_joints_ss_e_r_male[i]);
-            joint.m[1].emplace_back(wood_globals::custom_joints_ss_e_r_male[i+1]);
-            joint.m[1].emplace_back(wood_globals::custom_joints_ss_e_r_male[i+1]);
+            joint.m[1].emplace_back(wood_globals::custom_joints_ss_e_r_male[i + 1]);
+            joint.m[1].emplace_back(wood_globals::custom_joints_ss_e_r_male[i + 1]);
             joint.m_boolean_type.emplace_back(wood_cut::nothing);
             joint.m_boolean_type.emplace_back(wood_cut::nothing);
         }
 
-        for (size_t i = 0; i < wood_globals::custom_joints_ss_e_r_female.size(); i+=2)
+        for (size_t i = 0; i < wood_globals::custom_joints_ss_e_r_female.size(); i += 2)
         {
             joint.f[0].emplace_back(wood_globals::custom_joints_ss_e_r_female[i]);
             joint.f[0].emplace_back(wood_globals::custom_joints_ss_e_r_female[i]);
-            joint.f[1].emplace_back(wood_globals::custom_joints_ss_e_r_female[i+1]);
-            joint.f[1].emplace_back(wood_globals::custom_joints_ss_e_r_female[i+1]);
+            joint.f[1].emplace_back(wood_globals::custom_joints_ss_e_r_female[i + 1]);
+            joint.f[1].emplace_back(wood_globals::custom_joints_ss_e_r_female[i + 1]);
             joint.f_boolean_type.emplace_back(wood_cut::nothing);
             joint.f_boolean_type.emplace_back(wood_cut::nothing);
         }
+    }
 
+    void ss_e_r_2(wood::joint &joint, std::vector<wood::element> &elements)
+    {
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // joint parameters
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        // name
+        joint.name = __func__;
+        joint.unit_scale_distance = elements[joint.v0].thickness;
+
+        // parameters that comes from the joint
+        bool default_values = false;
+        double edge_length = !default_values ? std::sqrt(CGAL::squared_distance(joint.joint_lines[0][0], joint.joint_lines[0][1])) : 1000; // std::sqrt(CGAL::squared_distance(joint.joint_lines[0][0], joint.joint_lines[0][1])) : 1000;
+        int divisions = !default_values ? joint.divisions : 5;
+        double joint_volume_edge_length = !default_values ? joint.unit_scale_distance : 40; // std::sqrt(CGAL::squared_distance(joint.joint_volumes[0][1], joint.joint_volumes[0][2])) : 40;
+
+        // scale down the edge, since wood_joint ->  bool joint::orient_to_connection_area() make the distance between joint volumes equal to 2nd joint volume edge
+        edge_length *= joint.scale[2];
+
+        // normalization to the unit space, joint_volume_edge_length is used for parametrization
+        double move_length_scaled = edge_length / (divisions * joint_volume_edge_length);
+        double total_length_scaled = edge_length / joint_volume_edge_length;
+
+        // movement vectors to translate the unit joint to the end of the edge and then to its middle
+        IK::Vector_3 dir(0, 0, 1);
+        IK::Vector_3 move_from_center_to_the_end = dir * ((total_length_scaled * 0.5) - (move_length_scaled * 0.5));
+        IK::Vector_3 move_length_dir = -dir * move_length_scaled;
+
+        // std::cout << "divisions" << divisions << "\n";
+        // std::cout << "edge_length" << edge_length << "\n";
+        // std::cout << "joint_volume_edge_length" << joint_volume_edge_length << "\n";
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Male default shape
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        std::vector<CGAL_Polyline>
+            male_0 = {
+                {IK::Point_3(0, 0.275, 0.166667),
+                 IK::Point_3(-0.116667, 0.275, 0.166667),
+                 IK::Point_3(-0.619628, 0.275, 0.375),
+                 IK::Point_3(-1.0, 0.275, 0.375),
+                 IK::Point_3(-1.0, 0.275, -0.375),
+                 IK::Point_3(-0.619628, 0.275, -0.375),
+                 IK::Point_3(-0.116667, 0.275, -0.166667),
+                 IK::Point_3(0, 0.275, -0.166667),
+                 IK::Point_3(0, 0.275, 0.166667)},
+                {
+                    IK::Point_3(0, 0.275, 0.166667),
+                    IK::Point_3(0, 0.275, -0.166667),
+                }};
+
+        std::vector<CGAL_Polyline> male_1 = {
+
+            {IK::Point_3(0, -0.7, 0.166667),
+             IK::Point_3(-0.116667, -0.7, 0.166667),
+             IK::Point_3(-0.619628, -0.7, 0.375),
+             IK::Point_3(-1.0, -0.7, 0.375),
+             IK::Point_3(-1.0, -0.7, -0.375),
+             IK::Point_3(-0.619628, -0.7, -0.375),
+             IK::Point_3(-0.116667, -0.7, -0.166667),
+             IK::Point_3(0, -0.7, -0.166667),
+             IK::Point_3(0, -0.7, 0.166667)},
+            {
+                IK::Point_3(0, -0.7, 0.166667),
+                IK::Point_3(0, -0.7, -0.166667),
+            }};
+
+        std::vector<wood_cut::cut_type> male_types{wood_cut::edge_insertion, wood_cut::edge_insertion};
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // female default shape
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        std::vector<CGAL_Polyline>
+            female_0 = {
+                {IK::Point_3(0, 0.275, 0.166667),
+                 IK::Point_3(0.116667, 0.275, 0.166667),
+                 IK::Point_3(0.619628, 0.275, 0.375),
+                 IK::Point_3(1, 0.275, 0.375),
+                 IK::Point_3(1, 0.275, -0.375),
+                 IK::Point_3(0.619628, 0.275, -0.375),
+                 IK::Point_3(0.116667, 0.275, -0.166667),
+                 IK::Point_3(0, 0.275, -0.166667),
+                 IK::Point_3(0, 0.275, 0.166667)},
+                {
+                    IK::Point_3(0, 0.275, 0.166667),
+                    IK::Point_3(0, 0.275, -0.166667),
+                }};
+
+        std::vector<CGAL_Polyline> female_1 = {
+            {IK::Point_3(0, -0.7, 0.166667),
+             IK::Point_3(0.116667, -0.7, 0.166667),
+             IK::Point_3(0.619628, -0.7, 0.375),
+             IK::Point_3(1, -0.7, 0.375),
+             IK::Point_3(1, -0.7, -0.375),
+             IK::Point_3(0.619628, -0.7, -0.375),
+             IK::Point_3(0.116667, -0.7, -0.166667),
+             IK::Point_3(0, -0.7, -0.166667),
+             IK::Point_3(0, -0.7, 0.166667)},
+            {
+                IK::Point_3(0, -0.7, 0.166667),
+                IK::Point_3(0, -0.7, -0.166667),
+            }};
+
+        std::vector<wood_cut::cut_type> female_types{wood_cut::edge_insertion, wood_cut::edge_insertion};
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Reserve memory for multiple copies
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        joint.m[0].reserve(2);
+        joint.m[1].reserve(2);
+        joint.m_boolean_type.reserve(2);
+        joint.f[0].reserve(2);
+        joint.f[1].reserve(2);
+        joint.f_boolean_type.reserve(2);
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Copy the default shapes and move them by merging
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        auto a = joint.m[0];
+        joint.m[0].emplace_back(CGAL_Polyline());
+        joint.m[1].emplace_back(CGAL_Polyline());
+        joint.f[0].emplace_back(CGAL_Polyline());
+        joint.f[1].emplace_back(CGAL_Polyline());
+
+        joint.m[0].back().reserve(male_0[0].size() * divisions);
+        joint.m[1].back().reserve(male_1[0].size() * divisions);
+        joint.f[0].back().reserve(female_0[0].size() * divisions);
+        joint.f[1].back().reserve(female_1[0].size() * divisions);
+
+        for (auto i = 0; i < divisions; i++)
+        {
+            // copy the first outline, be sure that the point order is correct, so that the non-internsecting polyline can be created, else reverse it
+            CGAL_Polyline male_moved_0 = male_0[0];
+            CGAL_Polyline male_moved_1 = male_1[0];
+            CGAL_Polyline female_moved_0 = female_0[0];
+            CGAL_Polyline female_moved_1 = female_1[0];
+
+            // move joints that are positioned at the center to the end of the segment and then back by half of the division length
+            for (auto &p : male_moved_0)
+                p += move_from_center_to_the_end + move_length_dir * i;
+
+            for (auto &p : male_moved_1)
+                p += move_from_center_to_the_end + move_length_dir * i;
+
+            for (auto &p : female_moved_0)
+                p += move_from_center_to_the_end + move_length_dir * i;
+
+            for (auto &p : female_moved_1)
+                p += move_from_center_to_the_end + move_length_dir * i;
+
+            // merge with the main outline
+            joint.m[0].back().insert(joint.m[0].back().end(), male_moved_0.begin(), male_moved_0.end());
+            joint.m[1].back().insert(joint.m[1].back().end(), male_moved_1.begin(), male_moved_1.end());
+            joint.f[0].back().insert(joint.f[0].back().end(), female_moved_0.begin(), female_moved_0.end());
+            joint.f[1].back().insert(joint.f[1].back().end(), female_moved_1.begin(), female_moved_1.end());
+        }
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Add the insertion lines
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        joint.m[0].emplace_back(CGAL_Polyline{joint.m[0].front().front(), joint.m[0].front().back()});
+        joint.m[1].emplace_back(CGAL_Polyline{joint.m[1].front().front(), joint.m[1].front().back()});
+        joint.f[0].emplace_back(CGAL_Polyline{joint.f[0].front().front(), joint.f[0].front().back()});
+        joint.f[1].emplace_back(CGAL_Polyline{joint.f[1].front().front(), joint.f[1].front().back()});
+
+        joint.f_boolean_type = female_types;
+        joint.m_boolean_type = male_types;
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // is unit scale
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        joint.unit_scale = true;
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // update the joint volume rectangle to fixed size e.g. 100x100x100
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        double x_dir_length = 120;
+        double y_dir_length = 120;
+        joint.unit_scale_distance = 120;
+        for (auto &joint_volume : joint.joint_volumes)
+        {
+            if (joint_volume.size() != 5)
+                continue;
+            IK::Point_3 center = CGAL::midpoint(joint_volume[0], joint_volume[1]);
+            IK::Vector_3 x_dir = joint_volume[1] - joint_volume[0];
+            IK::Vector_3 y_dir = joint_volume[2] - joint_volume[1];
+            cgal_vector_util::unitize(x_dir);
+            cgal_vector_util::unitize(y_dir);
+            x_dir *= x_dir_length * 0.5;
+            y_dir *= y_dir_length * 0.5;
+            joint_volume =
+                {
+
+                    center + x_dir + 2 * y_dir,
+                    center - x_dir + 2 * y_dir,
+                    center - x_dir,
+                    center + x_dir,
+                    center + x_dir + 2 * y_dir,
+                };
+        }
+        joint.key = joint.key + std::to_string(elements[joint.v0].id) + "_" + std::to_string(elements[joint.v1].id);
+
+        joint.orient = true;
+
+        // IK::Point_3 center = CGAL::midpoint(joint.joint_volumes[0][0], joint.joint_volumes[0][1]);
+        // IK::Vector_3 x_dir = joint.joint_volumes[0][1] - joint.joint_volumes[0][0];
+        // IK::Vector_3 y_dir = joint.joint_volumes[0][3] - joint.joint_volumes[0][0];
+        // cgal_vector_util::unitize(x_dir);
+        // cgal_vector_util::unitize(y_dir);
+        // x_dir *= length * 0.5;
+        // y_dir *= length * 0.5;
+        // joint.joint_volumes[0] =
+        //     {
+        //         center - x_dir,
+        //         center + x_dir,
+        //         center + x_dir + 2 * y_dir,
+        //         center - x_dir + 2 * y_dir,
+        //         center - x_dir};
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // joint for preview
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // viewer_wood::scale = 1.0;
+        // std::vector<std::vector<CGAL_Polyline>> input_polyline_pairs0;
+        // input_polyline_pairs0.emplace_back(joint.m[0]);
+        // input_polyline_pairs0.emplace_back(joint.m[1]);
+        // viewer_wood::add(input_polyline_pairs0, 0); // grey
+        // std::vector<std::vector<CGAL_Polyline>> input_polyline_pairs1;
+        // input_polyline_pairs1.emplace_back(joint.f[0]);
+        // input_polyline_pairs1.emplace_back(joint.f[1]);
+        // CGAL_Polyline default_segment = {IK::Point_3(0, 0, -total_length_scaled * 0.5), IK::Point_3(0, 0, total_length_scaled * 0.5)};
+        // input_polyline_pairs1.push_back({default_segment});
+        // viewer_wood::add(input_polyline_pairs1, 2); // grey
+        // // reset
+        // viewer_wood::scale = 1000;
+        // return true;
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -3760,38 +4118,37 @@ IK::Point_3(1.25, -0.5, 0.5),
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         joint.unit_scale = true;
     }
-    
+
     void ts_e_p_custom(wood::joint &joint)
     {
-        // std::ofstream outputFile("C:/compas_wood/output.txt"); 
+        // std::ofstream outputFile("C:/compas_wood/output.txt");
         // outputFile << wood_globals::custom_joints_ts_e_p_male.size() << std::endl;
         // outputFile << wood_globals::custom_joints_ts_e_p_female.size() << std::endl;
         // outputFile.close();
 
         joint.name = __func__;
 
-        for (size_t i = 0; i < wood_globals::custom_joints_ts_e_p_male.size(); i+=2)
+        for (size_t i = 0; i < wood_globals::custom_joints_ts_e_p_male.size(); i += 2)
         {
             joint.m[0].emplace_back(wood_globals::custom_joints_ts_e_p_male[i]);
             joint.m[0].emplace_back(wood_globals::custom_joints_ts_e_p_male[i]);
-            joint.m[1].emplace_back(wood_globals::custom_joints_ts_e_p_male[i+1]);
-            joint.m[1].emplace_back(wood_globals::custom_joints_ts_e_p_male[i+1]);
+            joint.m[1].emplace_back(wood_globals::custom_joints_ts_e_p_male[i + 1]);
+            joint.m[1].emplace_back(wood_globals::custom_joints_ts_e_p_male[i + 1]);
             joint.m_boolean_type.emplace_back(wood_cut::nothing);
             joint.m_boolean_type.emplace_back(wood_cut::nothing);
         }
 
-        for (size_t i = 0; i < wood_globals::custom_joints_ts_e_p_female.size(); i+=2)
+        for (size_t i = 0; i < wood_globals::custom_joints_ts_e_p_female.size(); i += 2)
         {
             joint.f[0].emplace_back(wood_globals::custom_joints_ts_e_p_female[i]);
             joint.f[0].emplace_back(wood_globals::custom_joints_ts_e_p_female[i]);
-            joint.f[1].emplace_back(wood_globals::custom_joints_ts_e_p_female[i+1]);
-            joint.f[1].emplace_back(wood_globals::custom_joints_ts_e_p_female[i+1]);
+            joint.f[1].emplace_back(wood_globals::custom_joints_ts_e_p_female[i + 1]);
+            joint.f[1].emplace_back(wood_globals::custom_joints_ts_e_p_female[i + 1]);
             joint.f_boolean_type.emplace_back(wood_cut::nothing);
             joint.f_boolean_type.emplace_back(wood_cut::nothing);
         }
-
     }
-    
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Cross cutting in-plane joints 30-39
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -4001,7 +4358,7 @@ IK::Point_3(1.25, -0.5, 0.5),
         ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // to sides
-        
+
         cgal_polyline_util::extend_equally(joint.f[0][3], 0, 0.15);
         cgal_polyline_util::extend_equally(joint.f[0][3], 2, 0.15);
         cgal_polyline_util::extend_equally(joint.f[0][4], 0, 0.15);
@@ -4012,7 +4369,6 @@ IK::Point_3(1.25, -0.5, 0.5),
         cgal_polyline_util::extend_equally(joint.f[0][3], 3, 0.6);
         cgal_polyline_util::extend_equally(joint.f[0][4], 1, 0.6);
         cgal_polyline_util::extend_equally(joint.f[0][4], 3, 0.6);
-
 
         // Offset and
         // flip polylines
@@ -4032,7 +4388,7 @@ IK::Point_3(1.25, -0.5, 0.5),
             internal::unitize(cross);
 
             // offset| skip wood_cut::drill lines
-            if (joint.f[1][i].size() )//> 2
+            if (joint.f[1][i].size()) //> 2
                 for (int j = 0; j < joint.f[1][i].size(); j++)
                     joint.f[1][i][j] += cross * lenghts[i];
 
@@ -4148,7 +4504,6 @@ IK::Point_3(1.25, -0.5, 0.5),
         // joint.f[1]= {};
     }
 
-
     void cr_c_ip_3(wood::joint &joint)
     {
         joint.name = __func__;
@@ -4195,7 +4550,7 @@ IK::Point_3(1.25, -0.5, 0.5),
         ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // to sides
-        
+
         cgal_polyline_util::extend_equally(joint.f[0][3], 0, 0.15);
         cgal_polyline_util::extend_equally(joint.f[0][3], 2, 0.15);
         cgal_polyline_util::extend_equally(joint.f[0][4], 0, 0.15);
@@ -4206,7 +4561,6 @@ IK::Point_3(1.25, -0.5, 0.5),
         cgal_polyline_util::extend_equally(joint.f[0][3], 3, 0.6);
         cgal_polyline_util::extend_equally(joint.f[0][4], 1, 0.6);
         cgal_polyline_util::extend_equally(joint.f[0][4], 3, 0.6);
-
 
         // Offset and
         // flip polylines
@@ -4334,7 +4688,6 @@ IK::Point_3(1.25, -0.5, 0.5),
         };
     }
 
-
     void cr_c_ip_4(wood::joint &joint)
     {
         joint.name = __func__;
@@ -4371,8 +4724,7 @@ IK::Point_3(1.25, -0.5, 0.5),
             {p[2], p[1], p[1 + 12], p[2 + 12], p[2]}, // wood_cut::mill BotSide0
             {p[0], p[3], p[3 + 12], p[0 + 12], p[0]}, // wood_cut::mill BotSide1
 
-           {IK::Point_3(0.0, 0.0, -1.0), IK::Point_3(0.0, 0.0, 1.0)},     // wood_cut::drill line
-
+            {IK::Point_3(0.0, 0.0, -1.0), IK::Point_3(0.0, 0.0, 1.0)}, // wood_cut::drill line
 
             // {IK::Point_3(0.3, 0.041421, -0.928477), IK::Point_3(0.041421, 0.3, 0.928477)},     // wood_cut::drill line
             // {IK::Point_3(-0.3, -0.041421, -0.928477), IK::Point_3(-0.041421, -0.3, 0.928477)}, // wood_cut::drill line
@@ -4384,7 +4736,7 @@ IK::Point_3(1.25, -0.5, 0.5),
         ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // to sides
-        
+
         cgal_polyline_util::extend_equally(joint.f[0][3], 0, 0.15);
         cgal_polyline_util::extend_equally(joint.f[0][3], 2, 0.15);
         cgal_polyline_util::extend_equally(joint.f[0][4], 0, 0.15);
@@ -4395,7 +4747,6 @@ IK::Point_3(1.25, -0.5, 0.5),
         cgal_polyline_util::extend_equally(joint.f[0][3], 3, 0.6);
         cgal_polyline_util::extend_equally(joint.f[0][4], 1, 0.6);
         cgal_polyline_util::extend_equally(joint.f[0][4], 3, 0.6);
-
 
         // Offset and
         // flip polylines
@@ -4415,7 +4766,7 @@ IK::Point_3(1.25, -0.5, 0.5),
             internal::unitize(cross);
 
             // offset| skip wood_cut::drill lines
-            if (joint.f[1][i].size() > 1)//
+            if (joint.f[1][i].size() > 1) //
                 for (int j = 0; j < joint.f[1][i].size(); j++)
                     joint.f[1][i][j] += cross * lenghts[i];
 
@@ -4531,7 +4882,6 @@ IK::Point_3(1.25, -0.5, 0.5),
         // joint.f[1]= {};
     }
 
-   
     void cr_c_ip_5(wood::joint &joint)
     {
         joint.name = __func__;
@@ -4568,9 +4918,9 @@ IK::Point_3(1.25, -0.5, 0.5),
             {p[2], p[1], p[1 + 12], p[2 + 12], p[2]}, // wood_cut::mill BotSide0
             {p[0], p[3], p[3 + 12], p[0 + 12], p[0]}, // wood_cut::mill BotSide1
 
-           {IK::Point_3(0.0, 0.0, -1.0), IK::Point_3(0.0, 0.0, 1.0)},     // wood_cut::drill line
-           {IK::Point_3(-0.5, 0, -0.55), IK::Point_3(0.5, 0, -0.55)},
-          //{IK::Point_3(0, 1, 1), IK::Point_3(0, -1, 1)},     // wood_cut::drill line (smaller element)
+            {IK::Point_3(0.0, 0.0, -1.0), IK::Point_3(0.0, 0.0, 1.0)}, // wood_cut::drill line
+            {IK::Point_3(-0.5, 0, -0.55), IK::Point_3(0.5, 0, -0.55)},
+            //{IK::Point_3(0, 1, 1), IK::Point_3(0, -1, 1)},     // wood_cut::drill line (smaller element)
 
         };
 
@@ -4579,18 +4929,17 @@ IK::Point_3(1.25, -0.5, 0.5),
         ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // to sides
-        
-        cgal_polyline_util::extend_equally(joint.f[0][3], 0, 0.15*1.8);
-        cgal_polyline_util::extend_equally(joint.f[0][3], 2, -0.15*0.5);
-        cgal_polyline_util::extend_equally(joint.f[0][4], 0, 0.15*1.8);
-        cgal_polyline_util::extend_equally(joint.f[0][4], 2,-0.15*0.5);
+
+        cgal_polyline_util::extend_equally(joint.f[0][3], 0, 0.15 * 1.8);
+        cgal_polyline_util::extend_equally(joint.f[0][3], 2, -0.15 * 0.5);
+        cgal_polyline_util::extend_equally(joint.f[0][4], 0, 0.15 * 1.8);
+        cgal_polyline_util::extend_equally(joint.f[0][4], 2, -0.15 * 0.5);
 
         // vertically
         cgal_polyline_util::extend_equally(joint.f[0][3], 1, 0.6);
         cgal_polyline_util::extend_equally(joint.f[0][3], 3, 0.6);
         cgal_polyline_util::extend_equally(joint.f[0][4], 1, 0.6);
         cgal_polyline_util::extend_equally(joint.f[0][4], 3, 0.6);
-
 
         // Offset and
         // flip polylines
@@ -4610,7 +4959,7 @@ IK::Point_3(1.25, -0.5, 0.5),
             internal::unitize(cross);
 
             // offset| skip wood_cut::drill lines
-            if (joint.f[1][i].size() > 2)//
+            if (joint.f[1][i].size() > 2) //
                 for (int j = 0; j < joint.f[1][i].size(); j++)
                     joint.f[1][i][j] += cross * lenghts[i];
 
@@ -4726,35 +5075,34 @@ IK::Point_3(1.25, -0.5, 0.5),
         // joint.f[1]= {};
     }
 
-     void cr_c_ip_custom(wood::joint &joint)
+    void cr_c_ip_custom(wood::joint &joint)
     {
 
-        // std::ofstream outputFile("C:/compas_wood/output.txt"); 
+        // std::ofstream outputFile("C:/compas_wood/output.txt");
 
         joint.name = __func__;
         // outputFile << wood_globals::custom_joints_cr_c_ip_male.size() << std::endl;
         // outputFile << wood_globals::custom_joints_cr_c_ip_female.size() << std::endl;
         // outputFile.close();  // Close the file
-        for (size_t i = 0; i < wood_globals::custom_joints_cr_c_ip_male.size(); i+=2)
+        for (size_t i = 0; i < wood_globals::custom_joints_cr_c_ip_male.size(); i += 2)
         {
             joint.m[0].emplace_back(wood_globals::custom_joints_cr_c_ip_male[i]);
             joint.m[0].emplace_back(wood_globals::custom_joints_cr_c_ip_male[i]);
-            joint.m[1].emplace_back(wood_globals::custom_joints_cr_c_ip_male[i+1]);
-            joint.m[1].emplace_back(wood_globals::custom_joints_cr_c_ip_male[i+1]);
+            joint.m[1].emplace_back(wood_globals::custom_joints_cr_c_ip_male[i + 1]);
+            joint.m[1].emplace_back(wood_globals::custom_joints_cr_c_ip_male[i + 1]);
             joint.m_boolean_type.emplace_back(wood_cut::nothing);
             joint.m_boolean_type.emplace_back(wood_cut::nothing);
         }
 
-        for (size_t i = 0; i < wood_globals::custom_joints_cr_c_ip_female.size(); i+=2)
+        for (size_t i = 0; i < wood_globals::custom_joints_cr_c_ip_female.size(); i += 2)
         {
             joint.f[0].emplace_back(wood_globals::custom_joints_cr_c_ip_female[i]);
             joint.f[0].emplace_back(wood_globals::custom_joints_cr_c_ip_female[i]);
-            joint.f[1].emplace_back(wood_globals::custom_joints_cr_c_ip_female[i+1]);
-            joint.f[1].emplace_back(wood_globals::custom_joints_cr_c_ip_female[i+1]);
+            joint.f[1].emplace_back(wood_globals::custom_joints_cr_c_ip_female[i + 1]);
+            joint.f[1].emplace_back(wood_globals::custom_joints_cr_c_ip_female[i + 1]);
             joint.f_boolean_type.emplace_back(wood_cut::nothing);
             joint.f_boolean_type.emplace_back(wood_cut::nothing);
         }
-
     }
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Top-to-top edge plane joints 40-49
@@ -5033,32 +5381,30 @@ IK::Point_3(1.25, -0.5, 0.5),
         joint.key += std::to_string(joint.id);
     }
 
-
     void tt_e_p_custom(wood::joint &joint)
     {
 
         joint.name = __func__;
 
-        for (size_t i = 0; i < wood_globals::custom_joints_tt_e_p_male.size(); i+=2)
+        for (size_t i = 0; i < wood_globals::custom_joints_tt_e_p_male.size(); i += 2)
         {
             joint.m[0].emplace_back(wood_globals::custom_joints_tt_e_p_male[i]);
             joint.m[0].emplace_back(wood_globals::custom_joints_tt_e_p_male[i]);
-            joint.m[1].emplace_back(wood_globals::custom_joints_tt_e_p_male[i+1]);
-            joint.m[1].emplace_back(wood_globals::custom_joints_tt_e_p_male[i+1]);
+            joint.m[1].emplace_back(wood_globals::custom_joints_tt_e_p_male[i + 1]);
+            joint.m[1].emplace_back(wood_globals::custom_joints_tt_e_p_male[i + 1]);
             joint.m_boolean_type.emplace_back(wood_cut::nothing);
             joint.m_boolean_type.emplace_back(wood_cut::nothing);
         }
 
-        for (size_t i = 0; i < wood_globals::custom_joints_tt_e_p_female.size(); i+=2)
+        for (size_t i = 0; i < wood_globals::custom_joints_tt_e_p_female.size(); i += 2)
         {
             joint.f[0].emplace_back(wood_globals::custom_joints_tt_e_p_female[i]);
             joint.f[0].emplace_back(wood_globals::custom_joints_tt_e_p_female[i]);
-            joint.f[1].emplace_back(wood_globals::custom_joints_tt_e_p_female[i+1]);
-            joint.f[1].emplace_back(wood_globals::custom_joints_tt_e_p_female[i+1]);
+            joint.f[1].emplace_back(wood_globals::custom_joints_tt_e_p_female[i + 1]);
+            joint.f[1].emplace_back(wood_globals::custom_joints_tt_e_p_female[i + 1]);
             joint.f_boolean_type.emplace_back(wood_cut::nothing);
             joint.f_boolean_type.emplace_back(wood_cut::nothing);
         }
-
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -5144,26 +5490,25 @@ IK::Point_3(1.25, -0.5, 0.5),
 
         joint.name = __func__;
 
-        for (size_t i = 0; i < wood_globals::custom_joints_b_male.size(); i+=2)
+        for (size_t i = 0; i < wood_globals::custom_joints_b_male.size(); i += 2)
         {
             joint.m[0].emplace_back(wood_globals::custom_joints_b_male[i]);
             joint.m[0].emplace_back(wood_globals::custom_joints_b_male[i]);
-            joint.m[1].emplace_back(wood_globals::custom_joints_b_male[i+1]);
-            joint.m[1].emplace_back(wood_globals::custom_joints_b_male[i+1]);
+            joint.m[1].emplace_back(wood_globals::custom_joints_b_male[i + 1]);
+            joint.m[1].emplace_back(wood_globals::custom_joints_b_male[i + 1]);
             joint.m_boolean_type.emplace_back(wood_cut::nothing);
             joint.m_boolean_type.emplace_back(wood_cut::nothing);
         }
 
-        for (size_t i = 0; i < wood_globals::custom_joints_b_female.size(); i+=2)
+        for (size_t i = 0; i < wood_globals::custom_joints_b_female.size(); i += 2)
         {
             joint.f[0].emplace_back(wood_globals::custom_joints_b_female[i]);
             joint.f[0].emplace_back(wood_globals::custom_joints_b_female[i]);
-            joint.f[1].emplace_back(wood_globals::custom_joints_b_female[i+1]);
-            joint.f[1].emplace_back(wood_globals::custom_joints_b_female[i+1]);
+            joint.f[1].emplace_back(wood_globals::custom_joints_b_female[i + 1]);
+            joint.f[1].emplace_back(wood_globals::custom_joints_b_female[i + 1]);
             joint.f_boolean_type.emplace_back(wood_cut::nothing);
             joint.f_boolean_type.emplace_back(wood_cut::nothing);
         }
-
     }
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Key function that iterates through all joints and calls the function that constructs the joint geometry
@@ -5183,6 +5528,8 @@ IK::Point_3(1.25, -0.5, 0.5),
         joint_names[2] = "ss_e_ip_1";
         joint_names[3] = "ss_e_ip_2";
         joint_names[4] = "ss_e_ip_3";
+        joint_names[5] = "ss_e_ip_4";
+        joint_names[6] = "ss_e_ip_5";
         joint_names[8] = "side_removal";
         joint_names[9] = "ss_e_ip_custom";
         joint_names[10] = "ss_e_op_0";
@@ -5218,6 +5565,7 @@ IK::Point_3(1.25, -0.5, 0.5),
         joint_names[45] = "tt_e_p_5";
         joint_names[48] = "side_removal";
         joint_names[49] = "tt_e_p_custom";
+        joint_names[55] = "ss_e_r_2";
         joint_names[58] = "side_removal_ss_e_r_1";
         joint_names[59] = "ss_e_r_custom";
         joint_names[60] = "b_0";
@@ -5407,7 +5755,6 @@ IK::Point_3(1.25, -0.5, 0.5),
                 case (2):
                     ss_e_ip_0(jo);
                     break;
-
                 case (3):
                     ss_e_ip_2(jo, elements);
                     break;
@@ -5417,13 +5764,16 @@ IK::Point_3(1.25, -0.5, 0.5),
                 case (5):
                     ss_e_ip_4(jo);
                     break;
+                case (6):
+                    ss_e_ip_5(jo, elements);
+                    break;
                 case (8):
                     side_removal(jo, elements);
                     break;
                 case (9):
                     ss_e_ip_custom(jo);
                     // wont work, because not oriented to connection zones, need additional layer e.g. std::map of all joints
-                    //internal::read_xml(jo, jo.type); // is it 0 or 12 ?
+                    // internal::read_xml(jo, jo.type); // is it 0 or 12 ?
                     // CGAL_Debug(elements[joint.v0].thickness);
                     break;
                 default:
@@ -5435,7 +5785,7 @@ IK::Point_3(1.25, -0.5, 0.5),
             case (1):
                 switch (id_representing_joint_name)
                 {
-                // printf("\nss_e_op_1");
+                    // printf("\nss_e_op_1");
                 case (10):
 
                     ss_e_op_1(jo);
@@ -5473,7 +5823,7 @@ IK::Point_3(1.25, -0.5, 0.5),
                     //     myfile2.close();
                     // }
                     // wont work, because not oriented to connection zones, need additional layer e.g. std::map of all joints
-                    //internal::read_xml(jo, jo.type); // is it 0 or 12 ?
+                    // internal::read_xml(jo, jo.type); // is it 0 or 12 ?
                     break;
                 default:
                     ss_e_op_1(jo);
@@ -5511,7 +5861,7 @@ IK::Point_3(1.25, -0.5, 0.5),
                 case (29):
                     ts_e_p_custom(jo);
                     // wont work, because not oriented to connection zones, need additional layer e.g. std::map of all joints
-                    //internal::read_xml(jo, jo.type); // is it 0 or 12 ?
+                    // internal::read_xml(jo, jo.type); // is it 0 or 12 ?
                     break;
                 default:
                     ts_e_p_3(jo);
@@ -5545,7 +5895,7 @@ IK::Point_3(1.25, -0.5, 0.5),
                 case (39):
                     cr_c_ip_custom(jo);
                     // wont work, because not oriented to connection zones, need additional layer e.g. std::map of all joints
-                    //internal::read_xml(jo, jo.type); // is it 0 or 12 ?
+                    // internal::read_xml(jo, jo.type); // is it 0 or 12 ?
                     break;
                 default:
                     cr_c_ip_0(jo);
@@ -5590,7 +5940,9 @@ IK::Point_3(1.25, -0.5, 0.5),
                 switch (id_representing_joint_name)
                 {
                     // CGAL_Debug(id_representing_joint_name);
-
+                case (55):
+                    ss_e_r_2(jo, elements);
+                    break;
                 case (56):
                     ss_e_r_0(jo, elements);
                     break;
@@ -5604,7 +5956,7 @@ IK::Point_3(1.25, -0.5, 0.5),
                     ss_e_r_custom(jo);
                     // CGAL_Debug(99999);
                     // ss_e_ip_1(jo);
-                    //internal::read_xml(jo, jo.type); // is it 0 or 12 ?
+                    // internal::read_xml(jo, jo.type); // is it 0 or 12 ?
                     break;
                 default:
 

@@ -17,9 +17,9 @@ int main(int argc, char **argv)
 	wood_globals::ANGLE = 0.11;
 
 	opengl_globals::shader_type_0default_1transparent_2shaded_3shadedwireframe_4wireframe_5normals_6explode = 2;
-	opengl_render::render(
-		wood_test::type_plates_name_hex_block_rossiniere,
-		"C:\\brg\\2_code\\wood_cpp\\backend\\src\\"); // wood_test::type_plates_name_vda_floor_1
+	opengl_render::render(wood_test::type_plates_name_side_to_side_edge_inplane_hilti,
+						  // wood_test::type_plates_name_side_to_side_edge_inplane_2_butterflies,
+						  "C:\\brg\\2_code\\wood_cpp\\backend\\src\\"); // wood_test::type_plates_name_vda_floor_1
 
 	return 0;
 }
