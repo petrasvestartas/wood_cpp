@@ -1,0 +1,61 @@
+\doxysection{wood\+\_\+xml.\+h}
+\hypertarget{wood__xml_8h_source}{}\label{wood__xml_8h_source}\index{C:/brg/2\_code/wood\_cpp/backend/src/wood/include/wood\_xml.h@{C:/brg/2\_code/wood\_cpp/backend/src/wood/include/wood\_xml.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ WOOD\_XML\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ WOOD\_XML\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}wood\_cut.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }wood\_xml}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{comment}{//\ \#include\ "{}../../stdafx.h"{}}}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{comment}{//\ \#include\ "{}wood\_main.h"{}}}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{extern}\ std::string\ path\_and\_file\_for\_input\_numbers;}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{extern}\ std::string\ path\_and\_file\_for\_input\_polylines;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{extern}\ std::string\ path\_and\_file\_for\_input\_polylines\_simple\_case;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{extern}\ std::string\ path\_and\_file\_for\_output\_polylines;}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{extern}\ std::string\ path\_and\_file\_for\_output\_polylines\_simple\_case;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{bool}\ file\_exists\_0(\textcolor{keyword}{const}\ std::string\ \&name);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ read\_xml\_numbers(std::vector<std::vector<double>>\ \&numbers);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ read\_xml\_polylines(std::vector<std::vector<IK::Point\_3>>\ \&polylines,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \&simple\_case\ =\ \textcolor{keyword}{false},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \&remove\_duplicates\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{bool}\ read\_xml\_polylines(std::vector<std::vector<double>>\ \&polylines,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \&simple\_case,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \&remove\_duplicates);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{bool}\ read\_xml\_polylines\_and\_properties(}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ std::vector<std::vector<IK::Point\_3>>\ \&input\_polyline\_pairs,}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ std::vector<std::vector<IK::Vector\_3>>\ \&input\_insertion\_vectors,}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ std::vector<std::vector<int>>\ \&input\_JOINTS\_TYPES,}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ std::vector<std::vector<int>>\ \&input\_three\_valence\_element\_indices\_and\_instruction,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ std::vector<int>\ \&input\_adjacency,}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \&simple\_case\ =\ \textcolor{keyword}{false},}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \&remove\_duplicates\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{bool}\ read\_xml\_polylines\_and\_properties(}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ std::vector<std::vector<double>>\ \&input\_polyline\_pairs,}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ std::vector<std::vector<double>>\ \&input\_insertion\_vectors,}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ std::vector<std::vector<int>>\ \&input\_JOINTS\_TYPES,}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ std::vector<std::vector<int>>\ \&input\_three\_valence\_element\_indices\_and\_instruction,}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ std::vector<int>\ \&input\_adjacency,}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \&simple\_case\ =\ \textcolor{keyword}{false},}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \&remove\_duplicates\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{bool}\ write\_xml\_polylines(std::vector<std::vector<IK::Point\_3>>\ \&polylines,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \&simple\_case\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{bool}\ write\_xml\_polylines(std::vector<std::vector<std::vector<IK::Point\_3>>>\ \&polylines\_tree,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}\ =\ -\/1);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{bool}\ write\_xml\_polylines\_and\_types(}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ std::vector<std::vector<std::vector<IK::Point\_3>>>\ \&polylines\_tree,}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ std::vector<std::vector<wood\_cut::cut\_type>>\ \&types\_tree,}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}\ =\ -\/1,}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ simple\_case\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00110\ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

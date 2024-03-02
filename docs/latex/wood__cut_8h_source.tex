@@ -1,0 +1,101 @@
+\doxysection{wood\+\_\+cut.\+h}
+\hypertarget{wood__cut_8h_source}{}\label{wood__cut_8h_source}\index{C:/brg/2\_code/wood\_cpp/backend/src/wood/include/wood\_cut.h@{C:/brg/2\_code/wood\_cpp/backend/src/wood/include/wood\_cut.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ WOOD\_CUT\_TYPE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ WOOD\_CUT\_TYPE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{comment}{//\#include\ "{}../../stdafx.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ cut\_type\ describes\ the\ fabrication\ method}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ this\ type\ is\ mainly\ used\ in\ wood\_joint.h\ in\ the\ class\ joint}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ the\ joint\ is\ defined\ in\ the\ wood\_joint\_library.h\ as\ predefined\ types}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ string\_to\_cut\_type\ and\ cut\_type\_to\_string\ are\ used\ for\ conversion,\ when\ writing\ to\ XML\ from\ it}}
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }wood\_cut\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{enum}\ cut\_type}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ nothing,}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{comment}{//\ plates}}
+\DoxyCodeLine{00019\ \ \ \ \ edge\_insertion,}
+\DoxyCodeLine{00020\ \ \ \ \ hole,}
+\DoxyCodeLine{00021\ \ \ \ \ insert\_between\_multiple\_edges,}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//\ beams}}
+\DoxyCodeLine{00024\ \ \ \ \ slice,\ \textcolor{comment}{//\ always\ projected}}
+\DoxyCodeLine{00025\ \ \ \ \ slice\_projectsheer,}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ mill,\ \textcolor{comment}{//\ always\ inside\ volume}}
+\DoxyCodeLine{00028\ \ \ \ \ mill\_project,}
+\DoxyCodeLine{00029\ \ \ \ \ mill\_projectsheer,}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ cut,}
+\DoxyCodeLine{00032\ \ \ \ \ cut\_project,}
+\DoxyCodeLine{00033\ \ \ \ \ cut\_projectsheer,}
+\DoxyCodeLine{00034\ \ \ \ \ cut\_reverse,}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ conic,\ \textcolor{comment}{//\ always\ projected}}
+\DoxyCodeLine{00037\ \ \ \ \ conic\_reverse,}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ drill,}
+\DoxyCodeLine{00040\ \ \ \ \ drill\_50,}
+\DoxyCodeLine{00041\ \ \ \ \ drill\_10,}
+\DoxyCodeLine{00042\ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{static}\ std::map<std::string,\ cut\_type>\ string\_to\_cut\_type\{}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \{\textcolor{stringliteral}{"{}nothing"{}},\ nothing\},}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \{\textcolor{stringliteral}{"{}hole"{}},\ hole\},}
+\DoxyCodeLine{00049\ \ \ \ \ \{\textcolor{stringliteral}{"{}edge\_insertion"{}},\ edge\_insertion\},}
+\DoxyCodeLine{00050\ \ \ \ \ \{\textcolor{stringliteral}{"{}insert\_between\_multiple\_edges"{}},\ insert\_between\_multiple\_edges\},}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \{\textcolor{stringliteral}{"{}slice"{}},\ slice\},}
+\DoxyCodeLine{00053\ \ \ \ \ \{\textcolor{stringliteral}{"{}slice\_projectsheer"{}},\ slice\_projectsheer\},}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \{\textcolor{stringliteral}{"{}mill"{}},\ mill\},}
+\DoxyCodeLine{00056\ \ \ \ \ \{\textcolor{stringliteral}{"{}mill\_project"{}},\ mill\_project\},}
+\DoxyCodeLine{00057\ \ \ \ \ \{\textcolor{stringliteral}{"{}mill\_projectsheer"{}},\ mill\_projectsheer\},}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \{\textcolor{stringliteral}{"{}cut"{}},\ cut\},}
+\DoxyCodeLine{00060\ \ \ \ \ \{\textcolor{stringliteral}{"{}cut\_project"{}},\ cut\_project\},}
+\DoxyCodeLine{00061\ \ \ \ \ \{\textcolor{stringliteral}{"{}cut\_projectsheer"{}},\ cut\_projectsheer\},}
+\DoxyCodeLine{00062\ \ \ \ \ \{\textcolor{stringliteral}{"{}cut\_reverse"{}},\ cut\_reverse\},}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \{\textcolor{stringliteral}{"{}conic"{}},\ conic\},}
+\DoxyCodeLine{00065\ \ \ \ \ \{\textcolor{stringliteral}{"{}conic\_reverse"{}},\ conic\_reverse\},}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \{\textcolor{stringliteral}{"{}drill"{}},\ drill\},}
+\DoxyCodeLine{00068\ \};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{keyword}{static}\ std::array<std::string,\ 16>\ cut\_type\_to\_string\{}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{stringliteral}{"{}nothing"{}},}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{stringliteral}{"{}hole"{}},}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{stringliteral}{"{}edge\_insertion"{}},}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{stringliteral}{"{}insert\_between\_multiple\_edges"{}},}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{stringliteral}{"{}slice"{}},}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{stringliteral}{"{}slice\_projectsheer"{}},}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{stringliteral}{"{}mill"{}},}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{stringliteral}{"{}mill\_project"{}},}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{stringliteral}{"{}mill\_projectsheer"{}},}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{stringliteral}{"{}cut"{}},}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{stringliteral}{"{}cut\_project"{}},}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{stringliteral}{"{}cut\_projectsheer"{}},}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{stringliteral}{"{}cut\_reverse"{}},}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{stringliteral}{"{}conic"{}},}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{stringliteral}{"{}conic\_reverse"{}},}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{stringliteral}{"{}drill"{}},}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \};}
+\DoxyCodeLine{00096\ \}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ WOOD\_CUT\_TYPE\_H}}
+
+\end{DoxyCode}

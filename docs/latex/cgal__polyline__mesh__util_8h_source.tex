@@ -1,0 +1,51 @@
+\doxysection{cgal\+\_\+polyline\+\_\+mesh\+\_\+util.\+h}
+\hypertarget{cgal__polyline__mesh__util_8h_source}{}\label{cgal__polyline__mesh__util_8h_source}\index{C:/brg/2\_code/wood\_cpp/backend/src/wood/include/cgal\_polyline\_mesh\_util.h@{C:/brg/2\_code/wood\_cpp/backend/src/wood/include/cgal\_polyline\_mesh\_util.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ DEVELOPER:}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ Petras\ Vestartas,\ petasvestartas@gmail.com}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ Funding:\ NCCR\ Digital\ Fabrication\ and\ EPFL}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ HISTORY:}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ 1)\ The\ first\ version\ was\ written\ during\ the\ PhD\ 8928\ thesis\ of\ Petras\ Vestartas\ called:}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ Design-\/to-\/Fabrication\ Workflow\ for\ Raw-\/Sawn-\/Timber\ using\ Joinery\ Solver,\ 2017-\/2021}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ 2)\ The\ translation\ from\ C\#\ to\ C++\ was\ started\ during\ the\ funding\ of\ NCCR\ in\ two\ steps}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ A\ -\/\ standalone\ C++\ version\ of\ the\ joinery\ solver\ and\ B\ -\/\ integration\ to\ COMPAS\ framework\ (Python\ Pybind11)}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ RESTRICTIONS:}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ The\ code\ cannot\ be\ used\ for\ commercial\ reasons}}
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ If\ you\ would\ like\ to\ use\ or\ change\ the\ code\ for\ research\ or\ educational\ reasons,}}
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ please\ contact\ the\ developer\ first}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//}}
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ 3RD\ PARTY\ LIBRARIES:}}
+\DoxyCodeLine{00019\ \textcolor{comment}{//\ CGAL\ CDT}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#ifndef\ CGAL\_POLYLINE\_MESH\_UTIL\_H}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ CGAL\_POLYLINE\_MESH\_UTIL\_H}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{namespace\ }cgal\_polyline\_mesh\_util}
+\DoxyCodeLine{00026\ \{}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{namespace\ }internal}
+\DoxyCodeLine{00029\ \ \ \ \ \{}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ length(\textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{double}\ y,\ \textcolor{keywordtype}{double}\ z);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ unitize(IK::Vector\_3\ \&vector);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ mark\_domains(CGALCDT\ \&ct,\ Face\_handle\ start,\ \textcolor{keywordtype}{int}\ index,\ std::list<CGALCDT::Edge>\ \&border);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ mark\_domains(CGALCDT\ \&CGALCDT);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ CGAL::Aff\_transformation\_3<IK>\ plane\_to\_xy(\textcolor{keyword}{const}\ IK::Point\_3\ \&origin,\ \textcolor{keyword}{const}\ IK::Plane\_3\ \&plane);}
+\DoxyCodeLine{00081\ \ \ \ \ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{void}\ mesh\_from\_polylines(\textcolor{keyword}{const}\ std::vector<CGAL\_Polyline>\ \&polylines\_with\_holes,\ \textcolor{keyword}{const}\ IK::Plane\_3\ \&base\_plane,\ std::vector<int>\ \&top\_outline\_face\_vertex\_indices,\ \textcolor{keywordtype}{int}\ \&v\_count,\ \textcolor{keywordtype}{int}\ \&f\_count);}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{void}\ closed\_mesh\_from\_polylines\_vnf(\textcolor{keyword}{const}\ std::vector<CGAL\_Polyline>\ \&polylines\_with\_holes,\ std::vector<float>\ \&out\_vertices,\ std::vector<float>\ \&out\_normals,\ std::vector<int>\ \&out\_triangles,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&scale\ =\ 1000);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

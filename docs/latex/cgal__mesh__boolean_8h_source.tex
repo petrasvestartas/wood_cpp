@@ -1,0 +1,33 @@
+\doxysection{cgal\+\_\+mesh\+\_\+boolean.\+h}
+\hypertarget{cgal__mesh__boolean_8h_source}{}\label{cgal__mesh__boolean_8h_source}\index{C:/brg/2\_code/wood\_cpp/backend/src/wood/include/cgal\_mesh\_boolean.h@{C:/brg/2\_code/wood\_cpp/backend/src/wood/include/cgal\_mesh\_boolean.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CGAL\_MESH\_BOOLEAN\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CGAL\_MESH\_BOOLEAN\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{namespace\ }cgal\_mesh\_boolean}
+\DoxyCodeLine{00005\ \{}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keywordtype}{void}\ mesh\_boolean\_create\_array\_track\_colors(}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ double\ *coord\_mesh,\ int\ *n\_coord\_meshArray,\ //\ Flat\ array\ of\ coordinates\ /\ 0\ 256\ 512\ flat\ array\ of\ vertices\ array\ /\ number\ of\ meshes}}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ int\ *faces\_mesh,\ int\ *n\_faces\_meshArray,}}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ size\_t\ n\_mesh,}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ std::vector<Mesh>\ mesh\_list,}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ difference\_union\_intersection,}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ std::vector<float>\ \&coord\_out,\ \textcolor{keywordtype}{int}\ \&n\_coord\_out,}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ std::vector<float>\ \&normals\_out,}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ std::vector<int>\ \&faces\_out,\ \textcolor{keywordtype}{int}\ \&n\_faces\_out,}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ std::vector<int>\ \&facesColors\_out,\ \textcolor{keywordtype}{int}\ \&n\_facesColors\_out,}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \&n\_valid\_meshes}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ );}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ mesh\_boolean\_test();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CGAL\_MESH\_BOOLEAN\_H}}
+
+\end{DoxyCode}

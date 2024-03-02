@@ -1,0 +1,125 @@
+\doxysection{wood\+\_\+joint.\+h}
+\hypertarget{wood__joint_8h_source}{}\label{wood__joint_8h_source}\index{C:/brg/2\_code/wood\_cpp/backend/src/wood/include/wood\_joint.h@{C:/brg/2\_code/wood\_cpp/backend/src/wood/include/wood\_joint.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ DEVELOPER:}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ Petras\ Vestartas,\ petasvestartas@gmail.com}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ Funding:\ NCCR\ Digital\ Fabrication\ and\ EPFL}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ HISTORY:}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ 1)\ The\ first\ version\ was\ written\ during\ the\ PhD\ 8928\ thesis\ of\ Petras\ Vestartas\ called:}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ Design-\/to-\/Fabrication\ Workflow\ for\ Raw-\/Sawn-\/Timber\ using\ Joinery\ Solver,\ 2017-\/2021}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ 2)\ The\ translation\ from\ C\#\ to\ C++\ was\ started\ during\ the\ funding\ of\ NCCR\ in\ two\ steps}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ A\ -\/\ standalone\ C++\ version\ of\ the\ joinery\ solver\ and\ B\ -\/\ integration\ to\ COMPAS\ framework\ (Python\ Pybind11)}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ RESTRICTIONS:}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ The\ code\ cannot\ be\ used\ for\ commercial\ reasons}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ If\ you\ would\ like\ to\ use\ or\ change\ the\ code\ for\ research\ or\ educational\ reasons,}}
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ please\ contact\ the\ developer\ first}}
+\DoxyCodeLine{00016\ \textcolor{comment}{//}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ 3RD\ PARTY\ LIBRARIES:}}
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ None}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#ifndef\ WOOD\_JOINT\_H}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ WOOD\_JOINT\_H}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}wood\_cut.h"{}}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{namespace\ }wood}
+\DoxyCodeLine{00027\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{//\ Container\ for\ cuts}}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classwood_1_1joint}{joint}}}
+\DoxyCodeLine{00030\ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ change\_basis(CGAL\_Polyline\ \&rect0,\ CGAL\_Polyline\ \&rect1,\ CGAL::Aff\_transformation\_3<IK>\ \&xform);\ \textcolor{comment}{//\ first\ get\ 2x\ change\_basis\ transformation\ matrices}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Parameters\ from\ Search\ method\ v-\/volume\ f-\/face}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}\ =\ 0,\ v0,\ v1,\ f0\_0,\ f1\_0,\ f0\_1,\ f1\_1,\ type;\ \textcolor{comment}{//\ 10\ -\/\ SS\ Rotate\ 11\ -\/\ SS\ OUT\ OF\ PLANE\ 12\ -\/\ SS\ IN\ Plane,\ \ 20\ Top-\/Side,\ 30\ -\/\ Cross}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ std::string\ key\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ CGAL\_Polyline\ joint\_area;\ \ \ \ \ \textcolor{comment}{//\ delete}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ CGAL\_Polyline\ joint\_lines[2];\ \textcolor{comment}{//\ delete}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ CGAL\_Polyline\ joint\_quads[2];//delete}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ CGAL\_Polyline\ joint\_volumes[4];\ \textcolor{comment}{//\ mostly\ 2,\ but\ can\ be\ 4\ e.g.\ in-\/plane\ side-\/side}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Detailed\ parameters\ for\ geometry\ transfer\ from\ library\ or\ custom\ made}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ std::string\ name\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ id\_of\_global\_joint\_list\ =\ -\/1;\ \ \ \ \textcolor{comment}{//\ Directs\ which\ joint\ applies\ where,\ -\/1\ all\ cases}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ std::vector<double>\ tile\_parameters;\ \textcolor{comment}{//\ For\ rebuilding}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ std::array<std::vector<CGAL\_Polyline>,\ 2>\ m;}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ std::vector<wood\_cut::cut\_type>\ m\_boolean\_type;\ \textcolor{comment}{//\ 0\ -\/\ do\ not\ merge,\ 1\ -\/\ edge\ insertion,\ 2\ -\/\ hole\ 3\ -\/\ insert\ between\ multiple\ edges\ hole}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ std::array<std::vector<CGAL\_Polyline>,\ 2>\ f;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ std::vector<wood\_cut::cut\_type>\ f\_boolean\_type;\ \textcolor{comment}{//\ 0\ -\/\ do\ not\ merge,\ 1\ -\/\ edge\ insertion,\ 2\ -\/\ hole\ 3\ -\/\ insert\ between\ multiple\ edges\ hole}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Joint\ geometrical\ parameters\ for}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ a)\ enable\ orientation}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ b)\ enable\ unit\ scale}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ c)\ parametric\ joint\ changes}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ d)\ scale\ of\ the\ joint\ volume}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ e)\ computed\ parameters\ for\ computed\ the\ key,\ while\ creating\ the\ cache\ of\ precomputed\ joints\ and\ constucting\ initial\ joints}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Unit\ scale}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ this\ property\ is\ enabled,\ joint\ volume\ rectangles\ are\ moved\ within\ unit\_scale\_distance,\ this\ property\ is\ equal\ to\ first\ element\ thickness}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ unit\_scale\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ unit\_scale\_distance\ =\ 0;}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Enable\ orientation\ or\ the\ joint\ is\ compute\ in\ place\ e.g.\ screws\ are\ computed\ in\ place,\ while\ other\ are\ pre-\/computed\ and\ oriented}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ orient\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ User\ parameter}}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ division\_length\ =\ 10;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ shift\ =\ 0.5;}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ scale\ of\ the\ joint\ volume}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ std::array<double,\ 3>\ scale\ =\ \{1,\ 1,\ 1\};}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ computed\ parameters}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ divisions\ =\ 1;}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ length\ =\ 1;}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ compute\_geometrical\_divisions\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Constructors}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classwood_1_1joint_a7792d8e0a20ddd3c2179b7702611b719}{joint}}();}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classwood_1_1joint_a7792d8e0a20ddd3c2179b7702611b719}{joint}}(\textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ std::array<CGAL\_Polyline,\ 4>\ \&);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classwood_1_1joint_a973f9af64f8c73785aaa37fabe3b4c55}{joint}}(\textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ CGAL\_Polyline(\&),\ std::array<CGAL\_Polyline,\ 2>\ \&,\ std::array<CGAL\_Polyline,\ 4>\ \&,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Operators}}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ std::vector<CGAL\_Polyline>\ \&\mbox{\hyperlink{classwood_1_1joint_ae2c0b3321171ad810be334be7af1b3a2}{operator()}}(\textcolor{keywordtype}{bool}\ male\_or\_female,\ \textcolor{keywordtype}{bool}\ first\_or\_second);}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classwood_1_1joint_ac9107df545f4cbceec5734a3af613438}{get\_edge\_ids}}(\textcolor{keywordtype}{bool}\ male\_or\_female,\ \textcolor{keywordtype}{int}\ \&fA,\ \textcolor{keywordtype}{int}\ \&fB);}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ wood\_cut::cut\_type\ \&\mbox{\hyperlink{classwood_1_1joint_a5e1767a084f43ebae2b8d9416221a997}{get\_first\_cutting\_type}}(\textcolor{keywordtype}{bool}\ male\_or\_female);}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ std::vector<wood\_cut::cut\_type>\ \&\mbox{\hyperlink{classwood_1_1joint_ae2c0b3321171ad810be334be7af1b3a2}{operator()}}(\textcolor{keywordtype}{bool}\ male\_or\_female);}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classwood_1_1joint_a925b7a9c6ded12b3466ed4cbfb371390}{reverse}}(\textcolor{keywordtype}{bool}\ male\_or\_female);}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classwood_1_1joint_a84837689d878a0e5395ead4037cafcc2}{get\_key}}();}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classwood_1_1joint_a1292e7e863032241b6f019975c39cdf6}{transform}}(CGAL::Aff\_transformation\_3<IK>\ \&xform0,\ CGAL::Aff\_transformation\_3<IK>\ \&xform1);\ \textcolor{comment}{//\ Custom\ user\ transformation}}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classwood_1_1joint_a3562253c9ec3108a1b6f8ecb307db97a}{orient\_to\_connection\_area}}();\ \textcolor{comment}{//\ Orient\ to\ connection\ area\ if\ rectangles\ are\ set}}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classwood_1_1joint_a287f362c4414e852dcf61a12810eed47}{duplicate\_geometry}}(\mbox{\hyperlink{classwood_1_1joint}{joint}}\ \&);}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classwood_1_1joint_a64de84ff61340412d1c5ef120fb6f3f6}{transfer\_geometry}}(\mbox{\hyperlink{classwood_1_1joint}{joint}}\ \&);}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classwood_1_1joint_a02f869a64e9a29097fc47250f71ce318}{get\_divisions}}(\textcolor{keywordtype}{double}\ \&division\_distance);}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ joint\ linking\ with\ other\ joints}}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ link\ =\ \textcolor{keyword}{false};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ assigned\ in\ three\_valence\_joint\_addition\_vidy\ for\ the\ link\ joint}}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ std::vector<int>\ linked\_joints;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ assigned\ in\ three\_valence\_joint\_addition\_vidy\ for\ the\ main\ joint}}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ std::vector<std::vector<std::array<int,\ 4>>>\ linked\_joints\_seq;\ \textcolor{comment}{//\ assigned\ on\ wood\_joint\_library\ |\ it\ is\ nested\ because\ there\ can\ be\ umber\ of\ polylines\ |\ example\ \{start\_curr,step\_curr\}\ means\ that\ "{}start\_curr+step\_curr*i"{}\ and\ \{start\_link,step\_link\}\ -\/>\ "{}start\_link+step\_link*i"{}}}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classwood_1_1joint_a7068c48e9038b97f95cb3b0b6bcf7b44}{remove\_geo\_from\_linked\_joint\_and\_merge\_with\_current\_joint}}(std::vector<joint>\ \&all\_joints);\ \textcolor{comment}{//\ it\ is\ called\ if\ linked\_joints\ vector\ is\ not\ empty\ |\ also\ check\ wood\_joint\ -\/>\ joint\ linking\ with\ other\ joints}}
+\DoxyCodeLine{00240\ \ \ \ \ \};}
+\DoxyCodeLine{00241\ \}}
+\DoxyCodeLine{00242\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

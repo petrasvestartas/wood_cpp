@@ -1,0 +1,207 @@
+\doxysection{wood\+\_\+test.\+h}
+\hypertarget{wood__test_8h_source}{}\label{wood__test_8h_source}\index{C:/brg/2\_code/wood\_cpp/backend/src/wood/include/wood\_test.h@{C:/brg/2\_code/wood\_cpp/backend/src/wood/include/wood\_test.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ DEVELOPER:}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ Petras\ Vestartas,\ petasvestartas@gmail.com}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ Funding:\ NCCR\ Digital\ Fabrication\ and\ EPFL}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ HISTORY:}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ 1)\ The\ first\ version\ was\ written\ during\ the\ PhD\ 8928\ thesis\ of\ Petras\ Vestartas\ called:}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ Design-\/to-\/Fabrication\ Workflow\ for\ Raw-\/Sawn-\/Timber\ using\ Joinery\ Solver,\ 2017-\/2021}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ 2)\ The\ translation\ from\ C\#\ to\ C++\ was\ started\ during\ the\ funding\ of\ NCCR\ in\ two\ steps}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ A\ -\/\ standalone\ C++\ version\ of\ the\ joinery\ solver\ and\ B\ -\/\ integration\ to\ COMPAS\ framework\ (Python\ Pybind11)}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ RESTRICTIONS:}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ The\ code\ cannot\ be\ used\ for\ commercial\ reasons}}
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ If\ you\ would\ like\ to\ use\ or\ change\ the\ code\ for\ research\ or\ educational\ reasons,}}
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ please\ contact\ the\ developer\ first}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//}}
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ PROTOCOL\ FOR\ IMPLEMENTING\ NEW\ TESTS}}
+\DoxyCodeLine{00019\ \textcolor{comment}{//\ STEP\ 1\ -\/\ Example\ method,\ with\ Doxygen\ type\ comments\ in\ the\ header\ files\ and\ naming:\ "{}type\_joinery\_plates\_name\_hexbox\_and\_corner"{}}}
+\DoxyCodeLine{00020\ \textcolor{comment}{//\ STEP\ 2\ -\/\ GoogleTest\ method}}
+\DoxyCodeLine{00021\ \textcolor{comment}{//\ STEP\ 3\ -\/\ Screenshot\ ,\ click\ "{}GLFW\_KEY\_KP\_0"{}\ to\ save\ the\ screenshot\ wood\_globals.cpp\ -\/>\ DATA\_SET\_INPUT\_FOLDER\ (C:\(\backslash\)IBOIS57\(\backslash\)\_Code\(\backslash\)Software\(\backslash\)Python\(\backslash\)compas\_wood\(\backslash\)backend\(\backslash\)src\(\backslash\)wood\(\backslash\)dataset)}}
+\DoxyCodeLine{00022\ \textcolor{comment}{//\ STEP\ 4\ -\/\ Run\ all\ the\ tests\ in\ the\ main.cpp\ like\ this:\ \ wood\_test::run\_all\_tests();}}
+\DoxyCodeLine{00023\ \textcolor{comment}{//\ NOTE\ -\/\ file-\/paths\ that\ are\ different\ from\ pc\ to\ pc,\ please\ change\ the\ path\ before\ running\ the\ code\ in\ wood\_globals.cpp\ -\/>\ DATA\_SET\_INPUT\_FOLDER}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#ifndef\ WOOD\_TEST\_H}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ WOOD\_TEST\_H}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ data\ structure}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ "{}wood\_cut.h"{}}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ "{}wood\_main.h"{}}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ viewer}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ "{}viewer\_wood.h"{}}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ "{}wood\_xml.h"{}}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{comment}{//\ joinery}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ "{}wood\_joint\_lib.h"{}}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ "{}wood\_joint.h"{}}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{comment}{//\ geometry\ methods}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ "{}cgal\_mesh\_boolean.h"{}}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ "{}cgal\_inscribe\_util.h"{}}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ "{}cgal\_rectangle\_util.h"{}}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{comment}{//\ 3rd\ party\ libraries}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ <gtest/gtest.h>}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{namespace\ }wood\_test}
+\DoxyCodeLine{00050\ \{}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{namespace\ }internal}
+\DoxyCodeLine{00053\ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ joinery\ -\/\ helper\ methods\ (display,\ etc.)}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ set\_file\_path\_for\_input\_xml\_and\_screenshot(\textcolor{keyword}{const}\ std::string\ \&function\_name);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ set\_file\_path\_for\_input\_xml\_and\_screenshot(std::vector<std::vector<IK::Point\_3>>\ \&input\_polyline\_pairs,\ \textcolor{keyword}{const}\ std::string\ \&function\_name,\ \textcolor{keywordtype}{bool}\ remove\_duplicate\_points\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ set\_file\_path\_for\_input\_xml\_and\_screenshot(}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::vector<IK::Point\_3>>\ \&input\_polyline\_pairs,}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::vector<IK::Vector\_3>>\ \&input\_insertion\_vectors,}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::vector<int>>\ \&input\_JOINTS\_TYPES,}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::vector<int>>\ \&input\_three\_valence\_element\_indices\_and\_instruction,}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<int>\ \&input\_adjacency,}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&function\_name,\ \textcolor{keywordtype}{bool}\ remove\_duplicate\_points);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ set\_plate\_display(std::vector<std::vector<IK::Point\_3>>\ \&input\_polyline\_pairs,\ std::vector<std::vector<CGAL\_Polyline>>\ \&output\_plines,\ \textcolor{keywordtype}{bool}\ add\_loft\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00088\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{comment}{//\ plate\ methods}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{comment}{//\ side-\/to-\/side\ in-\/plane\ and\ out-\/of-\/plane}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_hexbox\_and\_corner();}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_joint\_linking\_vidychapel\_corner();}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_joint\_linking\_vidychapel\_one\_layer();}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_joint\_linking\_vidychapel\_one\_axis\_two\_layers();}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_joint\_linking\_vidychapel\_full();}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_side\_to\_side\_edge\_inplane\_2\_butterflies();}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_side\_to\_side\_edge\_inplane\_hexshell();}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_side\_to\_side\_edge\_inplane\_differentdirections();}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00155\ \ \ \ \ type\_plates\_name\_side\_to\_side\_edge\_outofplane\_folding();}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_side\_to\_side\_edge\_outofplane\_box();}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_side\_to\_side\_edge\_outofplane\_tetra();}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_side\_to\_side\_edge\_outofplane\_dodecahedron();}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_side\_to\_side\_edge\_outofplane\_icosahedron();}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_side\_to\_side\_edge\_outofplane\_octahedron();}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_side\_to\_side\_edge\_inplane\_outofplane\_simple\_corners();}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_side\_to\_side\_edge\_inplane\_outofplane\_simple\_corners\_combined();}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_side\_to\_side\_edge\_inplane\_outofplane\_simple\_corners\_different\_lengths();}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_side\_to\_side\_edge\_inplane\_hilti();}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{comment}{//\ top-\/to-\/top\ data\ sets}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_top\_to\_top\_pairs();}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_side\_to\_side\_edge\_outofplane\_inplane\_and\_top\_to\_top\_hexboxes();}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_side\_to\_side\_edge\_outofplane\_inplane\_and\_top\_to\_top\_hexboxes();}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00241\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_hex\_block\_rossiniere();}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{comment}{//\ top-\/to-\/side\ data\ sets}}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_top\_to\_side\_snap\_fit();}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_top\_to\_side\_box();}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_top\_to\_side\_corners();}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_top\_to\_side\_and\_side\_to\_side\_outofplane\_annen\_corner();}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00279\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_top\_to\_side\_and\_side\_to\_side\_outofplane\_annen\_box();}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00287\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_top\_to\_side\_and\_side\_to\_side\_outofplane\_annen\_box\_pair();}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00296\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_top\_to\_side\_and\_side\_to\_side\_outofplane\_annen\_grid\_small();}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00305\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_top\_to\_side\_and\_side\_to\_side\_outofplane\_annen\_grid\_full\_arch();}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_vda\_floor\_0();}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00321\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_vda\_floor\_1();}
+\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00329\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_vda\_floor\_2();}
+\DoxyCodeLine{00330\ }
+\DoxyCodeLine{00332\ \ \ \ \ \textcolor{comment}{//\ cross\ data\ sets}}
+\DoxyCodeLine{00334\ }
+\DoxyCodeLine{00339\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_cross\_and\_sides\_corner();}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00345\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_cross\_corners();}
+\DoxyCodeLine{00346\ }
+\DoxyCodeLine{00351\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_cross\_vda\_corner();}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00358\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_cross\_vda\_hexshell();}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00364\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_cross\_vda\_hexshell\_reciprocal();}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00370\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_cross\_vda\_single\_arch();}
+\DoxyCodeLine{00371\ }
+\DoxyCodeLine{00376\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_cross\_vda\_shell();}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00383\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_cross\_square\_reciprocal\_two\_sides();}
+\DoxyCodeLine{00384\ }
+\DoxyCodeLine{00390\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_cross\_square\_reciprocal\_iseya();}
+\DoxyCodeLine{00391\ }
+\DoxyCodeLine{00397\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_cross\_ibois\_pavilion();}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00403\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_plates\_name\_cross\_brussels\_sports\_tower();}
+\DoxyCodeLine{00404\ }
+\DoxyCodeLine{00406\ \ \ \ \ \textcolor{comment}{//\ beam\ methods}}
+\DoxyCodeLine{00408\ }
+\DoxyCodeLine{00413\ \ \ \ \ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00414\ \ \ \ \ type\_beams\_name\_phanomema\_node();}
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00417\ \ \ \ \ \textcolor{comment}{//\ library\ of\ joints}}
+\DoxyCodeLine{00419\ }
+\DoxyCodeLine{00423\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_library\_name\_ss\_e\_ip\_2();}
+\DoxyCodeLine{00424\ }
+\DoxyCodeLine{00429\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_library\_name\_ss\_e\_op\_4();}
+\DoxyCodeLine{00430\ }
+\DoxyCodeLine{00435\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_library\_name\_ts\_e\_p\_5();}
+\DoxyCodeLine{00436\ }
+\DoxyCodeLine{00438\ \ \ \ \ \textcolor{comment}{//\ geometry\ methods}}
+\DoxyCodeLine{00440\ }
+\DoxyCodeLine{00444\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_geometry\_name\_cgal\_mesh\_boolean\_0();}
+\DoxyCodeLine{00445\ }
+\DoxyCodeLine{00450\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_geometry\_name\_polygon\_center();}
+\DoxyCodeLine{00451\ }
+\DoxyCodeLine{00456\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_geometry\_name\_polygon\_center\_polylabel();}
+\DoxyCodeLine{00457\ }
+\DoxyCodeLine{00462\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_geometry\_name\_circle\_ponts\_inscribed\_in\_a\_polygon();}
+\DoxyCodeLine{00463\ }
+\DoxyCodeLine{00468\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_geometry\_name\_grid\_of\_points\_in\_a\_polygon();}
+\DoxyCodeLine{00469\ }
+\DoxyCodeLine{00474\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_geometry\_name\_offset\_polygon\_inside\_and\_divide\_into\_points();}
+\DoxyCodeLine{00475\ }
+\DoxyCodeLine{00480\ \ \ \ \ \textcolor{keywordtype}{bool}\ type\_geometry\_name\_rectangle\_points\_inscribed\_in\_polygon();}
+\DoxyCodeLine{00481\ }
+\DoxyCodeLine{00483\ \ \ \ \ \textcolor{comment}{//\ GoogleTest}}
+\DoxyCodeLine{00485\ }
+\DoxyCodeLine{00488\ \ \ \ \ \textcolor{keywordtype}{void}\ run\_all\_tests();}
+\DoxyCodeLine{00489\ \}}
+\DoxyCodeLine{00490\ }
+\DoxyCodeLine{00491\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ WOOD\_TEST\_H}}
+
+\end{DoxyCode}

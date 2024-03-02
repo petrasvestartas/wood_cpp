@@ -1,0 +1,113 @@
+\doxysection{wood\+::element Class Reference}
+\hypertarget{classwood_1_1element}{}\label{classwood_1_1element}\index{wood::element@{wood::element}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classwood_1_1element_a1595c516ad1b2b8467c5c22725a39b3f}\label{classwood_1_1element_a1595c516ad1b2b8467c5c22725a39b3f} 
+{\bfseries element} (int \+\_\+id)
+\item 
+\Hypertarget{classwood_1_1element_ad88d86bc80dee3000be0f012ccbe29d2}\label{classwood_1_1element_ad88d86bc80dee3000be0f012ccbe29d2} 
+void {\bfseries get\+\_\+joints\+\_\+geometry} (std\+::vector$<$ \mbox{\hyperlink{classwood_1_1joint}{wood\+::joint}} $>$ \&joints, std\+::vector$<$ std\+::vector$<$ CGAL\+\_\+\+Polyline $>$ $>$ \&output, int what\+\_\+to\+\_\+expose, std\+::vector$<$ std\+::vector$<$ wood\+\_\+cut\+::cut\+\_\+type $>$ $>$ \&output\+\_\+cut\+\_\+types)
+\item 
+\Hypertarget{classwood_1_1element_ab707b9d0591c357ba3fd5c54e9b19f46}\label{classwood_1_1element_ab707b9d0591c357ba3fd5c54e9b19f46} 
+void {\bfseries get\+\_\+joints\+\_\+geometry\+\_\+as\+\_\+closed\+\_\+polylines\+\_\+replacing\+\_\+edges} (std\+::vector$<$ \mbox{\hyperlink{classwood_1_1joint}{wood\+::joint}} $>$ \&joints, std\+::vector$<$ std\+::vector$<$ CGAL\+\_\+\+Polyline $>$ $>$ \&output)
+\item 
+bool \mbox{\hyperlink{classwood_1_1element_a42fb1b645bb3d48010d6af832dc4173c}{intersection\+\_\+closed\+\_\+and\+\_\+open\+\_\+paths\+\_\+2D}} (CGAL\+\_\+\+Polyline \&closed\+\_\+pline\+\_\+cutter, CGAL\+\_\+\+Polyline \&pline\+\_\+to\+\_\+cut, IK\+::\+Plane\+\_\+3 \&plane, CGAL\+\_\+\+Polyline \&c, int(\&edge\+\_\+pair)\mbox{[}2\mbox{]}, std\+::pair$<$ double, double $>$ \&cp\+\_\+pair)
+\item 
+\Hypertarget{classwood_1_1element_a32749afc89cd37c84ad088ef7c5029ed}\label{classwood_1_1element_a32749afc89cd37c84ad088ef7c5029ed} 
+void {\bfseries merge\+\_\+joints} (std\+::vector$<$ \mbox{\hyperlink{classwood_1_1joint}{wood\+::joint}} $>$ \&joints, std\+::vector$<$ std\+::vector$<$ CGAL\+\_\+\+Polyline $>$ $>$ \&output)
+\item 
+void \mbox{\hyperlink{classwood_1_1element_ac7cbb74253268fdfb54064f72e289873}{update\+\_\+lines\+\_\+by\+\_\+intersection}} (std\+::vector$<$ \mbox{\hyperlink{classwood_1_1joint}{wood\+::joint}} $>$ \&joints, std\+::vector$<$ \mbox{\hyperlink{classwood_1_1element}{wood\+::element}} $>$ \&elements)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classwood_1_1element_a8798869dabcb1da347b96b32198f3af4}\label{classwood_1_1element_a8798869dabcb1da347b96b32198f3af4} 
+int {\bfseries id} = -\/1
+\item 
+\Hypertarget{classwood_1_1element_a7ec0d537891c86a5444dc3204889928c}\label{classwood_1_1element_a7ec0d537891c86a5444dc3204889928c} 
+double {\bfseries thickness} = 0
+\item 
+\Hypertarget{classwood_1_1element_a292b4af3812b5dd65c6d9e07d8de20b9}\label{classwood_1_1element_a292b4af3812b5dd65c6d9e07d8de20b9} 
+CGAL\+::\+Bbox\+\_\+3 {\bfseries aabb}
+\item 
+\Hypertarget{classwood_1_1element_a29231ae753989d838cf9396c64237849}\label{classwood_1_1element_a29231ae753989d838cf9396c64237849} 
+IK\+::\+Vector\+\_\+3 {\bfseries oob} \mbox{[}5\mbox{]}
+\item 
+\Hypertarget{classwood_1_1element_a6c5eb4660f8b63371391898f79297525}\label{classwood_1_1element_a6c5eb4660f8b63371391898f79297525} 
+std\+::vector$<$ CGAL\+\_\+\+Polyline $>$ {\bfseries polylines}
+\item 
+\Hypertarget{classwood_1_1element_a53ea710de3c82b35d1b2fd03e654a6e9}\label{classwood_1_1element_a53ea710de3c82b35d1b2fd03e654a6e9} 
+std\+::vector$<$ IK\+::\+Plane\+\_\+3 $>$ {\bfseries planes}
+\item 
+\Hypertarget{classwood_1_1element_afecadd4441515613dc9d2747f15ed992}\label{classwood_1_1element_afecadd4441515613dc9d2747f15ed992} 
+std\+::vector$<$ IK\+::\+Vector\+\_\+3 $>$ {\bfseries edge\+\_\+vectors}
+\item 
+\Hypertarget{classwood_1_1element_a13b0262189b2b73a64d66a1f512cf81c}\label{classwood_1_1element_a13b0262189b2b73a64d66a1f512cf81c} 
+std\+::vector$<$ int $>$ {\bfseries JOINTS\+\_\+\+TYPES}
+\item 
+\Hypertarget{classwood_1_1element_a3be71dca781abdb4b6a69e4cba18015d}\label{classwood_1_1element_a3be71dca781abdb4b6a69e4cba18015d} 
+IK\+::\+Segment\+\_\+3 {\bfseries axis}
+\item 
+\Hypertarget{classwood_1_1element_a97111bf4c8226868ca42d3d51f5062e5}\label{classwood_1_1element_a97111bf4c8226868ca42d3d51f5062e5} 
+CGAL\+\_\+\+Polyline {\bfseries central\+\_\+polyline}
+\item 
+\Hypertarget{classwood_1_1element_a906323814e324545399c792d2321c595}\label{classwood_1_1element_a906323814e324545399c792d2321c595} 
+std\+::vector$<$ std\+::vector$<$ std\+::tuple$<$ int, bool, double $>$ $>$ $>$ {\bfseries j\+\_\+mf}
+\item 
+\Hypertarget{classwood_1_1element_ae6767ce10289064530fafd9e01ac3709}\label{classwood_1_1element_ae6767ce10289064530fafd9e01ac3709} 
+std\+::string {\bfseries key}
+\item 
+\Hypertarget{classwood_1_1element_ae00357bd74495093ebdde802cf2f0ff4}\label{classwood_1_1element_ae00357bd74495093ebdde802cf2f0ff4} 
+IK\+::\+Plane\+\_\+3 {\bfseries component\+\_\+plane}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classwood_1_1element_a42fb1b645bb3d48010d6af832dc4173c}\label{classwood_1_1element_a42fb1b645bb3d48010d6af832dc4173c} 
+\index{wood::element@{wood::element}!intersection\_closed\_and\_open\_paths\_2D@{intersection\_closed\_and\_open\_paths\_2D}}
+\index{intersection\_closed\_and\_open\_paths\_2D@{intersection\_closed\_and\_open\_paths\_2D}!wood::element@{wood::element}}
+\doxysubsubsection{\texorpdfstring{intersection\_closed\_and\_open\_paths\_2D()}{intersection\_closed\_and\_open\_paths\_2D()}}
+{\footnotesize\ttfamily bool wood\+::element\+::intersection\+\_\+closed\+\_\+and\+\_\+open\+\_\+paths\+\_\+2D (\begin{DoxyParamCaption}\item[{CGAL\+\_\+\+Polyline \&}]{closed\+\_\+pline\+\_\+cutter,  }\item[{CGAL\+\_\+\+Polyline \&}]{pline\+\_\+to\+\_\+cut,  }\item[{IK\+::\+Plane\+\_\+3 \&}]{plane,  }\item[{CGAL\+\_\+\+Polyline \&}]{c,  }\item[{int(\&)}]{edge\+\_\+pair\mbox{[}2\mbox{]},  }\item[{std\+::pair$<$ double, double $>$ \&}]{cp\+\_\+pair }\end{DoxyParamCaption})}
+
+ATTENTION THIS IS A SPECIFIC CLIPPER FUNCTION TO CLIP USING OPEN PATHS TO OBTAIN CLEAN END POINTS // \href{https://github.com/AngusJohnson/Clipper2/blob/main/CPP/Clipper2Lib/include/clipper2/clipper.h}{\texttt{ https\+://github.\+com/\+Angus\+Johnson/\+Clipper2/blob/main/\+CPP/\+Clipper2\+Lib/include/clipper2/clipper.\+h}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em closed\+\_\+pline\+\_\+cutter} & plate outline \\
+\hline
+{\em pline\+\_\+to\+\_\+cut} & joint outline \\
+\hline
+{\em plane} & plane for orientation to XY axies \\
+\hline
+{\em c} & output \\
+\hline
+{\em edge\+\_\+pair} & not used \\
+\hline
+{\em cp\+\_\+pair} & plate outline segment parameters to correctly insert joint between the outline points \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if intersection is found 
+\end{DoxyReturn}
+\Hypertarget{classwood_1_1element_ac7cbb74253268fdfb54064f72e289873}\label{classwood_1_1element_ac7cbb74253268fdfb54064f72e289873} 
+\index{wood::element@{wood::element}!update\_lines\_by\_intersection@{update\_lines\_by\_intersection}}
+\index{update\_lines\_by\_intersection@{update\_lines\_by\_intersection}!wood::element@{wood::element}}
+\doxysubsubsection{\texorpdfstring{update\_lines\_by\_intersection()}{update\_lines\_by\_intersection()}}
+{\footnotesize\ttfamily void wood\+::element\+::update\+\_\+lines\+\_\+by\+\_\+intersection (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classwood_1_1joint}{wood\+::joint}} $>$ \&}]{joints,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classwood_1_1element}{wood\+::element}} $>$ \&}]{elements }\end{DoxyParamCaption})}
+
+Intersect line segments with the neighbors of elements Lines can be inclined lines can be shorter or longer so the length of them has to be updated
+
+
+\begin{DoxyParams}{Parameters}
+{\em joints} & a list of connections between two elements \\
+\hline
+{\em elements} & a list of elements \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/brg/2\+\_\+code/wood\+\_\+cpp/backend/src/wood/include/wood\+\_\+element.\+h\item 
+C\+:/brg/2\+\_\+code/wood\+\_\+cpp/backend/src/wood/include/wood\+\_\+element.\+cpp\end{DoxyCompactItemize}

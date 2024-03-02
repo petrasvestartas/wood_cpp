@@ -1,0 +1,102 @@
+\doxysection{wood\+\_\+element.\+h}
+\hypertarget{wood__element_8h_source}{}\label{wood__element_8h_source}\index{C:/brg/2\_code/wood\_cpp/backend/src/wood/include/wood\_element.h@{C:/brg/2\_code/wood\_cpp/backend/src/wood/include/wood\_element.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ DEVELOPER:}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ Petras\ Vestartas,\ petasvestartas@gmail.com}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ Funding:\ NCCR\ Digital\ Fabrication\ and\ EPFL}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ HISTORY:}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ 1)\ The\ first\ version\ was\ written\ during\ the\ PhD\ 8928\ thesis\ of\ Petras\ Vestartas\ called:}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ Design-\/to-\/Fabrication\ Workflow\ for\ Raw-\/Sawn-\/Timber\ using\ Joinery\ Solver,\ 2017-\/2021}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ 2)\ The\ translation\ from\ C\#\ to\ C++\ was\ started\ during\ the\ funding\ of\ NCCR\ in\ two\ steps}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ A\ -\/\ standalone\ C++\ version\ of\ the\ joinery\ solver\ and\ B\ -\/\ integration\ to\ COMPAS\ framework\ (Python\ Pybind11)}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ RESTRICTIONS:}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ The\ code\ cannot\ be\ used\ for\ commercial\ reasons}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ If\ you\ would\ like\ to\ use\ or\ change\ the\ code\ for\ research\ or\ educational\ reasons,}}
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ please\ contact\ the\ developer\ first}}
+\DoxyCodeLine{00016\ \textcolor{comment}{//}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ 3RD\ PARTY\ LIBRARIES:}}
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ None}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{comment}{//\ nothing\ =\ '0',}}
+\DoxyCodeLine{00022\ \textcolor{comment}{//}}
+\DoxyCodeLine{00024\ \textcolor{comment}{//\ edge\_insertion\ =\ '1',}}
+\DoxyCodeLine{00025\ \textcolor{comment}{//\ hole\ =\ '2',}}
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ insert\_between\_multiple\_edges\ =\ '3',}}
+\DoxyCodeLine{00027\ \textcolor{comment}{//}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ slice\ =\ '4',\ //project\ and\ make\ rectangle}}
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ mill\_project\ =\ '5',\ //}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//\ mill\ =\ '6',\ //project}}
+\DoxyCodeLine{00032\ \textcolor{comment}{//\ cut\ =\ '7',}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ conic\_reverse\ =\ '8',\ \ \ \ \ //project}}
+\DoxyCodeLine{00035\ \textcolor{comment}{//\ conic\ =\ '9'}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{comment}{//\ \#include\ "{}../../stdafx.h"{}}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#ifndef\ WOOD\_ELEMENT\_H}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ WOOD\_ELEMENT\_H}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ "{}wood\_joint.h"{}}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{namespace\ }wood}
+\DoxyCodeLine{00046\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classwood_1_1element}{element}}}
+\DoxyCodeLine{00048\ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Parameters}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}\ =\ -\/1;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ thickness\ =\ 0;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Constructors}}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classwood_1_1element}{element}}();}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classwood_1_1element}{element}}(\textcolor{keywordtype}{int}\ \_id);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Basic\ Geometry\ Parameters}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ CGAL::Bbox\_3\ aabb;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ IK::Vector\_3\ oob[5];}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ std::vector<CGAL\_Polyline>\ polylines;\ \textcolor{comment}{//\ pairs\ of\ polylines\ +\ each\ side\ face}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ std::vector<IK::Plane\_3>\ planes;\ \ \ \ \ \ \textcolor{comment}{//\ top\ and\ bottom\ planes\ +\ each\ side\ face}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ std::vector<IK::Vector\_3>\ edge\_vectors;\ \textcolor{comment}{//\ if\ set}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ std::vector<int>\ JOINTS\_TYPES;\ \textcolor{comment}{//\ if\ set\ -\/\ used\ in\ joint\_library\ |\ method\ construct\_joint\_by\_index\ |\ if\ set\ negative\ is\ female}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ IK::Segment\_3\ axis;}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ For\ beams\ only}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ CGAL\_Polyline\ central\_polyline;}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Joinery\ Geometry\ Parameters}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ pointers\ to\ joints,\ wood::joint\ geometry\ will\ be\ modified\ inside\ wood::joint\ to\ avoid\ copy}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ wood::joint\ must\ be\ sorted\ according\ to\ edge\ id\ to\ be\ merged}}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::map<int,\ std::pair<bool,\ int>>edgeID\_mf\_jointID;\ //e0,true,jointID}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ std::vector<std::vector<std::tuple<int,\ bool,\ double>>>\ j\_mf;\ \textcolor{comment}{//(wood::joint\ id,\ male/female,\ parameter\ on\ edge)\ elements[result[i\ +\ 0]].j\_mf[e0].push\_back(std::tuple<int,\ bool,\ double>(jointID,\ true,0));}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::vector<CGAL\_Polyline>\ modified\_polylines;}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ public\ Mesh\ mesh;}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Component\ parameters}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ std::string\ key;}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ IK::Plane\_3\ component\_plane;}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ get\_joints\_geometry(std::vector<wood::joint>\ \&joints,\ std::vector<std::vector<CGAL\_Polyline>>\ \&output,\ \textcolor{keywordtype}{int}\ what\_to\_expose,\ std::vector<std::vector<wood\_cut::cut\_type>>\ \&output\_cut\_types);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ bool\ sort\_by\_third(const\ std::tuple<int,\ bool,\ double>\ \&a,\ const\ std::tuple<int,\ bool,\ double>\ \&b);}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ get\_joints\_geometry\_as\_closed\_polylines\_replacing\_edges(std::vector<wood::joint>\ \&joints,\ std::vector<std::vector<CGAL\_Polyline>>\ \&output);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classwood_1_1element_a42fb1b645bb3d48010d6af832dc4173c}{intersection\_closed\_and\_open\_paths\_2D}}(}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ CGAL\_Polyline\ \&closed\_pline\_cutter,\ CGAL\_Polyline\ \&pline\_to\_cut,\ IK::Plane\_3\ \&plane,\ CGAL\_Polyline\ \&c,}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ (\&edge\_pair)[2],\ std::pair<double,\ double>\ \&cp\_pair);}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ merge\_joints(std::vector<wood::joint>\ \&joints,\ std::vector<std::vector<CGAL\_Polyline>>\ \&output);}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classwood_1_1element_ac7cbb74253268fdfb54064f72e289873}{update\_lines\_by\_intersection}}(std::vector<wood::joint>\ \&joints,\ std::vector<wood::element>\ \&elements);}
+\DoxyCodeLine{00130\ \ \ \ \ \};}
+\DoxyCodeLine{00131\ \}}
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

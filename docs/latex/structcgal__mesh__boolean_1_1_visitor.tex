@@ -1,0 +1,40 @@
+\doxysection{cgal\+\_\+mesh\+\_\+boolean\+::Visitor Struct Reference}
+\hypertarget{structcgal__mesh__boolean_1_1_visitor}{}\label{structcgal__mesh__boolean_1_1_visitor}\index{cgal\_mesh\_boolean::Visitor@{cgal\_mesh\_boolean::Visitor}}
+Inheritance diagram for cgal\+\_\+mesh\+\_\+boolean\+::Visitor\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{structcgal__mesh__boolean_1_1_visitor}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structcgal__mesh__boolean_1_1_visitor_a670874ae52be04b4e83994f123f3a819}\label{structcgal__mesh__boolean_1_1_visitor_a670874ae52be04b4e83994f123f3a819} 
+typedef Mesh\+::\+Face\+\_\+index {\bfseries face\+\_\+descriptor}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structcgal__mesh__boolean_1_1_visitor_ac1981b3dd295715283fc6255947fc04c}\label{structcgal__mesh__boolean_1_1_visitor_ac1981b3dd295715283fc6255947fc04c} 
+void {\bfseries before\+\_\+subface\+\_\+creations} (face\+\_\+descriptor f\+\_\+split, Mesh \&tm)
+\item 
+\Hypertarget{structcgal__mesh__boolean_1_1_visitor_ae53aab0426c08f0c1aa4929bff7d3df0}\label{structcgal__mesh__boolean_1_1_visitor_ae53aab0426c08f0c1aa4929bff7d3df0} 
+void {\bfseries after\+\_\+subface\+\_\+created} (face\+\_\+descriptor f\+\_\+new, Mesh \&tm)
+\item 
+\Hypertarget{structcgal__mesh__boolean_1_1_visitor_a19bb7fb1201a86b1eff624f612334606}\label{structcgal__mesh__boolean_1_1_visitor_a19bb7fb1201a86b1eff624f612334606} 
+void {\bfseries after\+\_\+face\+\_\+copy} (face\+\_\+descriptor f\+\_\+src, Mesh \&tm\+\_\+src, face\+\_\+descriptor f\+\_\+tgt, Mesh \&tm\+\_\+tgt)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structcgal__mesh__boolean_1_1_visitor_a3b4ddcbf62380e6f566bb6d232ea220f}\label{structcgal__mesh__boolean_1_1_visitor_a3b4ddcbf62380e6f566bb6d232ea220f} 
+boost\+::container\+::flat\+\_\+map$<$ const Mesh \texorpdfstring{$\ast$}{*}, Mesh\+::\+Property\+\_\+map$<$ Mesh\+::\+Face\+\_\+index, int $>$ $>$ {\bfseries properties}
+\item 
+\Hypertarget{structcgal__mesh__boolean_1_1_visitor_aa91932781327be27ff87363542e5cbd3}\label{structcgal__mesh__boolean_1_1_visitor_aa91932781327be27ff87363542e5cbd3} 
+int {\bfseries face\+\_\+id}
+\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/brg/2\+\_\+code/wood\+\_\+cpp/backend/src/wood/include/cgal\+\_\+mesh\+\_\+boolean.\+cpp\end{DoxyCompactItemize}

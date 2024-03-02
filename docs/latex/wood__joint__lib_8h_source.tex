@@ -1,0 +1,184 @@
+\doxysection{wood\+\_\+joint\+\_\+lib.\+h}
+\hypertarget{wood__joint__lib_8h_source}{}\label{wood__joint__lib_8h_source}\index{C:/brg/2\_code/wood\_cpp/backend/src/wood/include/wood\_joint\_lib.h@{C:/brg/2\_code/wood\_cpp/backend/src/wood/include/wood\_joint\_lib.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ DEVELOPER:}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ Petras\ Vestartas,\ petasvestartas@gmail.com}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ Funding:\ NCCR\ Digital\ Fabrication\ and\ EPFL}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ HISTORY:}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ 1)\ The\ first\ version\ was\ written\ during\ the\ PhD\ 8928\ thesis\ of\ Petras\ Vestartas\ called:}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ Design-\/to-\/Fabrication\ Workflow\ for\ Raw-\/Sawn-\/Timber\ using\ Joinery\ Solver,\ 2017-\/2021}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ 2)\ The\ translation\ from\ C\#\ to\ C++\ was\ started\ during\ the\ funding\ of\ NCCR\ in\ two\ steps}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ A\ -\/\ standalone\ C++\ version\ of\ the\ joinery\ solver\ and\ B\ -\/\ integration\ to\ COMPAS\ framework\ (Python\ Pybind11)}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ RESTRICTIONS:}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ The\ code\ cannot\ be\ used\ for\ commercial\ reasons}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ If\ you\ would\ like\ to\ use\ or\ change\ the\ code\ for\ research\ or\ educational\ reasons,}}
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ please\ contact\ the\ developer\ first}}
+\DoxyCodeLine{00016\ \textcolor{comment}{//}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ 3RD\ PARTY\ LIBRARIES:}}
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ Boost\ for\ reading\ XML\ files}}
+\DoxyCodeLine{00019\ \textcolor{comment}{//}}
+\DoxyCodeLine{00020\ \textcolor{comment}{//\ INSTRUCTIONS:}}
+\DoxyCodeLine{00021\ \textcolor{comment}{//\ Joint\ geometry\ is\ added\ as\ a\ list\ of\ outlines\ with\ the\ last\ item\ as\ a\ boundary\ e.g.\ one\ line\ or\ rectangle}}
+\DoxyCodeLine{00022\ \textcolor{comment}{//\ The\ number\ of\ cut\ types\ is\ equal\ to\ the\ number\ of\ outlines\ +\ 1\ boundary\ e.g.:}}
+\DoxyCodeLine{00023\ \textcolor{comment}{//}}
+\DoxyCodeLine{00024\ \textcolor{comment}{//}}
+\DoxyCodeLine{00025\ \textcolor{comment}{//\ ...}}
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ joint.f[0].emplace\_back(female\_moved\_0);}}
+\DoxyCodeLine{00027\ \textcolor{comment}{//\ joint.f[1].emplace\_back(female\_moved\_1);}}
+\DoxyCodeLine{00028\ \textcolor{comment}{//\ joint.f[0].emplace\_back(std::initializer\_list<IK::Point\_3>\{joint.f[0].front()[0],\ joint.f[0].front()[3],\ joint.f[0].back()[2],\ joint.f[0].back()[1],\ joint.f[0].front()[0]\});}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ joint.f[1].emplace\_back(std::initializer\_list<IK::Point\_3>\{joint.f[1].front()[0],\ joint.f[1].front()[3],\ joint.f[1].back()[2],\ joint.f[1].back()[1],\ joint.f[1].front()[0]\});}}
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ joint.f\_boolean\_type\ =\ std::vector<wood\_cut::cut\_type>(joint.f[0].size(),\ wood\_cut::hole);}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//\ ...}}
+\DoxyCodeLine{00032\ \textcolor{comment}{//}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ ░░░for\ multiple\ holes\ there\ is\ one\ big\ hole░░░░for\ one\ outline\ there\ is\ one\ line\ or\ one\ rectangle\ ░}}
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ ░░░░░░░░░not\ a\ copy\ of\ every\ hole░░░░░░░░░░░░░░░░░░░░██████████████████████████████████░░░░░░░░░░░░}}
+\DoxyCodeLine{00035\ \textcolor{comment}{//\ ░░░████████████████████████████████████████░░░░░░░░░░│░░░░░░░░░░┌──────────┐░░░░░░░░░░│░░░░░░░░░░░░}}
+\DoxyCodeLine{00036\ \textcolor{comment}{//\ ░░░█┌────────────────┐░┌─────────────────┐█░░░░░░░░░░│░░░░░░░░░░│░░░░░░░░░░│░░░░░░░░░░│░░░░░░░░░░░░}}
+\DoxyCodeLine{00037\ \textcolor{comment}{//\ ░░░█│░░░░░░░░░░░░░░░░│░│░░░░░░░░░░░░░░░░░│█░░░░░░░░░░│░░░░░░░░░░│░░░░░░░░░░│░░░░░░░░░░│░░░░░░░░░░░░}}
+\DoxyCodeLine{00038\ \textcolor{comment}{//\ ░░░█└────────────────┘░└─────────────────┘█░░░░░░░░░░│░░░░░░░░░░│░░░░░░░░░░│░░░░░░░░░░│░░░░░░░░░░░░}}
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ ░░░████████████████████████████████████████░░░░░░░░░░│░░░░░░░░░░│░░░░░░░░░░│░░░░░░░░░░│░░░░░░░░░░░░}}
+\DoxyCodeLine{00040\ \textcolor{comment}{//\ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░└──────────┘░░░░░░░░░░└──────────┘░░░░░░░░░░░░}}
+\DoxyCodeLine{00041\ \textcolor{comment}{//\ ░░░░░░░░https://fsymbols.com/draw/░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░}}
+\DoxyCodeLine{00042\ \textcolor{comment}{//}}
+\DoxyCodeLine{00043\ \textcolor{comment}{//\ Also\ do\ not\ forget\ that\ there\ are\ joint\ male\ outlines,\ there\ are\ two\ list\ of\ outlines\ to\ represent\ the\ top\ and\ the\ bottom\ outlines}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#ifndef\ WOOD\_JOINT\_LIB\_H}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ WOOD\_JOINT\_LIB\_H}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ "{}wood\_element.h"{}}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#include\ "{}wood\_joint.h"{}}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{namespace\ }wood\_joint\_lib}
+\DoxyCodeLine{00053\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{namespace\ }internal}
+\DoxyCodeLine{00055\ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ xml\ file\ reading\ methods\ for\ creating\ joints}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ exists\_file(\textcolor{keyword}{const}\ std::string\ \&name);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ read\_xml(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint,\ \textcolor{keywordtype}{int}\ type\ =\ 0);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Main\ geometry\ methods\ used\ in\ cgal\_inscribe\_util\ to\ be\ used\ as\ self-\/contained\ header\ and\ source\ file}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ length(\textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{double}\ y,\ \textcolor{keywordtype}{double}\ z);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ unitize(IK::Vector\_3\ \&vector);}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ remap\_numbers(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&value\_to\_remap\ =\ 50,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&low0\ =\ 0,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&high0\ =\ 2000,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&low1\ =\ 0,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&high1\ =\ 1);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ lerp(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&value0,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&value1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&t);}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ interpolate\_points(\textcolor{keyword}{const}\ IK::Point\_3\ \&from,\ \textcolor{keyword}{const}\ IK::Point\_3\ \&to,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&steps,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \&include\_ends,\ std::vector<IK::Point\_3>\ \&interpolated\_points);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ CGAL::Aff\_transformation\_3<IK>\ rotation\_in\_xy\_plane(\textcolor{keyword}{const}\ IK::Vector\_3\ \&x\_axis,\ \textcolor{keyword}{const}\ IK::Vector\_3\ \&y\_axis,\ \textcolor{keyword}{const}\ IK::Vector\_3\ \&z\_axis);}
+\DoxyCodeLine{00142\ \ \ \ \ \}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{comment}{//\ Custom\ joints}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{void}\ side\_removal(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&jo,\ std::vector<wood::element>\ \&elements,\ \textcolor{keywordtype}{bool}\ merge\_with\_joint\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{comment}{//\ Side-\/to-\/side\ edge\ in-\/plane\ joints\ 1-\/9}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordtype}{void}\ ss\_e\_ip\_0(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint);}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordtype}{void}\ ss\_e\_ip\_1(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint);}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keywordtype}{void}\ ss\_e\_ip\_2(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint,\ std::vector<wood::element>\ \&elements);}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordtype}{void}\ ss\_e\_ip\_3(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint,\ std::vector<wood::element>\ \&elements);}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordtype}{void}\ ss\_e\_ip\_4(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint,\ std::vector<wood::element>\ \&elements);}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keywordtype}{void}\ ss\_e\_ip\_5(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint,\ std::vector<wood::element>\ \&elements);}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordtype}{void}\ ss\_e\_ip\_custom(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint);}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{comment}{//\ Side-\/to-\/side\ edge\ out-\/of-\/plane\ joints\ 10-\/19}}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keywordtype}{void}\ ss\_e\_op\_0(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint);}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keywordtype}{void}\ ss\_e\_op\_1(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint);}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keywordtype}{void}\ ss\_e\_op\_2(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint);}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keywordtype}{void}\ ss\_e\_op\_3(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint);}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keywordtype}{void}\ ss\_e\_op\_4(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint,\ \textcolor{keywordtype}{double}\ t\ =\ 0.00,\ \textcolor{keywordtype}{bool}\ chamfer\ =\ \textcolor{keyword}{true},\ \textcolor{keywordtype}{bool}\ female\_modify\_outline\ =\ \textcolor{keyword}{true},\ \textcolor{keywordtype}{double}\ x0\ =\ -\/0.50,\ \textcolor{keywordtype}{double}\ x1\ =\ 0.5,\ \textcolor{keywordtype}{double}\ y0\ =\ -\/0.5,\ \textcolor{keywordtype}{double}\ y1\ =\ 0.5,\ \textcolor{keywordtype}{double}\ z\_ext0\ =\ -\/0.5,\ \textcolor{keywordtype}{double}\ z\_ext1\ =\ 0.5);}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00268\ \ \ \ \ \textcolor{keywordtype}{void}\ ss\_e\_op\_5(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&jo,\ std::vector<wood::joint>\ \&all\_joints,\ \textcolor{keywordtype}{bool}\ disable\_joint\_divisions\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00277\ \ \ \ \ \textcolor{keywordtype}{void}\ ss\_e\_op\_6(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&jo,\ std::vector<wood::joint>\ \&all\_joints);}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00284\ \ \ \ \ \textcolor{keywordtype}{void}\ ss\_e\_op\_custom(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint);}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00287\ \ \ \ \ \textcolor{comment}{//\ Side-\/to-\/side\ edge\ rotated\ joints\ 20-\/29}}
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00296\ \ \ \ \ \textcolor{keywordtype}{void}\ ss\_e\_r\_0(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&jo,\ std::vector<wood::element>\ \&elements);}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00304\ \ \ \ \ \textcolor{keywordtype}{void}\ ss\_e\_r\_1(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint,\ \textcolor{keywordtype}{int}\ type\ =\ 1);}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keywordtype}{void}\ side\_removal\_ss\_e\_r\_1(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&jo,\ std::vector<wood::element>\ \&elements,\ \textcolor{keywordtype}{bool}\ merge\_with\_joint\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keywordtype}{void}\ ss\_e\_r\_custom(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint);}
+\DoxyCodeLine{00321\ }
+\DoxyCodeLine{00323\ \ \ \ \ \textcolor{comment}{//\ Top-\/to-\/side\ edge\ plane\ joints\ 20-\/29}}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00331\ \ \ \ \ \textcolor{keywordtype}{void}\ ts\_e\_p\_0(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint);}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00338\ \ \ \ \ \textcolor{keywordtype}{void}\ ts\_e\_p\_2(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint);}
+\DoxyCodeLine{00339\ }
+\DoxyCodeLine{00345\ \ \ \ \ \textcolor{keywordtype}{void}\ ts\_e\_p\_3(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint);}
+\DoxyCodeLine{00351\ \ \ \ \ \textcolor{keywordtype}{void}\ ts\_e\_p\_4(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint);}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00359\ \ \ \ \ \textcolor{keywordtype}{void}\ ts\_e\_p\_5(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint);}
+\DoxyCodeLine{00360\ }
+\DoxyCodeLine{00366\ \ \ \ \ \textcolor{keywordtype}{void}\ ts\_e\_p\_custom(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint);}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00369\ \ \ \ \ \textcolor{comment}{//\ Cross\ cutting\ in-\/plane\ joints\ 30-\/39}}
+\DoxyCodeLine{00371\ }
+\DoxyCodeLine{00377\ \ \ \ \ \textcolor{keywordtype}{void}\ cr\_c\_ip\_0(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint);}
+\DoxyCodeLine{00378\ }
+\DoxyCodeLine{00384\ \ \ \ \ \textcolor{keywordtype}{void}\ cr\_c\_ip\_1(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint);}
+\DoxyCodeLine{00390\ \ \ \ \ \textcolor{keywordtype}{void}\ cr\_c\_ip\_2(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint);}
+\DoxyCodeLine{00391\ }
+\DoxyCodeLine{00397\ \ \ \ \ \textcolor{keywordtype}{void}\ cr\_c\_ip\_3(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint);}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00404\ \ \ \ \ \textcolor{keywordtype}{void}\ cr\_c\_ip\_4(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint);}
+\DoxyCodeLine{00405\ }
+\DoxyCodeLine{00411\ \ \ \ \ \textcolor{keywordtype}{void}\ cr\_c\_ip\_5(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint);}
+\DoxyCodeLine{00412\ }
+\DoxyCodeLine{00418\ \ \ \ \ \textcolor{keywordtype}{void}\ cr\_c\_ip\_custom(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint);}
+\DoxyCodeLine{00419\ }
+\DoxyCodeLine{00421\ \ \ \ \ \textcolor{comment}{//\ Top-\/to-\/top\ edge\ plane\ joints\ 40-\/49}}
+\DoxyCodeLine{00423\ }
+\DoxyCodeLine{00437\ \ \ \ \ \textcolor{keywordtype}{void}\ tt\_e\_p\_0(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint,\ std::vector<wood::element>\ \&elements);}
+\DoxyCodeLine{00438\ }
+\DoxyCodeLine{00453\ \ \ \ \ \textcolor{keywordtype}{void}\ tt\_e\_p\_1(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint,\ std::vector<wood::element>\ \&elements);}
+\DoxyCodeLine{00469\ \ \ \ \ \textcolor{keywordtype}{void}\ tt\_e\_p\_2(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint,\ std::vector<wood::element>\ \&elements);}
+\DoxyCodeLine{00470\ }
+\DoxyCodeLine{00486\ \ \ \ \ \textcolor{keywordtype}{void}\ tt\_e\_p\_3(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint,\ std::vector<wood::element>\ \&elements);}
+\DoxyCodeLine{00487\ }
+\DoxyCodeLine{00503\ \ \ \ \ \textcolor{keywordtype}{void}\ tt\_e\_p\_4(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint,\ std::vector<wood::element>\ \&elements);}
+\DoxyCodeLine{00504\ }
+\DoxyCodeLine{00520\ \ \ \ \ \textcolor{keywordtype}{void}\ tt\_e\_p\_5(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint,\ std::vector<wood::element>\ \&elements);}
+\DoxyCodeLine{00521\ }
+\DoxyCodeLine{00527\ \ \ \ \ \textcolor{keywordtype}{void}\ tt\_e\_p\_custom(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint);}
+\DoxyCodeLine{00528\ }
+\DoxyCodeLine{00530\ \ \ \ \ \textcolor{comment}{//\ Boundary\ joint\ 60-\/69}}
+\DoxyCodeLine{00532\ }
+\DoxyCodeLine{00538\ \ \ \ \ \textcolor{keywordtype}{void}\ b\_0(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint);}
+\DoxyCodeLine{00539\ }
+\DoxyCodeLine{00545\ \ \ \ \ \textcolor{keywordtype}{void}\ b\_custom(\mbox{\hyperlink{classwood_1_1joint}{wood::joint}}\ \&joint);}
+\DoxyCodeLine{00546\ }
+\DoxyCodeLine{00548\ \ \ \ \ \textcolor{comment}{//\ Key\ function\ that\ iterates\ through\ all\ joints\ and\ calls\ the\ function\ that\ constructs\ the\ joint\ geometry}}
+\DoxyCodeLine{00550\ }
+\DoxyCodeLine{00559\ \ \ \ \ \textcolor{keywordtype}{void}\ construct\_joint\_by\_index(std::vector<wood::element>\ \&elements,\ std::vector<wood::joint>\ \&joints,\ std::vector<double>\ \&default\_parameters\_for\_four\_types,\ std::vector<double>\ \&scale);}
+\DoxyCodeLine{00560\ \}}
+\DoxyCodeLine{00561\ }
+\DoxyCodeLine{00562\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ WOOD\_JOINT\_LIB\_H}}
+
+\end{DoxyCode}

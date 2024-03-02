@@ -150,4 +150,5 @@
   "cSpell.words": [
     "Minkowski"
   ],
+  "cmake.configureOnOpen": false,
 }
