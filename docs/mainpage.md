@@ -52,9 +52,10 @@ The library is written using C++ and is built using CMake. The following instruc
 
 The documentation is built using [Doxygen](http://www.doxygen.nl/) and [Doxygen Awesome CSS](https://github.com/jothepro/doxygen-awesome-css). You can find the documentation in the `docs` folder. To build the documentation, execute the following command in the terminal::
 - **Step 1:** Download doxygen from [doxygen](https://www.doxygen.nl/download.html) and install it.
-- **Step 2:** Add sub-module for doxygen-awesome-css:
+- **Step 2:** Add sub-module for doxygen-awesome-css in the folder of docs:
 ```bash
-    git submodule add https://github.com/jothepro/doxygen-awesome-css.git
+    cd C:/brg/2_code/wood_cpp/docs
+    git submodule add --force https://github.com/jothepro/doxygen-awesome-css.git
     cd doxygen-awesome-css
     git checkout v2.3.1
 ```
