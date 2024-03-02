@@ -1,5 +1,6 @@
 #ingore backend
 cmake/build/**
+docs/output/**
 
 *.tar.gz
 

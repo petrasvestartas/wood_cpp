@@ -1,10 +1,10 @@
 # Introduction
 
-Welcome to the world of timber joinery with the Wood library!
+Welcome to the timber joinery [library](https://github.com/petrasvestartas/wood_cpp)!
 
-Our library offers an exciting twist on traditional timber joinery techniques. Whether you're into automated collision detection methods or prefer a hands-on approach with custom element connectivity. With a diverse catalog of predefined joint types and the freedom to introduce your own designs, our library empowers you to unleash your creativity in timber construction projects. 
+The library is designed to facilitate the generation of timber joinery. It includes a comprehensive collection of joint configurations intended for placement at the interface zone between a pair of elements. The connectivity between elements can be established through either a collision detection method or by providing the indices of elements where the joint is to be created. Additionally, users have the flexibility to define custom joint shapes, which can be configured for compatibility with CNC milling processes. The installation is described below. For more information check the examples and API.
 
-Ready to dive in? Check out our [GitHub repository](https://github.com/petrasvestartas/wood_cpp) for the latest updates and documentation. Let's build something extraordinary together! 
+Ready to start? The installation instructions are below!
 
 ![Example Image](type_plates_name_side_to_side_edge_inplane_hexshell.png "Example of fingers joints in a hexagonal shell made of plates.")
 
@@ -52,6 +52,13 @@ The library is written using C++ and is built using CMake. The following instruc
 
 The documentation is built using [Doxygen](http://www.doxygen.nl/) and [Doxygen Awesome CSS](https://github.com/jothepro/doxygen-awesome-css). You can find the documentation in the `docs` folder. To build the documentation, execute the following command in the terminal::
 - **Step 1:** Download doxygen from [doxygen](https://www.doxygen.nl/download.html) and install it.
+- **Step 2:** Add sub-module for doxygen-awesome-css:
+```bash
+    git submodule add https://github.com/jothepro/doxygen-awesome-css.git
+    cd doxygen-awesome-css
+    git checkout v2.3.1
+```
+
 - **Step 2:** Run the doxygen using docs.bat file:
 ```bash
     cd C:/brg/2_code/wood_cpp/
