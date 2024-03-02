@@ -101,7 +101,7 @@ $(function(){initNavTree('cgal__rectangle__util_8h_source.html',''); initResizab
   <div class="headertitle"><div class="title">cgal_rectangle_util.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<a href="cgal__rectangle__util_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// DEVELOPER:</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// Petras Vestartas, petasvestartas@gmail.com</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// Funding: NCCR Digital Fabrication and EPFL</span></div>
@@ -123,70 +123,72 @@ $(function(){initNavTree('cgal__rectangle__util_8h_source.html',''); initResizab
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#ifndef CGAL_RECTANGLE_UTIL_H</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#define CGAL_RECTANGLE_UTIL_H</span></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">namespace </span>cgal_rectangle_util</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacecgal.html">cgal</a></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>{</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">namespace </span>internal</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    {</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keywordtype">double</span> length(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y, <span class="keywordtype">double</span> z);</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordtype">bool</span> unitize(IK::Vector_3 &amp;vector);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        CGAL::Aff_transformation_3&lt;IK&gt; plane_to_xy(<span class="keyword">const</span> IK::Point_3 &amp;origin, <span class="keyword">const</span> IK::Plane_3 &amp;plane);</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="keywordtype">float</span> ccw(<span class="keyword">const</span> IK::Point_3 &amp;a, <span class="keyword">const</span> IK::Point_3 &amp;b, <span class="keyword">const</span> IK::Point_3 &amp;c);</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keywordtype">bool</span> is_left_of(<span class="keyword">const</span> IK::Point_3 &amp;a, <span class="keyword">const</span> IK::Point_3 &amp;b);</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="foldopen" id="foldopen00083" data-start="{" data-end="};">
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="structcgal__rectangle__util_1_1internal_1_1ccw__sorter.html">   83</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structcgal__rectangle__util_1_1internal_1_1ccw__sorter.html">ccw_sorter</a></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        {</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            <span class="keyword">const</span> IK::Point_3 &amp;pivot;</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            <a class="code hl_struct" href="structcgal__rectangle__util_1_1internal_1_1ccw__sorter.html">ccw_sorter</a>(<span class="keyword">const</span> IK::Point_3 &amp;in_pivot) : pivot(in_pivot) {}</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            <span class="keywordtype">bool</span> operator()(<span class="keyword">const</span> IK::Point_3 &amp;a, <span class="keyword">const</span> IK::Point_3 &amp;b)</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            {</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>                <span class="keywordflow">return</span> ccw(pivot, a, b) &lt; 0;</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            }</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        };</div>
-</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="keywordtype">float</span> len(<span class="keyword">const</span> IK::Point_3 &amp;a, <span class="keyword">const</span> IK::Point_3 &amp;b);</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <span class="keywordtype">float</span> dist(<span class="keyword">const</span> IK::Point_3 &amp;a, <span class="keyword">const</span> IK::Point_3 &amp;b, <span class="keyword">const</span> IK::Point_3 &amp;p);</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <span class="keywordtype">size_t</span> get_farthest(<span class="keyword">const</span> IK::Point_3 &amp;a, <span class="keyword">const</span> IK::Point_3 &amp;b, <span class="keyword">const</span> std::vector&lt;IK::Point_3&gt; &amp;v);</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        <span class="keywordtype">void</span> quick_hull(<span class="keyword">const</span> std::vector&lt;IK::Point_3&gt; &amp;v, <span class="keyword">const</span> IK::Point_3 &amp;a, <span class="keyword">const</span> IK::Point_3 &amp;b, std::vector&lt;IK::Point_3&gt; &amp;hull);</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        <span class="keywordtype">double</span> angle_to_xaxis(IK::Segment_3 &amp;edge);</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        IK::Point_3 rotate_to_xaxis(IK::Point_3 &amp;point, <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;angle);</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">namespace </span>rectangle_util</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keyword">namespace </span>internal</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            <span class="keywordtype">double</span> <a class="code hl_function" href="namespacecgal_1_1box__search.html#a110ed890dcf443efcc103f70fd81b1e7">length</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y, <span class="keywordtype">double</span> z);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacecgal_1_1box__search.html#ae40a82896ebc8e022765d8d8e3f707b6">unitize</a>(IK::Vector_3 &amp;vector);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            CGAL::Aff_transformation_3&lt;IK&gt; <a class="code hl_function" href="namespacecgal_1_1box__search.html#aa65937ae6e158dda29a44089bcaee78b">plane_to_xy</a>(<span class="keyword">const</span> IK::Point_3 &amp;origin, <span class="keyword">const</span> IK::Plane_3 &amp;plane);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            <span class="keywordtype">float</span> ccw(<span class="keyword">const</span> IK::Point_3 &amp;a, <span class="keyword">const</span> IK::Point_3 &amp;b, <span class="keyword">const</span> IK::Point_3 &amp;c);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            <span class="keywordtype">bool</span> is_left_of(<span class="keyword">const</span> IK::Point_3 &amp;a, <span class="keyword">const</span> IK::Point_3 &amp;b);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            <span class="keyword">struct </span>ccw_sorter</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>                <span class="keyword">const</span> IK::Point_3 &amp;pivot;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>                ccw_sorter(<span class="keyword">const</span> IK::Point_3 &amp;in_pivot) : pivot(in_pivot) {}</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>                <span class="keywordtype">bool</span> operator()(<span class="keyword">const</span> IK::Point_3 &amp;a, <span class="keyword">const</span> IK::Point_3 &amp;b)</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>                {</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>                    <span class="keywordflow">return</span> ccw(pivot, a, b) &lt; 0;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>                }</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            };</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            <span class="keywordtype">float</span> len(<span class="keyword">const</span> IK::Point_3 &amp;a, <span class="keyword">const</span> IK::Point_3 &amp;b);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            <span class="keywordtype">float</span> dist(<span class="keyword">const</span> IK::Point_3 &amp;a, <span class="keyword">const</span> IK::Point_3 &amp;b, <span class="keyword">const</span> IK::Point_3 &amp;p);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            <span class="keywordtype">size_t</span> get_farthest(<span class="keyword">const</span> IK::Point_3 &amp;a, <span class="keyword">const</span> IK::Point_3 &amp;b, <span class="keyword">const</span> std::vector&lt;IK::Point_3&gt; &amp;v);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="namespacecgal_1_1rectangle__util.html#ab086df46e2595b1d7072e7614b5d8d18">quick_hull</a>(<span class="keyword">const</span> std::vector&lt;IK::Point_3&gt; &amp;v, <span class="keyword">const</span> IK::Point_3 &amp;a, <span class="keyword">const</span> IK::Point_3 &amp;b, std::vector&lt;IK::Point_3&gt; &amp;hull);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            <span class="keywordtype">double</span> angle_to_xaxis(IK::Segment_3 &amp;edge);</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>            IK::Point_3 rotate_to_xaxis(IK::Point_3 &amp;point, <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;angle);</div>
 <div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        <span class="keywordtype">bool</span> orient_polyline_to_xy_and_back(CGAL_Polyline &amp;polyline, CGAL::Aff_transformation_3&lt;IK&gt; &amp;xform_to_xy, CGAL::Aff_transformation_3&lt;IK&gt; &amp;xform_to_xy_inv);</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    }</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    CGAL_Polyline quick_hull(<span class="keyword">const</span> CGAL_Polyline &amp;v);</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    <span class="keywordtype">bool</span> bounding_rectangle(CGAL_Polyline &amp;polygon, CGAL_Polyline &amp;result);</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    <span class="keywordtype">bool</span> grid_of_points_in_a_polygon(CGAL_Polyline &amp;polygon, <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;offset_distance, <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;division_distance, <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;max_points, std::vector&lt;IK::Point_3&gt; &amp;points);</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>}</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>            <span class="keywordtype">bool</span> orient_polyline_to_xy_and_back(CGAL_Polyline &amp;polyline, CGAL::Aff_transformation_3&lt;IK&gt; &amp;xform_to_xy, CGAL::Aff_transformation_3&lt;IK&gt; &amp;xform_to_xy_inv);</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        }</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        CGAL_Polyline <a class="code hl_function" href="namespacecgal_1_1rectangle__util.html#ab086df46e2595b1d7072e7614b5d8d18">quick_hull</a>(<span class="keyword">const</span> CGAL_Polyline &amp;v);</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacecgal_1_1rectangle__util.html#a48e7f8c749e1ad6db824f47ab1f01901">bounding_rectangle</a>(CGAL_Polyline &amp;polygon, CGAL_Polyline &amp;result);</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacecgal_1_1rectangle__util.html#a9730c58a70be5153d52f509c3bf4b465">grid_of_points_in_a_polygon</a>(CGAL_Polyline &amp;polygon, <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;offset_distance, <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;division_distance, <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;max_points, std::vector&lt;IK::Point_3&gt; &amp;points);</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    }</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>} <span class="comment">// namespace cgal</span></div>
 <div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="astructcgal__rectangle__util_1_1internal_1_1ccw__sorter_html"><div class="ttname"><a href="structcgal__rectangle__util_1_1internal_1_1ccw__sorter.html">cgal_rectangle_util::internal::ccw_sorter</a></div><div class="ttdef"><b>Definition</b> cgal_rectangle_util.h:84</div></div>
+<div class="ttc" id="anamespacecgal_1_1box__search_html_a110ed890dcf443efcc103f70fd81b1e7"><div class="ttname"><a href="namespacecgal_1_1box__search.html#a110ed890dcf443efcc103f70fd81b1e7">cgal::box_search::length</a></div><div class="ttdeci">double length(double x, double y, double z)</div><div class="ttdef"><b>Definition</b> <a href="cgal__box__search_8h_source.html#l00087">cgal_box_search.h:87</a></div></div>
+<div class="ttc" id="anamespacecgal_1_1box__search_html_aa65937ae6e158dda29a44089bcaee78b"><div class="ttname"><a href="namespacecgal_1_1box__search.html#aa65937ae6e158dda29a44089bcaee78b">cgal::box_search::plane_to_xy</a></div><div class="ttdeci">CGAL::Aff_transformation_3&lt; IK &gt; plane_to_xy(IK::Point_3 O0, IK::Plane_3 plane)</div><div class="ttdef"><b>Definition</b> <a href="cgal__box__search_8h_source.html#l00205">cgal_box_search.h:205</a></div></div>
+<div class="ttc" id="anamespacecgal_1_1box__search_html_ae40a82896ebc8e022765d8d8e3f707b6"><div class="ttname"><a href="namespacecgal_1_1box__search.html#ae40a82896ebc8e022765d8d8e3f707b6">cgal::box_search::unitize</a></div><div class="ttdeci">bool unitize(IK::Vector_3 &amp;v)</div><div class="ttdef"><b>Definition</b> <a href="cgal__box__search_8h_source.html#l00130">cgal_box_search.h:130</a></div></div>
+<div class="ttc" id="anamespacecgal_1_1rectangle__util_html_a48e7f8c749e1ad6db824f47ab1f01901"><div class="ttname"><a href="namespacecgal_1_1rectangle__util.html#a48e7f8c749e1ad6db824f47ab1f01901">cgal::rectangle_util::bounding_rectangle</a></div><div class="ttdeci">bool bounding_rectangle(CGAL_Polyline &amp;polygon, CGAL_Polyline &amp;result)</div><div class="ttdef"><b>Definition</b> <a href="cgal__rectangle__util_8cpp_source.html#l00239">cgal_rectangle_util.cpp:239</a></div></div>
+<div class="ttc" id="anamespacecgal_1_1rectangle__util_html_a9730c58a70be5153d52f509c3bf4b465"><div class="ttname"><a href="namespacecgal_1_1rectangle__util.html#a9730c58a70be5153d52f509c3bf4b465">cgal::rectangle_util::grid_of_points_in_a_polygon</a></div><div class="ttdeci">bool grid_of_points_in_a_polygon(CGAL_Polyline &amp;polygon, const double &amp;offset_distance, const double &amp;division_distance, const int &amp;max_points, std::vector&lt; IK::Point_3 &gt; &amp;points)</div><div class="ttdoc">Calculate a grid of points inside a polygon by a) convex hull, b) its bounding box,...</div><div class="ttdef"><b>Definition</b> <a href="cgal__rectangle__util_8cpp_source.html#l00340">cgal_rectangle_util.cpp:340</a></div></div>
+<div class="ttc" id="anamespacecgal_1_1rectangle__util_html_ab086df46e2595b1d7072e7614b5d8d18"><div class="ttname"><a href="namespacecgal_1_1rectangle__util.html#ab086df46e2595b1d7072e7614b5d8d18">cgal::rectangle_util::quick_hull</a></div><div class="ttdeci">CGAL_Polyline quick_hull(const CGAL_Polyline &amp;v)</div><div class="ttdef"><b>Definition</b> <a href="cgal__rectangle__util_8cpp_source.html#l00208">cgal_rectangle_util.cpp:208</a></div></div>
+<div class="ttc" id="anamespacecgal_html"><div class="ttname"><a href="namespacecgal.html">cgal</a></div><div class="ttdef"><b>Definition</b> <a href="cgal__box__search_8h_source.html#l00008">cgal_box_search.h:9</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_a5bdbfbbaa7895161d62825676df7980.html">cmake</a></li><li class="navelem"><a class="el" href="dir_465349965ae3b3007330e028906dcb54.html">src</a></li><li class="navelem"><a class="el" href="dir_512175a00f265906b65bee7fba32762f.html">wood</a></li><li class="navelem"><a class="el" href="dir_9ad6092cef7fa60fd7b2aa97b8bb0a98.html">include</a></li><li class="navelem"><b>cgal_rectangle_util.h</b></li>
+    <li class="navelem"><a class="el" href="dir_a5bdbfbbaa7895161d62825676df7980.html">cmake</a></li><li class="navelem"><a class="el" href="dir_465349965ae3b3007330e028906dcb54.html">src</a></li><li class="navelem"><a class="el" href="dir_512175a00f265906b65bee7fba32762f.html">wood</a></li><li class="navelem"><a class="el" href="dir_9ad6092cef7fa60fd7b2aa97b8bb0a98.html">include</a></li><li class="navelem"><a class="el" href="cgal__rectangle__util_8h.html">cgal_rectangle_util.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>

@@ -1,0 +1,37 @@
+var namespacecgal__polyline__util =
+[
+    [ "internal", "namespacecgal__polyline__util_1_1internal.html", [
+      [ "average_normal", "namespacecgal__polyline__util_1_1internal.html#a2703b4bbb9ce4badc155521ea711208b", null ],
+      [ "length", "namespacecgal__polyline__util_1_1internal.html#abf0ef7f5f32bede34f0e005121710392", null ],
+      [ "plane_to_xy", "namespacecgal__polyline__util_1_1internal.html#a7e7538e101ecf0773c542e38996ccfc3", null ],
+      [ "unitize", "namespacecgal__polyline__util_1_1internal.html#a63a78b8521046d2d8e0448dbe18e9939", null ]
+    ] ],
+    [ "center", "namespacecgal__polyline__util.html#a558b3d330cc1345285bb26618381e3e7", null ],
+    [ "center_vec", "namespacecgal__polyline__util.html#a756cd4408900feaecd1d9c1e66fe62c5", null ],
+    [ "closest_distance_and_point", "namespacecgal__polyline__util.html#ac91bea8831e8a963048213914faf6120", null ],
+    [ "closest_point_to", "namespacecgal__polyline__util.html#ab743cd08b78207f4f67dec4e8fc2553c", null ],
+    [ "extend", "namespacecgal__polyline__util.html#a07d2defc27f22759002b9178e1fde4ea", null ],
+    [ "extend_equally", "namespacecgal__polyline__util.html#a3bf387b3ef3fc016bbda17818b2ec2f8", null ],
+    [ "extend_equally", "namespacecgal__polyline__util.html#a6d1ccefcc0c1abd5ac9d45f30ef2de51", null ],
+    [ "extend_line", "namespacecgal__polyline__util.html#a9c43c4ad9f3b8096c188c5af8e32c43b", null ],
+    [ "flip", "namespacecgal__polyline__util.html#abef0cccdd76d784b6063573db516e835", null ],
+    [ "get_average_plane", "namespacecgal__polyline__util.html#ae7caaad1ede53d6abbe2325c3eb9faec", null ],
+    [ "get_convex_corners", "namespacecgal__polyline__util.html#a15ab05aa2e3a742b01d309885700477f", null ],
+    [ "get_fast_plane", "namespacecgal__polyline__util.html#a7166f3ad05d0c38b9729ecdefd3cbd66", null ],
+    [ "get_middle_line", "namespacecgal__polyline__util.html#ac71c89a147c2b4e881acb767831f17e3", null ],
+    [ "is_clockwise", "namespacecgal__polyline__util.html#ab19899a4b915bcf4106d613718992786", null ],
+    [ "is_closed", "namespacecgal__polyline__util.html#a01ab9e2523af1df909f0d1e1b96c4819", null ],
+    [ "line_from_projected_points", "namespacecgal__polyline__util.html#a63ceac56c5996a3eba24db6c8a2b88ae", null ],
+    [ "line_line_average", "namespacecgal__polyline__util.html#a777bae955db672ee5b59d7163532ac55", null ],
+    [ "line_line_overlap", "namespacecgal__polyline__util.html#ac7d61a8560a613ae56f02f4aee928958", null ],
+    [ "line_line_overlap_average", "namespacecgal__polyline__util.html#a6b4112a7a3f47290bb96708b67674821", null ],
+    [ "line_line_overlap_average", "namespacecgal__polyline__util.html#af5aeda7b57cecff7be3dae6ece8bf63c", null ],
+    [ "move", "namespacecgal__polyline__util.html#a055cf6f8d40d28ede27e1b66c18651ec", null ],
+    [ "point_at", "namespacecgal__polyline__util.html#a315096e486f6f38c7c61379b1de9fc63", null ],
+    [ "polyline_length", "namespacecgal__polyline__util.html#adda0ec984cd416268d1a33ca2a84f099", null ],
+    [ "polyline_length_squared", "namespacecgal__polyline__util.html#ad4669228f5067ab633417c8124510be1", null ],
+    [ "scale_line", "namespacecgal__polyline__util.html#a2ce48f83cb6dd6ad79cf8fbbec26b807", null ],
+    [ "shift", "namespacecgal__polyline__util.html#a266f2a3b9bf634ebd45bf839be146f62", null ],
+    [ "transform", "namespacecgal__polyline__util.html#a4d0ef4fe8f237dc96f9c56cf63f6ace5", null ],
+    [ "tween_two_polylines", "namespacecgal__polyline__util.html#a5bd90d974283a2d9c40a0987790f0c4f", null ]
+];

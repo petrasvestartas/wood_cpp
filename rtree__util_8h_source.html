@@ -101,7 +101,7 @@ $(function(){initNavTree('rtree__util_8h_source.html',''); initResizable(); });
   <div class="headertitle"><div class="title">rtree_util.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<a href="rtree__util_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// DEVELOPER:</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// Petras Vestartas, petasvestartas@gmail.com</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// Funding: NCCR Digital Fabrication and EPFL</span></div>
@@ -123,39 +123,47 @@ $(function(){initNavTree('rtree__util_8h_source.html',''); initResizable(); });
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#ifndef RTREE_UTIL_H</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#define RTREE_UTIL_H</span></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">namespace </span>rtree_util</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacecollider.html">collider</a></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>{</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">namespace </span>internal</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    {</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="comment">// Main geometry methods used in rtree to be used as self-contained header and source file</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>         IK::Point_3 point_at(<span class="keyword">const</span> IK::Segment_3 &amp;line, <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;t);</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>         <span class="keywordtype">bool</span> closest_point_to(<span class="keyword">const</span> IK::Point_3 &amp;point, <span class="keyword">const</span> IK::Segment_3 &amp;line, <span class="keywordtype">double</span> &amp;t);</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>         <span class="keywordtype">double</span> get_closest_distance(<span class="keyword">const</span> IK::Point_3 &amp;point, CGAL_Polyline &amp;polyline, <span class="keywordtype">size_t</span> &amp;edge_id);</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    }</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>     <span class="keywordtype">void</span> find_closest_plateside_to_line(</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        std::vector&lt;CGAL_Polyline&gt; &amp;input_polyline_pairs,</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        std::vector&lt;IK::Segment_3&gt; &amp;input_insertion_lines,</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        std::vector&lt;std::vector&lt;IK::Vector_3&gt;&gt; &amp;output_insertion_vectors);</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>     <span class="keywordtype">void</span> find_closest_plateside_to_indexedpoint(</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        std::vector&lt;CGAL_Polyline&gt; &amp;input_polyline_pairs,</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        std::vector&lt;IK::Point_3&gt; &amp;input_points,</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        std::vector&lt;int&gt; &amp;input_points_types,</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        std::vector&lt;std::vector&lt;int&gt;&gt; &amp;output_joint_types);</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>}</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="preprocessor">#endif </span><span class="comment">// RTREE_UTIL_H</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">namespace </span>rtree_util</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keyword">namespace </span>internal</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            <span class="comment">// Main geometry methods used in rtree to be used as self-contained header and source file</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            IK::Point_3 <a class="code hl_function" href="namespacecgal_1_1box__search.html#a9ee413a3a53107b0f4b953840069c4f7">point_at</a>(<span class="keyword">const</span> IK::Segment_3 &amp;line, <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;t);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacecgal_1_1box__search.html#a49bf670d8cbf1fa00fff3976b7b47f61">closest_point_to</a>(<span class="keyword">const</span> IK::Point_3 &amp;point, <span class="keyword">const</span> IK::Segment_3 &amp;line, <span class="keywordtype">double</span> &amp;t);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            <span class="keywordtype">double</span> get_closest_distance(<span class="keyword">const</span> IK::Point_3 &amp;point, CGAL_Polyline &amp;polyline, <span class="keywordtype">size_t</span> &amp;edge_id);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="namespacecollider_1_1rtree__util.html#a9f8d4504a7bd9893efddc10befb93d81">find_closest_plateside_to_line</a>(</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            std::vector&lt;CGAL_Polyline&gt; &amp;input_polyline_pairs,</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            std::vector&lt;IK::Segment_3&gt; &amp;input_insertion_lines,</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            std::vector&lt;std::vector&lt;IK::Vector_3&gt;&gt; &amp;output_insertion_vectors);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="namespacecollider_1_1rtree__util.html#a60665fce394ecee9b376af426b1d1373">find_closest_plateside_to_indexedpoint</a>(</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            std::vector&lt;CGAL_Polyline&gt; &amp;input_polyline_pairs,</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            std::vector&lt;IK::Point_3&gt; &amp;input_points,</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            std::vector&lt;int&gt; &amp;input_points_types,</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            std::vector&lt;std::vector&lt;int&gt;&gt; &amp;output_joint_types);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    }</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>} <span class="comment">// namespace collider</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="preprocessor">#endif </span><span class="comment">// RTREE_UTIL_H</span></div>
+<div class="ttc" id="anamespacecgal_1_1box__search_html_a49bf670d8cbf1fa00fff3976b7b47f61"><div class="ttname"><a href="namespacecgal_1_1box__search.html#a49bf670d8cbf1fa00fff3976b7b47f61">cgal::box_search::closest_point_to</a></div><div class="ttdeci">bool closest_point_to(const IK::Point_3 &amp;point, const IK::Segment_3 &amp;s, double &amp;t)</div><div class="ttdef"><b>Definition</b> <a href="cgal__box__search_8h_source.html#l00238">cgal_box_search.h:238</a></div></div>
+<div class="ttc" id="anamespacecgal_1_1box__search_html_a9ee413a3a53107b0f4b953840069c4f7"><div class="ttname"><a href="namespacecgal_1_1box__search.html#a9ee413a3a53107b0f4b953840069c4f7">cgal::box_search::point_at</a></div><div class="ttdeci">IK::Point_3 point_at(const IK::Segment_3 &amp;l, double t)</div><div class="ttdef"><b>Definition</b> <a href="cgal__box__search_8h_source.html#l00228">cgal_box_search.h:228</a></div></div>
+<div class="ttc" id="anamespacecollider_1_1rtree__util_html_a60665fce394ecee9b376af426b1d1373"><div class="ttname"><a href="namespacecollider_1_1rtree__util.html#a60665fce394ecee9b376af426b1d1373">collider::rtree_util::find_closest_plateside_to_indexedpoint</a></div><div class="ttdeci">void find_closest_plateside_to_indexedpoint(std::vector&lt; CGAL_Polyline &gt; &amp;input_polyline_pairs, std::vector&lt; IK::Point_3 &gt; &amp;input_points, std::vector&lt; int &gt; &amp;input_points_types, std::vector&lt; std::vector&lt; int &gt; &gt; &amp;output_joint_types)</div><div class="ttdef"><b>Definition</b> <a href="rtree__util_8cpp_source.html#l00187">rtree_util.cpp:187</a></div></div>
+<div class="ttc" id="anamespacecollider_1_1rtree__util_html_a9f8d4504a7bd9893efddc10befb93d81"><div class="ttname"><a href="namespacecollider_1_1rtree__util.html#a9f8d4504a7bd9893efddc10befb93d81">collider::rtree_util::find_closest_plateside_to_line</a></div><div class="ttdeci">void find_closest_plateside_to_line(std::vector&lt; CGAL_Polyline &gt; &amp;input_polyline_pairs, std::vector&lt; IK::Segment_3 &gt; &amp;input_insertion_lines, std::vector&lt; std::vector&lt; IK::Vector_3 &gt; &gt; &amp;output_insertion_vectors)</div><div class="ttdef"><b>Definition</b> <a href="rtree__util_8cpp_source.html#l00082">rtree_util.cpp:82</a></div></div>
+<div class="ttc" id="anamespacecollider_html"><div class="ttname"><a href="namespacecollider.html">collider</a></div><div class="ttdef"><b>Definition</b> <a href="clipper__util_8cpp_source.html#l00006">clipper_util.cpp:7</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_a5bdbfbbaa7895161d62825676df7980.html">cmake</a></li><li class="navelem"><a class="el" href="dir_465349965ae3b3007330e028906dcb54.html">src</a></li><li class="navelem"><a class="el" href="dir_512175a00f265906b65bee7fba32762f.html">wood</a></li><li class="navelem"><a class="el" href="dir_9ad6092cef7fa60fd7b2aa97b8bb0a98.html">include</a></li><li class="navelem"><b>rtree_util.h</b></li>
+    <li class="navelem"><a class="el" href="dir_a5bdbfbbaa7895161d62825676df7980.html">cmake</a></li><li class="navelem"><a class="el" href="dir_465349965ae3b3007330e028906dcb54.html">src</a></li><li class="navelem"><a class="el" href="dir_512175a00f265906b65bee7fba32762f.html">wood</a></li><li class="navelem"><a class="el" href="dir_9ad6092cef7fa60fd7b2aa97b8bb0a98.html">include</a></li><li class="navelem"><a class="el" href="rtree__util_8h.html">rtree_util.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
