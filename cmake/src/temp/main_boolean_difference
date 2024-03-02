@@ -111,7 +111,7 @@ int main(int argc, char **argv)
 
 	);
 
-	wood_test::test_cgal_mesh_boolean_0();
+	wood::test::test_cgal_mesh_boolean_0();
 	// opengl_globals_geometry::meshes.add(coord_out, normals_out, faces_out, colors::grey, 1, "mesh_outlines_wood");
 	opengl_globals::shader_type_0default_1transparent_2shaded_3shadedwireframe_4wireframe_5normals_6explode = 3;
 	opengl_globals::shaders_folder = "C:\\IBOIS57\\_Code\\Software\\CPP\\CMAKE\\super_build\\compas_wood\\viewer\\shaders\\";

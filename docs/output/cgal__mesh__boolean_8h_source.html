@@ -101,39 +101,43 @@ $(function(){initNavTree('cgal__mesh__boolean_8h_source.html',''); initResizable
   <div class="headertitle"><div class="title">cgal_mesh_boolean.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef CGAL_MESH_BOOLEAN_H</span></div>
+<a href="cgal__mesh__boolean_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef CGAL_MESH_BOOLEAN_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define CGAL_MESH_BOOLEAN_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">namespace </span>cgal_mesh_boolean</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacecgal.html">cgal</a></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>{</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    <span class="keywordtype">void</span> mesh_boolean_create_array_track_colors(</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>        <span class="comment">// double *coord_mesh, int *n_coord_meshArray, // Flat array of coordinates / 0 256 512 flat array of vertices array / number of meshes</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>        <span class="comment">// int *faces_mesh, int *n_faces_meshArray,</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>        <span class="comment">// size_t n_mesh,</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        std::vector&lt;Mesh&gt; mesh_list,</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        <span class="keywordtype">size_t</span> difference_union_intersection,</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        std::vector&lt;float&gt; &amp;coord_out, <span class="keywordtype">int</span> &amp;n_coord_out,</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        std::vector&lt;float&gt; &amp;normals_out,</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        std::vector&lt;int&gt; &amp;faces_out, <span class="keywordtype">int</span> &amp;n_faces_out,</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        std::vector&lt;int&gt; &amp;facesColors_out, <span class="keywordtype">int</span> &amp;n_facesColors_out,</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keywordtype">int</span> &amp;n_valid_meshes</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    );</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    <span class="keyword">namespace </span>mesh_boolean</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    {</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="namespacecgal_1_1mesh__boolean.html#ab17fcf41a4c3028e7f15dcaee34d56ac">mesh_boolean_create_array_track_colors</a>(</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>            <span class="comment">// double *coord_mesh, int *n_coord_meshArray, // Flat array of coordinates / 0 256 512 flat array of vertices array / number of meshes</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>            <span class="comment">// int *faces_mesh, int *n_faces_meshArray,</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>            <span class="comment">// size_t n_mesh,</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>            std::vector&lt;Mesh&gt; mesh_list,</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>            <span class="keywordtype">size_t</span> difference_union_intersection,</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>            std::vector&lt;float&gt; &amp;coord_out, <span class="keywordtype">int</span> &amp;n_coord_out,</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>            std::vector&lt;float&gt; &amp;normals_out,</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>            std::vector&lt;int&gt; &amp;faces_out, <span class="keywordtype">int</span> &amp;n_faces_out,</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>            std::vector&lt;int&gt; &amp;facesColors_out, <span class="keywordtype">int</span> &amp;n_facesColors_out,</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            <span class="keywordtype">int</span> &amp;n_valid_meshes</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">void</span> mesh_boolean_test();</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        );</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>}</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#endif </span><span class="comment">// CGAL_MESH_BOOLEAN_H</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="namespacecgal_1_1mesh__boolean.html#a1f44999dea12f9a51c7bd7ae6c442529">mesh_boolean_test</a>();</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    }</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>} <span class="comment">// namespace cgal</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#endif </span><span class="comment">// CGAL_MESH_BOOLEAN_H</span></div>
+<div class="ttc" id="anamespacecgal_1_1mesh__boolean_html_a1f44999dea12f9a51c7bd7ae6c442529"><div class="ttname"><a href="namespacecgal_1_1mesh__boolean.html#a1f44999dea12f9a51c7bd7ae6c442529">cgal::mesh_boolean::mesh_boolean_test</a></div><div class="ttdeci">void mesh_boolean_test()</div><div class="ttdef"><b>Definition</b> <a href="cgal__mesh__boolean_8cpp_source.html#l00279">cgal_mesh_boolean.cpp:279</a></div></div>
+<div class="ttc" id="anamespacecgal_1_1mesh__boolean_html_ab17fcf41a4c3028e7f15dcaee34d56ac"><div class="ttname"><a href="namespacecgal_1_1mesh__boolean.html#ab17fcf41a4c3028e7f15dcaee34d56ac">cgal::mesh_boolean::mesh_boolean_create_array_track_colors</a></div><div class="ttdeci">void mesh_boolean_create_array_track_colors(std::vector&lt; Mesh &gt; mesh_list, size_t difference_union_intersection, std::vector&lt; float &gt; &amp;coord_out, int &amp;n_coord_out, std::vector&lt; float &gt; &amp;normals_out, std::vector&lt; int &gt; &amp;faces_out, int &amp;n_faces_out, std::vector&lt; int &gt; &amp;facesColors_out, int &amp;n_facesColors_out, int &amp;n_valid_meshes)</div><div class="ttdef"><b>Definition</b> <a href="cgal__mesh__boolean_8cpp_source.html#l00050">cgal_mesh_boolean.cpp:50</a></div></div>
+<div class="ttc" id="anamespacecgal_html"><div class="ttname"><a href="namespacecgal.html">cgal</a></div><div class="ttdef"><b>Definition</b> <a href="cgal__box__search_8h_source.html#l00008">cgal_box_search.h:9</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_a5bdbfbbaa7895161d62825676df7980.html">cmake</a></li><li class="navelem"><a class="el" href="dir_465349965ae3b3007330e028906dcb54.html">src</a></li><li class="navelem"><a class="el" href="dir_512175a00f265906b65bee7fba32762f.html">wood</a></li><li class="navelem"><a class="el" href="dir_9ad6092cef7fa60fd7b2aa97b8bb0a98.html">include</a></li><li class="navelem"><b>cgal_mesh_boolean.h</b></li>
+    <li class="navelem"><a class="el" href="dir_a5bdbfbbaa7895161d62825676df7980.html">cmake</a></li><li class="navelem"><a class="el" href="dir_465349965ae3b3007330e028906dcb54.html">src</a></li><li class="navelem"><a class="el" href="dir_512175a00f265906b65bee7fba32762f.html">wood</a></li><li class="navelem"><a class="el" href="dir_9ad6092cef7fa60fd7b2aa97b8bb0a98.html">include</a></li><li class="navelem"><a class="el" href="cgal__mesh__boolean_8h.html">cgal_mesh_boolean.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>

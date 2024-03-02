@@ -617,7 +617,7 @@ if (BUILD_MY_PROJECTS)
   #   # "${CMAKE_SOURCE_DIR}/src/wood/include/clipper_util.cpp"
   #   # "${CMAKE_SOURCE_DIR}/src/wood/include/wood_element.cpp"
   #   # "${CMAKE_SOURCE_DIR}/src/wood/include/wood_joint.cpp"
-  #   # "${CMAKE_SOURCE_DIR}/src/wood/include/wood_joint_lib.cpp"
+  #   # "${CMAKE_SOURCE_DIR}/src/wood/include/wood::joint_lib.cpp"
   #   # #"${CMAKE_SOURCE_DIR}/src/wood/include/wood_test.cpp"
   #   # "${CMAKE_SOURCE_DIR}/src/wood/include/wood_main.cpp"
   #   # "${CMAKE_SOURCE_DIR}/src/wood/include/wood_xml.cpp"

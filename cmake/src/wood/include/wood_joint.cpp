@@ -55,12 +55,12 @@ namespace wood
         }
     }
 
-    wood_cut::cut_type &joint::get_first_cutting_type(bool male_or_female)
+    wood::cut::cut_type &joint::get_first_cutting_type(bool male_or_female)
     {
         return male_or_female ? m_boolean_type[0] : f_boolean_type[0];
     }
 
-    std::vector<wood_cut::cut_type> &joint::operator()(bool male_or_female)
+    std::vector<wood::cut::cut_type> &joint::operator()(bool male_or_female)
     {
         return male_or_female ? m_boolean_type : f_boolean_type;
     }
@@ -287,13 +287,13 @@ namespace wood
             IK::Segment_3 volume_segment(joint_volumes[0][0], joint_volumes[1][0]);
             IK::Vector_3 vec = volume_segment.to_vector() * 0.5;
             IK::Vector_3 vec_unit = volume_segment.to_vector();
-            cgal_vector_util::unitize(vec_unit);
+            cgal::vector_util::unitize(vec_unit);
             vec_unit *= (unit_scale_distance * 0.5);
 
-            cgal_polyline_util::move(joint_volumes[0], vec);
-            cgal_polyline_util::move(joint_volumes[1], -vec);
-            cgal_polyline_util::move(joint_volumes[0], -vec_unit);
-            cgal_polyline_util::move(joint_volumes[1], vec_unit);
+            cgal::polyline_util::move(joint_volumes[0], vec);
+            cgal::polyline_util::move(joint_volumes[1], -vec);
+            cgal::polyline_util::move(joint_volumes[0], -vec_unit);
+            cgal::polyline_util::move(joint_volumes[1], vec_unit);
 
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // Second pair of joint volumes
@@ -304,13 +304,13 @@ namespace wood
                 IK::Segment_3 volume_segment(joint_volumes[2][0], joint_volumes[3][0]);
                 vec = volume_segment.to_vector() * 0.5;
                 vec_unit = volume_segment.to_vector();
-                cgal_vector_util::unitize(vec_unit);
+                cgal::vector_util::unitize(vec_unit);
                 vec_unit *= (unit_scale_distance * 0.5);
 
-                cgal_polyline_util::move(joint_volumes[2], vec);
-                cgal_polyline_util::move(joint_volumes[3], -vec);
-                cgal_polyline_util::move(joint_volumes[2], -vec_unit);
-                cgal_polyline_util::move(joint_volumes[3], vec_unit);
+                cgal::polyline_util::move(joint_volumes[2], vec);
+                cgal::polyline_util::move(joint_volumes[3], -vec);
+                cgal::polyline_util::move(joint_volumes[2], -vec_unit);
+                cgal::polyline_util::move(joint_volumes[3], vec_unit);
             }
         }
 
@@ -321,7 +321,7 @@ namespace wood
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         if (scale[0] != 1.0 || scale[1] != 1.0 || scale[2] != 1.0)
         {
-            auto xform_scale = cgal_xform_util::scale(scale[0], scale[1], scale[2]);
+            auto xform_scale = cgal::xform_util::scale(scale[0], scale[1], scale[2]);
 
             // std::cout << "Scale transformation: " << scale[0] << " " << scale[1] << " " << scale[2] << std::endl;
             transform(xform_scale, xform_scale);

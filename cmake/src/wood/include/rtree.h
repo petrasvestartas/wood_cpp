@@ -1,28 +1,28 @@
 
 #ifndef RTREE_H
 #define RTREE_H
-
+//! \cond NO_DOXYGEN
 // NOTE This file compiles under MSVC 6 SP5 and MSVC .Net 2003 it may not work on other compilers without modification.
 
 // NOTE These next few lines may be win32 specific, you may need to modify them to compile on other platform
 
-//#include "../../stdafx.h"
-//#include <stdio.h>
-//#include <math.h>
-//#include <assert.h>
-//#include <stdlib.h>
+// #include "../../stdafx.h"
+// #include <stdio.h>
+// #include <math.h>
+// #include <assert.h>
+// #include <stdlib.h>
 //
-//#include <algorithm>
-//#include <functional>
-//#include <vector>
+// #include <algorithm>
+// #include <functional>
+// #include <vector>
 
 #define ASSERT assert // RTree uses ASSERT( condition )
-//#ifndef Min
-//#define Min std::min
-//#endif //Min
-//#ifndef Max
-//#define Max std::max
-//#endif //Max
+// #ifndef Min
+// #define Min std::min
+// #endif //Min
+// #ifndef Max
+// #define Max std::max
+// #endif //Max
 
 //
 // RTree.h
@@ -1337,7 +1337,7 @@ void RTREE_QUAL::LoadNodes(Node *a_nodeA, Node *a_nodeB, PartitionVars *a_parVar
 
         // It is assured that AddBranch here will not cause a node split.
         bool nodeWasSplit = AddBranch(&a_parVars->m_branchBuf[index], targetNodes[targetNodeIndex], NULL);
-        if(nodeWasSplit)
+        if (nodeWasSplit)
             nodeWasSplit = true;
         ASSERT(!nodeWasSplit);
     }
@@ -1632,40 +1632,40 @@ std::vector<typename RTREE_QUAL::Rect> RTREE_QUAL::ListTree() const
 #undef RTREE_TEMPLATE
 #undef RTREE_QUAL
 
-//#endif //RTREE_H
+// #endif //RTREE_H
 
 //
-//#ifndef RTREE_H
-//#define RTREE_H
+// #ifndef RTREE_H
+// #define RTREE_H
 //
 //// NOTE This file compiles under MSVC 6 SP5 and MSVC .Net 2003 it may not work on other compilers without modification.
 //
 //// NOTE These next few lines may be win32 specific, you may need to modify them to compile on other platform
-//#include <stdio.h>
-//#include <math.h>
-//#include <assert.h>
-//#include <stdlib.h>
+// #include <stdio.h>
+// #include <math.h>
+// #include <assert.h>
+// #include <stdlib.h>
 //
-//#include <algorithm>
-//#include <functional>
+// #include <algorithm>
+// #include <functional>
 //
-//#define ASSERT assert // RTree uses ASSERT( condition )
-//#ifndef Min
-//#define Min std::min
-//#endif //Min
-//#ifndef Max
-//#define Max std::max
-//#endif //Max
+// #define ASSERT assert // RTree uses ASSERT( condition )
+// #ifndef Min
+// #define Min std::min
+// #endif //Min
+// #ifndef Max
+// #define Max std::max
+// #endif //Max
 //
 ////
 //// RTree.h
 ////
 //
-//#define RTREE_TEMPLATE template<class DATATYPE, class ELEMTYPE, int NUMDIMS, class ELEMTYPEREAL, int TMAXNODES, int TMINNODES>
-//#define RTREE_QUAL RTree<DATATYPE, ELEMTYPE, NUMDIMS, ELEMTYPEREAL, TMAXNODES, TMINNODES>
+// #define RTREE_TEMPLATE template<class DATATYPE, class ELEMTYPE, int NUMDIMS, class ELEMTYPEREAL, int TMAXNODES, int TMINNODES>
+// #define RTREE_QUAL RTree<DATATYPE, ELEMTYPE, NUMDIMS, ELEMTYPEREAL, TMAXNODES, TMINNODES>
 //
-//#define RTREE_DONT_USE_MEMPOOLS // This version does not contain a fixed memory allocator, fill in lines with EXAMPLE to implement one.
-//#define RTREE_USE_SPHERICAL_VOLUME // Better split classification, may be slower on some systems
+// #define RTREE_DONT_USE_MEMPOOLS // This version does not contain a fixed memory allocator, fill in lines with EXAMPLE to implement one.
+// #define RTREE_USE_SPHERICAL_VOLUME // Better split classification, may be slower on some systems
 //
 //// Fwd decl
 // class RTFileStream;  // File I/O helper class, look below for implementation and notes.
@@ -1995,12 +1995,12 @@ std::vector<typename RTREE_QUAL::Rect> RTREE_QUAL::ListTree() const
 //	}
 //
 //	bool Open(const char* a_fileName, const char* mode) {
-//#if defined(_WIN32) && defined(__STDC_WANT_SECURE_LIB__)
+// #if defined(_WIN32) && defined(__STDC_WANT_SECURE_LIB__)
 //		return fopen_s(&m_file, a_fileName, mode) == 0;
-//#else
+// #else
 //		m_file = fopen(a_fileName, mode);
 //		return m_file != nullptr;
-//#endif
+// #endif
 //	}
 //
 //	bool OpenRead(const char* a_fileName) {
@@ -2080,11 +2080,11 @@ std::vector<typename RTREE_QUAL::Rect> RTREE_QUAL::ListTree() const
 //
 // RTREE_TEMPLATE
 // void RTREE_QUAL::Insert(const ELEMTYPE a_min[NUMDIMS], const ELEMTYPE a_max[NUMDIMS], const DATATYPE& a_dataId) {
-//#ifdef _DEBUG
+// #ifdef _DEBUG
 //	for (int index = 0; index < NUMDIMS; ++index) {
 //		ASSERT(a_min[index] <= a_max[index]);
 //	}
-//#endif //_DEBUG
+// #endif //_DEBUG
 //
 //	Branch branch;
 //	branch.m_data = a_dataId;
@@ -2101,11 +2101,11 @@ std::vector<typename RTREE_QUAL::Rect> RTREE_QUAL::ListTree() const
 //
 // RTREE_TEMPLATE
 // void RTREE_QUAL::Remove(const ELEMTYPE a_min[NUMDIMS], const ELEMTYPE a_max[NUMDIMS], const DATATYPE& a_dataId) {
-//#ifdef _DEBUG
+// #ifdef _DEBUG
 //	for (int index = 0; index < NUMDIMS; ++index) {
 //		ASSERT(a_min[index] <= a_max[index]);
 //	}
-//#endif //_DEBUG
+// #endif //_DEBUG
 //
 //	Rect rect;
 //
@@ -2120,11 +2120,11 @@ std::vector<typename RTREE_QUAL::Rect> RTREE_QUAL::ListTree() const
 //
 // RTREE_TEMPLATE
 // int RTREE_QUAL::Search(const ELEMTYPE a_min[NUMDIMS], const ELEMTYPE a_max[NUMDIMS], std::function<bool(const DATATYPE&)> callback) const {
-//#ifdef _DEBUG
+// #ifdef _DEBUG
 //	for (int index = 0; index < NUMDIMS; ++index) {
 //		ASSERT(a_min[index] <= a_max[index]);
 //	}
-//#endif //_DEBUG
+// #endif //_DEBUG
 //
 //	Rect rect;
 //
@@ -2388,13 +2388,13 @@ std::vector<typename RTREE_QUAL::Rect> RTREE_QUAL::ListTree() const
 //
 // RTREE_TEMPLATE
 // void RTREE_QUAL::Reset() {
-//#ifdef RTREE_DONT_USE_MEMPOOLS
+// #ifdef RTREE_DONT_USE_MEMPOOLS
 //	// Delete all existing nodes
 //	RemoveAllRec(m_root);
-//#else // RTREE_DONT_USE_MEMPOOLS
+// #else // RTREE_DONT_USE_MEMPOOLS
 //	// Just reset memory pools.  We are not using complex types
 //	// EXAMPLE
-//#endif // RTREE_DONT_USE_MEMPOOLS
+// #endif // RTREE_DONT_USE_MEMPOOLS
 // }
 //
 //
@@ -2416,11 +2416,11 @@ std::vector<typename RTREE_QUAL::Rect> RTREE_QUAL::ListTree() const
 // RTREE_TEMPLATE
 // typename RTREE_QUAL::Node* RTREE_QUAL::AllocNode() {
 //	Node* newNode;
-//#ifdef RTREE_DONT_USE_MEMPOOLS
+// #ifdef RTREE_DONT_USE_MEMPOOLS
 //	newNode = new Node;
-//#else // RTREE_DONT_USE_MEMPOOLS
+// #else // RTREE_DONT_USE_MEMPOOLS
 //	// EXAMPLE
-//#endif // RTREE_DONT_USE_MEMPOOLS
+// #endif // RTREE_DONT_USE_MEMPOOLS
 //	InitNode(newNode);
 //	return newNode;
 // }
@@ -2430,11 +2430,11 @@ std::vector<typename RTREE_QUAL::Rect> RTREE_QUAL::ListTree() const
 // void RTREE_QUAL::FreeNode(Node* a_node) {
 //	ASSERT(a_node);
 //
-//#ifdef RTREE_DONT_USE_MEMPOOLS
+// #ifdef RTREE_DONT_USE_MEMPOOLS
 //	delete a_node;
-//#else // RTREE_DONT_USE_MEMPOOLS
+// #else // RTREE_DONT_USE_MEMPOOLS
 //	// EXAMPLE
-//#endif // RTREE_DONT_USE_MEMPOOLS
+// #endif // RTREE_DONT_USE_MEMPOOLS
 // }
 //
 //
@@ -2442,21 +2442,21 @@ std::vector<typename RTREE_QUAL::Rect> RTREE_QUAL::ListTree() const
 //// store Nodes that are too empty.
 // RTREE_TEMPLATE
 // typename RTREE_QUAL::ListNode* RTREE_QUAL::AllocListNode() {
-//#ifdef RTREE_DONT_USE_MEMPOOLS
+// #ifdef RTREE_DONT_USE_MEMPOOLS
 //	return new ListNode;
-//#else // RTREE_DONT_USE_MEMPOOLS
+// #else // RTREE_DONT_USE_MEMPOOLS
 //	// EXAMPLE
-//#endif // RTREE_DONT_USE_MEMPOOLS
+// #endif // RTREE_DONT_USE_MEMPOOLS
 // }
 //
 //
 // RTREE_TEMPLATE
 // void RTREE_QUAL::FreeListNode(ListNode* a_listNode) {
-//#ifdef RTREE_DONT_USE_MEMPOOLS
+// #ifdef RTREE_DONT_USE_MEMPOOLS
 //	delete a_listNode;
-//#else // RTREE_DONT_USE_MEMPOOLS
+// #else // RTREE_DONT_USE_MEMPOOLS
 //	// EXAMPLE
-//#endif // RTREE_DONT_USE_MEMPOOLS
+// #endif // RTREE_DONT_USE_MEMPOOLS
 // }
 //
 //
@@ -2539,11 +2539,11 @@ std::vector<typename RTREE_QUAL::Rect> RTREE_QUAL::ListTree() const
 // bool RTREE_QUAL::InsertRect(const Branch& a_branch, Node** a_root, int a_level) {
 //	ASSERT(a_root);
 //	ASSERT(a_level >= 0 && a_level <= (*a_root)->m_level);
-//#ifdef _DEBUG
+// #ifdef _DEBUG
 //	for (int index = 0; index < NUMDIMS; ++index) {
 //		ASSERT(a_branch.m_rect.m_min[index] <= a_branch.m_rect.m_max[index]);
 //	}
-//#endif //_DEBUG
+// #endif //_DEBUG
 //
 //	Node* newNode;
 //
@@ -2758,11 +2758,11 @@ std::vector<typename RTREE_QUAL::Rect> RTREE_QUAL::ListTree() const
 //// Use one of the methods to calculate retangle volume
 // RTREE_TEMPLATE
 // ELEMTYPEREAL RTREE_QUAL::CalcRectVolume(Rect* a_rect) {
-//#ifdef RTREE_USE_SPHERICAL_VOLUME
+// #ifdef RTREE_USE_SPHERICAL_VOLUME
 //	return RectSphericalVolume(a_rect); // Slower but helps certain merge cases
-//#else // RTREE_USE_SPHERICAL_VOLUME
+// #else // RTREE_USE_SPHERICAL_VOLUME
 //	return RectVolume(a_rect); // Faster but can cause poor merges
-//#endif // RTREE_USE_SPHERICAL_VOLUME
+// #endif // RTREE_USE_SPHERICAL_VOLUME
 // }
 //
 //
@@ -3098,8 +3098,8 @@ std::vector<typename RTREE_QUAL::Rect> RTREE_QUAL::ListTree() const
 // }
 //
 //
-//#undef RTREE_TEMPLATE
-//#undef RTREE_QUAL
+// #undef RTREE_TEMPLATE
+// #undef RTREE_QUAL
 //
+//! \endcond
 #endif // RTREE_H
-//

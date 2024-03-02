@@ -1,17 +1,19 @@
 var searchData=
 [
-  ['m_5fbranch_0',['m_branch',['../struct_r_tree_1_1_node.html#abc3b3eb3c889a004ca5a30628dd8775a',1,'RTree::Node']]],
-  ['m_5fchild_1',['m_child',['../struct_r_tree_1_1_branch.html#aa15f22000d06c726372eb84f46db0fa0',1,'RTree::Branch']]],
-  ['m_5fcount_2',['m_count',['../struct_r_tree_1_1_node.html#ab2393bb1bfe7c8baa84ec4f205d990ed',1,'RTree::Node']]],
-  ['m_5fdata_3',['m_data',['../struct_r_tree_1_1_branch.html#afc1aee31a1a62ad4e800a536a3a9d665',1,'RTree::Branch']]],
-  ['m_5flevel_4',['m_level',['../struct_r_tree_1_1_node.html#a894162b955540567f0519bbbc33a6bf5',1,'RTree::Node']]],
-  ['m_5fmax_5',['m_max',['../struct_r_tree_1_1_rect.html#a6570c2a5a16b19b0d08cd1eaa224961b',1,'RTree::Rect']]],
-  ['m_5fmin_6',['m_min',['../struct_r_tree_1_1_rect.html#a2b5b254493aba27b30fe6fc8df151ed5',1,'RTree::Rect']]],
-  ['m_5fnext_7',['m_next',['../struct_r_tree_1_1_list_node.html#a9812899d8953b03f1772522b668942e3',1,'RTree::ListNode']]],
-  ['m_5fnode_8',['m_node',['../struct_r_tree_1_1_list_node.html#ade4b7e322e04e0a71b4e14cde8e73dca',1,'RTree::ListNode']]],
-  ['m_5frect_9',['m_rect',['../struct_r_tree_1_1_branch.html#a7e98e0d7fb6afd18ec243450b22d9abe',1,'RTree::Branch']]],
-  ['m_5froot_10',['m_root',['../class_r_tree.html#a5028f4e28918519bc70cb1f615316582',1,'RTree']]],
-  ['m_5funitspherevolume_11',['m_unitSphereVolume',['../class_r_tree.html#af26d4beb8ce3a381ee75eabeec4727e3',1,'RTree']]],
-  ['maxnodes_12',['MAXNODES',['../class_r_tree.html#afaccb2e611f17ff46b623771ad7043d7ac05afe446df73fa67991e5199453a37f',1,'RTree']]],
-  ['minnodes_13',['MINNODES',['../class_r_tree.html#afaccb2e611f17ff46b623771ad7043d7a3be3d8c82fd5bfbd5e5a496e9877d71a',1,'RTree']]]
+  ['id_0',['id',['../classwood_1_1element.html#a8798869dabcb1da347b96b32198f3af4',1,'wood::element::id'],['../classwood_1_1joint.html#ace4021e03c5493aef0eeb8519ab04b20',1,'wood::joint::id']]],
+  ['id_5fof_5fglobal_5fjoint_5flist_1',['id_of_global_joint_list',['../classwood_1_1joint.html#a68761ccfa43aa5bb359191fc519567a5',1,'wood::joint']]],
+  ['inscribe_5frectangle_5fin_5fconvex_5fpolygon_2',['inscribe_rectangle_in_convex_polygon',['../namespacecgal_1_1inscribe__util.html#a2dca53db01c9ea6f14c60ca1f9b40fcb',1,'cgal::inscribe_util']]],
+  ['insert_5fbetween_5fmultiple_5fedges_3',['insert_between_multiple_edges',['../namespacewood_1_1cut.html#a3dd088677913278a9202e01861e188bba893f2179053a318352f76b69ce541d44',1,'wood::cut']]],
+  ['installation_4',['Installation',['../index.html#autotoc_md2',1,'']]],
+  ['interpolate_5fpoints_5',['interpolate_points',['../namespacecgal_1_1vector__util.html#a4e0e8b8d748ac77112c1375c1085e73c',1,'cgal::vector_util']]],
+  ['intersecting_5fsequences_5fof_5fdd_5fiso_5foriented_5fboxes_6',['intersecting_sequences_of_dD_iso_oriented_boxes',['../namespacecgal_1_1box__search.html#afdef2e36ecdf5dd98f489c5e49c96f2d',1,'cgal::box_search']]],
+  ['intersection_5fclosed_5fand_5fopen_5fpaths_5f2d_7',['intersection_closed_and_open_paths_2D',['../classwood_1_1element.html#a42fb1b645bb3d48010d6af832dc4173c',1,'wood::element']]],
+  ['introduction_8',['Introduction',['../index.html',1,'']]],
+  ['is_5fclockwise_9',['is_clockwise',['../namespacecgal_1_1polyline__util.html#a02d573cc9836d76419fcf970f47b673f',1,'cgal::polyline_util']]],
+  ['is_5fclosed_10',['is_closed',['../namespacecgal_1_1polyline__util.html#a9c339fac4d6d2e8b290504421b9f136b',1,'cgal::polyline_util']]],
+  ['is_5fcoplanar_11',['is_coplanar',['../namespacecgal_1_1plane__util.html#aa2f56b14f7d5d9a602a1a1a365083c62',1,'cgal::plane_util']]],
+  ['is_5fparallel_5fto_12',['is_parallel_to',['../namespacecgal_1_1plane__util.html#ad57421b6a060b50fa4a67ccd0ad8caa5',1,'cgal::plane_util::is_parallel_to()'],['../namespacecgal_1_1vector__util.html#a39354b14a2580ff5d9a8ddc4cdc1265e',1,'cgal::vector_util::is_parallel_to()']]],
+  ['is_5fpoint_5finside_13',['is_point_inside',['../namespacecollider_1_1clipper__util.html#a175d27ed6dca46b108db03a1f57eb023',1,'collider::clipper_util']]],
+  ['is_5fsame_5fdirection_14',['is_same_direction',['../namespacecgal_1_1plane__util.html#a6c423b2193bef56598e0b9dbf4874151',1,'cgal::plane_util']]],
+  ['is_5fsame_5fposition_15',['is_same_position',['../namespacecgal_1_1plane__util.html#aeec7104a2cbc1ebc9bd2f6186a9e2067',1,'cgal::plane_util']]]
 ];

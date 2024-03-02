@@ -7,19 +7,19 @@ int main(int argc, char **argv)
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// GoogleTest
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// wood_test::run_all_tests();
+	// wood::test::run_all_tests();
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Display
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	wood_globals::DISTANCE = 0.1;
-	wood_globals::DISTANCE_SQUARED = 0.01;
-	wood_globals::ANGLE = 0.11;
-	wood_globals::OUTPUT_GEOMETRY_TYPE = 3;
+	wood::globals::DISTANCE = 0.1;
+	wood::globals::DISTANCE_SQUARED = 0.01;
+	wood::globals::ANGLE = 0.11;
+	wood::globals::OUTPUT_GEOMETRY_TYPE = 3;
 
 	opengl_globals::shader_type_0default_1transparent_2shaded_3shadedwireframe_4wireframe_5normals_6explode = 2;
-	opengl_render::render(wood_test::type_plates_name_side_to_side_edge_inplane_hexshell);
-	// opengl_render::render(wood_test::type_plates_name_side_to_side_edge_inplane_hilti);
+	opengl_render::render(wood::test::type_plates_name_side_to_side_edge_inplane_hexshell);
+	// opengl_render::render(wood::test::type_plates_name_side_to_side_edge_inplane_hilti);
 
 	return 0;
 }

@@ -20,77 +20,79 @@
 
 #ifndef CGAL_MATH_UTIL_H
 #define CGAL_MATH_UTIL_H
-
-
-namespace cgal_math_util
+namespace cgal
 {
 
-    /**
-     * get the length of the opposite ortho edge
-     *
-     * ////////////////////////////
-     * /////////// ////////////////
-     * /////////// / //////////////
-     * /////////// // /////////////
-     * /////////// /// ////////////
-     * /////////// an / ///////////
-     * // edge /// gle / //////////
-     * /// len /// ////// /////////
-     * /////////// /////// ////////
-     * /////////// //////// ///////
-     * /////////// ///////// //////
-     * ///////////            /////
-     * ///////////// x = ? ////////
-     *
-     * @param [in] edge_length target plane origin
-     * @param [in] angle_degrees target plane x_axis
-     * @return length of the opposite ortho edge
-     */
-     double triangle_edge_by_angle(const double &edge_length, const double &angle_degrees);
+    namespace math_util
+    {
 
-    /**
-     * convert radians to degrees
-     *
-     * @param [in] radians angle in radians
-     * @return degrees
-     */
-     double rad_to_deg(const double &radians);
+        /**
+         * get the length of the opposite ortho edge
+         *
+         * ////////////////////////////
+         * /////////// ////////////////
+         * /////////// / //////////////
+         * /////////// // /////////////
+         * /////////// /// ////////////
+         * /////////// an / ///////////
+         * // edge /// gle / //////////
+         * /// len /// ////// /////////
+         * /////////// /////// ////////
+         * /////////// //////// ///////
+         * /////////// ///////// //////
+         * ///////////            /////
+         * ///////////// x = ? ////////
+         *
+         * @param [in] edge_length target plane origin
+         * @param [in] angle_degrees target plane x_axis
+         * @return length of the opposite ortho edge
+         */
+        double triangle_edge_by_angle(const double &edge_length, const double &angle_degrees);
 
-    /**
-     * convert degrees to radians
-     *
-     * @param [in] degrees angle in degrees
-     * @return radians
-     */
-     double deg_to_rad(const double &degrees);
+        /**
+         * convert radians to degrees
+         *
+         * @param [in] radians angle in radians
+         * @return degrees
+         */
+        double rad_to_deg(const double &radians);
 
-    /**
-     * get number of digits in a real number
-     *
-     * @param [in] number numeric value that will be rounded
-     * @return number of digits
-     */
-     int count_digits(const double &number);
+        /**
+         * convert degrees to radians
+         *
+         * @param [in] degrees angle in degrees
+         * @return radians
+         */
+        double deg_to_rad(const double &degrees);
 
-    /**
-     * get a unique number from two integers
-     * the order does not matter
-     *
-     * @param [in] number0 numeric value that will be rounded
-     * @param [in] number1 numeric value that will be rounded
-     * @return number the unsigned integer with values ranging from 0 to 18,446,744,073,709,551,615
-     */
-     uint64_t unique_from_two_int(const int &number0, const int &number1);
+        /**
+         * get number of digits in a real number
+         *
+         * @param [in] number numeric value that will be rounded
+         * @return number of digits
+         */
+        int count_digits(const double &number);
 
-    /**
-     * get next or prev number, when the total count is known
-     * in c++ consider using std::prev() and std::next()
-     *
-     * @param [in] index integer from 0 to n
-     * @param [in] n total number indices
-     * @return next or prev number
-     */
-     int wrap(const int &index, const int &n);
-}
+        /**
+         * get a unique number from two integers
+         * the order does not matter
+         *
+         * @param [in] number0 numeric value that will be rounded
+         * @param [in] number1 numeric value that will be rounded
+         * @return number the unsigned integer with values ranging from 0 to 18,446,744,073,709,551,615
+         */
+        uint64_t unique_from_two_int(const int &number0, const int &number1);
 
+        /**
+         * get next or prev number, when the total count is known
+         * in c++ consider using std::prev() and std::next()
+         *
+         * @param [in] index integer from 0 to n
+         * @param [in] n total number indices
+         * @return next or prev number
+         */
+        int wrap(const int &index, const int &n);
+    }
+
+} // namespace cgal
 #endif

@@ -101,196 +101,195 @@ $(function(){initNavTree('wood__main_8h_source.html',''); initResizable(); });
   <div class="headertitle"><div class="title">wood_main.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// #include &quot;../../stdafx.h&quot;</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// #include &quot;cgal_box_search.h&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// #include &quot;cgal_intersection_util.h&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">// #include &quot;cgal_print.h&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">// #include &quot;cgal_vector_util.h&quot;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">// #include &quot;cgal_xform_util.h&quot;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">// #include &quot;cgal_box_util.h&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">// #include &quot;cgal_data_set.h&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">// #include &quot;cgal_math_util.h&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">// #include &quot;cgal_mesh_util.h&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">// #include &quot;cgal_plane_util.h&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">// #include &quot;cgal_polyline_util.h&quot;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">//</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">// #include &quot;clipper_util.h&quot;</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">// #include &quot;rtree_util.h&quot;</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;wood_cut.h&quot;</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;wood_joint.h&quot;</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;wood_element.h&quot;</span> <span class="comment">//wood eleement has: #include &quot;wood_joint.h&quot;</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;wood_joint_lib.h&quot;</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#ifndef WOOD_MAIN_H</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#define WOOD_MAIN_H</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">namespace </span>wood_main</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>{</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">void</span> get_elements(</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        std::vector&lt;CGAL_Polyline&gt; &amp;pp,</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        std::vector&lt;std::vector&lt;IK::Vector_3&gt;&gt; &amp;insertion_vectors,</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        std::vector&lt;std::vector&lt;int&gt;&gt; &amp;JOINTS_TYPES,</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        std::vector&lt;wood::element&gt; &amp;elements);</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">bool</span> border_to_face(</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keyword">const</span> <span class="keywordtype">size_t</span>&amp; joint_id,</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        std::vector&lt;CGAL_Polyline&gt; &amp;Polyline0,</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        std::vector&lt;IK::Plane_3&gt; &amp;Plane0,</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        std::vector&lt;IK::Vector_3&gt; &amp;insertion_vectors0,</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordtype">int</span> f,</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordtype">double</span> &amp;thickness,</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        CGAL_Polyline &amp;joint_area,</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        std::array&lt;CGAL_Polyline, 2&gt; &amp;joint_lines,</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        std::array&lt;CGAL_Polyline, 4&gt; &amp;joint_volumes_pairA_pairB);</div>
+<a href="wood__main_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="wood__cut_8h.html">wood_cut.h</a>&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="wood__joint_8h.html">wood_joint.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="wood__element_8h.html">wood_element.h</a>&quot;</span> <span class="comment">//wood eleement has: #include &quot;wood_joint.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="wood__joint__lib_8h.html">wood_joint_lib.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef WOOD_MAIN_H</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="wood__main_8h.html#acfe99bdd8cfaa8914e7725e45df189f3">    7</a></span><span class="preprocessor">#define WOOD_MAIN_H</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacewood.html">wood</a></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keyword">namespace </span>main</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="namespacewood_1_1main.html#a8eb2c19eaaa206ac0ac2657490952bbc">get_elements</a>(</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>            std::vector&lt;CGAL_Polyline&gt; &amp;pp,</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>            std::vector&lt;std::vector&lt;IK::Vector_3&gt;&gt; &amp;insertion_vectors,</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>            std::vector&lt;std::vector&lt;int&gt;&gt; &amp;JOINTS_TYPES,</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>            std::vector&lt;wood::element&gt; &amp;elements);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacewood_1_1main.html#ac05cff158a9fbb1ad30b8c5ed341986e">border_to_face</a>(</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            <span class="keyword">const</span> <span class="keywordtype">size_t</span> &amp;joint_id,</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            std::vector&lt;CGAL_Polyline&gt; &amp;Polyline0,</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            std::vector&lt;IK::Plane_3&gt; &amp;Plane0,</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            std::vector&lt;IK::Vector_3&gt; &amp;insertion_vectors0,</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            <span class="keywordtype">int</span> f,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            <span class="keywordtype">double</span> &amp;thickness,</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            CGAL_Polyline &amp;joint_area,</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            std::array&lt;CGAL_Polyline, 2&gt; &amp;joint_lines,</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            std::array&lt;CGAL_Polyline, 4&gt; &amp;joint_volumes_pairA_pairB);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacewood_1_1main.html#ab7a7e90d425209065d1991bef4ca8d69">plane_to_face</a>(</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <span class="keyword">const</span> <span class="keywordtype">size_t</span> &amp;joint_id,</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            std::vector&lt;CGAL_Polyline&gt; &amp;Polyline0,</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            std::vector&lt;CGAL_Polyline&gt; &amp;Polyline1,</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            std::vector&lt;IK::Plane_3&gt; &amp;Plane0,</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            std::vector&lt;IK::Plane_3&gt; &amp;Plane1,</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            std::vector&lt;IK::Vector_3&gt; &amp;insertion_vectors0,</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            std::vector&lt;IK::Vector_3&gt; &amp;insertion_vectors1,</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            std::pair&lt;int, int&gt; &amp;el_ids,</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            std::pair&lt;std::array&lt;int, 2&gt;, std::array&lt;int, 2&gt;&gt; &amp;face_ids,</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            <span class="keywordtype">int</span> &amp;type,</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            CGAL_Polyline &amp;joint_area,</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            std::array&lt;CGAL_Polyline, 2&gt; &amp;joint_lines,</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            std::array&lt;CGAL_Polyline, 4&gt; &amp;joint_volumes_pairA_pairB,</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            <span class="keywordtype">double</span> angleTol = 30,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            <span class="keywordtype">bool</span> checkOverlap = <span class="keyword">false</span></div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">bool</span> plane_to_face(</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keyword">const</span> <span class="keywordtype">size_t</span>&amp; joint_id,</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        std::vector&lt;CGAL_Polyline&gt; &amp;Polyline0,</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        std::vector&lt;CGAL_Polyline&gt; &amp;Polyline1,</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        std::vector&lt;IK::Plane_3&gt; &amp;Plane0,</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        std::vector&lt;IK::Plane_3&gt; &amp;Plane1,</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        std::vector&lt;IK::Vector_3&gt; &amp;insertion_vectors0,</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        std::vector&lt;IK::Vector_3&gt; &amp;insertion_vectors1,</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        std::pair&lt;int, int&gt; &amp;el_ids,</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        std::pair&lt;std::array&lt;int, 2&gt;, std::array&lt;int, 2&gt;&gt; &amp;face_ids,</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keywordtype">int</span> &amp;type,</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        CGAL_Polyline &amp;joint_area,</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        std::array&lt;CGAL_Polyline, 2&gt; &amp;joint_lines,</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        std::array&lt;CGAL_Polyline, 4&gt; &amp;joint_volumes_pairA_pairB,</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keywordtype">double</span> angleTol = 30,</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keywordtype">bool</span> checkOverlap = <span class="keyword">false</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        );</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="comment">// ToDo: Currently one connection can be made with another object, but one multiple shared edges can be possible e.g. |_&gt;-&lt;_|</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacewood_1_1main.html#a2a90f3a350fc88f601c32d8d59c52222">face_to_face</a>(</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            <span class="keyword">const</span> <span class="keywordtype">size_t</span> &amp;joint_id,</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            std::vector&lt;CGAL_Polyline&gt; &amp;Polyline0,</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            std::vector&lt;CGAL_Polyline&gt; &amp;Polyline1,</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            std::vector&lt;IK::Plane_3&gt; &amp;Plane0,</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            std::vector&lt;IK::Plane_3&gt; &amp;Plane1,</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            std::vector&lt;IK::Vector_3&gt; &amp;insertion_vectors0,</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            std::vector&lt;IK::Vector_3&gt; &amp;insertion_vectors1,</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            std::pair&lt;int, int&gt; &amp;el_ids,</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            std::pair&lt;std::array&lt;int, 2&gt;, std::array&lt;int, 2&gt;&gt; &amp;face_ids,</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            <span class="keywordtype">int</span> &amp;type,</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            CGAL_Polyline &amp;joint_area,</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            std::array&lt;CGAL_Polyline, 2&gt; &amp;joint_lines,</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            std::array&lt;CGAL_Polyline, 4&gt; &amp;joint_volumes_pairA_pairB);</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    );</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacewood_1_1main.html#a6217a09c9aba024aebec5254f595690f">pair_search</a>(</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="comment">// ToDo: Currently one connection can be made with another object, but one multiple shared edges can be possible e.g. |_&gt;-&lt;_|</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">bool</span> face_to_face(</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keyword">const</span> <span class="keywordtype">size_t</span>&amp; joint_id,</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        std::vector&lt;CGAL_Polyline&gt; &amp;Polyline0,</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        std::vector&lt;CGAL_Polyline&gt; &amp;Polyline1,</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        std::vector&lt;IK::Plane_3&gt; &amp;Plane0,</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        std::vector&lt;IK::Plane_3&gt; &amp;Plane1,</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        std::vector&lt;IK::Vector_3&gt; &amp;insertion_vectors0,</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        std::vector&lt;IK::Vector_3&gt; &amp;insertion_vectors1,</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        std::pair&lt;int, int&gt; &amp;el_ids,</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        std::pair&lt;std::array&lt;int, 2&gt;, std::array&lt;int, 2&gt;&gt; &amp;face_ids,</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keywordtype">int</span> &amp;type,</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        CGAL_Polyline &amp;joint_area,</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        std::array&lt;CGAL_Polyline, 2&gt; &amp;joint_lines,</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        std::array&lt;CGAL_Polyline, 4&gt; &amp;joint_volumes_pairA_pairB);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            <span class="comment">// Input</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            std::vector&lt;wood::element&gt; &amp;elements,       <span class="comment">// real wood::element</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            std::array&lt;CGAL_Polyline, 4&gt; &amp;<a class="code hl_function" href="namespacewood_1_1main.html#a20378729cfcdb99ac7ae7055a3cfcdca">beam_volumes</a>, <span class="comment">// wood::joint volumes</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;polyline_id_0,</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;polyline_id_1,</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            <span class="keywordtype">int</span> search_type,</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            <span class="comment">// Output</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            std::vector&lt;wood::joint&gt; &amp;joints,</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            std::unordered_map&lt;uint64_t, int&gt; &amp;joints_map</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        );</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="namespacewood_1_1main.html#af9a79236407d92a589b48b9a7a7e80db">rtree_search</a>(</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordtype">bool</span> pair_search(</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="comment">// Input</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        std::vector&lt;wood::element&gt; &amp;elements,       <span class="comment">// real wood::element</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        std::array&lt;CGAL_Polyline, 4&gt; &amp;beam_volumes, <span class="comment">// wood::joint volumes</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;polyline_id_0,</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;polyline_id_1,</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <span class="keywordtype">int</span> search_type,</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="comment">// Output</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        std::vector&lt;wood::joint&gt; &amp;joints,</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        std::unordered_map&lt;uint64_t, int&gt; &amp;joints_map</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    );</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            <span class="comment">// Input</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            std::vector&lt;wood::element&gt; &amp;elements,</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            <span class="keywordtype">int</span> search_type,</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            <span class="comment">// Output</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            std::vector&lt;int&gt; &amp;result);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="namespacewood_1_1main.html#aedc2e9ded53e4587de45d587e254305e">adjacency_search</a>(</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            <span class="comment">// Input</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            std::vector&lt;wood::element&gt; &amp;elements,</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            <span class="keywordtype">int</span> search_type,</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            std::vector&lt;int&gt; &amp;input_adjacency,</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            <span class="comment">// Output</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            std::vector&lt;wood::joint&gt; &amp;joints,</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            std::unordered_map&lt;uint64_t, int&gt; &amp;joints_map);</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordtype">void</span> rtree_search(</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <span class="comment">// Input</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        std::vector&lt;wood::element&gt; &amp;elements,</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <span class="keywordtype">int</span> search_type,</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="comment">// Output</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        std::vector&lt;int&gt; &amp;result);</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keywordtype">void</span> adjacency_search(</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <span class="comment">// Input</span></div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        std::vector&lt;wood::element&gt; &amp;elements,</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keywordtype">int</span> search_type,</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        std::vector&lt;int&gt; &amp;input_adjacency,</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="comment">// Output</span></div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        std::vector&lt;wood::joint&gt; &amp;joints,</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        std::unordered_map&lt;uint64_t, int&gt; &amp;joints_map);</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keywordtype">void</span> three_valence_joint_addition_vidy(</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        std::vector&lt;std::vector&lt;int&gt;&gt; &amp;in_s0_s1_e20_e31,</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        std::vector&lt;wood::element&gt; &amp;elements,</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        std::vector&lt;wood::joint&gt; &amp;joints,</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        std::unordered_map&lt;uint64_t, int&gt; &amp;joints_map,</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        <span class="keywordtype">bool</span> align_joints = <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="namespacewood_1_1main.html#ad0a19382956144cbb40958ca81635c23">three_valence_joint_addition_vidy</a>(</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            std::vector&lt;std::vector&lt;int&gt;&gt; &amp;in_s0_s1_e20_e31,</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            std::vector&lt;wood::element&gt; &amp;elements,</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            std::vector&lt;wood::joint&gt; &amp;joints,</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            std::unordered_map&lt;uint64_t, int&gt; &amp;joints_map,</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            <span class="keywordtype">bool</span> align_joints = <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="namespacewood_1_1main.html#adabe5dabaedb44cc6ae7eb355984942e">three_valence_joint_alignment_annen</a>(</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>            std::vector&lt;std::vector&lt;int&gt;&gt; &amp;out_three_valence_element_indices_and_instruction,</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            std::vector&lt;wood::element&gt; &amp;elements,</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            std::vector&lt;wood::joint&gt; &amp;joints,</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            std::unordered_map&lt;uint64_t, int&gt; &amp;joints_map);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="namespacewood_1_1main.html#aa117e91fdb58a0feb0669d58e9c418b0">get_connection_zones</a>(</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            std::vector&lt;CGAL_Polyline&gt; &amp;input_polyline_pairs,</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            std::vector&lt;std::vector&lt;IK::Vector_3&gt;&gt; &amp;input_insertion_vectors,</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            std::vector&lt;std::vector&lt;int&gt;&gt; &amp;input_JOINTS_TYPES,</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            std::vector&lt;std::vector&lt;int&gt;&gt; &amp;input_three_valence_element_indices_and_instruction,</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            std::vector&lt;int&gt; &amp;input_adjacency,</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            <span class="comment">// output</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            std::vector&lt;std::vector&lt;CGAL_Polyline&gt;&gt; &amp;output_plines,</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>            std::vector&lt;std::vector&lt;wood::cut::cut_type&gt;&gt; &amp;output_types,</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            std::vector&lt;std::vector&lt;int&gt;&gt; &amp;top_face_triangulation,</div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keywordtype">void</span> three_valence_joint_alignment_annen(</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        std::vector&lt;std::vector&lt;int&gt;&gt; &amp;out_three_valence_element_indices_and_instruction,</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        std::vector&lt;wood::element&gt; &amp;elements,</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        std::vector&lt;wood::joint&gt; &amp;joints,</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        std::unordered_map&lt;uint64_t, int&gt; &amp;joints_map);</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keywordtype">void</span> get_connection_zones(</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        std::vector&lt;CGAL_Polyline&gt; &amp;input_polyline_pairs,</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        std::vector&lt;std::vector&lt;IK::Vector_3&gt;&gt; &amp;input_insertion_vectors,</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        std::vector&lt;std::vector&lt;int&gt;&gt; &amp;input_JOINTS_TYPES,</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        std::vector&lt;std::vector&lt;int&gt;&gt; &amp;input_three_valence_element_indices_and_instruction,</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        std::vector&lt;int&gt; &amp;input_adjacency,</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        <span class="comment">// output</span></div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        std::vector&lt;std::vector&lt;CGAL_Polyline&gt;&gt; &amp;output_plines,</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        std::vector&lt;std::vector&lt;wood_cut::cut_type&gt;&gt; &amp;output_types,</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        std::vector&lt;std::vector&lt;int&gt;&gt; &amp;top_face_triangulation,</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        <span class="comment">// Global Parameters</span></div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        std::vector&lt;double&gt; &amp;default_parameters_for_JOINTS_TYPES,</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        std::vector&lt;double&gt; &amp;scale,</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        <span class="keywordtype">int</span> search_type = 0,</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        <span class="comment">// double division_distance = 300,</span></div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        <span class="comment">// double shift = 0.6,</span></div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        <span class="keywordtype">int</span> output_type = 4,</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        <span class="keywordtype">int</span> triangulate = 0</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    );</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="keywordtype">void</span> beam_volumes(</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        std::vector&lt;CGAL_Polyline&gt; &amp;polylines,</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        std::vector&lt;std::vector&lt;double&gt;&gt; &amp;polylines_segment_radii,</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        std::vector&lt;std::vector&lt;IK::Vector_3&gt;&gt; &amp;polylines_segment_direction,</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        std::vector&lt;int&gt; &amp;allowed_types,</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        <span class="keywordtype">double</span> &amp;min_distance,</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <span class="keywordtype">double</span> &amp;volume_length,</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        <span class="keywordtype">double</span> &amp;cross_or_side_to_end,</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        <span class="keywordtype">int</span> &amp;flip_male,</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        <span class="comment">// output of wood::joint areas</span></div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        std::vector&lt;std::array&lt;int, 4&gt;&gt; &amp;polyline0_id_segment0_id_polyline1_id_segment1_id,</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        std::vector&lt;std::array&lt;IK::Point_3, 2&gt;&gt; &amp;point_pairs,</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        std::vector&lt;std::array&lt;CGAL_Polyline, 4&gt;&gt; &amp;volume_pairs,</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        std::vector&lt;CGAL_Polyline&gt; &amp;joints_areas,</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        std::vector&lt;int&gt; &amp;joints_types,</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        <span class="comment">// Global Parameters and output wood::joint selection and orientation</span></div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        std::vector&lt;double&gt; &amp;default_parameters_for_JOINTS_TYPES,</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        std::vector&lt;std::vector&lt;CGAL_Polyline&gt;&gt; &amp;output_plines,</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        std::vector&lt;std::vector&lt;wood_cut::cut_type&gt;&gt; &amp;output_types,</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        <span class="keywordtype">bool</span> compute_joints = <span class="keyword">false</span>,</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        <span class="keywordtype">double</span> division_distance = 300,</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        <span class="keywordtype">double</span> shift = 0.6,</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        <span class="keywordtype">int</span> output_type = 3,</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        <span class="keywordtype">bool</span> use_eccentricities_to_scale_joints = <span class="keyword">true</span></div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    );</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>}</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>            <span class="comment">// Global Parameters</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            std::vector&lt;double&gt; &amp;default_parameters_for_JOINTS_TYPES,</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            std::vector&lt;double&gt; &amp;scale,</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>            <span class="keywordtype">int</span> search_type = 0,</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            <span class="comment">// double division_distance = 300,</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>            <span class="comment">// double shift = 0.6,</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>            <span class="keywordtype">int</span> output_type = 4,</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>            <span class="keywordtype">int</span> triangulate = 0</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        );</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="namespacewood_1_1main.html#a20378729cfcdb99ac7ae7055a3cfcdca">beam_volumes</a>(</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>            std::vector&lt;CGAL_Polyline&gt; &amp;polylines,</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            std::vector&lt;std::vector&lt;double&gt;&gt; &amp;polylines_segment_radii,</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>            std::vector&lt;std::vector&lt;IK::Vector_3&gt;&gt; &amp;polylines_segment_direction,</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>            std::vector&lt;int&gt; &amp;allowed_types,</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            <span class="keywordtype">double</span> &amp;min_distance,</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            <span class="keywordtype">double</span> &amp;volume_length,</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            <span class="keywordtype">double</span> &amp;cross_or_side_to_end,</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>            <span class="keywordtype">int</span> &amp;flip_male,</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>            <span class="comment">// output of wood::joint areas</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>            std::vector&lt;std::array&lt;int, 4&gt;&gt; &amp;polyline0_id_segment0_id_polyline1_id_segment1_id,</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>            std::vector&lt;std::array&lt;IK::Point_3, 2&gt;&gt; &amp;point_pairs,</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>            std::vector&lt;std::array&lt;CGAL_Polyline, 4&gt;&gt; &amp;volume_pairs,</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>            std::vector&lt;CGAL_Polyline&gt; &amp;joints_areas,</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>            std::vector&lt;int&gt; &amp;joints_types,</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>            <span class="comment">// Global Parameters and output wood::joint selection and orientation</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>            std::vector&lt;double&gt; &amp;default_parameters_for_JOINTS_TYPES,</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>            std::vector&lt;std::vector&lt;CGAL_Polyline&gt;&gt; &amp;output_plines,</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>            std::vector&lt;std::vector&lt;wood::cut::cut_type&gt;&gt; &amp;output_types,</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>            <span class="keywordtype">bool</span> compute_joints = <span class="keyword">false</span>,</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>            <span class="keywordtype">double</span> division_distance = 300,</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>            <span class="keywordtype">double</span> shift = 0.6,</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>            <span class="keywordtype">int</span> output_type = 3,</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            <span class="keywordtype">bool</span> use_eccentricities_to_scale_joints = <span class="keyword">true</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        );</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    }</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>}</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="anamespacewood_1_1main_html_a20378729cfcdb99ac7ae7055a3cfcdca"><div class="ttname"><a href="namespacewood_1_1main.html#a20378729cfcdb99ac7ae7055a3cfcdca">wood::main::beam_volumes</a></div><div class="ttdeci">void beam_volumes(std::vector&lt; CGAL_Polyline &gt; &amp;polylines, std::vector&lt; std::vector&lt; double &gt; &gt; &amp;polylines_segment_radii, std::vector&lt; std::vector&lt; IK::Vector_3 &gt; &gt; &amp;polylines_segment_direction, std::vector&lt; int &gt; &amp;allowed_types, double &amp;min_distance, double &amp;volume_length, double &amp;cross_or_side_to_end, int &amp;flip_male, std::vector&lt; std::array&lt; int, 4 &gt; &gt; &amp;polyline0_id_segment0_id_polyline1_id_segment1_id, std::vector&lt; std::array&lt; IK::Point_3, 2 &gt; &gt; &amp;point_pairs, std::vector&lt; std::array&lt; CGAL_Polyline, 4 &gt; &gt; &amp;volume_pairs, std::vector&lt; CGAL_Polyline &gt; &amp;joints_areas, std::vector&lt; int &gt; &amp;joints_types, std::vector&lt; double &gt; &amp;default_parameters_for_JOINTS_TYPES, std::vector&lt; std::vector&lt; CGAL_Polyline &gt; &gt; &amp;output_plines, std::vector&lt; std::vector&lt; wood::cut::cut_type &gt; &gt; &amp;output_types, bool compute_joints, double division_distance, double shift, int output_type, bool use_eccentricities_to_scale_joints)</div><div class="ttdef"><b>Definition</b> <a href="wood__main_8cpp_source.html#l02383">wood_main.cpp:2383</a></div></div>
+<div class="ttc" id="anamespacewood_1_1main_html_a2a90f3a350fc88f601c32d8d59c52222"><div class="ttname"><a href="namespacewood_1_1main.html#a2a90f3a350fc88f601c32d8d59c52222">wood::main::face_to_face</a></div><div class="ttdeci">bool face_to_face(const size_t &amp;joint_id, std::vector&lt; CGAL_Polyline &gt; &amp;Polyline0, std::vector&lt; CGAL_Polyline &gt; &amp;Polyline1, std::vector&lt; IK::Plane_3 &gt; &amp;Plane0, std::vector&lt; IK::Plane_3 &gt; &amp;Plane1, std::vector&lt; IK::Vector_3 &gt; &amp;insertion_vectors0, std::vector&lt; IK::Vector_3 &gt; &amp;insertion_vectors1, std::pair&lt; int, int &gt; &amp;el_ids, std::pair&lt; std::array&lt; int, 2 &gt;, std::array&lt; int, 2 &gt; &gt; &amp;face_ids, int &amp;type, CGAL_Polyline &amp;joint_area, std::array&lt; CGAL_Polyline, 2 &gt; &amp;joint_lines, std::array&lt; CGAL_Polyline, 4 &gt; &amp;joint_volumes_pairA_pairB)</div><div class="ttdef"><b>Definition</b> <a href="wood__main_8cpp_source.html#l00614">wood_main.cpp:614</a></div></div>
+<div class="ttc" id="anamespacewood_1_1main_html_a6217a09c9aba024aebec5254f595690f"><div class="ttname"><a href="namespacewood_1_1main.html#a6217a09c9aba024aebec5254f595690f">wood::main::pair_search</a></div><div class="ttdeci">bool pair_search(std::vector&lt; wood::element &gt; &amp;elements, std::array&lt; CGAL_Polyline, 4 &gt; &amp;beam_volumes, const int &amp;polyline_id_0, const int &amp;polyline_id_1, int search_type, std::vector&lt; wood::joint &gt; &amp;joints, std::unordered_map&lt; uint64_t, int &gt; &amp;joints_map)</div><div class="ttdef"><b>Definition</b> <a href="wood__main_8cpp_source.html#l01280">wood_main.cpp:1280</a></div></div>
+<div class="ttc" id="anamespacewood_1_1main_html_a8eb2c19eaaa206ac0ac2657490952bbc"><div class="ttname"><a href="namespacewood_1_1main.html#a8eb2c19eaaa206ac0ac2657490952bbc">wood::main::get_elements</a></div><div class="ttdeci">void get_elements(std::vector&lt; CGAL_Polyline &gt; &amp;pp, std::vector&lt; std::vector&lt; IK::Vector_3 &gt; &gt; &amp;insertion_vectors, std::vector&lt; std::vector&lt; int &gt; &gt; &amp;JOINTS_TYPES, std::vector&lt; wood::element &gt; &amp;elements)</div><div class="ttdef"><b>Definition</b> <a href="wood__main_8cpp_source.html#l00013">wood_main.cpp:13</a></div></div>
+<div class="ttc" id="anamespacewood_1_1main_html_aa117e91fdb58a0feb0669d58e9c418b0"><div class="ttname"><a href="namespacewood_1_1main.html#aa117e91fdb58a0feb0669d58e9c418b0">wood::main::get_connection_zones</a></div><div class="ttdeci">void get_connection_zones(std::vector&lt; CGAL_Polyline &gt; &amp;input_polyline_pairs, std::vector&lt; std::vector&lt; IK::Vector_3 &gt; &gt; &amp;input_insertion_vectors, std::vector&lt; std::vector&lt; int &gt; &gt; &amp;input_JOINTS_TYPES, std::vector&lt; std::vector&lt; int &gt; &gt; &amp;input_three_valence_element_indices_and_instruction, std::vector&lt; int &gt; &amp;input_adjacency, std::vector&lt; std::vector&lt; CGAL_Polyline &gt; &gt; &amp;output_plines, std::vector&lt; std::vector&lt; wood::cut::cut_type &gt; &gt; &amp;output_types, std::vector&lt; std::vector&lt; int &gt; &gt; &amp;top_face_triangulation, std::vector&lt; double &gt; &amp;default_parameters_for_JOINTS_TYPES, std::vector&lt; double &gt; &amp;scale, int search_type, int output_type, int triangulate)</div><div class="ttdef"><b>Definition</b> <a href="wood__main_8cpp_source.html#l02141">wood_main.cpp:2141</a></div></div>
+<div class="ttc" id="anamespacewood_1_1main_html_ab7a7e90d425209065d1991bef4ca8d69"><div class="ttname"><a href="namespacewood_1_1main.html#ab7a7e90d425209065d1991bef4ca8d69">wood::main::plane_to_face</a></div><div class="ttdeci">bool plane_to_face(const size_t &amp;joint_id, std::vector&lt; CGAL_Polyline &gt; &amp;Polyline0, std::vector&lt; CGAL_Polyline &gt; &amp;Polyline1, std::vector&lt; IK::Plane_3 &gt; &amp;Plane0, std::vector&lt; IK::Plane_3 &gt; &amp;Plane1, std::vector&lt; IK::Vector_3 &gt; &amp;insertion_vectors0, std::vector&lt; IK::Vector_3 &gt; &amp;insertion_vectors1, std::pair&lt; int, int &gt; &amp;el_ids, std::pair&lt; std::array&lt; int, 2 &gt;, std::array&lt; int, 2 &gt; &gt; &amp;face_ids, int &amp;type, CGAL_Polyline &amp;joint_area, std::array&lt; CGAL_Polyline, 2 &gt; &amp;joint_lines, std::array&lt; CGAL_Polyline, 4 &gt; &amp;joint_volumes_pairA_pairB, double angleTol, bool checkOverlap)</div><div class="ttdef"><b>Definition</b> <a href="wood__main_8cpp_source.html#l00287">wood_main.cpp:287</a></div></div>
+<div class="ttc" id="anamespacewood_1_1main_html_ac05cff158a9fbb1ad30b8c5ed341986e"><div class="ttname"><a href="namespacewood_1_1main.html#ac05cff158a9fbb1ad30b8c5ed341986e">wood::main::border_to_face</a></div><div class="ttdeci">bool border_to_face(const size_t &amp;joint_id, std::vector&lt; CGAL_Polyline &gt; &amp;Polyline0, std::vector&lt; IK::Plane_3 &gt; &amp;Plane0, std::vector&lt; IK::Vector_3 &gt; &amp;insertion_vectors0, int f, double &amp;thickness, CGAL_Polyline &amp;joint_area, std::array&lt; CGAL_Polyline, 2 &gt; &amp;joint_lines, std::array&lt; CGAL_Polyline, 4 &gt; &amp;joint_volumes_pairA_pairB)</div><div class="ttdef"><b>Definition</b> <a href="wood__main_8cpp_source.html#l00193">wood_main.cpp:193</a></div></div>
+<div class="ttc" id="anamespacewood_1_1main_html_ad0a19382956144cbb40958ca81635c23"><div class="ttname"><a href="namespacewood_1_1main.html#ad0a19382956144cbb40958ca81635c23">wood::main::three_valence_joint_addition_vidy</a></div><div class="ttdeci">void three_valence_joint_addition_vidy(std::vector&lt; std::vector&lt; int &gt; &gt; &amp;in_s0_s1_e20_e31, std::vector&lt; wood::element &gt; &amp;elements, std::vector&lt; wood::joint &gt; &amp;joints, std::unordered_map&lt; uint64_t, int &gt; &amp;joints_map, bool align_joints)</div><div class="ttdef"><b>Definition</b> <a href="wood__main_8cpp_source.html#l01682">wood_main.cpp:1682</a></div></div>
+<div class="ttc" id="anamespacewood_1_1main_html_adabe5dabaedb44cc6ae7eb355984942e"><div class="ttname"><a href="namespacewood_1_1main.html#adabe5dabaedb44cc6ae7eb355984942e">wood::main::three_valence_joint_alignment_annen</a></div><div class="ttdeci">void three_valence_joint_alignment_annen(std::vector&lt; std::vector&lt; int &gt; &gt; &amp;in_s0_s1_e20_e31, std::vector&lt; wood::element &gt; &amp;elements, std::vector&lt; wood::joint &gt; &amp;joints, std::unordered_map&lt; uint64_t, int &gt; &amp;joints_map)</div><div class="ttdef"><b>Definition</b> <a href="wood__main_8cpp_source.html#l01996">wood_main.cpp:1996</a></div></div>
+<div class="ttc" id="anamespacewood_1_1main_html_aedc2e9ded53e4587de45d587e254305e"><div class="ttname"><a href="namespacewood_1_1main.html#aedc2e9ded53e4587de45d587e254305e">wood::main::adjacency_search</a></div><div class="ttdeci">void adjacency_search(std::vector&lt; wood::element &gt; &amp;elements, int search_type, std::vector&lt; int &gt; &amp;input_adjacency, std::vector&lt; wood::joint &gt; &amp;joints, std::unordered_map&lt; uint64_t, int &gt; &amp;joints_map)</div><div class="ttdef"><b>Definition</b> <a href="wood__main_8cpp_source.html#l01454">wood_main.cpp:1454</a></div></div>
+<div class="ttc" id="anamespacewood_1_1main_html_af9a79236407d92a589b48b9a7a7e80db"><div class="ttname"><a href="namespacewood_1_1main.html#af9a79236407d92a589b48b9a7a7e80db">wood::main::rtree_search</a></div><div class="ttdeci">void rtree_search(std::vector&lt; wood::element &gt; &amp;elements, int search_type, std::vector&lt; int &gt; &amp;result)</div><div class="ttdef"><b>Definition</b> <a href="wood__main_8cpp_source.html#l01401">wood_main.cpp:1401</a></div></div>
+<div class="ttc" id="anamespacewood_html"><div class="ttname"><a href="namespacewood.html">wood</a></div><div class="ttdef"><b>Definition</b> <a href="wood__cut_8h_source.html#l00014">wood_cut.h:15</a></div></div>
+<div class="ttc" id="awood__cut_8h_html"><div class="ttname"><a href="wood__cut_8h.html">wood_cut.h</a></div></div>
+<div class="ttc" id="awood__element_8h_html"><div class="ttname"><a href="wood__element_8h.html">wood_element.h</a></div></div>
+<div class="ttc" id="awood__joint_8h_html"><div class="ttname"><a href="wood__joint_8h.html">wood_joint.h</a></div></div>
+<div class="ttc" id="awood__joint__lib_8h_html"><div class="ttname"><a href="wood__joint__lib_8h.html">wood_joint_lib.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_a5bdbfbbaa7895161d62825676df7980.html">cmake</a></li><li class="navelem"><a class="el" href="dir_465349965ae3b3007330e028906dcb54.html">src</a></li><li class="navelem"><a class="el" href="dir_512175a00f265906b65bee7fba32762f.html">wood</a></li><li class="navelem"><a class="el" href="dir_9ad6092cef7fa60fd7b2aa97b8bb0a98.html">include</a></li><li class="navelem"><b>wood_main.h</b></li>
+    <li class="navelem"><a class="el" href="dir_a5bdbfbbaa7895161d62825676df7980.html">cmake</a></li><li class="navelem"><a class="el" href="dir_465349965ae3b3007330e028906dcb54.html">src</a></li><li class="navelem"><a class="el" href="dir_512175a00f265906b65bee7fba32762f.html">wood</a></li><li class="navelem"><a class="el" href="dir_9ad6092cef7fa60fd7b2aa97b8bb0a98.html">include</a></li><li class="navelem"><a class="el" href="wood__main_8h.html">wood_main.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>

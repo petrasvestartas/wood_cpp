@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['node_0',['Node',['../struct_r_tree_1_1_node.html',1,'RTree']]]
+  ['partitionvars_0',['PartitionVars',['../struct_r_tree_1_1_partition_vars.html',1,'RTree']]]
 ];

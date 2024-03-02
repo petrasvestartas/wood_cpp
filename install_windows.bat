@@ -1,5 +1,7 @@
 @echo off
 
+echo BAT install_windows start!
+
 REM Set the current directory to where the batch file is located
 cd /d %~dp0
 
@@ -23,6 +25,7 @@ cmake --fresh -DGET_LIBS=OFF -DBUILD_MY_PROJECTS=ON -DCOMPILE_LIBS=OFF -DRELEASE
 REM Step 8: Build the wood code after making changes (e.g., in main.cpp)
 cd /d %~dp0\cmake\build
 cmake --build . -v --config Release --parallel 8 && ..\build\Release\wood.exe
+cd ..\..
 
-echo Script completed!
+echo BAT install_windows end!
 pause

@@ -14,7 +14,7 @@ namespace wood
         // ...
     }
 
-    void element::get_joints_geometry(std::vector<wood::joint> &joints, std::vector<std::vector<CGAL_Polyline>> &output, int what_to_expose, std::vector<std::vector<wood_cut::cut_type>> &output_cut_types)
+    void element::get_joints_geometry(std::vector<wood::joint> &joints, std::vector<std::vector<CGAL_Polyline>> &output, int what_to_expose, std::vector<std::vector<wood::cut::cut_type>> &output_cut_types)
     {
         // you are in a loop
         // printf("/n %i", id);
@@ -33,7 +33,7 @@ namespace wood
                 for (int k = 0; k < joints[std::get<0>(j_mf[i][j])](std::get<1>(j_mf[i][j]), true).size(); k += 2)
                 {
                     continue;
-                    if (joints[std::get<0>(j_mf[i][j])](std::get<1>(j_mf[i][j]))[k] != wood_cut::drill)
+                    if (joints[std::get<0>(j_mf[i][j])](std::get<1>(j_mf[i][j]))[k] != wood::cut::drill)
                         continue;
 
                     auto segment = IK::Segment_3(
@@ -47,7 +47,7 @@ namespace wood
                     {
                         size_t e = -1;
                         IK::Point_3 cp;
-                        double dist = cgal_polyline_util::closest_distance_and_point(segment[0], this->central_polyline, e, cp);
+                        double dist = cgal::polyline_util::closest_distance_and_point(segment[0], this->central_polyline, e, cp);
                     }
                     else
                     {
@@ -56,9 +56,9 @@ namespace wood
                         {
 
                             IK::Point_3 output;
-                            if (cgal_intersection_util::line_plane(segment, this->planes[l], output))
+                            if (cgal::intersection_util::line_plane(segment, this->planes[l], output))
                             {
-                                if (clipper_util::is_point_inside(this->polylines[l], this->planes[l], output))
+                                if (collider::clipper_util::is_point_inside(this->polylines[l], this->planes[l], output))
                                 {
                                     intersection_points.emplace_back(output);
                                     if (intersection_points.size() == 2)
@@ -70,9 +70,9 @@ namespace wood
                         if (intersection_points.size() == 2)
                         {
                             double t0;
-                            cgal_polyline_util::closest_point_to(intersection_points[0], segment, t0);
+                            cgal::polyline_util::closest_point_to(intersection_points[0], segment, t0);
                             double t1;
-                            cgal_polyline_util::closest_point_to(intersection_points[1], segment, t1);
+                            cgal::polyline_util::closest_point_to(intersection_points[1], segment, t1);
                             if (t0 > t1)
                                 std::reverse(intersection_points.begin(), intersection_points.end());
                             joints[std::get<0>(j_mf[i][j])](std::get<1>(j_mf[i][j]), true)[k] = intersection_points;
@@ -105,10 +105,10 @@ namespace wood
                     if (this->polylines.size() > 0)
                     {
                         IK::Vector_3 plane[4];
-                        cgal_polyline_util::get_average_plane(joint_area, plane);
+                        cgal::polyline_util::get_average_plane(joint_area, plane);
                         IK::Point_3 origin(plane[0].hx(), plane[0].hy(), plane[0].hz());
 
-                        IK::Point_3 center = cgal_polyline_util::center(this->polylines[0]);
+                        IK::Point_3 center = cgal::polyline_util::center(this->polylines[0]);
                         // std::cout << this->polylines.size() << std::endl;
                         IK::Point_3 p0 = origin + plane[3];
                         IK::Point_3 p1 = origin - plane[3];
@@ -213,7 +213,7 @@ namespace wood
                 IK::Segment_3 element_edge(polyline0[i], polyline0[i + 1]);
                 IK::Point_3 joint_point = joints[std::get<0>(j_mf[i + 2][j])](std::get<1>(j_mf[i + 2][j]), true).back()[0];
                 double t;
-                cgal_polyline_util::closest_point_to(joint_point, element_edge, t);
+                cgal::polyline_util::closest_point_to(joint_point, element_edge, t);
                 std::get<2>(j_mf[i + 2][j]) = t;
             }
 
@@ -280,17 +280,17 @@ namespace wood
 
                     IK::Vector_3 v(0, 0, 2);
 
-                    bool flag0 = cgal_intersection_util::plane_plane_plane_with_parallel_check(planes[2 + prev], joint_line_plane_0_prev, planes[0], p0_int); //, joint_line_0, t0_int
+                    bool flag0 = cgal::intersection_util::plane_plane_plane_with_parallel_check(planes[2 + prev], joint_line_plane_0_prev, planes[0], p0_int); //, joint_line_0, t0_int
 
                     // output.push_back({ p0_int + v,joint_line_0[0]+ v,cgal_polyline_util::Center(polylines[2 + prev]) + v,cgal_polyline_util::Center(polylines[0]) + v });
 
-                    bool flag1 = cgal_intersection_util::plane_plane_plane_with_parallel_check(planes[2 + next], joint_line_plane_0_next, planes[0], p1_int); //, joint_line_0, t1_int
+                    bool flag1 = cgal::intersection_util::plane_plane_plane_with_parallel_check(planes[2 + next], joint_line_plane_0_next, planes[0], p1_int); //, joint_line_0, t1_int
                     // output.push_back({ p1_int + v ,joint_line_0[0] + v,cgal_polyline_util::Center(polylines[2 + next]) + v,cgal_polyline_util::Center(polylines[0]) + v });
 
-                    bool flag2 = cgal_intersection_util::plane_plane_plane_with_parallel_check(planes[2 + prev], joint_line_plane_1_prev, planes[1], p2_int); //, joint_line_1, t2_int
+                    bool flag2 = cgal::intersection_util::plane_plane_plane_with_parallel_check(planes[2 + prev], joint_line_plane_1_prev, planes[1], p2_int); //, joint_line_1, t2_int
                     // output.push_back({ p2_int + v,joint_line_1[0] + v,cgal_polyline_util::Center(polylines[2 + prev]) + v,cgal_polyline_util::Center(polylines[1]) + v });
 
-                    bool flag3 = cgal_intersection_util::plane_plane_plane_with_parallel_check(planes[2 + next], joint_line_plane_1_next, planes[1], p3_int); //, joint_line_1, t3_int
+                    bool flag3 = cgal::intersection_util::plane_plane_plane_with_parallel_check(planes[2 + next], joint_line_plane_1_next, planes[1], p3_int); //, joint_line_1, t3_int
                     // output.push_back({ p3_int + v,joint_line_1[0] + v,cgal_polyline_util::Center(polylines[2 + next]) + v,cgal_polyline_util::Center(polylines[1]) + v });
 
                     ///////////////////////////////////////////////////////////////////////////////
@@ -418,15 +418,14 @@ namespace wood
         /////////////////////////////////////////////////////////////////////////////////////
         // Create Transformation, to orient the the 3D polylines to the XY plane
         /////////////////////////////////////////////////////////////////////////////////////
-        CGAL::Aff_transformation_3<IK> xform_toXY = cgal_xform_util::plane_to_xy(plate_outline[0], plane);
+        CGAL::Aff_transformation_3<IK> xform_toXY = cgal::xform_util::plane_to_xy(plate_outline[0], plane);
         CGAL::Aff_transformation_3<IK> xform_toXY_Inv = xform_toXY.inverse();
-        cgal_polyline_util::transform(plate_outline, xform_toXY);
-        cgal_polyline_util::transform(joint_outline, xform_toXY);
+        cgal::polyline_util::transform(plate_outline, xform_toXY);
+        cgal::polyline_util::transform(joint_outline, xform_toXY);
 
         /////////////////////////////////////////////////////////////////////////////////////
         // Find Max Coordinate to get Scale factor
         /////////////////////////////////////////////////////////////////////////////////////
-        IK::Vector_3 translation_vector();
         size_t n = joint_outline.size() - 1 + plate_outline.size() - 1;
 
         /////////////////////////////////////////////////////////////////////////////////////
@@ -498,7 +497,7 @@ namespace wood
                         // pts.emplace_back(polynode[j].x / scale, polynode[j].y / scale, 0);
 
                         // Check if curve is closest to new pline if not reverse
-                        if (CGAL::squared_distance(c.back(), pts.front()) > wood_globals::DISTANCE_SQUARED && CGAL::squared_distance(c.back(), pts.back()) > wood_globals::DISTANCE_SQUARED)
+                        if (CGAL::squared_distance(c.back(), pts.front()) > wood::globals::DISTANCE_SQUARED && CGAL::squared_distance(c.back(), pts.back()) > wood::globals::DISTANCE_SQUARED)
                             std::reverse(c.begin(), c.end());
 
                         // Check if insert able curve end is closest to the main curve end, if not reverse
@@ -553,18 +552,18 @@ namespace wood
 
                         // std::cout << "dist_to_plate_segment: " << dist_to_plate_segment << std::endl;
 
-                        if (j == 0 && dist_to_plate_segment < 1) // wood_globals::DISTANCE_SQUARED * 1000)
+                        if (j == 0 && dist_to_plate_segment < 1) // wood::globals::DISTANCE_SQUARED * 1000)
                         {
 
-                            cgal_polyline_util::closest_point_to(c[0], s, t0);
+                            cgal::polyline_util::closest_point_to(c[0], s, t0);
 
                             // std::cout << "t0: " << t0 << std::endl;
                             t0 += i;
                         }
-                        else if (j == 1 && dist_to_plate_segment < 1) //< wood_globals::DISTANCE_SQUARED * 1000)
+                        else if (j == 1 && dist_to_plate_segment < 1) //< wood::globals::DISTANCE_SQUARED * 1000)
                         {
 
-                            cgal_polyline_util::closest_point_to(c[c.size() - 1], s, t1);
+                            cgal::polyline_util::closest_point_to(c[c.size() - 1], s, t1);
 
                             // std::cout << "t1: " << t1 << std::endl;
                             t1 += i;
@@ -594,7 +593,7 @@ namespace wood
                 if (t0 != -1 && t1 != -1)
                 {
                     // transform to 3D space and give parameters for insertion
-                    cgal_polyline_util::transform(c, xform_toXY_Inv);
+                    cgal::polyline_util::transform(c, xform_toXY_Inv);
                     cp_pair = std::pair<double, double>(t0, t1);
                     return true;
                 }
@@ -860,11 +859,11 @@ namespace wood
                     IK::Point_3 p0_int, p1_int, p2_int, p3_int;
                     // std::cout << "2 + prev " << (2 + prev) << " " << (prev) << " i " << i << std::endl;
                     // std::cout << "2 + next " << (2 + next) << " i " << i << std::endl;
-                    bool is_intersected_0 = cgal_intersection_util::plane_plane_plane_with_parallel_check(joint_planes[2 + prev], joint_planes[i], joint_planes[0], p0_int);
-                    bool is_intersected_1 = cgal_intersection_util::plane_plane_plane_with_parallel_check(joint_planes[2 + next], joint_planes[i], joint_planes[0], p1_int);
+                    bool is_intersected_0 = cgal::intersection_util::plane_plane_plane_with_parallel_check(joint_planes[2 + prev], joint_planes[i], joint_planes[0], p0_int);
+                    bool is_intersected_1 = cgal::intersection_util::plane_plane_plane_with_parallel_check(joint_planes[2 + next], joint_planes[i], joint_planes[0], p1_int);
 
-                    bool is_intersected_2 = cgal_intersection_util::plane_plane_plane_with_parallel_check(joint_planes[2 + prev], joint_planes[i], joint_planes[1], p2_int);
-                    bool is_intersected_3 = cgal_intersection_util::plane_plane_plane_with_parallel_check(joint_planes[2 + next], joint_planes[i], joint_planes[1], p3_int);
+                    bool is_intersected_2 = cgal::intersection_util::plane_plane_plane_with_parallel_check(joint_planes[2 + prev], joint_planes[i], joint_planes[1], p2_int);
+                    bool is_intersected_3 = cgal::intersection_util::plane_plane_plane_with_parallel_check(joint_planes[2 + next], joint_planes[i], joint_planes[1], p3_int);
 
                     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     // Relocate end-point, on the 2d iteration
@@ -892,8 +891,8 @@ namespace wood
                     // get distance between a joint-line and element edge
                     IK::Line_3 temp_segment_0(this->polylines[0][i - 2], this->polylines[0][i - 1]);
                     IK::Line_3 temp_segment_1(this->polylines[1][i - 2], this->polylines[1][i - 1]);
-                    bool geometry_distance_to_edge_0 = CGAL::squared_distance(joint_line_0[0], temp_segment_0.projection(joint_line_0[0])) > wood_globals::DISTANCE_SQUARED;
-                    bool geometry_distance_to_edge_1 = CGAL::squared_distance(joint_line_1[0], temp_segment_1.projection(joint_line_1[0])) > wood_globals::DISTANCE_SQUARED;
+                    bool geometry_distance_to_edge_0 = CGAL::squared_distance(joint_line_0[0], temp_segment_0.projection(joint_line_0[0])) > wood::globals::DISTANCE_SQUARED;
+                    bool geometry_distance_to_edge_1 = CGAL::squared_distance(joint_line_1[0], temp_segment_1.projection(joint_line_1[0])) > wood::globals::DISTANCE_SQUARED;
 
                     if (last_id == i - 1 && (geometry_distance_to_edge_0 || geometry_distance_to_edge_1))
                     {
@@ -901,8 +900,8 @@ namespace wood
                         IK::Point_3 p0;
                         IK::Point_3 p1;
 
-                        bool is_joint_line_interesected_0 = cgal_intersection_util::plane_plane_plane_with_parallel_check(joint_planes[i], joint_planes[i - 1], joint_planes[0], p0);
-                        bool is_joint_line_interesected_1 = cgal_intersection_util::plane_plane_plane_with_parallel_check(joint_planes[i], joint_planes[i - 1], joint_planes[1], p1);
+                        bool is_joint_line_interesected_0 = cgal::intersection_util::plane_plane_plane_with_parallel_check(joint_planes[i], joint_planes[i - 1], joint_planes[0], p0);
+                        bool is_joint_line_interesected_1 = cgal::intersection_util::plane_plane_plane_with_parallel_check(joint_planes[i], joint_planes[i - 1], joint_planes[1], p1);
 
                         if (is_joint_line_interesected_0 && is_joint_line_interesected_1)
                         {
@@ -1212,10 +1211,10 @@ namespace wood
         ///////////////////////////////////////////////////////////////////////////////
         // WARNING Close - Does this part make sense?
         ///////////////////////////////////////////////////////////////////////////////
-        if (last_id == this->polylines[0].size() && last_segment0_start.squared_length() > wood_globals::DISTANCE_SQUARED)
+        if (last_id == this->polylines[0].size() && last_segment0_start.squared_length() > wood::globals::DISTANCE_SQUARED)
         {
             IK::Point_3 p0, p1;
-            if (cgal_intersection_util::line_line_3d(last_segment0_start, last_segment0, p0) && cgal_intersection_util::line_line_3d(last_segment1_start, last_segment1, p1))
+            if (cgal::intersection_util::line_line_3d(last_segment0_start, last_segment0, p0) && cgal::intersection_util::line_line_3d(last_segment1_start, last_segment1, p1))
             {
                 pline0_new[0] = p0;
                 pline1_new[0] = p1;
@@ -1299,7 +1298,7 @@ namespace wood
                 for (int k = 0; k < joints[joint_id](male_or_female, true).size() - 1; k++) // we skip the last outline, because it marks the boundary of all holes
                 {
                     // Orient to 2D and check the winding
-                    bool is_clockwise = cgal_polyline_util::is_clockwise(joints[joint_id](male_or_female, true)[k], planes[0]);
+                    bool is_clockwise = cgal::polyline_util::is_clockwise(joints[joint_id](male_or_female, true)[k], planes[0]);
 
                     if (!is_clockwise)
                     {
@@ -1350,7 +1349,7 @@ namespace wood
                 for (int k = 0; k < joints[joint_id](male_or_female).size(); k += 2)
                 {
 
-                    if (joints[joint_id](male_or_female)[k] == wood_cut::hole) //
+                    if (joints[joint_id](male_or_female)[k] == wood::cut::hole) //
                         id_of_holes.emplace_back((int)(k));
 
                     std::string s(1, joints[joint_id](male_or_female)[k]);
@@ -1376,7 +1375,7 @@ namespace wood
                 {
 
                     // Orient to 2D and check the winding using top outline
-                    bool is_clockwise = cgal_polyline_util::is_clockwise(joints[std::get<0>(j_mf[i][j])](male_or_female, true)[k], planes[0]);
+                    bool is_clockwise = cgal::polyline_util::is_clockwise(joints[std::get<0>(j_mf[i][j])](male_or_female, true)[k], planes[0]);
 
                     if (!is_clockwise)
                     {

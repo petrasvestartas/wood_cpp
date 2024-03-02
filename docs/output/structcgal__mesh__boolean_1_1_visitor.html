@@ -110,40 +110,236 @@ Inheritance diagram for cgal_mesh_boolean::Visitor:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a670874ae52be04b4e83994f123f3a819" id="r_a670874ae52be04b4e83994f123f3a819"><td class="memItemLeft" align="right" valign="top"><a id="a670874ae52be04b4e83994f123f3a819" name="a670874ae52be04b4e83994f123f3a819"></a>
-typedef Mesh::Face_index&#160;</td><td class="memItemRight" valign="bottom"><b>face_descriptor</b></td></tr>
+<tr class="memitem:a670874ae52be04b4e83994f123f3a819" id="r_a670874ae52be04b4e83994f123f3a819"><td class="memItemLeft" align="right" valign="top">typedef Mesh::Face_index&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a670874ae52be04b4e83994f123f3a819">face_descriptor</a></td></tr>
 <tr class="separator:a670874ae52be04b4e83994f123f3a819"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac1981b3dd295715283fc6255947fc04c" id="r_ac1981b3dd295715283fc6255947fc04c"><td class="memItemLeft" align="right" valign="top"><a id="ac1981b3dd295715283fc6255947fc04c" name="ac1981b3dd295715283fc6255947fc04c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>before_subface_creations</b> (face_descriptor f_split, Mesh &amp;tm)</td></tr>
+<tr class="memitem:a61e01b1ad09730a63024491565570d8b" id="r_a61e01b1ad09730a63024491565570d8b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61e01b1ad09730a63024491565570d8b">Visitor</a> ()</td></tr>
+<tr class="separator:a61e01b1ad09730a63024491565570d8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1981b3dd295715283fc6255947fc04c" id="r_ac1981b3dd295715283fc6255947fc04c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac1981b3dd295715283fc6255947fc04c">before_subface_creations</a> (<a class="el" href="#a670874ae52be04b4e83994f123f3a819">face_descriptor</a> f_split, Mesh &amp;tm)</td></tr>
 <tr class="separator:ac1981b3dd295715283fc6255947fc04c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae53aab0426c08f0c1aa4929bff7d3df0" id="r_ae53aab0426c08f0c1aa4929bff7d3df0"><td class="memItemLeft" align="right" valign="top"><a id="ae53aab0426c08f0c1aa4929bff7d3df0" name="ae53aab0426c08f0c1aa4929bff7d3df0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>after_subface_created</b> (face_descriptor f_new, Mesh &amp;tm)</td></tr>
+<tr class="memitem:ae53aab0426c08f0c1aa4929bff7d3df0" id="r_ae53aab0426c08f0c1aa4929bff7d3df0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae53aab0426c08f0c1aa4929bff7d3df0">after_subface_created</a> (<a class="el" href="#a670874ae52be04b4e83994f123f3a819">face_descriptor</a> f_new, Mesh &amp;tm)</td></tr>
 <tr class="separator:ae53aab0426c08f0c1aa4929bff7d3df0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19bb7fb1201a86b1eff624f612334606" id="r_a19bb7fb1201a86b1eff624f612334606"><td class="memItemLeft" align="right" valign="top"><a id="a19bb7fb1201a86b1eff624f612334606" name="a19bb7fb1201a86b1eff624f612334606"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>after_face_copy</b> (face_descriptor f_src, Mesh &amp;tm_src, face_descriptor f_tgt, Mesh &amp;tm_tgt)</td></tr>
+<tr class="memitem:a19bb7fb1201a86b1eff624f612334606" id="r_a19bb7fb1201a86b1eff624f612334606"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19bb7fb1201a86b1eff624f612334606">after_face_copy</a> (<a class="el" href="#a670874ae52be04b4e83994f123f3a819">face_descriptor</a> f_src, Mesh &amp;tm_src, <a class="el" href="#a670874ae52be04b4e83994f123f3a819">face_descriptor</a> f_tgt, Mesh &amp;tm_tgt)</td></tr>
 <tr class="separator:a19bb7fb1201a86b1eff624f612334606"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a3b4ddcbf62380e6f566bb6d232ea220f" id="r_a3b4ddcbf62380e6f566bb6d232ea220f"><td class="memItemLeft" align="right" valign="top"><a id="a3b4ddcbf62380e6f566bb6d232ea220f" name="a3b4ddcbf62380e6f566bb6d232ea220f"></a>
-boost::container::flat_map&lt; const Mesh *, Mesh::Property_map&lt; Mesh::Face_index, int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>properties</b></td></tr>
+<tr class="memitem:a3b4ddcbf62380e6f566bb6d232ea220f" id="r_a3b4ddcbf62380e6f566bb6d232ea220f"><td class="memItemLeft" align="right" valign="top">boost::container::flat_map&lt; const Mesh *, Mesh::Property_map&lt; Mesh::Face_index, int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b4ddcbf62380e6f566bb6d232ea220f">properties</a></td></tr>
 <tr class="separator:a3b4ddcbf62380e6f566bb6d232ea220f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa91932781327be27ff87363542e5cbd3" id="r_aa91932781327be27ff87363542e5cbd3"><td class="memItemLeft" align="right" valign="top"><a id="aa91932781327be27ff87363542e5cbd3" name="aa91932781327be27ff87363542e5cbd3"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>face_id</b></td></tr>
+<tr class="memitem:aa91932781327be27ff87363542e5cbd3" id="r_aa91932781327be27ff87363542e5cbd3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa91932781327be27ff87363542e5cbd3">face_id</a></td></tr>
 <tr class="separator:aa91932781327be27ff87363542e5cbd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="cgal__mesh__boolean_8cpp_source.html#l00014">14</a> of file <a class="el" href="cgal__mesh__boolean_8cpp_source.html">cgal_mesh_boolean.cpp</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a670874ae52be04b4e83994f123f3a819" name="a670874ae52be04b4e83994f123f3a819"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a670874ae52be04b4e83994f123f3a819">&#9670;&#160;</a></span>face_descriptor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Mesh::Face_index <a class="el" href="#a670874ae52be04b4e83994f123f3a819">cgal_mesh_boolean::Visitor::face_descriptor</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="cgal__mesh__boolean_8cpp_source.html#l00016">16</a> of file <a class="el" href="cgal__mesh__boolean_8cpp_source.html">cgal_mesh_boolean.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a61e01b1ad09730a63024491565570d8b" name="a61e01b1ad09730a63024491565570d8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61e01b1ad09730a63024491565570d8b">&#9670;&#160;</a></span>Visitor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">cgal_mesh_boolean::Visitor::Visitor </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="cgal__mesh__boolean_8cpp_source.html#l00021">21</a> of file <a class="el" href="cgal__mesh__boolean_8cpp_source.html">cgal_mesh_boolean.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   22</span>        {</div>
+<div class="line"><span class="lineno">   23</span>            <a class="code hl_variable" href="#a3b4ddcbf62380e6f566bb6d232ea220f">properties</a>.reserve(3);</div>
+<div class="line"><span class="lineno">   24</span>            <a class="code hl_variable" href="#aa91932781327be27ff87363542e5cbd3">face_id</a> = -1;</div>
+<div class="line"><span class="lineno">   25</span>        }</div>
+<div class="ttc" id="astructcgal__mesh__boolean_1_1_visitor_html_a3b4ddcbf62380e6f566bb6d232ea220f"><div class="ttname"><a href="#a3b4ddcbf62380e6f566bb6d232ea220f">cgal_mesh_boolean::Visitor::properties</a></div><div class="ttdeci">boost::container::flat_map&lt; const Mesh *, Mesh::Property_map&lt; Mesh::Face_index, int &gt; &gt; properties</div><div class="ttdef"><b>Definition</b> <a href="cgal__mesh__boolean_8cpp_source.html#l00018">cgal_mesh_boolean.cpp:18</a></div></div>
+<div class="ttc" id="astructcgal__mesh__boolean_1_1_visitor_html_aa91932781327be27ff87363542e5cbd3"><div class="ttname"><a href="#aa91932781327be27ff87363542e5cbd3">cgal_mesh_boolean::Visitor::face_id</a></div><div class="ttdeci">int face_id</div><div class="ttdef"><b>Definition</b> <a href="cgal__mesh__boolean_8cpp_source.html#l00019">cgal_mesh_boolean.cpp:19</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a19bb7fb1201a86b1eff624f612334606" name="a19bb7fb1201a86b1eff624f612334606"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19bb7fb1201a86b1eff624f612334606">&#9670;&#160;</a></span>after_face_copy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cgal_mesh_boolean::Visitor::after_face_copy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a670874ae52be04b4e83994f123f3a819">face_descriptor</a></td>          <td class="paramname"><span class="paramname"><em>f_src</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Mesh &amp;</td>          <td class="paramname"><span class="paramname"><em>tm_src</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a670874ae52be04b4e83994f123f3a819">face_descriptor</a></td>          <td class="paramname"><span class="paramname"><em>f_tgt</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Mesh &amp;</td>          <td class="paramname"><span class="paramname"><em>tm_tgt</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="cgal__mesh__boolean_8cpp_source.html#l00038">38</a> of file <a class="el" href="cgal__mesh__boolean_8cpp_source.html">cgal_mesh_boolean.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   40</span>        {</div>
+<div class="line"><span class="lineno">   41</span>            <a class="code hl_variable" href="#a3b4ddcbf62380e6f566bb6d232ea220f">properties</a>[&amp;tm_tgt][f_tgt] = <a class="code hl_variable" href="#a3b4ddcbf62380e6f566bb6d232ea220f">properties</a>[&amp;tm_src][f_src];</div>
+<div class="line"><span class="lineno">   42</span>        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ae53aab0426c08f0c1aa4929bff7d3df0" name="ae53aab0426c08f0c1aa4929bff7d3df0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae53aab0426c08f0c1aa4929bff7d3df0">&#9670;&#160;</a></span>after_subface_created()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cgal_mesh_boolean::Visitor::after_subface_created </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a670874ae52be04b4e83994f123f3a819">face_descriptor</a></td>          <td class="paramname"><span class="paramname"><em>f_new</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Mesh &amp;</td>          <td class="paramname"><span class="paramname"><em>tm</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="cgal__mesh__boolean_8cpp_source.html#l00033">33</a> of file <a class="el" href="cgal__mesh__boolean_8cpp_source.html">cgal_mesh_boolean.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   34</span>        {</div>
+<div class="line"><span class="lineno">   35</span>            <a class="code hl_variable" href="#a3b4ddcbf62380e6f566bb6d232ea220f">properties</a>[&amp;tm][f_new] = <a class="code hl_variable" href="#aa91932781327be27ff87363542e5cbd3">face_id</a>;</div>
+<div class="line"><span class="lineno">   36</span>        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ac1981b3dd295715283fc6255947fc04c" name="ac1981b3dd295715283fc6255947fc04c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1981b3dd295715283fc6255947fc04c">&#9670;&#160;</a></span>before_subface_creations()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cgal_mesh_boolean::Visitor::before_subface_creations </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a670874ae52be04b4e83994f123f3a819">face_descriptor</a></td>          <td class="paramname"><span class="paramname"><em>f_split</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Mesh &amp;</td>          <td class="paramname"><span class="paramname"><em>tm</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="cgal__mesh__boolean_8cpp_source.html#l00028">28</a> of file <a class="el" href="cgal__mesh__boolean_8cpp_source.html">cgal_mesh_boolean.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   29</span>        {</div>
+<div class="line"><span class="lineno">   30</span>            <a class="code hl_variable" href="#aa91932781327be27ff87363542e5cbd3">face_id</a> = <a class="code hl_variable" href="#a3b4ddcbf62380e6f566bb6d232ea220f">properties</a>[&amp;tm][f_split];</div>
+<div class="line"><span class="lineno">   31</span>        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aa91932781327be27ff87363542e5cbd3" name="aa91932781327be27ff87363542e5cbd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa91932781327be27ff87363542e5cbd3">&#9670;&#160;</a></span>face_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cgal_mesh_boolean::Visitor::face_id</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="cgal__mesh__boolean_8cpp_source.html#l00019">19</a> of file <a class="el" href="cgal__mesh__boolean_8cpp_source.html">cgal_mesh_boolean.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a3b4ddcbf62380e6f566bb6d232ea220f" name="a3b4ddcbf62380e6f566bb6d232ea220f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b4ddcbf62380e6f566bb6d232ea220f">&#9670;&#160;</a></span>properties</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::container::flat_map&lt;const Mesh *, Mesh::Property_map&lt;Mesh::Face_index, int&gt; &gt; cgal_mesh_boolean::Visitor::properties</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="cgal__mesh__boolean_8cpp_source.html#l00018">18</a> of file <a class="el" href="cgal__mesh__boolean_8cpp_source.html">cgal_mesh_boolean.cpp</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>c:/brg/2_code/wood_cpp/cmake/src/wood/include/<b>cgal_mesh_boolean.cpp</b></li>
+<li>c:/brg/2_code/wood_cpp/cmake/src/wood/include/<a class="el" href="cgal__mesh__boolean_8cpp_source.html">cgal_mesh_boolean.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>cgal_mesh_boolean</b></li><li class="navelem"><a class="el" href="structcgal__mesh__boolean_1_1_visitor.html">Visitor</a></li>
+    <li class="navelem"><a class="el" href="namespacecgal__mesh__boolean.html">cgal_mesh_boolean</a></li><li class="navelem"><a class="el" href="structcgal__mesh__boolean_1_1_visitor.html">Visitor</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>

@@ -58,10 +58,10 @@ namespace wood
         std::vector<double> tile_parameters; // For rebuilding
 
         std::array<std::vector<CGAL_Polyline>, 2> m;
-        std::vector<wood_cut::cut_type> m_boolean_type; // 0 - do not merge, 1 - edge insertion, 2 - hole 3 - insert between multiple edges hole
+        std::vector<wood::cut::cut_type> m_boolean_type; // 0 - do not merge, 1 - edge insertion, 2 - hole 3 - insert between multiple edges hole
 
         std::array<std::vector<CGAL_Polyline>, 2> f;
-        std::vector<wood_cut::cut_type> f_boolean_type; // 0 - do not merge, 1 - edge insertion, 2 - hole 3 - insert between multiple edges hole
+        std::vector<wood::cut::cut_type> f_boolean_type; // 0 - do not merge, 1 - edge insertion, 2 - hole 3 - insert between multiple edges hole
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // Joint geometrical parameters for
@@ -156,7 +156,7 @@ namespace wood
          * @param male_or_female Boolean flag indicating male (true) or female (false) joint.
          * @return Reference to the cut_type enum representing the cutting type for the first joint part.
          */
-        wood_cut::cut_type &get_first_cutting_type(bool male_or_female);
+        wood::cut::cut_type &get_first_cutting_type(bool male_or_female);
 
         /**
          * Overloaded function call operator to access cutting types based on gender.
@@ -164,7 +164,7 @@ namespace wood
          * @param male_or_female Boolean flag indicating male (true) or female (false) joint.
          * @return Reference to a vector of cut_type enums representing the cutting types for the specified gender.
          */
-        std::vector<wood_cut::cut_type> &operator()(bool male_or_female);
+        std::vector<wood::cut::cut_type> &operator()(bool male_or_female);
 
         /**
          * Reverses the order of the polylines for the specified gender part of the joint.
@@ -228,7 +228,7 @@ namespace wood
 
         bool link = false;                                              // assigned in three_valence_joint_addition_vidy for the link joint
         std::vector<int> linked_joints;                                 // assigned in three_valence_joint_addition_vidy for the main joint
-        std::vector<std::vector<std::array<int, 4>>> linked_joints_seq; // assigned on wood_joint_library | it is nested because there can be umber of polylines | example {start_curr,step_curr} means that "start_curr+step_curr*i" and {start_link,step_link} -> "start_link+step_link*i"
+        std::vector<std::vector<std::array<int, 4>>> linked_joints_seq; // assigned on wood::joint_library | it is nested because there can be umber of polylines | example {start_curr,step_curr} means that "start_curr+step_curr*i" and {start_link,step_link} -> "start_link+step_link*i"
 
         /**
          * Merges geometric information from linked joints into the current joint and then removes the geometric data from the linked joints.

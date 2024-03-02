@@ -1,4 +1,5 @@
 @echo off
-cd /d "%~dp0docs"
+cd docs
 doxygen Doxyfile
 cd ..
+start docs\output\index.html

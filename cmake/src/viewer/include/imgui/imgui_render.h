@@ -219,11 +219,11 @@ inline void loop_middle_imgui()
 
 		// Set shift value
 		ImGui::TextColored(ImVec4(0, 0, 0, 1), "\nSELECT DIVISION LENGTH VALUE");
-		for (int i = 0; i < wood_globals::JOINT_NAMES.size(); i++)
+		for (int i = 0; i < wood::globals::JOINT_NAMES.size(); i++)
 		{
-			float joint_type = (float)wood_globals::JOINTS_PARAMETERS_AND_TYPES[i * 3 + 0];
-			ImGui::SliderFloat((wood_globals::JOINT_NAMES[i] + " division_length").c_str(), &joint_type, 0.1, 400);
-			wood_globals::JOINTS_PARAMETERS_AND_TYPES[i * 3 + 0] = (double)joint_type;
+			float joint_type = (float)wood::globals::JOINTS_PARAMETERS_AND_TYPES[i * 3 + 0];
+			ImGui::SliderFloat((wood::globals::JOINT_NAMES[i] + " division_length").c_str(), &joint_type, 0.1, 400);
+			wood::globals::JOINTS_PARAMETERS_AND_TYPES[i * 3 + 0] = (double)joint_type;
 		}
 	}
 
@@ -233,20 +233,20 @@ inline void loop_middle_imgui()
 
 		// Set shift value
 		ImGui::TextColored(ImVec4(0, 0, 0, 1), "\nSELECT SHIFT VALUE");
-		for (int i = 0; i < wood_globals::JOINT_NAMES.size(); i++)
+		for (int i = 0; i < wood::globals::JOINT_NAMES.size(); i++)
 		{
-			float joint_type = (float)wood_globals::JOINTS_PARAMETERS_AND_TYPES[i * 3 + 1];
-			ImGui::SliderFloat((wood_globals::JOINT_NAMES[i] + " shift").c_str(), &joint_type, 0.0, 1.0);
-			wood_globals::JOINTS_PARAMETERS_AND_TYPES[i * 3 + 1] = (double)joint_type;
+			float joint_type = (float)wood::globals::JOINTS_PARAMETERS_AND_TYPES[i * 3 + 1];
+			ImGui::SliderFloat((wood::globals::JOINT_NAMES[i] + " shift").c_str(), &joint_type, 0.0, 1.0);
+			wood::globals::JOINTS_PARAMETERS_AND_TYPES[i * 3 + 1] = (double)joint_type;
 		}
 	}
 	// Select joint Types - Sliders
 	ImGui::TextColored(ImVec4(0, 0, 0, 1), "\nSELECT JOINT TYPE");
-	for (int i = 0; i < wood_globals::JOINT_NAMES.size(); i++)
+	for (int i = 0; i < wood::globals::JOINT_NAMES.size(); i++)
 	{
-		int joint_type = (int)wood_globals::JOINTS_PARAMETERS_AND_TYPES[i * 3 + 2];
-		ImGui::SliderInt(wood_globals::JOINT_NAMES[i].c_str(), &joint_type, i * 10, (i * 10 + 10) - 1);
-		wood_globals::JOINTS_PARAMETERS_AND_TYPES[i * 3 + 2] = (double)joint_type;
+		int joint_type = (int)wood::globals::JOINTS_PARAMETERS_AND_TYPES[i * 3 + 2];
+		ImGui::SliderInt(wood::globals::JOINT_NAMES[i].c_str(), &joint_type, i * 10, (i * 10 + 10) - 1);
+		wood::globals::JOINTS_PARAMETERS_AND_TYPES[i * 3 + 2] = (double)joint_type;
 	}
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -257,13 +257,13 @@ inline void loop_middle_imgui()
 	ImGui::TextColored(ImVec4(0, 0, 0, 1), "\nJOINT GEOMETRY \n0 - joint area \n1 - joint lines \n2 - joint volumes \n3 - joint geometry \n4 - merge joints");
 
 	// Search type
-	ImGui::SliderInt("", &wood_globals::OUTPUT_GEOMETRY_TYPE, 0, 5);
+	ImGui::SliderInt("", &wood::globals::OUTPUT_GEOMETRY_TYPE, 0, 5);
 
-	// wood_globals::RUN = ImGui::Button("run", ImVec2(100, 100)); // Buttons return true when clicked (most widgets return true when edited/activated)
+	// wood::globals::RUN = ImGui::Button("run", ImVec2(100, 100)); // Buttons return true when clicked (most widgets return true when edited/activated)
 	if (ImGui::Button("run", ImVec2(100, 100)))
 	{
 		opengl_globals::state_changed = true;
-		wood_globals::RUN_COUNT++;
+		wood::globals::RUN_COUNT++;
 		std::cout << "imgui_render -> restart \n";
 	}
 

@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['joint_0',['joint',['../classwood_1_1joint.html#a7792d8e0a20ddd3c2179b7702611b719',1,'wood::joint::joint()'],['../classwood_1_1joint.html#aa9976d198b3529acac72574d0f7fd715',1,'wood::joint::joint(int, int, int, int, int, int, int, std::array&lt; CGAL_Polyline, 4 &gt; &amp;)'],['../classwood_1_1joint.html#a973f9af64f8c73785aaa37fabe3b4c55',1,'wood::joint::joint(int, int, int, int, int, int, int, CGAL_Polyline(&amp;), std::array&lt; CGAL_Polyline, 2 &gt; &amp;, std::array&lt; CGAL_Polyline, 4 &gt; &amp;, int)']]]
+  ['element_0',['element',['../classwood_1_1element.html#a49d177952dbfe9efcee4671c111d0ed3',1,'wood::element::element()'],['../classwood_1_1element.html#a1595c516ad1b2b8467c5c22725a39b3f',1,'wood::element::element(int _id)']]],
+  ['extend_1',['extend',['../namespacecgal_1_1polyline__util.html#a22742e5165a00c0fb3fda68dd59faa02',1,'cgal::polyline_util']]],
+  ['extend_5fequally_2',['extend_equally',['../namespacecgal_1_1polyline__util.html#a62da1cbfc45d1b1581afe4fe295805bf',1,'cgal::polyline_util::extend_equally(IK::Segment_3 &amp;segment, double dist, double proportion)'],['../namespacecgal_1_1polyline__util.html#ae1df46e2a0b5e22126d5a7c7188881e7',1,'cgal::polyline_util::extend_equally(CGAL_Polyline &amp;pline, int segment_id, double dist, double proportion)']]],
+  ['extend_5fline_3',['extend_line',['../namespacecgal_1_1polyline__util.html#a5205f5de0db682b62e3fe3e837593b90',1,'cgal::polyline_util']]]
 ];

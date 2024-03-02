@@ -30,53 +30,55 @@
 #define ON_ZERO_TOLERANCE 2.3283064365386962890625e-10
 #define ON_DBL_MAX 1.7976931348623158e+308
 
-// Compilation stage
-namespace wood_globals
+namespace wood
 {
+    // Compilation stage
+    namespace globals
+    {
 
-    // Clipper2 library mostly used in clipper_util
-    extern int64_t CLIPPER_SCALE;
-    extern double CLIPPER_AREA;
+        // Clipper2 library mostly used in collider::clipper_util
+        extern int64_t CLIPPER_SCALE;
+        extern double CLIPPER_AREA;
 
-    // Tolerances for distance search
-    extern double DISTANCE;         // GlobalTolerance
-    extern double DISTANCE_SQUARED; // GlobalToleranceSquare
-    extern double ANGLE;            // GlobalAngleTolerance
+        // Tolerances for distance search
+        extern double DISTANCE;         // GlobalTolerance
+        extern double DISTANCE_SQUARED; // GlobalToleranceSquare
+        extern double ANGLE;            // GlobalAngleTolerance
 
-    // File names
-    extern std::string PATH_AND_FILE_FOR_JOINTS; // path_and_file_for_joints
-    extern std::string DATA_SET_INPUT_FOLDER;
-    extern std::string DATA_SET_OUTPUT_FILE;
+        // File names
+        extern std::string PATH_AND_FILE_FOR_JOINTS; // path_and_file_for_joints
+        extern std::string DATA_SET_INPUT_FOLDER;
+        extern std::string DATA_SET_OUTPUT_FILE;
 
-    // Wood library
-    extern std::vector<double> JOINT_VOLUME_EXTENSION; // useful for plates to avoid collision with corner - negative, while on beam the value has to be positive
-    extern int OUTPUT_GEOMETRY_TYPE;
-    extern bool FACE_TO_FACE_SIDE_TO_SIDE_JOINTS_ALL_TREATED_AS_ROTATED;   // when all joints are computed as if sides are rotated, it was implemented in the Touch Wood ZAZ
-    extern bool FACE_TO_FACE_SIDE_TO_SIDE_JOINTS_ROTATED_JOINT_AS_AVERAGE; // switch rotated joint to average orientation or the first plate
-    extern double FACE_TO_FACE_SIDE_TO_SIDE_JOINTS_DIHEDRAL_ANGLE;         // value to decide when a joint is in-plane or out-of-plane
-    extern double LIMIT_MIN_JOINT_LENGTH;                                  // minimum edge length on which the joint can be generated
-    extern std::array<std::string, 7> JOINT_NAMES;
-    extern std::vector<std::string> EXISTING_TYPES;
-    extern std::vector<double> JOINTS_PARAMETERS_AND_TYPES;
+        // Wood library
+        extern std::vector<double> JOINT_VOLUME_EXTENSION; // useful for plates to avoid collision with corner - negative, while on beam the value has to be positive
+        extern int OUTPUT_GEOMETRY_TYPE;
+        extern bool FACE_TO_FACE_SIDE_TO_SIDE_JOINTS_ALL_TREATED_AS_ROTATED;   // when all joints are computed as if sides are rotated, it was implemented in the Touch Wood ZAZ
+        extern bool FACE_TO_FACE_SIDE_TO_SIDE_JOINTS_ROTATED_JOINT_AS_AVERAGE; // switch rotated joint to average orientation or the first plate
+        extern double FACE_TO_FACE_SIDE_TO_SIDE_JOINTS_DIHEDRAL_ANGLE;         // value to decide when a joint is in-plane or out-of-plane
+        extern double LIMIT_MIN_JOINT_LENGTH;                                  // minimum edge length on which the joint can be generated
+        extern std::array<std::string, 7> JOINT_NAMES;
+        extern std::vector<std::string> EXISTING_TYPES;
+        extern std::vector<double> JOINTS_PARAMETERS_AND_TYPES;
 
-    // Wood viewer
-    extern size_t RUN_COUNT;
+        // Wood viewer
+        extern size_t RUN_COUNT;
 
-    // custom joint types
-    extern std::vector<CGAL_Polyline> custom_joints_ss_e_ip_male;
-    extern std::vector<CGAL_Polyline> custom_joints_ss_e_ip_female;
-    extern std::vector<CGAL_Polyline> custom_joints_ss_e_op_male;
-    extern std::vector<CGAL_Polyline> custom_joints_ss_e_op_female;
-    extern std::vector<CGAL_Polyline> custom_joints_ts_e_p_male;
-    extern std::vector<CGAL_Polyline> custom_joints_ts_e_p_female;
-    extern std::vector<CGAL_Polyline> custom_joints_cr_c_ip_male;
-    extern std::vector<CGAL_Polyline> custom_joints_cr_c_ip_female;
-    extern std::vector<CGAL_Polyline> custom_joints_tt_e_p_male;
-    extern std::vector<CGAL_Polyline> custom_joints_tt_e_p_female;
-    extern std::vector<CGAL_Polyline> custom_joints_ss_e_r_male;
-    extern std::vector<CGAL_Polyline> custom_joints_ss_e_r_female;
-    extern std::vector<CGAL_Polyline> custom_joints_b_male;
-    extern std::vector<CGAL_Polyline> custom_joints_b_female;
+        // custom joint types
+        extern std::vector<CGAL_Polyline> custom_joints_ss_e_ip_male;
+        extern std::vector<CGAL_Polyline> custom_joints_ss_e_ip_female;
+        extern std::vector<CGAL_Polyline> custom_joints_ss_e_op_male;
+        extern std::vector<CGAL_Polyline> custom_joints_ss_e_op_female;
+        extern std::vector<CGAL_Polyline> custom_joints_ts_e_p_male;
+        extern std::vector<CGAL_Polyline> custom_joints_ts_e_p_female;
+        extern std::vector<CGAL_Polyline> custom_joints_cr_c_ip_male;
+        extern std::vector<CGAL_Polyline> custom_joints_cr_c_ip_female;
+        extern std::vector<CGAL_Polyline> custom_joints_tt_e_p_male;
+        extern std::vector<CGAL_Polyline> custom_joints_tt_e_p_female;
+        extern std::vector<CGAL_Polyline> custom_joints_ss_e_r_male;
+        extern std::vector<CGAL_Polyline> custom_joints_ss_e_r_female;
+        extern std::vector<CGAL_Polyline> custom_joints_b_male;
+        extern std::vector<CGAL_Polyline> custom_joints_b_female;
+    }
 }
-
 #endif

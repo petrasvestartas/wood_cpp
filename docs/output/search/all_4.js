@@ -1,11 +1,10 @@
 var searchData=
 [
-  ['get_5fdivisions_0',['get_divisions',['../classwood_1_1joint.html#a02f869a64e9a29097fc47250f71ce318',1,'wood::joint']]],
-  ['get_5fedge_5fids_1',['get_edge_ids',['../classwood_1_1joint.html#ac9107df545f4cbceec5734a3af613438',1,'wood::joint']]],
-  ['get_5ffirst_5fcutting_5ftype_2',['get_first_cutting_type',['../classwood_1_1joint.html#a5e1767a084f43ebae2b8d9416221a997',1,'wood::joint']]],
-  ['get_5fkey_3',['get_key',['../classwood_1_1joint.html#a84837689d878a0e5395ead4037cafcc2',1,'wood::joint']]],
-  ['getat_4',['GetAt',['../class_r_tree.html#a9199a66bf611567cd2b7b0229ecbc301',1,'RTree']]],
-  ['getbounds_5',['GetBounds',['../class_r_tree_1_1_iterator.html#a65121f5016c2b1bf4696797748092709',1,'RTree::Iterator']]],
-  ['getfirst_6',['GetFirst',['../class_r_tree.html#acbcbd987b4f6549cd53e373e01b74efa',1,'RTree']]],
-  ['getnext_7',['GetNext',['../class_r_tree.html#a41da97d27b44e7d7e852150ced23a610',1,'RTree']]]
+  ['edge_5finsertion_0',['edge_insertion',['../namespacewood_1_1cut.html#a3dd088677913278a9202e01861e188bba5163d13ff53040955041544c1fd35f89',1,'wood::cut']]],
+  ['edge_5fvectors_1',['edge_vectors',['../classwood_1_1element.html#afecadd4441515613dc9d2747f15ed992',1,'wood::element']]],
+  ['element_2',['element',['../classwood_1_1element.html',1,'wood::element'],['../classwood_1_1element.html#a49d177952dbfe9efcee4671c111d0ed3',1,'wood::element::element()'],['../classwood_1_1element.html#a1595c516ad1b2b8467c5c22725a39b3f',1,'wood::element::element(int _id)']]],
+  ['existing_5ftypes_3',['EXISTING_TYPES',['../namespacewood_1_1globals.html#a061e6cbdb352315d3cfe5fbb419fe8a7',1,'wood::globals']]],
+  ['extend_4',['extend',['../namespacecgal_1_1polyline__util.html#a22742e5165a00c0fb3fda68dd59faa02',1,'cgal::polyline_util']]],
+  ['extend_5fequally_5',['extend_equally',['../namespacecgal_1_1polyline__util.html#a62da1cbfc45d1b1581afe4fe295805bf',1,'cgal::polyline_util::extend_equally(IK::Segment_3 &amp;segment, double dist, double proportion)'],['../namespacecgal_1_1polyline__util.html#ae1df46e2a0b5e22126d5a7c7188881e7',1,'cgal::polyline_util::extend_equally(CGAL_Polyline &amp;pline, int segment_id, double dist, double proportion)']]],
+  ['extend_5fline_6',['extend_line',['../namespacecgal_1_1polyline__util.html#a5205f5de0db682b62e3fe3e837593b90',1,'cgal::polyline_util']]]
 ];

@@ -98,12 +98,12 @@
                 <mxCell id="128" value="void merge_joints (...)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;" parent="21" vertex="1">
                     <mxGeometry y="455.9787762889483" width="400" height="19.362671649497642" as="geometry"/>
                 </mxCell>
-                <object label="wood_globals" twtes="7" id="28">
+                <object label="wood::globals" twtes="7" id="28">
                     <mxCell style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;swimlaneLine=1;rounded=0;shadow=0;sketch=0;glass=0;fontColor=#FFFFFF;fillColor=#000000;strokeColor=none;" parent="1" vertex="1">
                         <mxGeometry x="920" y="40" width="400" height="223.62671649497636" as="geometry"/>
                     </mxCell>
                 </object>
-                <mxCell id="29" value="namespace wood_globals" style="text;strokeColor=none;fillColor=#1ba1e2;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontColor=#ffffff;whiteSpace=wrap;fontStyle=1" parent="28" vertex="1">
+                <mxCell id="29" value="namespace wood::globals" style="text;strokeColor=none;fillColor=#1ba1e2;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontColor=#ffffff;whiteSpace=wrap;fontStyle=1" parent="28" vertex="1">
                     <mxGeometry y="30" width="400" height="19.36267164949764" as="geometry"/>
                 </mxCell>
                 <mxCell id="207" value="properties" style="text;strokeColor=none;fillColor=#D88AC6;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;fontStyle=1;fontColor=#ffffff;" parent="28" vertex="1">
@@ -133,12 +133,12 @@
                 <mxCell id="135" value="extern std::vector&lt;double&gt; JOINTS_TYPES" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontColor=default;whiteSpace=wrap;" parent="28" vertex="1">
                     <mxGeometry y="204.26404484547874" width="400" height="19.36267164949764" as="geometry"/>
                 </mxCell>
-                <object label="wood_joint_lib" twtes="7" id="35">
+                <object label="wood::joint_lib" twtes="7" id="35">
                     <mxCell style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;swimlaneLine=1;rounded=0;shadow=0;sketch=0;glass=0;fontColor=#FFFFFF;fillColor=#000000;strokeColor=none;" parent="1" vertex="1">
                         <mxGeometry x="1360" y="40" width="400" height="727.0561793819154" as="geometry"/>
                     </mxCell>
                 </object>
-                <mxCell id="36" value="namespace wood_joint_lib_xml" style="text;strokeColor=none;fillColor=#1ba1e2;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontColor=#ffffff;whiteSpace=wrap;fontStyle=1" parent="35" vertex="1">
+                <mxCell id="36" value="namespace wood::joint_lib_xml" style="text;strokeColor=none;fillColor=#1ba1e2;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontColor=#ffffff;whiteSpace=wrap;fontStyle=1" parent="35" vertex="1">
                     <mxGeometry y="30" width="400" height="19.36267164949764" as="geometry"/>
                 </mxCell>
                 <mxCell id="204" value="methods" style="text;strokeColor=none;fillColor=#D88AC6;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;fontStyle=1;fontColor=#ffffff;" parent="35" vertex="1">
@@ -150,7 +150,7 @@
                 <mxCell id="38" value="inline bool read_xml (...)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontColor=default;whiteSpace=wrap;" parent="35" vertex="1">
                     <mxGeometry y="88.08801494849293" width="400" height="19.36267164949764" as="geometry"/>
                 </mxCell>
-                <mxCell id="40" value="namespace wood_joint_lib" style="text;strokeColor=none;fillColor=#1ba1e2;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontColor=#ffffff;whiteSpace=wrap;fontStyle=1" parent="35" vertex="1">
+                <mxCell id="40" value="namespace wood::joint_lib" style="text;strokeColor=none;fillColor=#1ba1e2;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontColor=#ffffff;whiteSpace=wrap;fontStyle=1" parent="35" vertex="1">
                     <mxGeometry y="107.45068659799057" width="400" height="19.36267164949764" as="geometry"/>
                 </mxCell>
                 <mxCell id="205" value="methods" style="text;strokeColor=none;fillColor=#D88AC6;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontStyle=1;fontColor=#ffffff;" parent="35" vertex="1">
@@ -377,12 +377,12 @@
                 <mxCell id="189" value="void remove_geo_from_linked_joint_and_merge_with_current_joint(...)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontColor=default;" parent="42" vertex="1">
                     <mxGeometry y="823.8695376294037" width="400" height="19.36267164949764" as="geometry"/>
                 </mxCell>
-                <object label="wood_main" twtes="7" id="49">
+                <object label="wood::main" twtes="7" id="49">
                     <mxCell style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;swimlaneLine=1;rounded=0;shadow=0;sketch=0;glass=0;fontColor=#FFFFFF;fillColor=#000000;strokeColor=none;" parent="1" vertex="1">
                         <mxGeometry x="40" y="1040" width="400" height="281.7147314434693" as="geometry"/>
                     </mxCell>
                 </object>
-                <mxCell id="263" value="namespace wood_main" style="text;strokeColor=none;fillColor=#1ba1e2;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontColor=#ffffff;whiteSpace=wrap;fontStyle=1" parent="49" vertex="1">
+                <mxCell id="263" value="namespace wood::main" style="text;strokeColor=none;fillColor=#1ba1e2;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontColor=#ffffff;whiteSpace=wrap;fontStyle=1" parent="49" vertex="1">
                     <mxGeometry y="30" width="400" height="19.36267164949764" as="geometry"/>
                 </mxCell>
                 <mxCell id="54" value="methods" style="text;strokeColor=none;fillColor=#D88AC6;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontColor=#ffffff;whiteSpace=wrap;fontStyle=1" parent="49" vertex="1">
@@ -421,12 +421,12 @@
                 <mxCell id="220" value="void beam_volumes(...)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=bottom;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontColor=default;" parent="49" vertex="1">
                     <mxGeometry y="262.35205979397165" width="400" height="19.36267164949764" as="geometry"/>
                 </mxCell>
-                <object label="wood_test" twtes="7" id="56">
+                <object label="wood::test" twtes="7" id="56">
                     <mxCell style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;swimlaneLine=1;rounded=0;shadow=0;sketch=0;glass=0;fontColor=#FFFFFF;fillColor=#000000;strokeColor=none;" parent="1" vertex="1">
                         <mxGeometry x="480" y="1040" width="400" height="204.26404484547874" as="geometry"/>
                     </mxCell>
                 </object>
-                <mxCell id="232" value="namespace wood_test" style="text;strokeColor=none;fillColor=#1ba1e2;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontColor=#ffffff;whiteSpace=wrap;fontStyle=1" parent="56" vertex="1">
+                <mxCell id="232" value="namespace wood::test" style="text;strokeColor=none;fillColor=#1ba1e2;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontColor=#ffffff;whiteSpace=wrap;fontStyle=1" parent="56" vertex="1">
                     <mxGeometry y="30" width="400" height="19.36267164949764" as="geometry"/>
                 </mxCell>
                 <mxCell id="61" value="methods" style="text;strokeColor=none;fillColor=#D88AC6;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontColor=#ffffff;whiteSpace=wrap;fontStyle=1" parent="56" vertex="1">
@@ -453,7 +453,7 @@
                 <mxCell id="226" value="void ss_e_op_4()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontColor=default;" parent="56" vertex="1">
                     <mxGeometry y="184.9013731959811" width="400" height="19.36267164949764" as="geometry"/>
                 </mxCell>
-                <object label="wood_xml" twtes="7" id="63">
+                <object label="wood::xml" twtes="7" id="63">
                     <mxCell style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;swimlaneLine=1;rounded=0;shadow=0;sketch=0;glass=0;fontColor=#FFFFFF;fillColor=#000000;strokeColor=none;" parent="1" vertex="1">
                         <mxGeometry x="920" y="1040" width="400" height="301.07740309296696" as="geometry"/>
                     </mxCell>

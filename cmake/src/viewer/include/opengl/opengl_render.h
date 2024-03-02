@@ -487,8 +487,8 @@ namespace opengl_render
 		std::cout << "opengl_render.h directory for shaders and .xml data-sets: " << asset_directory << "\n";
 
 		opengl_globals::shaders_folder = asset_directory + "viewer\\shaders\\";
-		wood_globals::DATA_SET_INPUT_FOLDER = asset_directory + "wood\\dataset\\";
-		wood_globals::DATA_SET_OUTPUT_FILE = wood_globals::DATA_SET_INPUT_FOLDER + "out.xml";
+		wood::globals::DATA_SET_INPUT_FOLDER = asset_directory + "wood\\dataset\\";
+		wood::globals::DATA_SET_OUTPUT_FILE = wood::globals::DATA_SET_INPUT_FOLDER + "out.xml";
 		// std::cout << "render 0\n";
 		start_glfw();
 		// std::cout << "render 1\n";

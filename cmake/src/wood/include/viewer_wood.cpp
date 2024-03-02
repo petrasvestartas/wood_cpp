@@ -3,10 +3,10 @@
 
 #include "viewer_wood.h"
 
-float viewer_wood::scale = 1000.0f;
-float viewer_wood::line_thickness = 3;
+float viewer::viewer_wood::scale = 1000.0f;
+float viewer::viewer_wood::line_thickness = 3;
 
-void viewer_wood::add(std::vector<std::vector<CGAL_Polyline>> &polyline_groups, int color_type)
+void viewer::viewer_wood::add(std::vector<std::vector<CGAL_Polyline>> &polyline_groups, int color_type)
 {
 
     std::vector<std::vector<float>> vertices;
@@ -15,13 +15,13 @@ void viewer_wood::add(std::vector<std::vector<CGAL_Polyline>> &polyline_groups, 
     for (auto &polyline_group : polyline_groups)
         count += polyline_groups.size();
 
-    float scale_inv = 1 / viewer_wood::scale;
+    float scale_inv = 1 / viewer::viewer_wood::scale;
 
     for (auto &polyline_group : polyline_groups)
         for (auto &polyline : polyline_group)
         {
-        if (polyline.size() == 0)
-            continue;
+            if (polyline.size() == 0)
+                continue;
 
             vertices.emplace_back(std::vector<float>());
             vertices.back().reserve(polyline.size() * 3);
@@ -56,15 +56,15 @@ void viewer_wood::add(std::vector<std::vector<CGAL_Polyline>> &polyline_groups, 
         break;
     }
 
-    opengl_globals_geometry::polylines.add(vertices, viewer_wood::line_thickness, c, "mesh_outlines_wood");
+    opengl_globals_geometry::polylines.add(vertices, viewer::viewer_wood::line_thickness, c, "mesh_outlines_wood");
 }
 
-void viewer_wood::add(std::vector<std::array<IK::Point_3, 2>> &point_pairs)
+void viewer::viewer_wood::add(std::vector<std::array<IK::Point_3, 2>> &point_pairs)
 {
 
     std::vector<std::vector<float>> vertices;
     vertices.reserve(point_pairs.size() * 2);
-    float scale_inv = 1 / viewer_wood::scale;
+    float scale_inv = 1 / viewer::viewer_wood::scale;
 
     for (auto &point_pair : point_pairs)
     {
@@ -77,15 +77,15 @@ void viewer_wood::add(std::vector<std::array<IK::Point_3, 2>> &point_pairs)
         vertices.back().emplace_back(static_cast<float>(point_pair[1].y() * scale_inv));
         vertices.back().emplace_back(static_cast<float>(point_pair[1].z() * scale_inv));
     }
-    opengl_globals_geometry::polylines.add(vertices, viewer_wood::line_thickness, colors::red, "mesh_outlines_wood");
+    opengl_globals_geometry::polylines.add(vertices, viewer::viewer_wood::line_thickness, colors::red, "mesh_outlines_wood");
 }
 
-void viewer_wood::add(std::vector<std::vector<IK::Point_3>> &input_polyline_pairs)
+void viewer::viewer_wood::add(std::vector<std::vector<IK::Point_3>> &input_polyline_pairs)
 {
 
     std::vector<std::vector<float>> vertices;
     vertices.reserve(input_polyline_pairs.size());
-    float scale_inv = 1 / viewer_wood::scale;
+    float scale_inv = 1 / viewer::viewer_wood::scale;
 
     for (auto &polyline : input_polyline_pairs)
     {
@@ -100,20 +100,21 @@ void viewer_wood::add(std::vector<std::vector<IK::Point_3>> &input_polyline_pair
             vertices.back().emplace_back(static_cast<float>(point.z() * scale_inv));
         }
     }
-    opengl_globals_geometry::polylines.add(vertices, viewer_wood::line_thickness, colors::grey, "mesh_outlines_wood");
+    opengl_globals_geometry::polylines.add(vertices, viewer::viewer_wood::line_thickness, colors::grey, "mesh_outlines_wood");
 }
 
-void viewer_wood::add_areas(std::vector<CGAL_Polyline> &polylines)
+void viewer::viewer_wood::add_areas(std::vector<CGAL_Polyline> &polylines)
 {
     // std::cout << "Hi<<\n";
     std::vector<std::vector<glm::vec3>> vertices;
     vertices.reserve(polylines.size());
-    float scale_inv = 1 / viewer_wood::scale;
+    float scale_inv = 1 / viewer::viewer_wood::scale;
 
     for (auto &polyline : polylines)
     {
-        if(polyline.size() == 0) continue; 
-        
+        if (polyline.size() == 0)
+            continue;
+
         vertices.emplace_back(std::vector<glm::vec3>());
         vertices.back().reserve(polyline.size() * 3);
         for (auto &point : polyline)
@@ -124,14 +125,14 @@ void viewer_wood::add_areas(std::vector<CGAL_Polyline> &polylines)
                 static_cast<float>(point.z() * scale_inv));
         }
     }
-    //std::cout << "Hi<<\n";
+    // std::cout << "Hi<<\n";
     opengl_globals_geometry::meshes.add(vertices, colors::green, false, 0.001f, 1.0f, "mesh_outlines_wood");
     // opengl_globals_geometry::polylines.add(vertices, 5, colors::green, "mesh_outlines_wood");
 }
 
-void viewer_wood::add_areas(std::vector<std::vector<CGAL_Polyline>> &polylines)
+void viewer::viewer_wood::add_areas(std::vector<std::vector<CGAL_Polyline>> &polylines)
 {
-    //std::cout << "Hi<<\n";  
+    // std::cout << "Hi<<\n";
     std::vector<CGAL_Polyline> polylines_merged;
     polylines_merged.reserve(polylines.size() * 4);
     for (auto &lists : polylines)
@@ -141,19 +142,19 @@ void viewer_wood::add_areas(std::vector<std::vector<CGAL_Polyline>> &polylines)
                 continue;
             polylines_merged.emplace_back(polyline);
         }
-    //std::cout << "Hi<<\n";  
+    // std::cout << "Hi<<\n";
     add_areas(polylines_merged);
-    //std::cout << "Hi<<\n"; 
+    // std::cout << "Hi<<\n";
     return;
 }
 
-void viewer_wood::add(std::vector<std::array<CGAL_Polyline, 4>> &volume_pairs)
+void viewer::viewer_wood::add(std::vector<std::array<CGAL_Polyline, 4>> &volume_pairs)
 {
     // std::cout << "Hi\n";
 
     std::vector<std::vector<float>> vertices;
     vertices.reserve(volume_pairs.size() * 4);
-    float scale_inv = 1 / viewer_wood::scale;
+    float scale_inv = 1 / viewer::viewer_wood::scale;
 
     for (auto &polyline_array : volume_pairs)
     {
@@ -171,10 +172,10 @@ void viewer_wood::add(std::vector<std::array<CGAL_Polyline, 4>> &volume_pairs)
             }
         }
     }
-    opengl_globals_geometry::polylines.add(vertices, viewer_wood::line_thickness, colors::blue, "mesh_outlines_wood");
+    opengl_globals_geometry::polylines.add(vertices, viewer::viewer_wood::line_thickness, colors::blue, "mesh_outlines_wood");
 }
 
-void viewer_wood::add_loft(std::vector<std::vector<CGAL_Polyline>> &output_plines)
+void viewer::viewer_wood::add_loft(std::vector<std::vector<CGAL_Polyline>> &output_plines)
 {
     // auto start = std::chrono::high_resolution_clock::now();
     std::vector<float> out_vertices;
@@ -182,7 +183,7 @@ void viewer_wood::add_loft(std::vector<std::vector<CGAL_Polyline>> &output_pline
     std::vector<int> out_triangles;
 
     for (auto &polylines : output_plines)
-        cgal_polyline_mesh_util::closed_mesh_from_polylines_vnf(polylines, out_vertices, out_normals, out_triangles, viewer_wood::scale);
+        cgal::polyline_mesh_util::closed_mesh_from_polylines_vnf(polylines, out_vertices, out_normals, out_triangles, viewer::viewer_wood::scale);
 
     if (out_vertices.size() > 2 && out_normals.size() > 2 && out_triangles.size() > 2)
         opengl_globals_geometry::meshes.add(out_vertices, out_normals, out_triangles, colors::white);
@@ -192,7 +193,7 @@ void viewer_wood::add_loft(std::vector<std::vector<CGAL_Polyline>> &output_pline
     // std::cout << "Time taken by function: " << duration.count() << " ms" << std::endl;
 }
 
-void viewer_wood::add(std::vector<IK::Point_3> &points)
+void viewer::viewer_wood::add(std::vector<IK::Point_3> &points)
 
 {
 
