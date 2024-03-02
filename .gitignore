@@ -1,9 +1,5 @@
 #ingore backend
-backend/build_win/**
-
-#ingore frontend
-frontend/build_win/**
-
+cmake/build/**
 
 *.tar.gz
 
