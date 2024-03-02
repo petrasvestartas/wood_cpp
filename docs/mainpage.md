@@ -1,6 +1,10 @@
 # Introduction
 
-The timber joinery generation library offers an innovative approach to creating timber joints, catering to both automated collision detection methods and user-defined element connectivity. It provides a versatile platform for generating joints from a catalog of predefined types, with the added flexibility for users to introduce custom joint designs. This capability enables a wide range of applications, from architectural designs to bespoke furniture making, facilitating both simplicity and creativity in timber construction projects.
+Welcome to the world of timber joinery with the Wood library!
+
+Our library offers an exciting twist on traditional timber joinery techniques. Whether you're into automated collision detection methods or prefer a hands-on approach with custom element connectivity. With a diverse catalog of predefined joint types and the freedom to introduce your own designs, our library empowers you to unleash your creativity in timber construction projects. 
+
+Ready to dive in? Check out our [GitHub repository](https://github.com/petrasvestartas/wood_cpp) for the latest updates and documentation. Let's build something extraordinary together! 
 
 ![Example Image](type_plates_name_side_to_side_edge_inplane_hexshell.png "Example of fingers joints in a hexagonal shell made of plates.")
 
