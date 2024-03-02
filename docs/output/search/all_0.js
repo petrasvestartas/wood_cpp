@@ -8,7 +8,7 @@ var searchData=
   ['angle_5',['ANGLE',['../namespacewood_1_1globals.html#a8d6242cb4e254f088f2633705a121c30',1,'wood::globals']]],
   ['are_5fpoints_5finside_6',['are_points_inside',['../namespacecollider_1_1clipper__util.html#a43422ba49b4b631ad53d3254a02e1c24',1,'collider::clipper_util']]],
   ['assign_7',['assign',['../namespacecgal_1_1box__util.html#aa3561ac09a39202cb42f3f5c030bc91b',1,'cgal::box_util']]],
-  ['authors_8',['Authors',['../md_authors.html',1,'']]],
+  ['author_8',['Author',['../md_authors.html',1,'']]],
   ['authors_2emd_9',['authors.md',['../authors_8md.html',1,'']]],
   ['average_5fnormal_10',['average_normal',['../namespacecgal_1_1vector__util.html#a09b08d47acf2ae9bd1707a81aa2bd0aa',1,'cgal::vector_util']]],
   ['axis_11',['axis',['../classwood_1_1element.html#a3be71dca781abdb4b6a69e4cba18015d',1,'wood::element']]],

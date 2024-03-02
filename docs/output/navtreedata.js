@@ -26,7 +26,7 @@ var NAVTREE =
 [
   [ "WOOD", "index.html", [
     [ "Introduction", "index.html", "index" ],
-    [ "Authors", "md_authors.html", null ],
+    [ "Author", "md_authors.html", null ],
     [ "Tutorials", "md_tutorials.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
