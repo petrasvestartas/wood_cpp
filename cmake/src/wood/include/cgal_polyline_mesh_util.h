@@ -108,6 +108,17 @@ namespace cgal
          * @return mesh vertices and faces in a form of Eigen matrices to be compatible with pybind11
          */
         void closed_mesh_from_polylines_vnf(const std::vector<CGAL_Polyline> &polylines_with_holes, std::vector<float> &out_vertices, std::vector<float> &out_normals, std::vector<int> &out_triangles, const double &scale = 1000);
+
+        /**
+         * Create a mesh loft from a set of polylines with holes
+         * "VNF" stands for "vertices, normals, faces
+         *
+         * @param [in] polylines_with_holes polylines in the order: top, bottom, top, bottom, top, bottom, ...
+         * @param [out] mesh CGAL::Surface_mesh<CGAL::Exact_predicates_inexact_constructions_kernel::Point_3> mesh
+         * @param [in] scale scale factor to convert scale the output geometry for viewer::viewer_wood
+         * @return mesh vertices and faces in a form of Eigen matrices to be compatible with pybind11
+         */
+        void closed_mesh_from_polylines(const std::vector<CGAL_Polyline> &polylines_with_holes_not_clean, CGAL::Surface_mesh<CGAL::Exact_predicates_inexact_constructions_kernel::Point_3> &mesh, const double &scale = 1000);
     }
 } // namespace cgal
 #endif

@@ -1,18 +1,18 @@
 #pragma once
 
-//#include "../../../stdafx.h"
+// #include "../../../stdafx.h"
 
-//#include <glad/glad.h> // holds all OpenGL type declarations
-//#include <glm/glm.hpp>
-//#include <glm/gtc/matrix_transform.hpp>
+// #include <glad/glad.h> // holds all OpenGL type declarations
+// #include <glm/glm.hpp>
+// #include <glm/gtc/matrix_transform.hpp>
 //
-//#include <opengl_shaders.h>
+// #include <opengl_shaders.h>
 //
 ////assimp
-//#include <stb_image.h>
-//#include <assimp/Importer.hpp>
-//#include <assimp/scene.h>
-//#include <assimp/postprocess.h>
+// #include <stb_image.h>
+// #include <assimp/Importer.hpp>
+// #include <assimp/scene.h>
+// #include <assimp/postprocess.h>
 
 #define MAX_BONE_INFLUENCE 4
 
@@ -486,7 +486,7 @@ namespace opengl_geometry
 			textures_loaded.clear();
 			_geo.clear();
 			_dict.clear();
-			//clear_geo_in_opengl();
+			// clear_geo_in_opengl();
 		}
 
 		meshes() {}

@@ -257,237 +257,6 @@ namespace cgal
             }
         }
 
-        // std::tuple<RowMatrixXd, RowMatrixXi> closed_mesh_from_polylines(const std::vector<CGAL_Polyline> &polylines_with_holes)
-        // {
-        //     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //     // Sanity Check
-        //     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //     RowMatrixXd v_empty(0, 0);
-        //     RowMatrixXi f_empty(0, 0);
-        //     auto empty_tuple = std::make_tuple(v_empty, f_empty);
-
-        //     if (polylines_with_holes.size() % 2 == 1)
-        //         return empty_tuple;
-
-        //     for (auto i = 0; i < polylines_with_holes.size(); i += 2)
-        //     {
-        //         auto a = polylines_with_holes[i].size();
-        //         auto b = polylines_with_holes[i + 1].size();
-        //         if (a != b)
-        //             return empty_tuple;
-        //         if (a < 2 || b < 2)
-        //             return empty_tuple;
-        //     }
-
-        //     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //     // Compute average normal and create a plane
-        //     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //     auto lastID = polylines_with_holes.size() - 2;
-        //     auto len = polylines_with_holes[lastID].size() - 1;
-        //     IK::Vector_3 average_normal = IK::Vector_3(0, 0, 0);
-
-        //     for (int i = 0; i < len; i++)
-        //     {
-        //         auto prev = ((i - 1) + len) % len;
-        //         auto next = ((i + 1) + len) % len;
-        //         average_normal = average_normal + CGAL::cross_product(polylines_with_holes[lastID][i] - polylines_with_holes[lastID][prev], polylines_with_holes[lastID][next] - polylines_with_holes[lastID][i]);
-        //     }
-
-        //     IK::Plane_3 base_plane(polylines_with_holes[lastID][0], average_normal);
-
-        //     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //     // Create a mesh for top outlines
-        //     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //     std::vector<int> top_outline_face_vertex_indices;
-        //     int v, f;
-
-        //     mesh_from_polylines(polylines_with_holes, base_plane, top_outline_face_vertex_indices, v, f);
-
-        //     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //     // Create mesh for the full plate
-        //     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        //     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //     // -> Count vertices and faces
-        //     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        //     size_t vertex_count = 0;
-        //     for (auto i = 0; i < polylines_with_holes.size(); i += 2)
-        //         vertex_count += polylines_with_holes[i].size() - 1;
-
-        //     if (v != vertex_count)
-        //     {
-        //         // CGAL_Debug(v);
-        //         // CGAL_Debug(vertex_count);
-        //         RowMatrixXd vv(0, 3);
-        //         RowMatrixXi ff(0, 3);
-        //         return std::make_tuple(vv, ff);
-        //     }
-
-        //     auto face_count = top_outline_face_vertex_indices.size() / 3;
-
-        //     RowMatrixXd vertices(vertex_count * 2, 3);
-        //     RowMatrixXi faces(face_count * 2 + vertex_count * 2, 3); //
-
-        //     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //     // -> Top vertices
-        //     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        //     // Set vertex coordinates from all polylines a-b a-b
-        //     int vid = 0;
-        //     std::vector<std::array<int, 4>> sides;
-        //     sides.reserve(vertex_count);
-
-        //     bool holes = polylines_with_holes.size() > 2;
-
-        //     for (auto i = 0; i < polylines_with_holes.size(); i += 2)
-        //     {
-        //         bool last = i == (polylines_with_holes.size() - 2);
-
-        //         for (auto j = 0; j < polylines_with_holes[i].size() - 1; j++)
-        //         {
-        //             // vertices
-        //             vertices(vid, 0) = polylines_with_holes[i][j].hx();
-        //             vertices(vid, 1) = polylines_with_holes[i][j].hy();
-        //             vertices(vid, 2) = polylines_with_holes[i][j].hz();
-
-        //             // last faces
-        //             if (j == polylines_with_holes[i].size() - 2)
-        //             { // take vertices from beggining
-        //                 auto n = polylines_with_holes[i].size() - 2;
-        //                 std::array<int, 4> side{vid, vid - (int)n, vid - (int)n + (int)vertex_count, vid + 0 + (int)vertex_count};
-
-        //                 if (holes)
-        //                 {
-        //                     sides.emplace_back(side);
-        //                 }
-        //                 else
-        //                 {
-        //                     sides.emplace_back(side);
-        //                 }
-
-        //                 // iterated faces
-        //             }
-        //             else
-        //             { // take next vertices
-        //                 std::array<int, 4> side = {
-        //                     vid + 0 + (int)vertex_count,
-        //                     vid + 1 + (int)vertex_count,
-        //                     vid + 1,
-        //                     vid,
-        //                 };
-
-        //                 if (holes)
-        //                 {
-        //                     // if (last) {
-        //                     side = {
-        //                         vid,
-        //                         vid + 1,
-        //                         vid + 1 + (int)vertex_count,
-        //                         vid + 0 + (int)vertex_count,
-        //                     };
-        //                     sides.emplace_back(side);
-        //                 }
-        //                 else
-        //                 {
-        //                     side = {
-        //                         vid,
-        //                         vid + 1,
-        //                         vid + 1 + (int)vertex_count,
-        //                         vid + 0 + (int)vertex_count,
-        //                     };
-        //                     sides.emplace_back(side);
-        //                 }
-        //             }
-        //             vid++;
-        //         }
-        //     }
-
-        //     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //     // -> Bottom vertices
-        //     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        //     vid = 0;
-        //     for (auto i = 0; i < polylines_with_holes.size(); i += 2)
-        //     {
-        //         for (auto j = 0; j < polylines_with_holes[i].size() - 1; j++)
-        //         {
-        //             // vertices
-        //             vertices(vertex_count + vid, 0) = polylines_with_holes[i + 1][j].hx();
-        //             vertices(vertex_count + vid, 1) = polylines_with_holes[i + 1][j].hy();
-        //             vertices(vertex_count + vid, 2) = polylines_with_holes[i + 1][j].hz();
-        //             vid++;
-        //         }
-        //     }
-
-        //     // RhinoApp().Print("face_count %i vertex_count %i \n", output.FaceCount(), output.VertexCount());
-
-        //     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //     // -> Top face indives
-        //     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        //     for (auto i = 0; i < top_outline_face_vertex_indices.size(); i += 3)
-        //     {
-        //         int fid = i / 3;
-        //         faces(fid, 0) = top_outline_face_vertex_indices[i + 0];
-        //         faces(fid, 1) = top_outline_face_vertex_indices[i + 1];
-        //         faces(fid, 2) = top_outline_face_vertex_indices[i + 2];
-        //         // RhinoApp().Print("Triangulation flag %i faceID %i vertexIds %i %i %i \n", flag0, fid, top_face_triangulation[i + 0], top_face_triangulation[i + 1], top_face_triangulation[i + 2]);
-        //     }
-
-        //     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //     // -> Bottom face indices
-        //     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        //     for (auto i = 0; i < top_outline_face_vertex_indices.size(); i += 3)
-        //     {
-        //         int fid = i / 3;
-        //         faces(face_count + fid, 0) = (int)vertex_count + top_outline_face_vertex_indices[i + 2];
-        //         faces(face_count + fid, 1) = (int)vertex_count + top_outline_face_vertex_indices[i + 1];
-        //         faces(face_count + fid, 2) = (int)vertex_count + top_outline_face_vertex_indices[i + 0];
-
-        //         // RhinoApp().Print("Triangulation flag %i faceID %i vertexIds %i %i %i \n\n", flag1, face_count + fid, top_face_triangulation[i + 0] + vertex_count, top_face_triangulation[i + 1] + vertex_count, top_face_triangulation[i + 2] + vertex_count);
-        //     }
-
-        //     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //     // -> Side face indices
-        //     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        //     // CGAL_Debug(sides.size());
-        //     for (int i = 0; i < sides.size(); i++)
-        //     {
-        //         faces(face_count * 2 + 2 * i + 0, 0) = sides[i][3];
-        //         faces(face_count * 2 + 2 * i + 0, 1) = sides[i][2];
-        //         faces(face_count * 2 + 2 * i + 0, 2) = sides[i][1];
-
-        //         faces(face_count * 2 + 2 * i + 1, 0) = sides[i][3];
-        //         faces(face_count * 2 + 2 * i + 1, 1) = sides[i][1];
-        //         faces(face_count * 2 + 2 * i + 1, 2) = sides[i][0];
-
-        //         // if (polylines.size() == 2) {
-        //         //      faces(face_count * 2 + 2 * i + 0, 0) = sides[i][3];
-        //         //      faces(face_count * 2 + 2 * i + 0, 1) = sides[i][2];
-        //         //      faces(face_count * 2 + 2 * i + 0, 2) = sides[i][1];
-
-        //         //     faces(face_count * 2 + 2 * i + 1, 0) = sides[i][3];
-        //         //     faces(face_count * 2 + 2 * i + 1, 1) = sides[i][1];
-        //         //     faces(face_count * 2 + 2 * i + 1, 2) = sides[i][0];
-        //         // } else {
-        //         //     faces(face_count * 2 + 2 * i + 0, 0) = sides[i][1];
-        //         //     faces(face_count * 2 + 2 * i + 0, 1) = sides[i][2];
-        //         //     faces(face_count * 2 + 2 * i + 0, 2) = sides[i][3];
-
-        //         //     faces(face_count * 2 + 2 * i + 1, 0) = sides[i][0];
-        //         //     faces(face_count * 2 + 2 * i + 1, 1) = sides[i][1];
-        //         //     faces(face_count * 2 + 2 * i + 1, 2) = sides[i][3];
-        //         // }
-
-        //         // bool flag = output.SetQuad(face_count * 2 + i, sides[i][3], sides[i][2], sides[i][1], sides[i][0]);
-        //     }
-
-        //     return std::make_tuple(vertices, faces);
-        // }
-
         void closed_mesh_from_polylines_vnf(const std::vector<CGAL_Polyline> &polylines_with_holes_not_clean, std::vector<float> &out_vertices, std::vector<float> &out_normals, std::vector<int> &out_triangles, const double &scale)
         {
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -819,20 +588,11 @@ namespace cgal
                 out_vertices.emplace_back(out_vertices_temp[c1 * 3 + 1]);
                 out_vertices.emplace_back(out_vertices_temp[c1 * 3 + 2]);
 
-                // std::cout << out_vertices_temp[a0 * 3 + 0] << " " << out_vertices_temp[a0 * 3 + 1] << " " << out_vertices_temp[a0 * 3 + 2] << "\n";
-                // std::cout << out_vertices_temp[b0 * 3 + 0] << " " << out_vertices_temp[b0 * 3 + 1] << " " << out_vertices_temp[b0 * 3 + 2] << "\n";
-                // std::cout << out_vertices_temp[c0 * 3 + 0] << " " << out_vertices_temp[c0 * 3 + 1] << " " << out_vertices_temp[c0 * 3 + 2] << "\n";
-                // std::cout << out_vertices_temp[a1 * 3 + 0] << " " << out_vertices_temp[a1 * 3 + 1] << " " << out_vertices_temp[a1 * 3 + 2] << "\n";
-                // std::cout << out_vertices_temp[b1 * 3 + 0] << " " << out_vertices_temp[b1 * 3 + 1] << " " << out_vertices_temp[b1 * 3 + 2] << "\n";
-                // std::cout << out_vertices_temp[c1 * 3 + 0] << " " << out_vertices_temp[c1 * 3 + 1] << " " << out_vertices_temp[c1 * 3 + 2] << "\n";
-
                 IK::Point_3 coord_0(out_vertices_temp[a0 * 3 + 0], out_vertices_temp[a0 * 3 + 1], out_vertices_temp[a0 * 3 + 2]);
                 IK::Point_3 coord_1(out_vertices_temp[b0 * 3 + 0], out_vertices_temp[b0 * 3 + 1], out_vertices_temp[b0 * 3 + 2]);
                 IK::Point_3 coord_2(out_vertices_temp[c0 * 3 + 0], out_vertices_temp[c0 * 3 + 1], out_vertices_temp[c0 * 3 + 2]);
                 IK::Vector_3 normal_0 = -CGAL::cross_product(coord_0 - coord_1, coord_2 - coord_1);
                 internal::unitize(normal_0);
-                // std::cout << normal_0.hx() << " " << normal_0.hy() << " " << normal_0.hz() << "\n";
-                // std::cout << coord_1.hx() << " " << coord_1.hy() << " " << coord_1.hz() << "\n";
 
                 out_normals.emplace_back(normal_0.hx());
                 out_normals.emplace_back(normal_0.hy());
@@ -864,6 +624,139 @@ namespace cgal
             }
 
             return;
+        }
+
+        void closed_mesh_from_polylines(const std::vector<CGAL_Polyline> &polylines_with_holes_not_clean, CGAL::Surface_mesh<CGAL::Exact_predicates_inexact_constructions_kernel::Point_3> &mesh, const double &scale)
+        {
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Sanity Check
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // RowMatrixXd v_empty(0, 0);
+            // RowMatrixXi f_empty(0, 0);
+            // auto empty_tuple = std::make_tuple(v_empty, f_empty);
+
+            std::vector<CGAL_Polyline> polylines_with_holes;
+            polylines_with_holes.reserve(polylines_with_holes_not_clean.size());
+
+            // ignore line segments with less than 2 points
+            for (auto &polyline : polylines_with_holes_not_clean)
+                if (polyline.size() > 2)
+                    polylines_with_holes.emplace_back(polyline);
+
+            // if there polyline pairs are not even, return empty mesh
+            if (polylines_with_holes_not_clean.size() % 2 == 1)
+                return;
+
+            for (auto i = 0; i < polylines_with_holes.size(); i += 2)
+            {
+                auto a = polylines_with_holes[i].size();
+                auto b = polylines_with_holes[i + 1].size();
+                if (a != b)
+                    return;
+                if (a < 2 || b < 2)
+                    return;
+            }
+
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Clean duplicate points
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            std::vector<CGAL_Polyline> polylines(polylines_with_holes.size());
+
+            for (auto i = 0; i < polylines_with_holes.size(); i += 2)
+            {
+                polylines[i + 0].reserve(polylines_with_holes[i + 0].size());
+                polylines[i + 1].reserve(polylines_with_holes[i + 1].size());
+                polylines[i + 0].emplace_back(polylines_with_holes[i + 0][0]);
+                polylines[i + 1].emplace_back(polylines_with_holes[i + 1][0]);
+                for (auto j = 1; j < polylines_with_holes[i + 0].size(); j++)
+                {
+                    if (CGAL::squared_distance(polylines_with_holes[i + 0][j - 1], polylines_with_holes[i + 0][j]) > wood::globals::DISTANCE_SQUARED)
+                    {
+                        polylines[i + 0].emplace_back(polylines_with_holes[i + 0][j]);
+                        polylines[i + 1].emplace_back(polylines_with_holes[i + 1][j]);
+                    }
+                }
+            }
+
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Compute average normal and create a plane
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            auto lastID = polylines.size() - 2;
+            auto len = polylines[lastID].size() - 1;
+            IK::Vector_3 average_normal = IK::Vector_3(0, 0, 0);
+
+            for (auto i = 0; i < len; i++)
+            {
+                auto prev = ((i - 1) + len) % len;
+                auto next = ((i + 1) + len) % len;
+                average_normal = average_normal + CGAL::cross_product(polylines[lastID][i] - polylines[lastID][prev], polylines[lastID][next] - polylines[lastID][i]);
+            }
+
+            internal::unitize(average_normal);
+
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Create a mesh for top outlines
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            std::vector<int> top_outline_face_vertex_indices;
+            int v, f;
+            mesh_from_polylines(polylines, IK::Plane_3(polylines[lastID][0], average_normal), top_outline_face_vertex_indices, v, f);
+
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // add vertices to the mesh from the top and bottom outlines
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            for (int i = 0; i < polylines.size(); i += 2)
+            {
+                for (int j = 0; j < polylines[i].size() - 1; j++)
+                {
+                    mesh.add_vertex(CGAL::Exact_predicates_inexact_constructions_kernel::Point_3(polylines[i][j].hx() / scale, polylines[i][j].hy() / scale, polylines[i][j].hz() / scale));
+                }
+
+                for (int j = 0; j < polylines[i + 1].size() - 1; j++)
+                {
+                    mesh.add_vertex(CGAL::Exact_predicates_inexact_constructions_kernel::Point_3(polylines[i + 1][j].hx() / scale, polylines[i + 1][j].hy() / scale, polylines[i + 1][j].hz() / scale));
+                }
+            }
+
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // add faces to the mesh from the top and bottom outlines
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            for (int i = 0; i < top_outline_face_vertex_indices.size(); i += 3)
+            {
+                mesh.add_face(CGAL::SM_Vertex_index(top_outline_face_vertex_indices[i + 0]), CGAL::SM_Vertex_index(top_outline_face_vertex_indices[i + 1]), CGAL::SM_Vertex_index(top_outline_face_vertex_indices[i + 2]));
+                mesh.add_face(CGAL::SM_Vertex_index(top_outline_face_vertex_indices[i + 2] + v), CGAL::SM_Vertex_index(top_outline_face_vertex_indices[i + 1] + v), CGAL::SM_Vertex_index(top_outline_face_vertex_indices[i + 0] + v));
+            }
+
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // add vertical faces to the mesh
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            for (int i = 0; i < polylines.size(); i += 2)
+            {
+                for (int j = 0; j < polylines[i].size() - 1; j++)
+                {
+                    int a0 = j;
+                    int b0 = (j + 1) % (polylines[i].size() - 1);
+                    int c0 = j + v;
+                    int a1 = j + v;
+                    int b1 = (j + 1) % (polylines[i].size() - 1) + v;
+                    int c1 = (j + 1) % (polylines[i].size() - 1);
+
+                    mesh.add_face(CGAL::SM_Vertex_index(c0), CGAL::SM_Vertex_index(b0), CGAL::SM_Vertex_index(a0));
+                    mesh.add_face(CGAL::SM_Vertex_index(a1), CGAL::SM_Vertex_index(b1), CGAL::SM_Vertex_index(c1));
+                }
+            }
+
+            // for (auto v : mesh.vertices())
+            // {
+            //     auto p = mesh.point(v);
+            //     std::cout << p.x() << "\n";
+            //     std::cout << p.y() << "\n";
+            //     std::cout << p.z() << "\n";
+            // }
+
+            // for (auto current_face : mesh.faces())
+            //     for (auto face_vertex : mesh.vertices_around_face(mesh.halfedge(current_face)))
+            //         std::cout << face_vertex.idx() << "\n";
         }
     }
 }

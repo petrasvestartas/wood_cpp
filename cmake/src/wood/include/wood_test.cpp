@@ -68,7 +68,10 @@ namespace wood
                 switch (wood::globals::OUTPUT_GEOMETRY_TYPE)
                 {
                 case (5):
-                    viewer::viewer_wood::add(output_plines); // grey
+                    viewer::viewer_wood::add_mesh_boolean_difference(input_polyline_pairs, output_plines); // grey
+                    viewer::viewer_wood::add(input_polyline_pairs);                                        // grey
+                    viewer::viewer_wood::add(output_plines);                                               // grey
+                    break;
                 case (0):
                     viewer::viewer_wood::add_areas(output_plines);
                     break;

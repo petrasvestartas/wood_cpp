@@ -24,8 +24,9 @@ namespace viewer
 
         void add_loft(std::vector<std::vector<CGAL_Polyline>> &output_plines);
 
-        void add(std::vector<IK::Point_3> &points);
+        void add_mesh_boolean_difference(std::vector<CGAL_Polyline> &input_plines, std::vector<std::vector<CGAL_Polyline>> &output_plines);
 
+        void add(std::vector<IK::Point_3> &points);
     }
 } // namespace viewer
 

@@ -63,7 +63,7 @@ var NAVTREEINDEX =
 "classwood_1_1element.html#ae6767ce10289064530fafd9e01ac3709",
 "namespacecollider_1_1rtree__util.html#a60665fce394ecee9b376af426b1d1373",
 "namespacewood_1_1test.html#aa4d7347562a6715a26e501710af2cb3c",
-"wood__main_8h.html"
+"wood__main_8cpp_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

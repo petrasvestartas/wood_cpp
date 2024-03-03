@@ -2,6 +2,7 @@
 #include "../../../stdafx.h" //go up to the folder where the CMakeLists.txt is
 
 #include "viewer_wood.h"
+#include "cgal_mesh_boolean.h"
 
 float viewer::viewer_wood::scale = 1000.0f;
 float viewer::viewer_wood::line_thickness = 3;
@@ -177,7 +178,6 @@ void viewer::viewer_wood::add(std::vector<std::array<CGAL_Polyline, 4>> &volume_
 
 void viewer::viewer_wood::add_loft(std::vector<std::vector<CGAL_Polyline>> &output_plines)
 {
-    // auto start = std::chrono::high_resolution_clock::now();
     std::vector<float> out_vertices;
     std::vector<float> out_normals;
     std::vector<int> out_triangles;
@@ -187,14 +187,65 @@ void viewer::viewer_wood::add_loft(std::vector<std::vector<CGAL_Polyline>> &outp
 
     if (out_vertices.size() > 2 && out_normals.size() > 2 && out_triangles.size() > 2)
         opengl_globals_geometry::meshes.add(out_vertices, out_normals, out_triangles, colors::white);
+}
 
-    // auto stop = std::chrono::high_resolution_clock::now();
-    // auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-    // std::cout << "Time taken by function: " << duration.count() << " ms" << std::endl;
+void viewer::viewer_wood::add_mesh_boolean_difference(std::vector<CGAL_Polyline> &input_plines, std::vector<std::vector<CGAL_Polyline>> &output_plines)
+{
+
+    for (int i = 0; i < input_plines.size(); i += 2)
+    {
+
+        std::vector<CGAL_Polyline> input_plines_pair = {input_plines[i], input_plines[i + 1]};
+
+        // create mesh list for boolean difference
+        std::vector<CGAL::Surface_mesh<CGAL::Exact_predicates_inexact_constructions_kernel::Point_3>> mesh_list;
+
+        // create mesh from outlines
+        mesh_list.emplace_back(CGAL::Surface_mesh<CGAL::Exact_predicates_inexact_constructions_kernel::Point_3>());
+        cgal::polyline_mesh_util::closed_mesh_from_polylines(input_plines_pair, mesh_list[0], 1000);
+
+        // create mesh from genereated joints - output_plines
+        // std::cout << "output_plines.size(): " << output_plines[(size_t)(i * 0.5)].size() << std::endl;
+        for (int j = 0; j < output_plines[(size_t)(i * 0.5)].size(); j += 2)
+        {
+            mesh_list.emplace_back(CGAL::Surface_mesh<CGAL::Exact_predicates_inexact_constructions_kernel::Point_3>());
+            std::vector<CGAL_Polyline> polylines_single = {output_plines[(size_t)(i * 0.5)][j], output_plines[(size_t)(i * 0.5)][j + 1]};
+            cgal::polyline_mesh_util::closed_mesh_from_polylines(polylines_single, mesh_list.back(), 1000);
+        }
+
+        for (size_t i = 0; i < mesh_list.size(); i++)
+        {
+            if (!CGAL::is_closed(mesh_list[i]))
+                std::cerr << "mesh is not closed." << i << std::endl;
+
+            if (CGAL::Polygon_mesh_processing::does_self_intersect(mesh_list[i]))
+                std::cerr << "mesh has self-intersections." << i << std::endl;
+        }
+
+        // create boolean difference
+        std::vector<float> out_vertices;
+        std::vector<float> out_normals;
+        std::vector<int> out_triangles;
+        // std::cout << "mesh_list.size(): " << mesh_list.size() << std::endl;
+        cgal::mesh_boolean::mesh_boolean_difference_to_viewer(mesh_list, 0, out_vertices, out_normals, out_triangles);
+
+        // add to viewer
+        opengl_globals_geometry::meshes.add(out_vertices, out_normals, out_triangles, colors::white);
+
+        // print vertices and triangles
+        // std::cout << "vertices: " << out_vertices.size() << " triangles: " << out_triangles.size() << " normals: " << out_normals.size() << std::endl;
+        // for (size_t i = 0; i < out_vertices.size(); i += 3)
+        //     std::cout << out_vertices[i] << "\n"
+        //               << out_vertices[i + 1] << "\n"
+        //               << out_vertices[i + 2] << std::endl;
+        // for (size_t i = 0; i < out_triangles.size(); i += 3)
+        //     std::cout << out_triangles[i] << "\n"
+        //               << out_triangles[i + 1] << "\n"
+        //               << out_triangles[i + 2] << std::endl;
+    }
 }
 
 void viewer::viewer_wood::add(std::vector<IK::Point_3> &points)
-
 {
 
     std::vector<float> vertices;

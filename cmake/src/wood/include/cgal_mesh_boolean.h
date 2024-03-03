@@ -23,6 +23,13 @@ namespace cgal
         );
 
         void mesh_boolean_test();
+
+        void mesh_boolean_difference_to_viewer(
+            std::vector<Mesh> &mesh_list,
+            size_t difference_union_intersection,
+            std::vector<float> &out_vertices,
+            std::vector<float> &out_normals,
+            std::vector<int> &out_triangles);
     }
 } // namespace cgal
 #endif // CGAL_MESH_BOOLEAN_H

@@ -149,6 +149,7 @@ namespace wood
 
                     break;
                 case (3):
+                case (5):
 
                     // k+=2 means skipping bounding lines or rectangles that are used in other method when joints have to be merged with polygons
                     // std::cout << " new line \n";
@@ -166,7 +167,7 @@ namespace wood
                     // std::cout << " new line \n";
 
                     break;
-                case (5):
+                case (6):
                     // Plate outlines
                     if (this->polylines.size() > 1)
                     {

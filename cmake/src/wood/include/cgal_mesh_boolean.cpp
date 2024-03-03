@@ -2,6 +2,9 @@
 #include "../../../stdafx.h" //go up to the folder where the CMakeLists.txt is
 
 #include "cgal_mesh_boolean.h"
+#include <CGAL/Polygon_mesh_processing/repair.h>
+#include <CGAL/Polygon_mesh_processing/measure.h>
+#include <CGAL/Polygon_mesh_processing/orientation.h>
 
 namespace cgal
 {
@@ -73,47 +76,6 @@ namespace cgal
                         n_valid_meshes++;
                 }
             }
-
-            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            // Create Mesh
-            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-            // std::vector<Mesh::Property_map<Mesh::Face_index, int>> mesh_list_id;
-
-            //     int numOfValidMeshes = 0;
-            //     // int numOfMeshes = 0;
-            //     // std::ofstream myfile;
-            //     // std::ofstream myfile00;
-            //     // myfile00.open ("C:\\libs\\PInvokeCPPCSHARP\\PInvoke\\x64\\Release\\TrackFaceIDStart00.txt");
-
-            //     for (size_t i = 0; i < n_mesh; i++)
-            //     {
-
-            //         CGAL::Surface_mesh<CGAL::Exact_predicates_inexact_constructions_kernel::Point_3> tempMesh;
-            //         // tempMesh.reserve(n_coord_meshArray[i+1]-n_coord_meshArray[i], (n_coord_meshArray[i+1]-n_coord_meshArray[i]) * 3, n_faces_meshArray[i+1]-n_faces_meshArray[i]);
-
-            //         for (int j = n_coord_meshArray[i]; j < n_coord_meshArray[i + 1]; j++)
-            //         {
-            //             tempMesh.add_vertex(CGAL::Epick::Point_3(coord_mesh[3 * j + 0], coord_mesh[3 * j + 1], coord_mesh[3 * j + 2]));
-            //         }
-
-            //         for (int j = n_faces_meshArray[i]; j < n_faces_meshArray[i + 1]; j++)
-            //         {
-            //             tempMesh.add_face(CGAL::SM_Vertex_index(faces_mesh[3 * j + 0]), CGAL::SM_Vertex_index(faces_mesh[3 * j + 1]), CGAL::SM_Vertex_index(faces_mesh[3 * j + 2]));
-            //         }
-
-            //         if (tempMesh.is_valid(false))
-            //         {
-
-            //             /////////////////////////////////////////////////////////////////
-            //             // Add Mesh
-            //             /////////////////////////////////////////////////////////////////
-            //             mesh_list.push_back(tempMesh);
-            //             numOfValidMeshes++;
-            //         }
-            //         // myfile << "\n ";
-            //         // numOfMeshes++;
-            //     }
 
             //////////////////////////////////////////////////////////////////
             //// Perform CGAL Boolean
@@ -362,6 +324,142 @@ namespace cgal
             );
 
             std::cout << "\n__________________________________________________________\n mesh_boolean_test() \n n_coord_out is 22 ? " << n_coord_out << "\n n_normals_out is 22 ? " << normals_out.size() / 3 << "\n n_faces_out is 40 ? " << n_faces_out << "\n n_facesColors_out is 40 ? " << n_facesColors_out << "\n n_valid_meshes is 2 ? " << n_valid_meshes << "\n__________________________________________________________\n";
+        }
+
+        void mesh_boolean_difference_to_viewer(
+            std::vector<Mesh> &mesh_list,
+            size_t difference_union_intersection,
+            std::vector<float> &out_vertices,
+            std::vector<float> &out_normals,
+            std::vector<int> &out_triangles)
+        {
+
+            //////////////////////////////////////////////////////////////////
+            //// Perform CGAL Boolean
+            //////////////////////////////////////////////////////////////////
+
+            CGAL::Surface_mesh<CGAL::Exact_predicates_inexact_constructions_kernel::Point_3> &lastMesh = mesh_list[0];
+            Mesh::Property_map<Mesh::Face_index, int> lastMesh_id = lastMesh.add_property_map<Mesh::Face_index, int>("f:id", -1).first;
+            for (Mesh::Face_index f : faces(lastMesh))
+                lastMesh_id[f] = 1;
+
+            for (int i = 1; i < mesh_list.size(); i++)
+            { // mesh_list.size ()
+
+                Visitor visitor;
+
+                // Properties last mesh
+                // Mesh::Property_map<Mesh::Face_index, int>  lastMesh_id = lastMesh.add_property_map<Mesh::Face_index, int> ("f:id", -1).first;
+                // for ( Mesh::Face_index f : faces (lastMesh) )
+                //     lastMesh_id[f] = 1;
+                visitor.properties[&lastMesh] = lastMesh_id; // From previous iteration must or must not contain property map?
+
+                ////Properties current mesh
+                Mesh::Property_map<Mesh::Face_index, int> mesh_id = mesh_list[i].add_property_map<Mesh::Face_index, int>("f:id", -1).first;
+                for (Mesh::Face_index f : faces(mesh_list[i]))
+                    mesh_id[f] = (i + 1);
+                visitor.properties[&mesh_list[i]] = mesh_id;
+
+                ////Properties Out
+                Mesh out;
+                Mesh::Property_map<Mesh::Face_index, int> out_id = out.add_property_map<Mesh::Face_index, int>("f:id", -1).first;
+                visitor.properties[&out] = out_id;
+
+                bool valid_union = false;
+                const bool throw_on_self_intersection = true;
+
+                try
+                {
+
+                    if (difference_union_intersection == 1)
+                    {
+                        valid_union = CGAL::Polygon_mesh_processing::corefine_and_compute_union(lastMesh, mesh_list[i], out, CGAL::Polygon_mesh_processing::parameters::visitor(visitor), CGAL::Polygon_mesh_processing::parameters::throw_on_self_intersection(true)); //, , CGAL::Polygon_mesh_processing::parameters::throw_on_self_intersection (true) , CGAL::Polygon_mesh_processing::parameters::visitor (visitor)
+                    }
+                    else if (difference_union_intersection == 2)
+                    {
+                        valid_union = CGAL::Polygon_mesh_processing::corefine_and_compute_intersection(lastMesh, mesh_list[i], out, CGAL::Polygon_mesh_processing::parameters::visitor(visitor), CGAL::Polygon_mesh_processing::parameters::throw_on_self_intersection(true)); //, CGAL::Polygon_mesh_processing::parameters::visitor (visitor)
+                    }
+                    else
+                    {
+                        valid_union = CGAL::Polygon_mesh_processing::corefine_and_compute_difference(lastMesh, mesh_list[i], out, CGAL::Polygon_mesh_processing::parameters::visitor(visitor), CGAL::Polygon_mesh_processing::parameters::throw_on_self_intersection(true)); //, CGAL::Polygon_mesh_processing::parameters::visitor (visitor)
+                    }
+
+                    lastMesh = valid_union ? out : mesh_list[i];
+
+                    lastMesh_id = lastMesh.add_property_map<Mesh::Face_index, int>("f:id", -1).first;
+                    for (Mesh::Face_index f : faces(out))
+                    {
+                        auto faceID = out_id[f];
+                        lastMesh_id[f] = faceID;
+                    }
+                }
+                catch (const std::exception &e)
+                {
+                    std::cout << "Exception: " << e.what() << "\n";
+                    lastMesh = mesh_list[i];
+                }
+            }
+
+            ////////////////////////////////////////////////////////////////
+            // Return vertex and normals and faces
+            ////////////////////////////////////////////////////////////////
+
+            // Compute mesh vertex normals
+            Mesh::Property_map<boost::graph_traits<Mesh>::vertex_descriptor, IK::Vector_3> vnormals = lastMesh.template add_property_map<boost::graph_traits<Mesh>::vertex_descriptor, IK::Vector_3>("v:normals", CGAL::NULL_VECTOR).first;
+            CGAL::Polygon_mesh_processing::compute_vertex_normals(lastMesh, vnormals);
+
+            const int vc = lastMesh.number_of_vertices() * 3;
+
+            out_vertices = std::vector<float>(vc);
+            out_normals = std::vector<float>(vc);
+
+            int i = 0;
+            int c = 0;
+            for (auto &ni : vnormals)
+            {
+                out_normals[i + 0] = (float)ni.hx();
+                out_normals[i + 1] = (float)ni.hy();
+                out_normals[i + 2] = (float)ni.hz();
+                i += 3;
+                c++;
+            }
+
+            // Output
+            //  Get vertices coordinates
+
+            i = 0;
+            c = 0;
+            for (const auto &vi : lastMesh.vertices())
+            {
+                const auto &pt = lastMesh.point(vi);
+                out_vertices[i + 0] = (float)pt.x();
+                out_vertices[i + 1] = (float)pt.y();
+                out_vertices[i + 2] = (float)pt.z();
+                i += 3;
+                c++;
+            }
+
+            // Get face indices
+            const int fc = lastMesh.number_of_faces() * 3;
+            out_triangles = std::vector<int>(fc);
+
+            i = 0;
+            c = 0;
+            for (auto face_index : lastMesh.faces())
+            {
+                std::vector<uint32_t> indices;
+                CGAL::Vertex_around_face_circulator<CGAL::Surface_mesh<CGAL::Exact_predicates_inexact_constructions_kernel::Point_3>> vcirc(lastMesh.halfedge(face_index), lastMesh), done(vcirc);
+                do
+                    indices.push_back(*vcirc++);
+                while (vcirc != done);
+
+                out_triangles[i++] = (int)indices[0];
+                out_triangles[i++] = (int)indices[1];
+                out_triangles[i++] = (int)indices[2];
+                c++;
+            }
+
+            return;
         }
     }
 } // namespace cgal
