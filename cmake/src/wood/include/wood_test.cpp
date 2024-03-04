@@ -5018,5 +5018,9 @@ namespace wood
             ::testing::InitGoogleTest(); //&argc, argv
             RUN_ALL_TESTS();
         }
+
+        void unit_joints()
+        {
+        }
     }
 } // namespace wood
