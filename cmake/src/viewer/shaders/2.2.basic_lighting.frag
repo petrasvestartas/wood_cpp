@@ -27,5 +27,5 @@ void main()
     vec3 diffuse = diff * lightColor;
 
     vec3 result = (ambient + diffuse) * Color;
-    FragColor = vec4(result, 0.9); // Include transparency in the output color
+    FragColor = vec4(result, 0.95); // Include transparency in the output color
 }

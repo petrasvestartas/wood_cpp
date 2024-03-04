@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>WOOD: c:/brg/2_code/wood_cpp/cmake/src/wood/include/cgal_mesh_boolean.h Source File</title>
+<title>WOOD: C:/brg/2_code/wood_cpp/cmake/src/wood/include/cgal_mesh_boolean.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -126,11 +126,19 @@ $(function(){initNavTree('cgal__mesh__boolean_8h_source.html',''); initResizable
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        );</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="namespacecgal_1_1mesh__boolean.html#a1f44999dea12f9a51c7bd7ae6c442529">mesh_boolean_test</a>();</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    }</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>} <span class="comment">// namespace cgal</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#endif </span><span class="comment">// CGAL_MESH_BOOLEAN_H</span></div>
-<div class="ttc" id="anamespacecgal_1_1mesh__boolean_html_a1f44999dea12f9a51c7bd7ae6c442529"><div class="ttname"><a href="namespacecgal_1_1mesh__boolean.html#a1f44999dea12f9a51c7bd7ae6c442529">cgal::mesh_boolean::mesh_boolean_test</a></div><div class="ttdeci">void mesh_boolean_test()</div><div class="ttdef"><b>Definition</b> <a href="cgal__mesh__boolean_8cpp_source.html#l00279">cgal_mesh_boolean.cpp:279</a></div></div>
-<div class="ttc" id="anamespacecgal_1_1mesh__boolean_html_ab17fcf41a4c3028e7f15dcaee34d56ac"><div class="ttname"><a href="namespacecgal_1_1mesh__boolean.html#ab17fcf41a4c3028e7f15dcaee34d56ac">cgal::mesh_boolean::mesh_boolean_create_array_track_colors</a></div><div class="ttdeci">void mesh_boolean_create_array_track_colors(std::vector&lt; Mesh &gt; mesh_list, size_t difference_union_intersection, std::vector&lt; float &gt; &amp;coord_out, int &amp;n_coord_out, std::vector&lt; float &gt; &amp;normals_out, std::vector&lt; int &gt; &amp;faces_out, int &amp;n_faces_out, std::vector&lt; int &gt; &amp;facesColors_out, int &amp;n_facesColors_out, int &amp;n_valid_meshes)</div><div class="ttdef"><b>Definition</b> <a href="cgal__mesh__boolean_8cpp_source.html#l00050">cgal_mesh_boolean.cpp:50</a></div></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="namespacecgal_1_1mesh__boolean.html#a33b26de2a88cbdbdba60fb66cc20cd04">mesh_boolean_difference_to_viewer</a>(</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            std::vector&lt;Mesh&gt; &amp;mesh_list,</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            <span class="keywordtype">size_t</span> difference_union_intersection,</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            std::vector&lt;float&gt; &amp;out_vertices,</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            std::vector&lt;float&gt; &amp;out_normals,</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            std::vector&lt;int&gt; &amp;out_triangles);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    }</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>} <span class="comment">// namespace cgal</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#endif </span><span class="comment">// CGAL_MESH_BOOLEAN_H</span></div>
+<div class="ttc" id="anamespacecgal_1_1mesh__boolean_html_a1f44999dea12f9a51c7bd7ae6c442529"><div class="ttname"><a href="namespacecgal_1_1mesh__boolean.html#a1f44999dea12f9a51c7bd7ae6c442529">cgal::mesh_boolean::mesh_boolean_test</a></div><div class="ttdeci">void mesh_boolean_test()</div><div class="ttdef"><b>Definition</b> <a href="cgal__mesh__boolean_8cpp_source.html#l00241">cgal_mesh_boolean.cpp:241</a></div></div>
+<div class="ttc" id="anamespacecgal_1_1mesh__boolean_html_a33b26de2a88cbdbdba60fb66cc20cd04"><div class="ttname"><a href="namespacecgal_1_1mesh__boolean.html#a33b26de2a88cbdbdba60fb66cc20cd04">cgal::mesh_boolean::mesh_boolean_difference_to_viewer</a></div><div class="ttdeci">void mesh_boolean_difference_to_viewer(std::vector&lt; Mesh &gt; &amp;mesh_list, size_t difference_union_intersection, std::vector&lt; float &gt; &amp;out_vertices, std::vector&lt; float &gt; &amp;out_normals, std::vector&lt; int &gt; &amp;out_triangles)</div><div class="ttdef"><b>Definition</b> <a href="cgal__mesh__boolean_8cpp_source.html#l00329">cgal_mesh_boolean.cpp:329</a></div></div>
+<div class="ttc" id="anamespacecgal_1_1mesh__boolean_html_ab17fcf41a4c3028e7f15dcaee34d56ac"><div class="ttname"><a href="namespacecgal_1_1mesh__boolean.html#ab17fcf41a4c3028e7f15dcaee34d56ac">cgal::mesh_boolean::mesh_boolean_create_array_track_colors</a></div><div class="ttdeci">void mesh_boolean_create_array_track_colors(std::vector&lt; Mesh &gt; mesh_list, size_t difference_union_intersection, std::vector&lt; float &gt; &amp;coord_out, int &amp;n_coord_out, std::vector&lt; float &gt; &amp;normals_out, std::vector&lt; int &gt; &amp;faces_out, int &amp;n_faces_out, std::vector&lt; int &gt; &amp;facesColors_out, int &amp;n_facesColors_out, int &amp;n_valid_meshes)</div><div class="ttdef"><b>Definition</b> <a href="cgal__mesh__boolean_8cpp_source.html#l00053">cgal_mesh_boolean.cpp:53</a></div></div>
 <div class="ttc" id="anamespacecgal_html"><div class="ttname"><a href="namespacecgal.html">cgal</a></div><div class="ttdef"><b>Definition</b> <a href="cgal__box__search_8h_source.html#l00008">cgal_box_search.h:9</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
