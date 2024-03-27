@@ -143,7 +143,8 @@
     "valarray": "cpp",
     "*.ipp": "cpp",
     "fft": "cpp",
-    "*.tcc": "cpp"
+    "*.tcc": "cpp",
+    "*.traits": "cpp"
   },
   "C_Cpp.dimInactiveRegions": false,
   "git.ignoreLimitWarning": true,

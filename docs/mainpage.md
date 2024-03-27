@@ -2,25 +2,40 @@
 
 Welcome to the timber joinery [library](https://github.com/petrasvestartas/wood_cpp)! The library is designed to facilitate the generation of timber joinery. It includes a comprehensive collection of joint configurations intended for placement at the interface zone between a pair of elements. The connectivity between elements can be established through either a collision detection method or by providing the indices of elements where the joint is to be created. Additionally, users have the flexibility to define custom joint shapes, which can be configured for compatibility with CNC milling processes. The installation is described below. For more information check the examples and API. Ready to start? The installation instructions are below!
 
+Dependencies are handled through CMake, meaning they are downloaded and linked automatically. Current dependencies are: CGAL, Boost, Eigen, Clipper2, Sqlite3, and GoogleTest.
+
+The examples files are written to SQL database and can be visualized using the [database_viewer](https://github.com/petrasvestartas/database_viewer) .
+
 ![Example Image](type_plates_name_side_to_side_edge_inplane_hexshell.png "Example of fingers joints in a hexagonal shell made of plates.")
 
 ```cpp
-    #include "stdafx.h"
-    #include "wood_test.h"
+#include "stdafx.h"
+#include "wood_test.h" // test
 
-    int main(int argc, char **argv)
-    {
+int main(int argc, char **argv)
+{
 
-        wood::globals::DISTANCE = 0.1;
-        wood::globals::DISTANCE_SQUARED = 0.01;
-        wood::globals::ANGLE = 0.11;
-        wood::globals::OUTPUT_GEOMETRY_TYPE = 4;
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// GoogleTest
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// wood::test::run_all_tests();
 
-        opengl_globals::shader_type_0default_1transparent_2shaded_3shadedwireframe_4wireframe_5normals_6explode = 2;
-        opengl_render::render(wood::test::type_plates_name_side_to_side_edge_inplane_hexshell);
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Display
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	wood::globals::DISTANCE = 0.1;
+	wood::globals::DISTANCE_SQUARED = 0.01;
+	wood::globals::ANGLE = 0.11;
+	wood::globals::OUTPUT_GEOMETRY_TYPE = 3;
 
-        return 0;
-    }
+	wood::globals::DATA_SET_INPUT_FOLDER = std::filesystem::current_path().parent_path().string() + "\\src\\wood\\dataset\\";
+	wood::globals::DATA_SET_OUTPUT_FILE = wood::globals::DATA_SET_INPUT_FOLDER + "out.xml";
+
+	wood::globals::OUTPUT_GEOMETRY_TYPE = 2;
+	wood::test::type_plates_name_side_to_side_edge_inplane_hilti();
+
+	return 0;
+}
 
 ```
 

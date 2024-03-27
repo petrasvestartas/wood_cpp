@@ -2,6 +2,7 @@
 #include "../../../stdafx.h" //go up to the folder where the CMakeLists.txt is
 
 #include "wood_test.h"
+#include "database_writer.h"
 
 namespace wood
 {
@@ -18,9 +19,6 @@ namespace wood
             {
                 // input data-set
                 wood::xml::path_and_file_for_input_polylines = wood::globals::DATA_SET_INPUT_FOLDER + function_name + ".xml";
-
-                // screenshot directory matches the file name of xml
-                opengl_globals::filename_and_folder_screenshot = wood::xml::path_and_file_for_input_polylines.substr(0, wood::xml::path_and_file_for_input_polylines.size() - 3) + "png";
             }
 
             void set_file_path_for_input_xml_and_screenshot(std::vector<std::vector<IK::Point_3>> &input_polyline_pairs, const std::string &function_name, bool remove_duplicate_points)
@@ -31,9 +29,6 @@ namespace wood
 
                 // read the xml file
                 wood::xml::read_xml_polylines(input_polyline_pairs, false, remove_duplicate_points);
-
-                // screenshot directory matches the file name of xml
-                opengl_globals::filename_and_folder_screenshot = wood::xml::path_and_file_for_input_polylines.substr(0, wood::xml::path_and_file_for_input_polylines.size() - 3) + "png";
             }
 
             void set_file_path_for_input_xml_and_screenshot(
@@ -56,47 +51,144 @@ namespace wood
                     input_three_valence_element_indices_and_instruction,
                     input_adjacency,
                     false, remove_duplicate_points);
-
-                // screenshot directory matches the file name of xml
-                opengl_globals::filename_and_folder_screenshot = wood::xml::path_and_file_for_input_polylines.substr(0, wood::xml::path_and_file_for_input_polylines.size() - 3) + "png";
             }
 
             void set_plate_display(std::vector<std::vector<IK::Point_3>> &input_polyline_pairs, std::vector<std::vector<CGAL_Polyline>> &output_plines, bool add_loft)
             {
-                // add geomtry to the opengl viewer
-                viewer::viewer_wood::line_thickness = 2;
+
                 switch (wood::globals::OUTPUT_GEOMETRY_TYPE)
                 {
                 case (5):
-                    viewer::viewer_wood::add_mesh_boolean_difference(input_polyline_pairs, output_plines); // grey
-                    viewer::viewer_wood::add(input_polyline_pairs);                                        // grey
-                    viewer::viewer_wood::add(output_plines);                                               // grey
+                    database_writer::COLOR = "#E0E0E0";
+                    database_writer::add_mesh_boolean_difference(input_polyline_pairs, output_plines); // grey
+                    database_writer::COLOR = "#000000";
+                    database_writer::add_polylines(input_polyline_pairs.begin(), input_polyline_pairs.end()); // grey
+                    database_writer::add_polylines(output_plines.begin(), output_plines.end());               // grey
                     break;
                 case (0):
-                    viewer::viewer_wood::add_areas(output_plines);
+
+                    database_writer::COLOR = "#000000";
+                    database_writer::add_polylines(input_polyline_pairs.begin(), input_polyline_pairs.end());
+
+                    for (auto &plines : output_plines)
+                        for (auto &pline : plines)
+                        {
+                            database_writer::COLOR = "#000000";
+                            std::vector<CGAL_Polyline> plines{pline};
+                            database_writer::add_polylines(plines.begin(), plines.end());
+                            database_writer::COLOR = "#E0E0E0";
+                            database_writer::add_polygon_mesh(plines);
+                        };
+
                     break;
                 case (2):
-                    viewer::viewer_wood::add(input_polyline_pairs); // grey
-                    viewer::viewer_wood::add_areas(output_plines);
+
+                    database_writer::COLOR = "#000000";
+                    database_writer::add_polylines(input_polyline_pairs.begin(), input_polyline_pairs.end()); // grey
+
+                    for (auto &plines : output_plines)
+                        for (auto &pline : plines)
+                        {
+                            database_writer::COLOR = "#000000";
+                            std::vector<CGAL_Polyline> plines{pline};
+                            database_writer::add_polylines(plines.begin(), plines.end());
+                            database_writer::COLOR = "#E0E0E0";
+                            database_writer::add_polygon_mesh(plines);
+                        };
                     break;
                 case (1):
                 case (3):
-                    viewer::viewer_wood::add(input_polyline_pairs); // grey
-                    viewer::viewer_wood::line_thickness = 4;
-                    viewer::viewer_wood::add(output_plines, 0); // grey
+                    database_writer::LINE_THICKNESS = 2;
+                    database_writer::COLOR = "#000000";
+                    database_writer::add_polylines(input_polyline_pairs.begin(), input_polyline_pairs.end());
+                    database_writer::COLOR = "#0767ff";
+                    database_writer::add_polylines(output_plines.begin(), output_plines.end());
                     break;
-
                 case (4):
-
-                    viewer::viewer_wood::line_thickness = 4;
-                    viewer::viewer_wood::add(output_plines, 3); // grey
-                    if (add_loft)
-                        viewer::viewer_wood::add_loft(output_plines); // grey
+                    database_writer::LINE_THICKNESS = 2;
+                    database_writer::COLOR = "#000000";
+                    database_writer::add_polylines(output_plines.begin(), output_plines.end());
+                    database_writer::COLOR = "#0767ff";
+                    database_writer::add_loft(output_plines);
                     break;
                 }
+                database_writer::write_to_database();
             }
+
         }
         //! \endcond
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // methods for the demonstration of a single joint
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        void joint_demonstration()
+        {
+
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Create two simple elements
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // std::vector<std::vector<WPoint>> input_polyline_pairs;
+
+            // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // // The filename of the xml file and the screenshot directory
+            // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // std::vector<std::vector<IK::Point_3>> input_polyline_pairs;
+            // internal::set_file_path_for_input_xml_and_screenshot(input_polyline_pairs, "joint_demonstration");
+
+            // // Global Parameters and output joint selection and orientation
+            // double division_length = 300;
+            // wood::globals::JOINTS_PARAMETERS_AND_TYPES[3 * 1 + 0] = 450;
+            // wood::globals::JOINTS_PARAMETERS_AND_TYPES[3 * 1 + 1] = 0.64;
+            // wood::globals::JOINTS_PARAMETERS_AND_TYPES[3 * 1 + 2] = 10;
+            // wood::globals::JOINTS_PARAMETERS_AND_TYPES[3 * 2 + 0] = 450;
+            // wood::globals::JOINTS_PARAMETERS_AND_TYPES[3 * 2 + 1] = 0.5;
+            // wood::globals::JOINTS_PARAMETERS_AND_TYPES[3 * 2 + 2] = 20;
+
+            // bool compute_joints = true;
+            // int search_type = 0;
+            // std::vector<double> scale = {1, 1, 1};
+            // std::vector<std::vector<IK::Vector_3>> input_insertion_vectors;
+            // std::vector<std::vector<int>> input_JOINTS_TYPES;
+            // std::vector<std::vector<int>> input_three_valence_element_indices_and_instruction;
+            // std::vector<int> input_adjacency;
+
+            // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // // Main Method of Wood
+            // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // // output
+            // std::vector<std::vector<CGAL_Polyline>> output_plines;
+            // std::vector<std::vector<wood::cut::cut_type>> output_types;
+            // std::vector<std::vector<int>> top_face_triangulation;
+
+            // wood::main::get_connection_zones(
+            //     // input
+            //     input_polyline_pairs,
+            //     input_insertion_vectors,
+            //     input_JOINTS_TYPES,
+            //     input_three_valence_element_indices_and_instruction,
+            //     input_adjacency,
+            //     // output
+            //     output_plines,
+            //     output_types,
+            //     top_face_triangulation,
+            //     // Global Parameters
+            //     wood::globals::JOINTS_PARAMETERS_AND_TYPES,
+            //     scale,
+            //     search_type,
+            //     wood::globals::OUTPUT_GEOMETRY_TYPE);
+
+            // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // // Export
+            // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // wood::xml::path_and_file_for_output_polylines = wood::globals::DATA_SET_OUTPUT_FILE;
+            // wood::xml::write_xml_polylines_and_types(output_plines, output_types);
+
+            // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // // Render
+            // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // internal::set_plate_display(input_polyline_pairs, output_plines);
+            // return true;
+        }
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // plate methods
@@ -1778,6 +1870,7 @@ namespace wood
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // Display
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
             internal::set_plate_display(input_polyline_pairs, output_plines);
             return true;
         }
@@ -3730,36 +3823,6 @@ namespace wood
 
             wood::xml::write_xml_polylines_and_types(output_plines, output_types);
 
-            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            // Display
-            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            opengl_globals_geometry::add_grid();
-            viewer::viewer_wood::line_thickness = 2;
-
-            switch (wood::globals::OUTPUT_GEOMETRY_TYPE)
-            {
-            case (0):
-                viewer::viewer_wood::add(input_polyline_axes); // grey
-                viewer::viewer_wood::add_areas(joints_areas);
-                break;
-            case (2):
-                viewer::viewer_wood::add(input_polyline_axes); // grey
-                viewer::viewer_wood::add(volume_pairs);
-                break;
-            case (1):
-            case (3):
-                viewer::viewer_wood::add(input_polyline_axes); // grey
-                viewer::viewer_wood::line_thickness = 3;
-                viewer::viewer_wood::add(output_plines, 0); // grey
-                break;
-
-            case (4):
-
-                viewer::viewer_wood::line_thickness = 3;
-                viewer::viewer_wood::add(output_plines, 3);   // grey
-                viewer::viewer_wood::add_loft(output_plines); // grey
-                break;
-            }
             return true;
         }
 
@@ -3769,11 +3832,6 @@ namespace wood
 
         bool type_library_name_ss_e_ip_2()
         {
-
-            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            // viewer type and shader location
-            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            opengl_globals_geometry::add_grid();
 
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // The filename of the xml file and the screenshot directory
@@ -3953,29 +4011,24 @@ namespace wood
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // joint for preview
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            viewer::viewer_wood::scale = 1.0;
+            database_writer::SCALE = 1.0;
             std::vector<std::vector<CGAL_Polyline>> input_polyline_pairs0;
             input_polyline_pairs0.emplace_back(joint.m[0]);
             input_polyline_pairs0.emplace_back(joint.m[1]);
-            viewer::viewer_wood::add(input_polyline_pairs0, 0); // grey
+            database_writer::add_polylines(input_polyline_pairs0.begin(), input_polyline_pairs0.end()); // grey
             std::vector<std::vector<CGAL_Polyline>> input_polyline_pairs1;
             input_polyline_pairs1.emplace_back(joint.f[0]);
             input_polyline_pairs1.emplace_back(joint.f[1]);
             CGAL_Polyline default_segment = {IK::Point_3(0, 0, -total_length_scaled * 0.5), IK::Point_3(0, 0, total_length_scaled * 0.5)};
             input_polyline_pairs1.push_back({default_segment});
-            viewer::viewer_wood::add(input_polyline_pairs1, 2); // grey
+            database_writer::add_polylines(input_polyline_pairs1.begin(), input_polyline_pairs1.end()); // grey
             // reset
-            viewer::viewer_wood::scale = 1000;
+            database_writer::SCALE = 1000;
             return true;
         }
 
         bool type_library_name_ss_e_op_4()
         {
-
-            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            // viewer type and shader location
-            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            opengl_globals_geometry::add_grid();
 
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // The filename of the xml file and the screenshot directory
@@ -4118,27 +4171,22 @@ namespace wood
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // joint for preview
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            viewer::viewer_wood::scale = 1.0;
+            database_writer::SCALE = 1.0;
             std::vector<std::vector<CGAL_Polyline>> input_polyline_pairs0;
             input_polyline_pairs0.emplace_back(joint.m[0]);
             input_polyline_pairs0.emplace_back(joint.m[1]);
-            viewer::viewer_wood::add(input_polyline_pairs0, 0); // grey
+            database_writer::add_polylines(input_polyline_pairs0.begin(), input_polyline_pairs0.end()); // grey
             std::vector<std::vector<CGAL_Polyline>> input_polyline_pairs1;
             input_polyline_pairs1.emplace_back(joint.f[0]);
             input_polyline_pairs1.emplace_back(joint.f[1]);
-            viewer::viewer_wood::add(input_polyline_pairs1, 2); // grey
+            database_writer::add_polylines(input_polyline_pairs1.begin(), input_polyline_pairs1.end()); // grey
             // reset
-            viewer::viewer_wood::scale = 1000;
+            database_writer::SCALE = 1000;
             return true;
         }
 
         bool type_library_name_ts_e_p_5()
         {
-
-            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            // viewer type and shader location
-            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            opengl_globals_geometry::add_grid();
 
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // The filename of the xml file and the screenshot directory
@@ -4365,19 +4413,19 @@ namespace wood
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // joint for preview
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            viewer::viewer_wood::scale = 1.0;
+            database_writer::SCALE = 1.0;
             std::vector<std::vector<CGAL_Polyline>> input_polyline_pairs0;
             input_polyline_pairs0.emplace_back(joint.m[0]);
             input_polyline_pairs0.emplace_back(joint.m[1]);
-            viewer::viewer_wood::add(input_polyline_pairs0, 0); // grey
+            database_writer::add_polylines(input_polyline_pairs0.begin(), input_polyline_pairs0.end()); // grey
             std::vector<std::vector<CGAL_Polyline>> input_polyline_pairs1;
             input_polyline_pairs1.emplace_back(joint.f[0]);
             input_polyline_pairs1.emplace_back(joint.f[1]);
             CGAL_Polyline default_segment = {IK::Point_3(0, 0, -total_length_scaled * 0.5), IK::Point_3(0, 0, total_length_scaled * 0.5)};
             input_polyline_pairs1.push_back({default_segment});
-            viewer::viewer_wood::add(input_polyline_pairs1, 2); // grey
+            database_writer::add_polylines(input_polyline_pairs0.begin(), input_polyline_pairs1.end()); // grey
             // reset
-            viewer::viewer_wood::scale = 1000;
+            database_writer::SCALE = 1000;
             return true;
         }
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -4479,7 +4527,6 @@ namespace wood
             );
 
             std::cout << "\n__________________________________________________________\n mesh_boolean_test() \n n_coord_out is 22 ? " << n_coord_out << "\n n_normals_out is 22 ? " << normals_out.size() / 3 << "\n n_faces_out is 40 ? " << n_faces_out << "\n n_facesColors_out is 40 ? " << n_facesColors_out << "\n n_valid_meshes is 2 ? " << n_valid_meshes << "\n__________________________________________________________\n";
-            opengl_globals_geometry::meshes.add_flat_faces(coord_out, normals_out, faces_out, facesColors_out, colors::white);
             return true;
         }
 
@@ -4505,14 +4552,13 @@ namespace wood
             std::vector<IK::Point_3> points = {center};
 
             // display
-            opengl_globals_geometry::add_grid();
-            viewer::viewer_wood::scale = 10;
+            database_writer::SCALE = 10;
             std::vector<CGAL_Polyline> polylines = {polygon};
-            viewer::viewer_wood::add(polylines);
-            viewer::viewer_wood::line_thickness = 10;
-            viewer::viewer_wood::add(points);
-            viewer::viewer_wood::line_thickness = 3;
-            viewer::viewer_wood::scale = 1000;
+            database_writer::add_polylines(polylines.begin(), polylines.end()); // grey
+            database_writer::LINE_THICKNESS = 10;
+            database_writer::add_points(points);
+            database_writer::LINE_THICKNESS = 3;
+            database_writer::SCALE = 1000;
 
             // test
             return true;
@@ -4562,13 +4608,12 @@ namespace wood
             std::vector<IK::Point_3> points = {center};
 
             // display
-            opengl_globals_geometry::add_grid();
-            viewer::viewer_wood::scale = 100;
-            viewer::viewer_wood::add(polylines);
-            viewer::viewer_wood::line_thickness = 10;
-            viewer::viewer_wood::add(points);
-            viewer::viewer_wood::line_thickness = 3;
-            viewer::viewer_wood::scale = 1000;
+            database_writer::SCALE = 100;
+            database_writer::add_polylines(polylines.begin(), polylines.end());
+            database_writer::LINE_THICKNESS = 10;
+            database_writer::add_points(points);
+            database_writer::LINE_THICKNESS = 3;
+            database_writer::SCALE = 1000;
 
             // test
             return true;
@@ -4598,14 +4643,13 @@ namespace wood
             cgal::inscribe_util::get_polylabel_circle_division_points(IK::Vector_3(0, 0, 0), {polygon}, points, 4, 0.75, 1.0, true);
 
             // display
-            opengl_globals_geometry::add_grid();
-            viewer::viewer_wood::scale = 10;
+            database_writer::SCALE = 10;
             std::vector<CGAL_Polyline> polylines = {polygon};
-            viewer::viewer_wood::add(polylines);
-            viewer::viewer_wood::line_thickness = 10;
-            viewer::viewer_wood::add(points);
-            viewer::viewer_wood::line_thickness = 3;
-            viewer::viewer_wood::scale = 1000;
+            database_writer::add_polylines(polylines.begin(), polylines.end());
+            database_writer::LINE_THICKNESS = 10;
+            database_writer::add_points(points);
+            database_writer::LINE_THICKNESS = 3;
+            database_writer::SCALE = 1000;
 
             // test
             return true;
@@ -4635,7 +4679,6 @@ namespace wood
                                         IK::Point_3(0, 0, 0),
                                     }};
 
-            opengl_globals_geometry::add_grid();
             for (auto &polygon : polygons)
             {
                 // main method
@@ -4643,13 +4686,13 @@ namespace wood
                 cgal::rectangle_util::grid_of_points_in_a_polygon(polygon, -2.5, 2.5, 100, points);
 
                 // display
-                viewer::viewer_wood::scale = 10;
+                database_writer::SCALE = 10;
                 std::vector<CGAL_Polyline> polylines = {polygon};
-                viewer::viewer_wood::add(polylines);
-                viewer::viewer_wood::line_thickness = 10;
-                viewer::viewer_wood::add(points); // Error when running twice
-                viewer::viewer_wood::line_thickness = 3;
-                viewer::viewer_wood::scale = 1000;
+                database_writer::add_polylines(polylines.begin(), polylines.end());
+                database_writer::LINE_THICKNESS = 10;
+                database_writer::add_points(points); // Error when running twice
+                database_writer::LINE_THICKNESS = 3;
+                database_writer::SCALE = 1000;
             }
             // test
             return true;
@@ -4677,14 +4720,13 @@ namespace wood
             collider::clipper_util::offset_and_divide_to_points(points, polygon, -2.5, 4);
 
             // display
-            opengl_globals_geometry::add_grid();
-            viewer::viewer_wood::scale = 10;
+            database_writer::SCALE = 10;
             std::vector<CGAL_Polyline> polylines = {polygon}; //, polygon_copy
-            viewer::viewer_wood::add(polylines);
-            viewer::viewer_wood::line_thickness = 10;
-            viewer::viewer_wood::add(points);
-            viewer::viewer_wood::line_thickness = 3;
-            viewer::viewer_wood::scale = 1000;
+            database_writer::add_polylines(polylines.begin(), polylines.end());
+            database_writer::LINE_THICKNESS = 10;
+            database_writer::add_points(points); // Error when running twice
+            database_writer::LINE_THICKNESS = 3;
+            database_writer::SCALE = 1000;
 
             // test
             return true;
@@ -4718,14 +4760,13 @@ namespace wood
             cgal::inscribe_util::inscribe_rectangle_in_convex_polygon({polygon}, polygon_inscribed_rectangle, points, segment, scale, precision, division_distance);
 
             // display
-            opengl_globals_geometry::add_grid();
-            viewer::viewer_wood::scale = 10;
+            database_writer::SCALE = 10;
             std::vector<CGAL_Polyline> polylines = {polygon_inscribed_rectangle, polygon}; //, polygon_copy
-            viewer::viewer_wood::add(polylines);
-            viewer::viewer_wood::line_thickness = 10;
-            viewer::viewer_wood::add(points);
-            viewer::viewer_wood::line_thickness = 3;
-            viewer::viewer_wood::scale = 1000;
+            database_writer::add_polylines(polylines.begin(), polylines.end());
+            database_writer::LINE_THICKNESS = 10;
+            database_writer::add_points(points); // Error when running twice
+            database_writer::LINE_THICKNESS = 3;
+            database_writer::SCALE = 1000;
 
             // test
             return true;

@@ -28,49 +28,6 @@
 // clipper2
 #include <clipper2/clipper.h>
 
-// debug
-#include "debug.h"
-
-// glad and glfw
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-
-#if defined(IMGUI_IMPL_OPENGL_ES2)
-#include <GLES2/gl2.h>
-#endif
-
-#include <GLFW/glfw3.h> // Will drag system OpenGL headers
-
-// glm
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
-#include <glm/gtc/quaternion.hpp>
-#include <glm/ext.hpp>
-#include <glm/gtx/transform.hpp>
-#include <glm/gtx/euler_angles.hpp>
-
-// imgui
-// #include "imgui.h"
-// #include "imgui_impl_glfw.h"
-// #include "imgui_impl_opengl3.h"
-// #include "imgui_my_style.h"
-
-// assimp
-#include <stb_image.h>
-#include <stb_image_write.h>
-#include <assimp/Importer.hpp>
-#include <assimp/scene.h>
-#include <assimp/postprocess.h>
-
-// pipe
-#include "src/viewer/include/pipe/Pipe.h"
-
-// my lib
-#include "src/viewer/include/opengl/opengl_transform.h"
-#include "src/viewer/include/opengl/opengl_globals.h"
-#include "src/viewer/include/opengl/opengl_debug.h"
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // BOOST
 // CGAL
@@ -150,42 +107,12 @@ typedef CGALCDT::Point Point;
 typedef CGAL::Polygon_2<IK> Polygon_2;
 typedef CGALCDT::Face_handle Face_handle;
 
-// imgui
-#include "wood_globals.h"
-#include "imgui_impl_glfw.h"
-#define IMGUI_IMPL_OPENGL_LOADER_CUSTOM
-#include "imgui_impl_opengl3.h"
-
-// my lib goemetry
-#include "src/viewer/include/opengl/opengl_shaders.h"
-#include "src/viewer/include/opengl/opengl_polylines.h"
-#include "src/viewer/include/opengl/opengl_pointclouds.h"
-#include <CDT.h>                                            //used in opengl_meshes
-#include "src/viewer/include/opengl/opengl_triangulation.h" //used in opengl_meshes
-#include "src/viewer/include/opengl/opengl_meshes.h"
-#include "src/viewer/include/opengl/opengl_cameras.h"
-
-#define gui
-// #ifdef(gui) //only declare this if the following header is outside of the precompiled header
-#include "src/viewer/include/imgui/imgui_render.h"
-// #endif//only declare this if the following header is outside of the precompiled header
-#include "src/viewer/include/opengl/opengl_globals_geometry.h"
-#include "src/viewer/include/opengl/opengl_render.h"
-
-// temp
-#include "src/viewer/include/opengl/opengl_meshes.h"
-#include "src/viewer/include/opengl/opengl_cameras.h"
-
-// #ifdef(gui) //only declare this if the following header is outside of the precompiled header
-#include "src/viewer/include/imgui/imgui_render.h"
-// #endif//only declare this if the following header is outside of the precompiled header
-#include "src/viewer/include/opengl/opengl_globals_geometry.h"
-#include "src/viewer/include/opengl/opengl_render.h"
-
 // Wood Library Utilities
+#include "wood_globals.h"
 
 // Order Matters
 // #include "cgal_print.h"
+
 #include "cgal_box_search.h"
 #include "cgal_inscribe_util.h"
 #include "cgal_vector_util.h"

@@ -388,7 +388,6 @@ namespace wood
             /////////////////////////////////////////////////////////////////////////////////
             IK::Vector_3 f0_0_normal = elements[jo.v0].planes[jo.f0_0].orthogonal_vector();
             cgal::vector_util::unitize(f0_0_normal);
-            // v0 *= (jo.scale[2] + jo.shift);
             f0_0_normal *= (jo.scale[2]);
 
             IK::Vector_3 f1_0_normal = elements[jo.v1].planes[jo.f1_0].orthogonal_vector();
@@ -404,8 +403,6 @@ namespace wood
             /////////////////////////////////////////////////////////////////////////////////
             // extend only convex angles and side polygons | only rectangles
             /////////////////////////////////////////////////////////////////////////////////
-            // CGAL_Debug(pline0.size(), pline1.size());
-            // CGAL_Debug(joint.scale[0]);
             if (pline0.size() == 5 && pline1.size() == 5)
             {
                 // get convex_concave corners
@@ -476,9 +473,9 @@ namespace wood
 
             /////////////////////////////////////////////////////////////////////////////////////////////////////
             // Get average line
+            /////////////////////////////////////////////////////////////////////////////////////////////////////
             IK::Segment_3 average_line;
             cgal::polyline_util::line_line_overlap_average(jo.joint_lines[0], jo.joint_lines[1], average_line);
-            // viewer_polylines.emplace_back(CGAL_Polyline({average_line[0], average_line[1]}));
 
             // Get average thickness
             double half_thickness = (elements[jo.v0].thickness + elements[jo.v1].thickness) / 4.0;
@@ -495,11 +492,6 @@ namespace wood
             // set y-axis
             auto y_axis = average_line.to_vector();
             cgal::vector_util::unitize(y_axis);
-            /////////////////////////////////////////////////////////////////////////////////////////////////////
-            //
-            // y_axis = result.to_vector();
-            // y_axis = (IK::Segment_3(jo.joint_lines[1][0], jo.joint_lines[1][1])).to_vector();
-            // cgal_vector_util::unitize(y_axis);
 
             CGAL_Polyline rect0 = {
                 p0 - y_axis * half_dist * 1 - z_axis * half_dist,
@@ -515,26 +507,16 @@ namespace wood
                 p1 - y_axis * half_dist * -1 - z_axis * half_dist,
                 p0 - y_axis * half_dist * -1 - z_axis * half_dist,
             };
-            // viewer_polylines.emplace_back(rect_mid_0);
-            // viewer_polylines.emplace_back(rect_mid_1);
-            // rect0 = rect_mid_0;
-            // rect1 = rect_mid_1;
 
             /////////////////////////////////////////////////////////////////////////////////
             // output, no need to merge if already cut
-            //  vector1.insert( vector1.end(), vector2.begin(), vector2.end() );
             /////////////////////////////////////////////////////////////////////////////////
 
             CGAL_Polyline pline0_moved0_surfacing_tolerance_male = pline0_moved0;
-            // cgal_polyline_util::move(pline0_moved0_surfacing_tolerance_male, z_axis * 0.20);
 
-            // viewer_polylines.emplace_back(copypline);
             if (jo.shift > 0 && merge_with_joint)
             {
                 jo.m[0] = {
-                    // rect0,
-                    // rect0,
-
                     pline0_moved0_surfacing_tolerance_male,
                     pline0_moved0_surfacing_tolerance_male,
                     pline0,
@@ -542,9 +524,6 @@ namespace wood
                 };
 
                 jo.m[1] = {
-                    // rect1,
-                    // rect1,
-
                     pline0_moved1,
                     pline0_moved1,
                     pline0_moved0,
@@ -554,36 +533,21 @@ namespace wood
             else
             {
                 jo.m[0] = {
-                    // rect0,
-                    // rect0
-                    // pline0_moved0,
-                    // pline0_moved0
                     pline0,
                     pline0};
 
                 jo.m[1] = {
-                    // rect1,
-                    // rect1
-                    // pline0_moved1,
-                    // pline0_moved1
                     pline0_moved0,
                     pline0_moved0};
             }
 
             jo.f[0] = {
-                // rect0,
-                // rect0
                 pline1,
                 pline1};
 
             jo.f[1] = {
-                //  rect1,
-                //  rect1
                 pline1_moved,
-                pline1_moved
-                // pline1_moved,
-                // pline1_moved
-            };
+                pline1_moved};
 
             if (jo.shift > 0 && merge_with_joint)
                 jo.m_boolean_type = {wood::cut::mill_project, wood::cut::mill_project, wood::cut::mill_project, wood::cut::mill_project};

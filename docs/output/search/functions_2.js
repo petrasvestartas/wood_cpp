@@ -4,7 +4,7 @@ var searchData=
   ['center_5fvec_1',['center_vec',['../namespacecgal_1_1polyline__util.html#a67603e51e0dcdee64fc844317e1106eb',1,'cgal::polyline_util']]],
   ['change_5fbasis_2',['change_basis',['../namespacecgal_1_1xform__util.html#a970ca66d706eeabe72752c719051bca3',1,'cgal::xform_util']]],
   ['closed_5fmesh_5ffrom_5fpolylines_3',['closed_mesh_from_polylines',['../namespacecgal_1_1polyline__mesh__util.html#adcd59f47bdafa3f0f40495a460ce2aa3',1,'cgal::polyline_mesh_util']]],
-  ['closed_5fmesh_5ffrom_5fpolylines_5fvnf_4',['closed_mesh_from_polylines_vnf',['../namespacecgal_1_1polyline__mesh__util.html#a3624501ffa3fb9ca45498a4e3489208a',1,'cgal::polyline_mesh_util']]],
+  ['closed_5fmesh_5ffrom_5fpolylines_5fvnf_4',['closed_mesh_from_polylines_vnf',['../namespacecgal_1_1polyline__mesh__util.html#a3624501ffa3fb9ca45498a4e3489208a',1,'cgal::polyline_mesh_util::closed_mesh_from_polylines_vnf()'],['../namespacedatabase__writer.html#a9d5bb8af52ad3c692a0d9e7e32f7f7cf',1,'database_writer::closed_mesh_from_polylines_vnf()']]],
   ['closest_5fdistance_5fand_5fpoint_5',['closest_distance_and_point',['../namespacecgal_1_1polyline__util.html#afedd8516d39ba059bf85473d0e0da7d6',1,'cgal::polyline_util']]],
   ['closest_5fpoint_5fto_6',['closest_point_to',['../namespacecgal_1_1box__search.html#a49bf670d8cbf1fa00fff3976b7b47f61',1,'cgal::box_search::closest_point_to()'],['../namespacecgal_1_1polyline__util.html#a510441d15595a06829310f8e5e32e49a',1,'cgal::polyline_util::closest_point_to()']]],
   ['construct_5fjoint_5fby_5findex_7',['construct_joint_by_index',['../namespacewood_1_1joint__lib.html#a75c95dd618c5c18fc17213ca608d4b96',1,'wood::joint_lib']]],

@@ -5,7 +5,7 @@ REM Set the current directory to where the batch file is located
 cd /d %~dp0
 
 REM Clone the repository only if it doesn't already exist
-if not exist ..\wood_cpp git clone https://github.com/petrasvestartas/wood_cpp.git
+if not exist ..\wood_cpp git clone --depth 1 https://github.com/petrasvestartas/wood_cpp.git
 
 REM Navigate to the cmake directory and create a build directory
 cd cmake\
