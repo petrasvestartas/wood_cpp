@@ -59,6 +59,7 @@ namespace wood
                 switch (wood::globals::OUTPUT_GEOMETRY_TYPE)
                 {
                 case (5):
+                    database_writer::LINE_THICKNESS = 2;
                     database_writer::COLOR = "#E0E0E0";
                     database_writer::add_mesh_boolean_difference(input_polyline_pairs, output_plines); // grey
                     database_writer::COLOR = "#000000";
@@ -66,7 +67,7 @@ namespace wood
                     database_writer::add_polylines(output_plines.begin(), output_plines.end());               // grey
                     break;
                 case (0):
-
+                    database_writer::LINE_THICKNESS = 2;
                     database_writer::COLOR = "#000000";
                     database_writer::add_polylines(input_polyline_pairs.begin(), input_polyline_pairs.end());
 
@@ -82,7 +83,7 @@ namespace wood
 
                     break;
                 case (2):
-
+                    database_writer::LINE_THICKNESS = 2;
                     database_writer::COLOR = "#000000";
                     database_writer::add_polylines(input_polyline_pairs.begin(), input_polyline_pairs.end()); // grey
 
@@ -99,12 +100,14 @@ namespace wood
                 case (1):
                 case (3):
                     database_writer::LINE_THICKNESS = 2;
+                    database_writer::LINE_THICKNESS = 2;
                     database_writer::COLOR = "#000000";
                     database_writer::add_polylines(input_polyline_pairs.begin(), input_polyline_pairs.end());
                     database_writer::COLOR = "#0767ff";
                     database_writer::add_polylines(output_plines.begin(), output_plines.end());
                     break;
                 case (4):
+                    database_writer::LINE_THICKNESS = 2;
                     database_writer::LINE_THICKNESS = 2;
                     database_writer::COLOR = "#000000";
                     database_writer::add_polylines(output_plines.begin(), output_plines.end());

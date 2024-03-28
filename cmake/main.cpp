@@ -20,7 +20,7 @@ int main(int argc, char **argv)
 	wood::globals::DATA_SET_INPUT_FOLDER = std::filesystem::current_path().parent_path().string() + "\\src\\wood\\dataset\\";
 	wood::globals::DATA_SET_OUTPUT_FILE = wood::globals::DATA_SET_INPUT_FOLDER + "out.xml";
 
-	wood::globals::OUTPUT_GEOMETRY_TYPE = 2;
+	wood::globals::OUTPUT_GEOMETRY_TYPE = 3;
 	wood::test::type_plates_name_side_to_side_edge_inplane_hilti();
 
 	return 0;
